@@ -35,7 +35,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 result.Status = false;
                 result.ExceptionMessage = ex.Message;
-                throw ex;
+                
             }
             return result;
         }

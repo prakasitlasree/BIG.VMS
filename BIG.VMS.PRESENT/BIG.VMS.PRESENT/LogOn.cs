@@ -31,7 +31,7 @@ namespace BIG.VMS.PRESENT
             }
             else
             {
-                MessageBox.Show(res.Message);
+                MessageBox.Show(res.Message + res.ExceptionMessage);
             }
         }
     }
