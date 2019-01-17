@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>delivery.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="LogOn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,6 +92,62 @@
       <Project>{f56fb522-311d-431e-9e75-1d0de55898b2}</Project>
       <Name>BIG.VMS.MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ResourceFile\icon\" />
+    <Folder Include="ResourceFile\ico\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="delivery.ico" />
+    <Content Include="lock.ico" />
+    <Content Include="ResourceFile\48_add.png" />
+    <Content Include="ResourceFile\48_close.png" />
+    <Content Include="ResourceFile\48_home.png" />
+    <Content Include="ResourceFile\48_load.png" />
+    <Content Include="ResourceFile\48_logout.png" />
+    <Content Include="ResourceFile\48_man_woman.png" />
+    <Content Include="ResourceFile\48_print.png" />
+    <Content Include="ResourceFile\48_save_1.jpg" />
+    <Content Include="ResourceFile\48_save_2.png" />
+    <Content Include="ResourceFile\48_search1.png" />
+    <Content Include="ResourceFile\bg.jpg" />
+    <Content Include="ResourceFile\BIG New LOGO 10-3-2016 บางบัวทอง.png" />
+    <Content Include="ResourceFile\big_bg.png" />
+    <Content Include="ResourceFile\big_employee.png" />
+    <Content Include="ResourceFile\big_logo.png" />
+    <Content Include="ResourceFile\ee.jpg" />
+    <Content Include="ResourceFile\emploee.png" />
+    <Content Include="ResourceFile\eval.png" />
+    <Content Include="ResourceFile\exit.png" />
+    <Content Include="ResourceFile\exit1.png" />
+    <Content Include="ResourceFile\finger_icon.jpg" />
+    <Content Include="ResourceFile\finger_icon1.jpg" />
+    <Content Include="ResourceFile\finger_icon2.jpg" />
+    <Content Include="ResourceFile\Flow-HRMI.gif" />
+    <Content Include="ResourceFile\icon24_edit_male_user.png" />
+    <Content Include="ResourceFile\idcard_template.jpg" />
+    <Content Include="ResourceFile\lock_1.png" />
+    <Content Include="ResourceFile\lock_2.png" />
+    <Content Include="ResourceFile\lock_3.png" />
+    <Content Include="ResourceFile\login_icon.png" />
+    <Content Include="ResourceFile\login_icon_png.png" />
+    <Content Include="ResourceFile\LOGO BIG INTERSAVEGUARD GROUP.png" />
+    <Content Include="ResourceFile\network.png" />
+    <Content Include="ResourceFile\people.png" />
+    <Content Include="ResourceFile\personal.png" />
+    <Content Include="ResourceFile\pid_icon.png" />
+    <Content Include="ResourceFile\pid_icon1.png" />
+    <Content Include="ResourceFile\pid_img.png" />
+    <Content Include="ResourceFile\pid_img1.png" />
+    <Content Include="ResourceFile\ppl.png" />
+    <Content Include="ResourceFile\restart.png" />
+    <Content Include="ResourceFile\search_.png" />
+    <Content Include="ResourceFile\search_1.png" />
+    <Content Include="ResourceFile\setting.png" />
+    <Content Include="ResourceFile\setting_1.png" />
+    <Content Include="ResourceFile\skill.png" />
+    <Content Include="ResourceFile\User group.png" />
+    <Content Include="ResourceFile\user-add-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
