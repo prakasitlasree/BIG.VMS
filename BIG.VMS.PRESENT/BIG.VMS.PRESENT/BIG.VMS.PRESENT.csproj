@@ -99,6 +99,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="delivery.ico" />
+    <Content Include="dll\DirectShowLib-2005.dll" />
+    <Content Include="dll\MakarovDev.ExpandCollapsePanel.dll" />
+    <Content Include="dll\pcsc-sharp.dll" />
+    <Content Include="dll\System.Windows.Forms.Ribbon35.dll" />
+    <Content Include="dll\WebCam_Capture.dll" />
     <Content Include="lock.ico" />
     <Content Include="ResourceFile\48_add.png" />
     <Content Include="ResourceFile\48_close.png" />
