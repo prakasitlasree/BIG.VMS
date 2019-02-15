@@ -18,7 +18,9 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
+                   
                    var obj = ctx.MEMBER_LOGON.Where(x => x.USERNAME == username && x.PASSWORD == password).FirstOrDefault();
+
                     if (obj != null)
                     {
                         result.ResultObj = obj;
