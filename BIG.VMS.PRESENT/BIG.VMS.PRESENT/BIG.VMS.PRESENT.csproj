@@ -69,6 +69,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormIn\frmIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmIn.Designer.cs">
+      <DependentUpon>frmIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmInList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmInList.Designer.cs">
+      <DependentUpon>frmInList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +104,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
+    <Compile Include="PageBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageBase.Designer.cs">
+      <DependentUpon>PageBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormIn\frmIn.resx">
+      <DependentUpon>frmIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIn\frmInList.resx">
+      <DependentUpon>frmInList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +130,9 @@
     <EmbeddedResource Include="Message.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageBase.resx">
+      <DependentUpon>PageBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,6 +168,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\FormAppoinment\" />
+    <Folder Include="Forms\FormComeOften\" />
+    <Folder Include="Forms\FormOut\" />
+    <Folder Include="Forms\FormReport\" />
     <Folder Include="ResourceFile\icon\" />
     <Folder Include="ResourceFile\ico\" />
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BIG.VMS.PRESENT.Forms.FormIn;
+using BIG.VMS.PRESENT.Forms.Home;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -63,5 +65,16 @@ namespace BIG.VMS.PRESENT
 
 
         #endregion
+
+        private void Home_Click(object sender, EventArgs e)
+        {
+            frmHome frm = new frmHome();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        
     }
 }
