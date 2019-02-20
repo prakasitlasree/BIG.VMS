@@ -69,11 +69,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmHome.cs">
+    <Compile Include="Forms\FormAppoinment\frmAppoinment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmHome.Designer.cs">
-      <DependentUpon>FrmHome.cs</DependentUpon>
+    <Compile Include="Forms\FormAppoinment\frmAppoinment.Designer.cs">
+      <DependentUpon>frmAppoinment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAppoinment\frmAppoinmentKeyIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAppoinment\frmAppoinmentKeyIn.Designer.cs">
+      <DependentUpon>frmAppoinmentKeyIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAppoinment\frmAppoinmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAppoinment\frmAppoinmentList.Designer.cs">
+      <DependentUpon>frmAppoinmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormComeOften\frmComeOften.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormComeOften\frmComeOften.Designer.cs">
+      <DependentUpon>frmComeOften.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormComeOften\frmComeOftenList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormComeOften\frmComeOftenList.Designer.cs">
+      <DependentUpon>frmComeOftenList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmIn.Designer.cs">
+      <DependentUpon>frmIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmInList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmInList.Designer.cs">
+      <DependentUpon>frmInList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormOut\frmOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormOut\frmOut.Designer.cs">
+      <DependentUpon>frmOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormOut\frmOutList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormOut\frmOutList.Designer.cs">
+      <DependentUpon>frmOutList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportKeyIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportKeyIn.Designer.cs">
+      <DependentUpon>frmReportKeyIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -92,10 +158,49 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
+    <Compile Include="PageBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageBase.Designer.cs">
+      <DependentUpon>PageBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmHome.resx">
-      <DependentUpon>FrmHome.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAppoinment\frmAppoinment.resx">
+      <DependentUpon>frmAppoinment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAppoinment\frmAppoinmentKeyIn.resx">
+      <DependentUpon>frmAppoinmentKeyIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAppoinment\frmAppoinmentList.resx">
+      <DependentUpon>frmAppoinmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormComeOften\frmComeOften.resx">
+      <DependentUpon>frmComeOften.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormComeOften\frmComeOftenList.resx">
+      <DependentUpon>frmComeOftenList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIn\frmIn.resx">
+      <DependentUpon>frmIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIn\frmInList.resx">
+      <DependentUpon>frmInList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormOut\frmOut.resx">
+      <DependentUpon>frmOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormOut\frmOutList.resx">
+      <DependentUpon>frmOutList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport\frmReportKeyIn.resx">
+      <DependentUpon>frmReportKeyIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -106,6 +211,9 @@
     <EmbeddedResource Include="Message.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageBase.resx">
+      <DependentUpon>PageBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
