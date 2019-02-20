@@ -99,6 +99,12 @@
     <Compile Include="Forms\FormComeOften\frmComeOftenList.Designer.cs">
       <DependentUpon>frmComeOftenList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormIn\frmCarLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmCarLicense.Designer.cs">
+      <DependentUpon>frmCarLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormIn\frmIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     </Compile>
     <Compile Include="Forms\FormIn\frmInList.Designer.cs">
       <DependentUpon>frmInList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmPurpose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIn\frmPurpose.Designer.cs">
+      <DependentUpon>frmPurpose.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormOut\frmOut.cs">
       <SubType>Form</SubType>
@@ -134,6 +146,12 @@
     </Compile>
     <Compile Include="Forms\FormReport\frmReportKeyIn.Designer.cs">
       <DependentUpon>frmReportKeyIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportList.Designer.cs">
+      <DependentUpon>frmReportList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home\frmHome.cs">
       <SubType>Form</SubType>
@@ -181,11 +199,17 @@
     <EmbeddedResource Include="Forms\FormComeOften\frmComeOftenList.resx">
       <DependentUpon>frmComeOftenList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIn\frmCarLicense.resx">
+      <DependentUpon>frmCarLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormIn\frmIn.resx">
       <DependentUpon>frmIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormIn\frmInList.resx">
       <DependentUpon>frmInList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIn\frmPurpose.resx">
+      <DependentUpon>frmPurpose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOut\frmOut.resx">
       <DependentUpon>frmOut.cs</DependentUpon>
@@ -198,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport\frmReportKeyIn.resx">
       <DependentUpon>frmReportKeyIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport\frmReportList.resx">
+      <DependentUpon>frmReportList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>

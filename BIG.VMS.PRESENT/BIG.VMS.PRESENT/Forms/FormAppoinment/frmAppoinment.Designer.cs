@@ -415,7 +415,7 @@
             this.ClientSize = new System.Drawing.Size(992, 627);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAppoinment";
-            this.Text = "frmAppoinment";
+            this.Text = "นัดล่วงหน้า";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
