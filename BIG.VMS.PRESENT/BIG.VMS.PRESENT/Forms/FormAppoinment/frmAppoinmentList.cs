@@ -21,5 +21,12 @@ namespace BIG.VMS.PRESENT.Forms.FormAppoinment
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAppoinment frm = new frmAppoinment();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

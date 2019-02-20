@@ -154,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(973, 551);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmInList";
-            this.Text = "frmInList";
+            this.Text = "เข้า";
             this.Load += new System.EventHandler(this.frmInList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -146,6 +146,7 @@
             this.btnAdd.Text = "เพิ่ม";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmComeOftenList
             // 
@@ -154,7 +155,7 @@
             this.ClientSize = new System.Drawing.Size(973, 551);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmComeOftenList";
-            this.Text = "frmComeOftenList";
+            this.Text = "มาประจำ";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

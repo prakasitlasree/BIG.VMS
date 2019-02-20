@@ -445,7 +445,7 @@
             this.ClientSize = new System.Drawing.Size(992, 627);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmComeOften";
-            this.Text = "frmComeOften";
+            this.Text = "มาประจำ";
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);

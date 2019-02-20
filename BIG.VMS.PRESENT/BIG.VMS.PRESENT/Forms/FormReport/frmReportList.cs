@@ -16,5 +16,12 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
         {
             InitializeComponent();
         }
+
+        private void btnPrintReport_Click(object sender, EventArgs e)
+        {
+            frmReportKeyIn frm = new frmReportKeyIn();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

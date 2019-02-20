@@ -16,5 +16,12 @@ namespace BIG.VMS.PRESENT.Forms.FormOut
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmOut frm = new frmOut();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

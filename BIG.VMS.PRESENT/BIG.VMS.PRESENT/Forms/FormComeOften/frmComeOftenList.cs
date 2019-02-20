@@ -16,5 +16,12 @@ namespace BIG.VMS.PRESENT.Forms.FormComeOften
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmComeOften frm = new frmComeOften();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
     }
 }

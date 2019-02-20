@@ -25,6 +25,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmIn frm = new frmIn();
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
     }
