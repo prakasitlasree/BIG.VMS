@@ -51,7 +51,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModel\MAS_CAR_BRAND.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_CAR_MODEL.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_CAR_TYPE.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_DEPARTMENT.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_EMPLOYEE.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_PROVINCE.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModel\MEMBER_LOGON.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\TRN_APPOINTMENT.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\TRN_VISITOR.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="IBase.cs" />
