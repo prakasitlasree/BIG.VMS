@@ -5,20 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using BIG.VMS.DAL;
 using BIG.VMS.MODEL;
+using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
 
 namespace BIG.VMS.DATASERVICE
 {
-    public class AuthenticationServices   
+    public class AuthenticationServices : IService<ContainerAuthentication>
     {
-        public ContainerAuthentication GetItem(string username,string password)
+
+        public ContainerAuthentication Retrieve(ContainerAuthentication authen)
         {
-            ContainerAuthentication result = new ContainerAuthentication();
+            var result = new ContainerAuthentication();
             try
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
-                { 
-                   var obj = ctx.MEMBER_LOGON.FirstOrDefault(x => x.USERNAME == username && x.PASSWORD == password);
+                {
+                    var filter = (AuthenticationFilter)authen.Filter;
+                    var obj = ctx.MEMBER_LOGON.FirstOrDefault(x => x.USERNAME == filter.UserName && x.PASSWORD == filter.Password);
 
                     if (obj != null)
                     {
@@ -27,8 +30,15 @@ namespace BIG.VMS.DATASERVICE
                     }
                     else
                     {
-                        result.Message = " USERNAME & PASSWORD ไม่ถูกต้อง";
-                        result.Status = false;
+                        var chkUsername = ctx.MEMBER_LOGON.FirstOrDefault(x => x.USERNAME == filter.UserName);
+                        if (chkUsername != null)
+                        {
+                            result.Message = " USERNAME ไม่ถูกต้อง";
+                        }
+                        else
+                        {
+                            result.Message = " PASSWORD ไม่ถูกต้อง";
+                        }
                     }
                 }
             }
@@ -36,10 +46,23 @@ namespace BIG.VMS.DATASERVICE
             {
                 result.Status = false;
                 result.ExceptionMessage = ex.Message;
-                
             }
             return result;
         }
- 
+
+        public ContainerAuthentication Create(ContainerAuthentication obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ContainerAuthentication Update(ContainerAuthentication obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ContainerAuthentication Delete(ContainerAuthentication obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

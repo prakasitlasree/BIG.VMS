@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BIG.VMS.MODEL.EntityModel;
+using  BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.DATASERVICE;
 
 namespace BIG.VMS.PRESENT
@@ -15,11 +16,13 @@ namespace BIG.VMS.PRESENT
         private void btnLogon_Click(object sender, EventArgs e)
         {
             var service = new AuthenticationServices();
-            var res = service.GetItem(txtUsername.Text, txtPassword.Text);
+            var filter = new AuthenticationFilter {UserName = txtUsername.Text, Password = txtPassword.Text}; 
+            var container = new ContainerAuthentication {Filter = filter };
+            var res = service.Retrieve(container);
             if (res.Status)
             {
                 var obj = (MEMBER_LOGON)res.ResultObj; 
-                FrmMain frm = new FrmMain();
+                var frm = new FrmMain();
                 frm.Show(this);
 
                 this.Hide();

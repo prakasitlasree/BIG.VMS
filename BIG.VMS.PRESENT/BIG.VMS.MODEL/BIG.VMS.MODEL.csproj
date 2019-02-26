@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomModel\Filter.cs" />
+    <Compile Include="CustomModel\AuthenticationFilter.cs" />
+    <Compile Include="CustomModel\ContainerVisitor.cs" />
+    <Compile Include="CustomModel\VisitorFilter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
