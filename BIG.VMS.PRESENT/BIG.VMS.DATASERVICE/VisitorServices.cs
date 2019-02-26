@@ -17,14 +17,20 @@ namespace BIG.VMS.DATASERVICE
             var result = new ContainerVisitor();
             using (var ctx = new BIG_VMSEntities())
             {
-                ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
-                var saveObj = ctx.SaveChanges();
-                if (saveObj == 1)
+                
+                try
                 {
-                    result.ResultObj = obj.TRN_VISITOR;
+                    ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
+                    ctx.SaveChanges();
                     result.Status = true;
                     result.Message = "Save Successful";
-                } 
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString() ;
+                }
+   
             }
 
             return result;
@@ -44,5 +50,7 @@ namespace BIG.VMS.DATASERVICE
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

@@ -44,7 +44,6 @@
             this.Txt_MeetPeople = new System.Windows.Forms.TextBox();
             this.Txt_Topic = new System.Windows.Forms.TextBox();
             this.Txt_LicensePlate = new System.Windows.Forms.TextBox();
-            this.Txt_Vehicle = new System.Windows.Forms.TextBox();
             this.Txt_IDCard = new System.Windows.Forms.TextBox();
             this.Lbl_FirstName = new System.Windows.Forms.Label();
             this.Lbl_IDCard = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@
             this.picPhoto = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.Combo_CarType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -233,7 +233,6 @@
             this.tableLayoutPanel4.Controls.Add(this.Txt_MeetPeople, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.Txt_Topic, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.Txt_LicensePlate, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.Txt_Vehicle, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.Txt_IDCard, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_FirstName, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_IDCard, 0, 1);
@@ -242,6 +241,7 @@
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Topic, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.Txt_Name, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Combo_CarType, 1, 2);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
@@ -277,14 +277,6 @@
             this.Txt_LicensePlate.Name = "Txt_LicensePlate";
             this.Txt_LicensePlate.Size = new System.Drawing.Size(406, 31);
             this.Txt_LicensePlate.TabIndex = 9;
-            // 
-            // Txt_Vehicle
-            // 
-            this.Txt_Vehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_Vehicle.Location = new System.Drawing.Point(176, 197);
-            this.Txt_Vehicle.Name = "Txt_Vehicle";
-            this.Txt_Vehicle.Size = new System.Drawing.Size(406, 31);
-            this.Txt_Vehicle.TabIndex = 8;
             // 
             // Txt_IDCard
             // 
@@ -422,6 +414,15 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "รูปถ่าย";
             // 
+            // Combo_CarType
+            // 
+            this.Combo_CarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Combo_CarType.FormattingEnabled = true;
+            this.Combo_CarType.Location = new System.Drawing.Point(176, 202);
+            this.Combo_CarType.Name = "Combo_CarType";
+            this.Combo_CarType.Size = new System.Drawing.Size(406, 33);
+            this.Combo_CarType.TabIndex = 12;
+            // 
             // frmIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -481,8 +482,8 @@
         private System.Windows.Forms.TextBox Txt_MeetPeople;
         private System.Windows.Forms.TextBox Txt_Topic;
         private System.Windows.Forms.TextBox Txt_LicensePlate;
-        private System.Windows.Forms.TextBox Txt_Vehicle;
         private System.Windows.Forms.TextBox Txt_IDCard;
         private System.Windows.Forms.TextBox Txt_Name;
+        private System.Windows.Forms.ComboBox Combo_CarType;
     }
 }
