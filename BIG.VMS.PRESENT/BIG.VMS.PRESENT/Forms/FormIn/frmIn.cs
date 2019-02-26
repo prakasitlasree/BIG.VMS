@@ -31,7 +31,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 
         private void InitialLoad()
         {
-            txtNo.Text = "001";
+            Txt_No.Text = "001";
         }
 
         private void btnSave_Click(object sender, EventArgs e)

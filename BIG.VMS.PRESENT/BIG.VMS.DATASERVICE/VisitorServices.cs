@@ -14,7 +14,20 @@ namespace BIG.VMS.DATASERVICE
     {
         public ContainerVisitor Create(ContainerVisitor obj)
         {
-            throw new NotImplementedException();
+            var result = new ContainerVisitor();
+            using (var ctx = new BIG_VMSEntities())
+            {
+                ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
+                var saveObj = ctx.SaveChanges();
+                if (saveObj == 1)
+                {
+                    result.ResultObj = obj.TRN_VISITOR;
+                    result.Status = true;
+                    result.Message = "Save Successful";
+                } 
+            }
+
+            return result;
         }
 
         public ContainerVisitor Delete(ContainerVisitor obj)

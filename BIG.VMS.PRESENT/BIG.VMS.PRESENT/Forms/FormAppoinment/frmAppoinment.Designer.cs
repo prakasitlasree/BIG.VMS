@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,12 +36,12 @@
             this.btnVehicle = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPhoto = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMeeet = new System.Windows.Forms.TextBox();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.txtCarLicense = new System.Windows.Forms.TextBox();
             this.txtVehicleType = new System.Windows.Forms.TextBox();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,18 +67,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btnSave
             // 
-            this.button3.BackColor = System.Drawing.Color.Cyan;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 83);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "บันทึก/พิมพ์";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.Cyan;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(0, 0);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(129, 83);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "บันทึก/พิมพ์";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -159,8 +159,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnPhoto);
+            this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(6, 538);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
@@ -168,18 +168,18 @@
             this.panel2.Size = new System.Drawing.Size(980, 83);
             this.panel2.TabIndex = 1;
             // 
-            // button2
+            // btnPhoto
             // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(129, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 83);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "ถ่ายรูป";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPhoto.BackColor = System.Drawing.Color.Cyan;
+            this.btnPhoto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhoto.Location = new System.Drawing.Point(129, 0);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(129, 83);
+            this.btnPhoto.TabIndex = 1;
+            this.btnPhoto.Text = "ถ่ายรูป";
+            this.btnPhoto.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel3
             // 
@@ -201,9 +201,9 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.52863F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.47137F));
-            this.tableLayoutPanel4.Controls.Add(this.textBox6, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.txtMeeet, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.txtCarLicense, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.txtVehicleType, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
@@ -226,32 +226,32 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(585, 426);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // textBox6
+            // txtMeeet
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(240, 372);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(342, 31);
-            this.textBox6.TabIndex = 11;
+            this.txtMeeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeeet.Location = new System.Drawing.Point(240, 372);
+            this.txtMeeet.Name = "txtMeeet";
+            this.txtMeeet.Size = new System.Drawing.Size(342, 31);
+            this.txtMeeet.TabIndex = 11;
             // 
-            // textBox5
+            // txtPurpose
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(240, 299);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(342, 31);
-            this.textBox5.TabIndex = 10;
+            this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose.Location = new System.Drawing.Point(240, 299);
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(342, 31);
+            this.txtPurpose.TabIndex = 10;
             // 
-            // textBox4
+            // txtCarLicense
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(240, 229);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(342, 31);
-            this.textBox4.TabIndex = 9;
+            this.txtCarLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCarLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarLicense.Location = new System.Drawing.Point(240, 229);
+            this.txtCarLicense.Name = "txtCarLicense";
+            this.txtCarLicense.Size = new System.Drawing.Size(342, 31);
+            this.txtCarLicense.TabIndex = 9;
             // 
             // txtVehicleType
             // 
@@ -434,7 +434,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
@@ -442,12 +442,12 @@
         private System.Windows.Forms.Button btnVehicle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPhoto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMeeet;
+        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.TextBox txtCarLicense;
         private System.Windows.Forms.TextBox txtVehicleType;
         private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label2;
