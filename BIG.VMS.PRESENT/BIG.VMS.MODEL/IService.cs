@@ -3,27 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BIG.VMS.MODEL.CustomModel;
 
 namespace BIG.VMS.MODEL
 {
-    public interface IService
-    {
-        List<dynamic> GetList();
-        void GetItem();
-
-        void GetListInclude();
-
-        void AddList();
-
-        void AddItem();
-
-        void UpdateItem();
-
-        void UpdateList();
-
-        void DeleteList();
-
-        void DeleteItem();
+    public interface IService<T>
+    { 
+            string Create(T obj);
+            T Retrieve(string key);
+            void Update(T obj);
+            void Delete(string key);
+      
 
     }
 }

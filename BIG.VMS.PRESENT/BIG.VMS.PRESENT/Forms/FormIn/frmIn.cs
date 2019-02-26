@@ -19,6 +19,23 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 
         private void frmIn_Load(object sender, EventArgs e)
         {
+            try
+            {
+                InitialLoad();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void InitialLoad()
+        {
+            txtNo.Text = "001";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
         }
     }

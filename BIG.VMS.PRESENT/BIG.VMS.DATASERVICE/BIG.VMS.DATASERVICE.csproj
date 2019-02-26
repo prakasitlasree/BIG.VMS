@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VisitorServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

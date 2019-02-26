@@ -154,7 +154,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 246);
+            this.label8.Location = new System.Drawing.Point(3, 252);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(236, 31);
             this.label8.TabIndex = 16;
@@ -301,9 +301,9 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(690, 280);
+            this.panel1.Location = new System.Drawing.Point(690, 293);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 53);
+            this.panel1.Size = new System.Drawing.Size(356, 40);
             this.panel1.TabIndex = 32;
             // 
             // button1
@@ -314,7 +314,7 @@
             this.button1.Location = new System.Drawing.Point(158, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 53);
+            this.button1.Size = new System.Drawing.Size(93, 40);
             this.button1.TabIndex = 30;
             this.button1.Text = "ยกเลิก";
             this.button1.UseVisualStyleBackColor = false;
@@ -327,7 +327,7 @@
             this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 53);
+            this.button3.Size = new System.Drawing.Size(158, 40);
             this.button3.TabIndex = 29;
             this.button3.Text = "บันทึก/พิมพ์";
             this.button3.UseVisualStyleBackColor = false;

@@ -26,7 +26,9 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         {
             frmIn frm = new frmIn();
             frm.StartPosition = FormStartPosition.CenterParent;
+             
             frm.ShowDialog();
+             
         }
     }
 }

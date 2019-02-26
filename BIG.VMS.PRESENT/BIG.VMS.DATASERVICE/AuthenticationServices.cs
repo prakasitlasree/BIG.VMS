@@ -9,17 +9,16 @@ using BIG.VMS.MODEL.EntityModel;
 
 namespace BIG.VMS.DATASERVICE
 {
-    public class AuthenticationServices  
+    public class AuthenticationServices   
     {
         public ContainerAuthentication GetItem(string username,string password)
         {
-            var result = new ContainerAuthentication();
+            ContainerAuthentication result = new ContainerAuthentication();
             try
             {
-                using (var ctx = new BIG_VMSEntities())
-                {
-                   
-                   var obj = ctx.MEMBER_LOGON.Where(x => x.USERNAME == username && x.PASSWORD == password).FirstOrDefault();
+                using (BIG_VMSEntities ctx = new BIG_VMSEntities())
+                { 
+                   var obj = ctx.MEMBER_LOGON.FirstOrDefault(x => x.USERNAME == username && x.PASSWORD == password);
 
                     if (obj != null)
                     {
@@ -40,48 +39,6 @@ namespace BIG.VMS.DATASERVICE
                 
             }
             return result;
-        }
-
-        public void AddItem()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteItem()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteList()
-        {
-            throw new NotImplementedException();
-        }
-
-      
-
-        public void GetList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetListInclude()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateItem()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateList()
-        {
-            throw new NotImplementedException();
         }
  
     }
