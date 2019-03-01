@@ -1,4 +1,6 @@
-﻿namespace BIG.VMS.MODEL.CustomModel
+﻿using BIG.VMS.MODEL.EntityModel;
+
+namespace BIG.VMS.MODEL.CustomModel
 {
     public class ContainerVisitor
     {
@@ -11,5 +13,7 @@
         public dynamic ResultObj { get; set; }
 
         public dynamic Filter { get; set; }
+
+        public TRN_VISITOR TRN_VISITOR { get; set; }
     }
 }

@@ -35,29 +35,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMeet = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtReport = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtLicensePlate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtNo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPrintReport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnPrintMultiReport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboVehicle = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
@@ -155,14 +155,14 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "รูปจากบัตร";
             // 
-            // textBox6
+            // txtMeet
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(240, 394);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(342, 31);
-            this.textBox6.TabIndex = 11;
+            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeet.Location = new System.Drawing.Point(240, 394);
+            this.txtMeet.Name = "txtMeet";
+            this.txtMeet.Size = new System.Drawing.Size(342, 31);
+            this.txtMeet.TabIndex = 11;
             // 
             // tableLayoutPanel4
             // 
@@ -171,21 +171,21 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.52863F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.47137F));
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 7);
-            this.tableLayoutPanel4.Controls.Add(this.textBox7, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.txtReport, 1, 7);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.textBox6, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.textBox5, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.textBox4, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.txtLicensePlate, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.textBox3, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.textBox2, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.textBox1, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.textBox8, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txtName, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.txtNo, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.comboVehicle, 1, 3);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 8;
@@ -212,14 +212,14 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "เวลาออก";
             // 
-            // textBox7
+            // txtReport
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(240, 457);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(342, 31);
-            this.textBox7.TabIndex = 13;
+            this.txtReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReport.Location = new System.Drawing.Point(240, 457);
+            this.txtReport.Name = "txtReport";
+            this.txtReport.Size = new System.Drawing.Size(342, 31);
+            this.txtReport.TabIndex = 13;
             // 
             // label7
             // 
@@ -243,14 +243,14 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "วัตตถุประสงค์";
             // 
-            // textBox5
+            // txtPurpose
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(240, 331);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(342, 31);
-            this.textBox5.TabIndex = 10;
+            this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose.Location = new System.Drawing.Point(240, 331);
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(342, 31);
+            this.txtPurpose.TabIndex = 10;
             // 
             // label5
             // 
@@ -263,14 +263,14 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "ทะเบียน";
             // 
-            // textBox4
+            // txtLicensePlate
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(240, 268);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(342, 31);
-            this.textBox4.TabIndex = 9;
+            this.txtLicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLicensePlate.Location = new System.Drawing.Point(240, 268);
+            this.txtLicensePlate.Name = "txtLicensePlate";
+            this.txtLicensePlate.Size = new System.Drawing.Size(342, 31);
+            this.txtLicensePlate.TabIndex = 9;
             // 
             // label4
             // 
@@ -283,15 +283,6 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "ประเภทยานพาหนะ";
             // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(240, 205);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(342, 31);
-            this.textBox3.TabIndex = 8;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -303,14 +294,14 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "เลขบัตรประชาชน";
             // 
-            // textBox2
+            // txtIDCard
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(240, 142);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(342, 31);
-            this.textBox2.TabIndex = 7;
+            this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCard.Location = new System.Drawing.Point(240, 142);
+            this.txtIDCard.Name = "txtIDCard";
+            this.txtIDCard.Size = new System.Drawing.Size(342, 31);
+            this.txtIDCard.TabIndex = 7;
             // 
             // label2
             // 
@@ -323,23 +314,23 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ชื่อ-นามสกุล";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(240, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(342, 31);
-            this.textBox1.TabIndex = 6;
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(240, 79);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(342, 31);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox8
+            // txtNo
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(240, 16);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(342, 31);
-            this.textBox8.TabIndex = 14;
+            this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNo.Location = new System.Drawing.Point(240, 16);
+            this.txtNo.Name = "txtNo";
+            this.txtNo.Size = new System.Drawing.Size(342, 31);
+            this.txtNo.TabIndex = 14;
             // 
             // label11
             // 
@@ -367,24 +358,24 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(986, 510);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // button3
+            // btnPrintReport
             // 
-            this.button3.BackColor = System.Drawing.Color.Cyan;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(216, 99);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "พิมพ์รายงาน";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnPrintReport.BackColor = System.Drawing.Color.Cyan;
+            this.btnPrintReport.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintReport.Location = new System.Drawing.Point(0, 0);
+            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.Size = new System.Drawing.Size(216, 99);
+            this.btnPrintReport.TabIndex = 0;
+            this.btnPrintReport.Text = "พิมพ์รายงาน";
+            this.btnPrintReport.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnExit);
+            this.panel2.Controls.Add(this.btnPrintMultiReport);
+            this.panel2.Controls.Add(this.btnPrintReport);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(6, 522);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
@@ -392,32 +383,32 @@
             this.panel2.Size = new System.Drawing.Size(980, 99);
             this.panel2.TabIndex = 1;
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(474, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 99);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "ออก";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(474, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(129, 99);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "ออก";
+            this.btnExit.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnPrintMultiReport
             // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(216, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(258, 99);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "พิมพ์หลายรายการ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPrintMultiReport.BackColor = System.Drawing.Color.Cyan;
+            this.btnPrintMultiReport.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintMultiReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintMultiReport.Location = new System.Drawing.Point(216, 0);
+            this.btnPrintMultiReport.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPrintMultiReport.Name = "btnPrintMultiReport";
+            this.btnPrintMultiReport.Size = new System.Drawing.Size(258, 99);
+            this.btnPrintMultiReport.TabIndex = 1;
+            this.btnPrintMultiReport.Text = "พิมพ์หลายรายการ";
+            this.btnPrintMultiReport.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel1
             // 
@@ -435,6 +426,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 627);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // comboVehicle
+            // 
+            this.comboVehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboVehicle.FormattingEnabled = true;
+            this.comboVehicle.Location = new System.Drawing.Point(240, 210);
+            this.comboVehicle.Name = "comboVehicle";
+            this.comboVehicle.Size = new System.Drawing.Size(342, 33);
+            this.comboVehicle.TabIndex = 16;
             // 
             // frmReportKeyIn
             // 
@@ -468,28 +469,28 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtMeet;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.TextBox txtLicensePlate;
+        private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPrintReport;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPrintMultiReport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtReport;
+        private System.Windows.Forms.TextBox txtNo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox comboVehicle;
     }
 }
