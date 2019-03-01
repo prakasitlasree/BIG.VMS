@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomModel\AuthenticationFilter.cs" />
+    <Compile Include="CustomModel\ContainerHardware.cs" />
     <Compile Include="CustomModel\ContainerVisitor.cs" />
+    <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\VisitorFilter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
       <AutoGen>True</AutoGen>
@@ -83,6 +85,7 @@
     </Compile>
     <Compile Include="IBase.cs" />
     <Compile Include="CustomModel\ContainerAuthentication.cs" />
+    <Compile Include="ICard.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

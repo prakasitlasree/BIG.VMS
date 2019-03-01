@@ -171,6 +171,7 @@
             this.btnReadCard.TabIndex = 0;
             this.btnReadCard.Text = "อ่านบัตร";
             this.btnReadCard.UseVisualStyleBackColor = false;
+            this.btnReadCard.Click += new System.EventHandler(this.btnReadCard_Click);
             // 
             // panel2
             // 

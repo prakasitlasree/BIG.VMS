@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationServices.cs" />
+    <Compile Include="HardwareServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisitorServices.cs" />
   </ItemGroup>

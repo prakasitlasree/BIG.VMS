@@ -38,5 +38,10 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         {
 
         }
+
+        private void btnReadCard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
