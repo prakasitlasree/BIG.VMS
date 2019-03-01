@@ -102,6 +102,10 @@
           <Property Name="TOPIC" Type="nvarchar(max)" />
           <Property Name="CONTACT_EMPLOYEE_ID" Type="int" />
           <Property Name="CONTACT_PHOTO" Type="varbinary(max)" />
+          <Property Name="CREATED_BY" Type="nvarchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
         </EntityType>
         <Association Name="FK_MAS_CAR_BRAND_MAS_CAR_TYPE">
           <End Role="MAS_CAR_TYPE" Type="Self.MAS_CAR_TYPE" Multiplicity="0..1" />
@@ -268,7 +272,6 @@
           <EntitySet Name="MAS_EMPLOYEE" EntityType="BIG_VMSModel.MAS_EMPLOYEE" />
           <EntitySet Name="MAS_PROVINCE" EntityType="BIG_VMSModel.MAS_PROVINCE" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="BIG_VMSModel.TRN_APPOINTMENT" />
-          <EntitySet Name="TRN_VISITOR" EntityType="BIG_VMSModel.TRN_VISITOR" />
           <AssociationSet Name="FK_TRN_APPOINTMENT_MAS_CAR_MODEL" Association="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_CAR_MODEL">
             <End Role="MAS_CAR_MODEL" EntitySet="MAS_CAR_MODEL" />
             <End Role="TRN_APPOINTMENT" EntitySet="TRN_APPOINTMENT" />
@@ -281,17 +284,9 @@
             <End Role="MAS_EMPLOYEE" EntitySet="MAS_EMPLOYEE" />
             <End Role="TRN_APPOINTMENT" EntitySet="TRN_APPOINTMENT" />
           </AssociationSet>
-          <AssociationSet Name="FK_TRN_VISITOR_MAS_EMPLOYEE" Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_EMPLOYEE">
-            <End Role="MAS_EMPLOYEE" EntitySet="MAS_EMPLOYEE" />
-            <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
-          </AssociationSet>
           <AssociationSet Name="FK_TRN_APPOINTMENT_MAS_PROVINCE" Association="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_PROVINCE">
             <End Role="MAS_PROVINCE" EntitySet="MAS_PROVINCE" />
             <End Role="TRN_APPOINTMENT" EntitySet="TRN_APPOINTMENT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TRN_VISITOR_MAS_PROVINCE" Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_PROVINCE">
-            <End Role="MAS_PROVINCE" EntitySet="MAS_PROVINCE" />
-            <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
           </AssociationSet>
           <EntitySet Name="MAS_CAR_BRAND" EntityType="BIG_VMSModel.MAS_CAR_BRAND" />
           <EntitySet Name="MAS_CAR_TYPE" EntityType="BIG_VMSModel.MAS_CAR_TYPE" />
@@ -302,6 +297,15 @@
           <AssociationSet Name="FK_MAS_CAR_MODEL_MAS_CAR_BRAND" Association="BIG_VMSModel.FK_MAS_CAR_MODEL_MAS_CAR_BRAND">
             <End Role="MAS_CAR_BRAND" EntitySet="MAS_CAR_BRAND" />
             <End Role="MAS_CAR_MODEL" EntitySet="MAS_CAR_MODEL" />
+          </AssociationSet>
+          <EntitySet Name="TRN_VISITOR" EntityType="BIG_VMSModel.TRN_VISITOR" />
+          <AssociationSet Name="FK_TRN_VISITOR_MAS_EMPLOYEE" Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_EMPLOYEE">
+            <End Role="MAS_EMPLOYEE" EntitySet="MAS_EMPLOYEE" />
+            <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRN_VISITOR_MAS_PROVINCE" Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_PROVINCE">
+            <End Role="MAS_PROVINCE" EntitySet="MAS_PROVINCE" />
+            <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="MAS_CAR_MODEL">
@@ -368,23 +372,6 @@
           <NavigationProperty Name="MAS_EMPLOYEE" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_EMPLOYEE" FromRole="TRN_APPOINTMENT" ToRole="MAS_EMPLOYEE" />
           <NavigationProperty Name="MAS_PROVINCE" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_PROVINCE" FromRole="TRN_APPOINTMENT" ToRole="MAS_PROVINCE" />
         </EntityType>
-        <EntityType Name="TRN_VISITOR">
-          <Key>
-            <PropertyRef Name="AUTO_ID" />
-          </Key>
-          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_CARD" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="ID_CARD_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="LICENSE_PLATE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LICENSE_PLATE_PROVINCE_ID" Type="Int32" />
-          <Property Name="TOPIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CONTACT_EMPLOYEE_ID" Type="Int32" />
-          <Property Name="CONTACT_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="MAS_EMPLOYEE" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_EMPLOYEE" FromRole="TRN_VISITOR" ToRole="MAS_EMPLOYEE" />
-          <NavigationProperty Name="MAS_PROVINCE" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_PROVINCE" FromRole="TRN_VISITOR" ToRole="MAS_PROVINCE" />
-        </EntityType>
         <Association Name="FK_TRN_APPOINTMENT_MAS_CAR_MODEL">
           <End Type="BIG_VMSModel.MAS_CAR_MODEL" Role="MAS_CAR_MODEL" Multiplicity="0..1" />
           <End Type="BIG_VMSModel.TRN_APPOINTMENT" Role="TRN_APPOINTMENT" Multiplicity="*" />
@@ -421,18 +408,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TRN_VISITOR_MAS_EMPLOYEE">
-          <End Type="BIG_VMSModel.MAS_EMPLOYEE" Role="MAS_EMPLOYEE" Multiplicity="0..1" />
-          <End Type="BIG_VMSModel.TRN_VISITOR" Role="TRN_VISITOR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MAS_EMPLOYEE">
-              <PropertyRef Name="AUTO_ID" />
-            </Principal>
-            <Dependent Role="TRN_VISITOR">
-              <PropertyRef Name="CONTACT_EMPLOYEE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TRN_APPOINTMENT_MAS_PROVINCE">
           <End Type="BIG_VMSModel.MAS_PROVINCE" Role="MAS_PROVINCE" Multiplicity="0..1" />
           <End Type="BIG_VMSModel.TRN_APPOINTMENT" Role="TRN_APPOINTMENT" Multiplicity="*" />
@@ -442,18 +417,6 @@
             </Principal>
             <Dependent Role="TRN_APPOINTMENT">
               <PropertyRef Name="REQUEST_LICENSE_PLATE_PROVINCE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TRN_VISITOR_MAS_PROVINCE">
-          <End Type="BIG_VMSModel.MAS_PROVINCE" Role="MAS_PROVINCE" Multiplicity="0..1" />
-          <End Type="BIG_VMSModel.TRN_VISITOR" Role="TRN_VISITOR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MAS_PROVINCE">
-              <PropertyRef Name="AUTO_ID" />
-            </Principal>
-            <Dependent Role="TRN_VISITOR">
-              <PropertyRef Name="LICENSE_PLATE_PROVINCE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -496,6 +459,51 @@
             </Principal>
             <Dependent Role="MAS_CAR_MODEL">
               <PropertyRef Name="BRAND_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TRN_VISITOR">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_CARD" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="ID_CARD_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LICENSE_PLATE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LICENSE_PLATE_PROVINCE_ID" Type="Int32" />
+          <Property Name="TOPIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACT_EMPLOYEE_ID" Type="Int32" />
+          <Property Name="CONTACT_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MAS_EMPLOYEE" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_EMPLOYEE" FromRole="TRN_VISITOR" ToRole="MAS_EMPLOYEE" />
+          <NavigationProperty Name="MAS_PROVINCE" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_PROVINCE" FromRole="TRN_VISITOR" ToRole="MAS_PROVINCE" />
+        </EntityType>
+        <Association Name="FK_TRN_VISITOR_MAS_EMPLOYEE">
+          <End Type="BIG_VMSModel.MAS_EMPLOYEE" Role="MAS_EMPLOYEE" Multiplicity="0..1" />
+          <End Type="BIG_VMSModel.TRN_VISITOR" Role="TRN_VISITOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAS_EMPLOYEE">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="TRN_VISITOR">
+              <PropertyRef Name="CONTACT_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRN_VISITOR_MAS_PROVINCE">
+          <End Type="BIG_VMSModel.MAS_PROVINCE" Role="MAS_PROVINCE" Multiplicity="0..1" />
+          <End Type="BIG_VMSModel.TRN_VISITOR" Role="TRN_VISITOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAS_PROVINCE">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="TRN_VISITOR">
+              <PropertyRef Name="LICENSE_PLATE_PROVINCE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -579,22 +587,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRN_VISITOR">
-            <EntityTypeMapping TypeName="BIG_VMSModel.TRN_VISITOR">
-              <MappingFragment StoreEntitySet="TRN_VISITOR">
-                <ScalarProperty Name="CONTACT_PHOTO" ColumnName="CONTACT_PHOTO" />
-                <ScalarProperty Name="CONTACT_EMPLOYEE_ID" ColumnName="CONTACT_EMPLOYEE_ID" />
-                <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
-                <ScalarProperty Name="LICENSE_PLATE_PROVINCE_ID" ColumnName="LICENSE_PLATE_PROVINCE_ID" />
-                <ScalarProperty Name="LICENSE_PLATE" ColumnName="LICENSE_PLATE" />
-                <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
-                <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="NO" ColumnName="NO" />
-                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MAS_CAR_BRAND">
             <EntityTypeMapping TypeName="BIG_VMSModel.MAS_CAR_BRAND">
               <MappingFragment StoreEntitySet="MAS_CAR_BRAND">
@@ -608,6 +600,26 @@
             <EntityTypeMapping TypeName="BIG_VMSModel.MAS_CAR_TYPE">
               <MappingFragment StoreEntitySet="MAS_CAR_TYPE">
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_VISITOR">
+            <EntityTypeMapping TypeName="BIG_VMSModel.TRN_VISITOR">
+              <MappingFragment StoreEntitySet="TRN_VISITOR">
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CONTACT_PHOTO" ColumnName="CONTACT_PHOTO" />
+                <ScalarProperty Name="CONTACT_EMPLOYEE_ID" ColumnName="CONTACT_EMPLOYEE_ID" />
+                <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+                <ScalarProperty Name="LICENSE_PLATE_PROVINCE_ID" ColumnName="LICENSE_PLATE_PROVINCE_ID" />
+                <ScalarProperty Name="LICENSE_PLATE" ColumnName="LICENSE_PLATE" />
+                <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
+                <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>

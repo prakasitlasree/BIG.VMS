@@ -5,6 +5,8 @@
 
         T Retrieve(T obj);
 
+        T GetItem(T obj);
+
         T Create(T obj);
 
         T Update(T obj);

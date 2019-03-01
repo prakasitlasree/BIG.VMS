@@ -70,6 +70,231 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application is already running..
+        /// </summary>
+        internal static string MSG_APPLICATION_ALREADLY_RUN {
+            get {
+                return ResourceManager.GetString("MSG_APPLICATION_ALREADLY_RUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something wrong on appliction, Please contact your Administrator..
+        /// </summary>
+        internal static string MSG_APPLICATION_FAIL {
+            get {
+                return ResourceManager.GetString("MSG_APPLICATION_FAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete data successfully..
+        /// </summary>
+        internal static string MSG_DELETE_COMPLETE {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_COMPLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete {0} ?.
+        /// </summary>
+        internal static string MSG_DELETE_CONFIRM {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete {0} ?.
+        /// </summary>
+        internal static string MSG_DELETE_CONFIRM_BY {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_CONFIRM_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IDM and OS Material Group is strongly required for interface from the SAP system, Would you like to delete?.
+        /// </summary>
+        internal static string MSG_DELETE_CONFIRM_SAP {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_CONFIRM_SAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not delete this data..
+        /// </summary>
+        internal static string MSG_DELETE_INCOMPLETE {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_INCOMPLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not delete this data. Because it used in other module already..
+        /// </summary>
+        internal static string MSG_DELETE_INCOMPLETE_ALREADY {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_INCOMPLETE_ALREADY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not delete this data. {0}.
+        /// </summary>
+        internal static string MSG_DELETE_INCOMPLETE_BY {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_INCOMPLETE_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System error..
+        /// </summary>
+        internal static string MSG_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System error. Please contact admin..
+        /// </summary>
+        internal static string MSG_ERROR_UNKNOWN {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_UNKNOWN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System error. {0}.
+        /// </summary>
+        internal static string MSG_ERROR_UNKNOWN_BY {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_UNKNOWN_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logoff session id &quot;{0}&quot; fail. {1} .
+        /// </summary>
+        internal static string MSG_LOGOFF_FAIL {
+            get {
+                return ResourceManager.GetString("MSG_LOGOFF_FAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logoff session id &quot;{0}&quot; success..
+        /// </summary>
+        internal static string MSG_LOGOFF_SUCCESS {
+            get {
+                return ResourceManager.GetString("MSG_LOGOFF_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm to Logout?.
+        /// </summary>
+        internal static string MSG_LOGOUT_QUESTION {
+            get {
+                return ResourceManager.GetString("MSG_LOGOUT_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data change(s)..
+        /// </summary>
+        internal static string MSG_NO_DATA_CHANGE {
+            get {
+                return ResourceManager.GetString("MSG_NO_DATA_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found data..
+        /// </summary>
+        internal static string MSG_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("MSG_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found target file..
+        /// </summary>
+        internal static string MSG_NOT_FOUND_TARGET_FILE {
+            get {
+                return ResourceManager.GetString("MSG_NOT_FOUND_TARGET_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found target path..
+        /// </summary>
+        internal static string MSG_NOT_FOUND_TARGET_PATH {
+            get {
+                return ResourceManager.GetString("MSG_NOT_FOUND_TARGET_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to revise &quot;{0}&quot; ?.
+        /// </summary>
+        internal static string MSG_REVISE_CONFIRM {
+            get {
+                return ResourceManager.GetString("MSG_REVISE_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save data successfully..
+        /// </summary>
+        internal static string MSG_SAVE_COMPLETE {
+            get {
+                return ResourceManager.GetString("MSG_SAVE_COMPLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save ?.
+        /// </summary>
+        internal static string MSG_SAVE_CONFIRM {
+            get {
+                return ResourceManager.GetString("MSG_SAVE_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save [{0}]?.
+        /// </summary>
+        internal static string MSG_SAVE_CONFIRM_BY_KEY {
+            get {
+                return ResourceManager.GetString("MSG_SAVE_CONFIRM_BY_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not save data..
+        /// </summary>
+        internal static string MSG_SAVE_INCOMPLETE {
+            get {
+                return ResourceManager.GetString("MSG_SAVE_INCOMPLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not save data.  &quot;{0}&quot;.
+        /// </summary>
+        internal static string MSG_SAVE_INCOMPLETE_BY {
+            get {
+                return ResourceManager.GetString("MSG_SAVE_INCOMPLETE_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to close program?.
         /// </summary>
         internal static string MSG_SHUTDOWN_SYSTEM {
@@ -79,11 +304,110 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please login again..
+        /// </summary>
+        internal static string MSG_TIME_EXPIRED {
+            get {
+                return ResourceManager.GetString("MSG_TIME_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User&amp;apos;s department not match, Please contact administrator..
+        /// </summary>
+        internal static string MSG_USER_DEPT_NOT_MATCH {
+            get {
+                return ResourceManager.GetString("MSG_USER_DEPT_NOT_MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EN Number correct..
+        /// </summary>
+        internal static string MSG_VALID_EN_AUTH {
+            get {
+                return ResourceManager.GetString("MSG_VALID_EN_AUTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validate completely..
+        /// </summary>
+        internal static string MSG_VALIDATE_COMPLELY {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_COMPLELY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input username and password..
+        /// </summary>
+        internal static string MSG_VALIDATE_LOGIN {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input number.  &quot;{0}&quot;.
+        /// </summary>
+        internal static string MSG_VALIDATE_NUMBER_INPUT {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_NUMBER_INPUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of {0} can not more than {1} characters..
+        /// </summary>
+        internal static string MSG_VALIDATE_OVER_LENGTH {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_OVER_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input data..
+        /// </summary>
+        internal static string MSG_VALIDATE_REQ_INPUT {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_REQ_INPUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input data. {0}.
+        /// </summary>
+        internal static string MSG_VALIDATE_REQ_INPUT_BY {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_REQ_INPUT_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage Calculation Completed..
+        /// </summary>
+        internal static string MSG_VALIDATE_USAGE_COMPLELY {
+            get {
+                return ResourceManager.GetString("MSG_VALIDATE_USAGE_COMPLELY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string MSG_WARNING_CAPTION {
             get {
                 return ResourceManager.GetString("MSG_WARNING_CAPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input required field [&quot; + label + &quot;] !?.
+        /// </summary>
+        internal static string MSG_WARNING_REQUIRED_FIELD {
+            get {
+                return ResourceManager.GetString("MSG_WARNING_REQUIRED_FIELD", resourceCulture);
             }
         }
     }

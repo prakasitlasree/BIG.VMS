@@ -15,12 +15,17 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 {
     public partial class frmIn : PageBase
     {
-
+        private readonly VisitorServices _service = null;
+        private ContainerVisitor _container = null;
         public frmIn()
         {
+            _service = new VisitorServices();
             InitializeComponent();
         }
-
+        public bool ThumbnailCallback()
+        {
+            return false;
+        }
         private void frmIn_Load(object sender, EventArgs e)
         {
             try
@@ -35,7 +40,19 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 
         private void InitialLoad()
         {
-            Txt_No.Text = "001";
+            _container = new ContainerVisitor();
+            var res = _service.GetItem(_container);
+            if (res.Status)
+            {
+                int no = Convert.ToInt32(res.TRN_VISITOR.NO);
+                no = no + 1;
+                Txt_No.Text = no.ToString("D6");
+            }
+            else
+            {
+                MessageBox.Show(res.ExceptionMessage);
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -45,8 +62,8 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 
         private void Save()
         {
-            var service = new VisitorServices();
-            TRN_VISITOR obj = new TRN_VISITOR
+
+            var obj = new TRN_VISITOR
             {
                 NO = Txt_No.Text.Trim(),
                 ID_CARD = Txt_IDCard.Text.Trim(),
@@ -55,13 +72,13 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
             };
             var container = new ContainerVisitor { TRN_VISITOR = obj };
 
-            var res = service.Create(container);
+            var res = _service.Create(container);
             if (res.Status)
             {
-                
+                MessageBox.Show(Message.MSG_SAVE_COMPLETE);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-              
+
             }
             else
             {
@@ -73,6 +90,66 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         private void btnReadCard_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void brn_UploadImgCard_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string file in openFileDialog1.FileNames)
+                {
+                    try
+                    {
+                        var myCallback = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
+                        var myBitmap = new Bitmap(file);
+                        var myImg = myBitmap.GetThumbnailImage(150, 149, myCallback, IntPtr.Zero);
+                        picCard.Image = myImg;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnUploadCam_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string file in openFileDialog1.FileNames)
+                {
+                    try
+                    {
+                        var myCallback = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
+                        var myBitmap = new Bitmap(file);
+                        var myImg = myBitmap.GetThumbnailImage(150, 149, myCallback, IntPtr.Zero);
+                        picPhoto.Image = myImg; 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bthCardDelete_Click(object sender, EventArgs e)
+        {
+            picCard.Image = BIG.VMS.PRESENT.Properties.Resources.emploee; 
+        }
+
+        private void btnDeleteCam_Click(object sender, EventArgs e)
+        {
+            picPhoto.Image = BIG.VMS.PRESENT.Properties.Resources.emploee;  
         }
     }
 }

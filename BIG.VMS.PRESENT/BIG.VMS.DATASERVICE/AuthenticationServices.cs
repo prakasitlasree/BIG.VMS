@@ -64,5 +64,10 @@ namespace BIG.VMS.DATASERVICE
         {
             throw new NotImplementedException();
         }
+
+        public ContainerAuthentication GetItem(ContainerAuthentication obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
