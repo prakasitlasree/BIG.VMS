@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentServices.cs" />
     <Compile Include="AuthenticationServices.cs" />
+    <Compile Include="ComboBoxServices.cs" />
     <Compile Include="HardwareServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisitorServices.cs" />

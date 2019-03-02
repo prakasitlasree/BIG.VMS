@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BIG.VMS.PRESENT.Forms.FormAppoinment
+namespace BIG.VMS.PRESENT.Forms.FormCarMasterDetail
 {
-    public partial class frmAppoinment : Form
+    public partial class frmCarTypeMaster : Form
     {
-        public frmAppoinment()
+        public frmCarTypeMaster()
         {
             InitializeComponent();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

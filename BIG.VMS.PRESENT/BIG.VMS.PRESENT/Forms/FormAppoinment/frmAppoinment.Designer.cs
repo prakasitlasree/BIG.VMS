@@ -39,10 +39,8 @@
             this.btnPhoto = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtMeeet = new System.Windows.Forms.TextBox();
             this.txtPurpose = new System.Windows.Forms.TextBox();
             this.txtCarLicense = new System.Windows.Forms.TextBox();
-            this.txtVehicleType = new System.Windows.Forms.TextBox();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +54,8 @@
             this.picPhoto = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -79,6 +79,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "บันทึก/พิมพ์";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel1
             // 
@@ -201,10 +202,8 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.52863F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.47137F));
-            this.tableLayoutPanel4.Controls.Add(this.txtMeeet, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtCarLicense, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.txtVehicleType, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 1);
@@ -213,6 +212,8 @@
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtName, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox1, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox2, 1, 5);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -225,15 +226,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(585, 426);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // txtMeeet
-            // 
-            this.txtMeeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMeeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeeet.Location = new System.Drawing.Point(240, 372);
-            this.txtMeeet.Name = "txtMeeet";
-            this.txtMeeet.Size = new System.Drawing.Size(342, 31);
-            this.txtMeeet.TabIndex = 11;
             // 
             // txtPurpose
             // 
@@ -252,15 +244,6 @@
             this.txtCarLicense.Name = "txtCarLicense";
             this.txtCarLicense.Size = new System.Drawing.Size(342, 31);
             this.txtCarLicense.TabIndex = 9;
-            // 
-            // txtVehicleType
-            // 
-            this.txtVehicleType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtVehicleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVehicleType.Location = new System.Drawing.Point(240, 159);
-            this.txtVehicleType.Name = "txtVehicleType";
-            this.txtVehicleType.Size = new System.Drawing.Size(342, 31);
-            this.txtVehicleType.TabIndex = 8;
             // 
             // txtIDCard
             // 
@@ -407,6 +390,26 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "รูปถ่าย";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(240, 164);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(342, 33);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(240, 377);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(342, 33);
+            this.comboBox2.TabIndex = 12;
+            // 
             // frmAppoinment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,10 +448,8 @@
         private System.Windows.Forms.Button btnPhoto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox txtMeeet;
         private System.Windows.Forms.TextBox txtPurpose;
         private System.Windows.Forms.TextBox txtCarLicense;
-        private System.Windows.Forms.TextBox txtVehicleType;
         private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -462,5 +463,7 @@
         private System.Windows.Forms.PictureBox picPhoto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

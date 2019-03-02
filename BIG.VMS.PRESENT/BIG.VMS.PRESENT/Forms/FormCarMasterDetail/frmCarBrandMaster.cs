@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BIG.VMS.PRESENT.Forms.FormAppoinment
+namespace BIG.VMS.PRESENT.Forms.FormCarMasterDetail
 {
-    public partial class frmAppoinment : Form
+    public partial class frmCarBrandMaster : Form
     {
-        public frmAppoinment()
+        public frmCarBrandMaster()
         {
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

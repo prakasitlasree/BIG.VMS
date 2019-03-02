@@ -17,6 +17,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
     {
         private readonly VisitorServices _service = null;
         private ContainerVisitor _container = null;
+        private ComboBoxServices _comboService = new ComboBoxServices();
         public frmIn()
         {
             _service = new VisitorServices();
@@ -31,6 +32,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
             try
             {
                 InitialLoad();
+                InitialComboBox();
             }
             catch (Exception ex)
             {
@@ -51,8 +53,16 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
             else
             {
                 MessageBox.Show(res.ExceptionMessage);
-            }
+            }         
 
+        }
+
+        private void InitialComboBox()
+        {
+            var comboEmployeeData = _comboService.GetComboEmployee();
+            AddRangeComboBox(combMeet, comboEmployeeData);
+            var comboProvinceData = _comboService.GetComboProvince();
+            AddRangeComboBox(comboCarProvince, comboProvinceData);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,10 +79,17 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
                 ID_CARD = Txt_IDCard.Text.Trim(),
                 LICENSE_PLATE = Txt_LicensePlate.Text.Trim(),
                 TOPIC = Txt_Topic.Text.Trim(),
+                TYPE = "IN",  
+                //CREATED_BY      
+                CREATED_DATE = DateTime.Now,
+                UPDATED_DATE = DateTime.Now,
+                //UPDATED_BY      
             };
+
             var container = new ContainerVisitor { TRN_VISITOR = obj };
 
             var res = _service.Create(container);
+
             if (res.Status)
             {
                 MessageBox.Show(Message.MSG_SAVE_COMPLETE);
