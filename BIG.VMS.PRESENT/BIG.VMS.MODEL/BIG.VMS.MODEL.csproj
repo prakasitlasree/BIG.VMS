@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModel\EnumType.cs" />
     <Compile Include="CustomModel\Filter\AppointmentFilter.cs" />
     <Compile Include="CustomModel\Filter\AuthenticationFilter.cs" />
     <Compile Include="CustomModel\ComboBoxModel.cs" />
     <Compile Include="CustomModel\Container\ContainerAppointment.cs" />
     <Compile Include="CustomModel\Container\ContainerHardware.cs" />
     <Compile Include="CustomModel\Container\ContainerVisitor.cs" />
+    <Compile Include="CustomModel\HeaderGrid.cs" />
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
@@ -91,6 +93,7 @@
     <Compile Include="CustomModel\Container\ContainerAuthentication.cs" />
     <Compile Include="ICard.cs" />
     <Compile Include="IService.cs" />
+    <Compile Include="CustomModel\Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

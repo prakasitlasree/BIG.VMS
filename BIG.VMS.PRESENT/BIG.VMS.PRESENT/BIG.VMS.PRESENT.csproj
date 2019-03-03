@@ -69,7 +69,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormHelper.cs" />
     <Compile Include="Forms\FormAppoinment\frmAppoinment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +177,18 @@
     <Compile Include="Forms\FormReport\frmReportList.Designer.cs">
       <DependentUpon>frmReportList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitor.Designer.cs">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorList.Designer.cs">
+      <DependentUpon>frmVisitorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +273,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport\frmReportList.resx">
       <DependentUpon>frmReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmVisitor.resx">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmVisitorList.resx">
+      <DependentUpon>frmVisitorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>

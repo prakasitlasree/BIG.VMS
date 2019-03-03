@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormCarMasterDetail
 {
-    public partial class frmCarBrandMaster : Form
+    public partial class frmCarBrandMaster : PageBase
     {
         public frmCarBrandMaster()
         {
@@ -18,6 +18,16 @@ namespace BIG.VMS.PRESENT.Forms.FormCarMasterDetail
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmCarBrandMaster_Load(object sender, EventArgs e)
         {
 
         }

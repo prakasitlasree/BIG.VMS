@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIn));
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,6 +44,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Txt_Topic = new System.Windows.Forms.TextBox();
+            this.Txt_LicensePlate = new System.Windows.Forms.TextBox();
             this.Txt_IDCard = new System.Windows.Forms.TextBox();
             this.Lbl_FirstName = new System.Windows.Forms.Label();
             this.Lbl_IDCard = new System.Windows.Forms.Label();
@@ -68,8 +70,7 @@
             this.btnUploadCam = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnDeleteCam = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.Txt_LicensePlate = new System.Windows.Forms.TextBox();
+            this.btnBlacklist = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -84,6 +85,10 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // tableLayoutPanel1
             // 
@@ -174,6 +179,7 @@
             this.btnVehicle.TabIndex = 1;
             this.btnVehicle.Text = "ยานพาหนะ";
             this.btnVehicle.UseVisualStyleBackColor = false;
+            this.btnVehicle.Click += new System.EventHandler(this.btnVehicle_Click);
             // 
             // btnReadCard
             // 
@@ -191,6 +197,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnBlacklist);
             this.panel2.Controls.Add(this.BtnTakePhoto);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -244,6 +251,7 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.74359F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.25641F));
@@ -259,6 +267,7 @@
             this.tableLayoutPanel4.Controls.Add(this.Txt_Name, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.comboCarProvince, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.combMeet, 1, 5);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
@@ -278,6 +287,14 @@
             this.Txt_Topic.Name = "Txt_Topic";
             this.Txt_Topic.Size = new System.Drawing.Size(406, 31);
             this.Txt_Topic.TabIndex = 10;
+            // 
+            // Txt_LicensePlate
+            // 
+            this.Txt_LicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txt_LicensePlate.Location = new System.Drawing.Point(176, 282);
+            this.Txt_LicensePlate.Name = "Txt_LicensePlate";
+            this.Txt_LicensePlate.Size = new System.Drawing.Size(406, 31);
+            this.Txt_LicensePlate.TabIndex = 9;
             // 
             // Txt_IDCard
             // 
@@ -360,7 +377,7 @@
             // 
             this.comboCarProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboCarProvince.FormattingEnabled = true;
-            this.comboCarProvince.Location = new System.Drawing.Point(176, 196);
+            this.comboCarProvince.Location = new System.Drawing.Point(176, 202);
             this.comboCarProvince.Name = "comboCarProvince";
             this.comboCarProvince.Size = new System.Drawing.Size(406, 33);
             this.comboCarProvince.TabIndex = 12;
@@ -369,7 +386,7 @@
             // 
             this.combMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.combMeet.FormattingEnabled = true;
-            this.combMeet.Location = new System.Drawing.Point(176, 453);
+            this.combMeet.Location = new System.Drawing.Point(176, 459);
             this.combMeet.Name = "combMeet";
             this.combMeet.Size = new System.Drawing.Size(406, 33);
             this.combMeet.TabIndex = 13;
@@ -552,17 +569,19 @@
             this.btnDeleteCam.UseVisualStyleBackColor = true;
             this.btnDeleteCam.Click += new System.EventHandler(this.btnDeleteCam_Click);
             // 
-            // openFileDialog1
+            // btnBlacklist
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // Txt_LicensePlate
-            // 
-            this.Txt_LicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_LicensePlate.Location = new System.Drawing.Point(176, 282);
-            this.Txt_LicensePlate.Name = "Txt_LicensePlate";
-            this.Txt_LicensePlate.Size = new System.Drawing.Size(406, 31);
-            this.Txt_LicensePlate.TabIndex = 9;
+            this.btnBlacklist.BackColor = System.Drawing.Color.Red;
+            this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBlacklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlacklist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBlacklist.Location = new System.Drawing.Point(335, 0);
+            this.btnBlacklist.Margin = new System.Windows.Forms.Padding(6);
+            this.btnBlacklist.Name = "btnBlacklist";
+            this.btnBlacklist.Size = new System.Drawing.Size(129, 102);
+            this.btnBlacklist.TabIndex = 3;
+            this.btnBlacklist.Text = "Blacklist";
+            this.btnBlacklist.UseVisualStyleBackColor = false;
             // 
             // frmIn
             // 
@@ -642,5 +661,6 @@
         private System.Windows.Forms.Button btnDeleteCam;
         private System.Windows.Forms.ComboBox combMeet;
         private System.Windows.Forms.TextBox Txt_LicensePlate;
+        private System.Windows.Forms.Button btnBlacklist;
     }
 }

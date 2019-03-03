@@ -42,7 +42,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         {
             var filter = new VisitorFilter()
             {
-                TYPE = "IN",
+                //TYPE = "IN",
                 ID_CARD = txtIDCard.Text,
                 LICENSE_PLATE = txtLicense.Text,
                 NO = txtNo.Text
@@ -55,6 +55,11 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         private void btnSearch_Click(object sender, EventArgs e)
         {
             BindGridData();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

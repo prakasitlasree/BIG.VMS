@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormCarMasterDetail
 {
-    public partial class frmCarModelMaster : Form
+    public partial class frmCarModelMaster : PageBase
     {
         public frmCarModelMaster()
         {
             InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmCarModelMaster_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

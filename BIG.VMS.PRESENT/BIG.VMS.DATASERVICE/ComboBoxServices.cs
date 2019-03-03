@@ -203,5 +203,23 @@ namespace BIG.VMS.DATASERVICE
             }
             return listData;
         }
+
+        public List<ComboBoxItem> GetComboVisitorType()
+        {
+            List<ComboBoxItem> listData = new List<ComboBoxItem>();
+            try
+            {
+                ComboBoxItem data = new ComboBoxItem();
+                data.Text = "เข้า";
+                data.Value = 1;
+                listData.Add(data);
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listData;
+        }
     }
 }

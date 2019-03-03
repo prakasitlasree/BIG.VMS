@@ -56,7 +56,7 @@ namespace BIG.VMS.DATASERVICE
                 try
                 {
                     var listData = new List<TRN_APPOINTMENT>();
-                    listData = GetListAppointment(obj.Filter);
+                    listData = GetListAppointmentQuery(obj).ToList();
                     result.ResultObj = listData;
                     result.Status = true;
                     result.Message = "Retrive Data Successful";
@@ -77,38 +77,42 @@ namespace BIG.VMS.DATASERVICE
             throw new NotImplementedException();
         }
 
-        public List<TRN_APPOINTMENT> GetListAppointment(AppointmentFilter filter)
+        public IQueryable<TRN_APPOINTMENT> GetListAppointmentQuery(ContainerAppointment obj)
         {
-            List<TRN_APPOINTMENT> listData = new List<TRN_APPOINTMENT>();
+
             try
             {
-                using (var ctx = new BIG_VMSEntities())
-                {
-                    IQueryable<TRN_APPOINTMENT> query = ctx.TRN_APPOINTMENT;
-                    if (filter != null)
-                    {
-                        if (!string.IsNullOrEmpty(filter.ID_CARD))
-                        {
-                            query = query.Where(o => o.REQUEST_ID_CARD == filter.ID_CARD);
-                        }
-                        if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
-                        {
-                            query = query.Where(o => o.REQUEST_LICENSE_PLATE == filter.LICENSE_PLATE);
-                        }
-                        if (!string.IsNullOrEmpty(filter.NAME))
-                        {
-                            query = query.Where(o => o.REQUEST_FIRST_NAME.Contains(filter.NAME) || o.REQUEST_LAST_NAME.Contains(filter.NAME));
-                        }
-                        if (filter.CONTACT_DATE != null && filter.CONTACT_DATE != DateTime.MinValue)
-                        {
-                            query = query.Where(o => o.CONTACT_DATE == filter.CONTACT_DATE);
-                        }
-                    }
+                var ctx = new BIG_VMSEntities();
 
-                    listData = query.ToList();
+                var filter = obj.Filter;
+                IQueryable<TRN_APPOINTMENT> query = ctx.TRN_APPOINTMENT;
+                if (filter != null)
+                {
+                    if (!string.IsNullOrEmpty(filter.ID_CARD))
+                    {
+                        query = query.Where(o => o.REQUEST_ID_CARD == filter.ID_CARD);
+                    }
+                    if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
+                    {
+                        query = query.Where(o => o.REQUEST_LICENSE_PLATE == filter.LICENSE_PLATE);
+                    }
+                    if (!string.IsNullOrEmpty(filter.NAME))
+                    {
+                        query = query.Where(o => o.REQUEST_FIRST_NAME.Contains(filter.NAME) || o.REQUEST_LAST_NAME.Contains(filter.NAME));
+                    }
+                    if (filter.CONTACT_DATE != null && filter.CONTACT_DATE != DateTime.MinValue)
+                    {
+                        query = query.Where(o => o.CONTACT_DATE == filter.CONTACT_DATE);
+                    }
+                    return query;
+                }
+                else
+                {
+                    return query;
                 }
 
-                return listData;
+
+
             }
             catch
             {

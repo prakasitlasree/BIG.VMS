@@ -168,5 +168,10 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
         {
             picPhoto.Image = BIG.VMS.PRESENT.Properties.Resources.emploee;  
         }
+
+        private void btnVehicle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
