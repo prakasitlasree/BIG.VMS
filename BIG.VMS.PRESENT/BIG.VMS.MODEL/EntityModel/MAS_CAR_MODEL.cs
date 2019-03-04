@@ -24,7 +24,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public string NAME { get; set; }
         public string COLOR { get; set; }
     
-        public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
         public virtual MAS_CAR_BRAND MAS_CAR_BRAND { get; set; }
+        public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
     }
 }

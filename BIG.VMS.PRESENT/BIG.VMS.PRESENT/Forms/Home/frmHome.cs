@@ -1,8 +1,10 @@
-﻿using BIG.VMS.PRESENT.Forms.FormAppoinment;
+﻿using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.PRESENT.Forms.FormAppoinment;
 using BIG.VMS.PRESENT.Forms.FormComeOften;
 using BIG.VMS.PRESENT.Forms.FormIn;
 using BIG.VMS.PRESENT.Forms.FormOut;
 using BIG.VMS.PRESENT.Forms.FormReport;
+using BIG.VMS.PRESENT.Forms.FormVisitor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +32,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            frmInList frm = new frmInList();
+            frmVisitor frm = new frmVisitor();
             frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.WindowState = FormWindowState.Maximized;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
             frm.MdiParent = this.ParentForm;
             frm.Show();
             this.Close();
@@ -40,9 +43,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnOut_Click(object sender, EventArgs e)
         {
-            frmOutList frm = new frmOutList();
+            frmVisitor frm = new frmVisitor();
             frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.WindowState = FormWindowState.Maximized;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.Out;
             frm.MdiParent = this.ParentForm;
             frm.Show();
             this.Close();
@@ -50,9 +54,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnRegular_Click(object sender, EventArgs e)
         {
-            frmComeOftenList frm = new frmComeOftenList();
+            frmVisitor frm = new frmVisitor();
             frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.WindowState = FormWindowState.Maximized;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.ComeOften;
             frm.MdiParent = this.ParentForm;
             frm.Show();
             this.Close();
@@ -60,7 +65,18 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnAhead_Click(object sender, EventArgs e)
         {
-            frmAppoinmentList frm = new frmAppoinmentList();
+            frmVisitor frm = new frmVisitor();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.Appointment;
+            frm.MdiParent = this.ParentForm;
+            frm.Show();
+            this.Close(); ;
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReportList frm = new frmReportList();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this.ParentForm;
@@ -68,9 +84,9 @@ namespace BIG.VMS.PRESENT.Forms.Home
             this.Close();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
+        private void btnAllVisitor_Click(object sender, EventArgs e)
         {
-            frmReportList frm = new frmReportList();
+            frmAllvisitor frm = new frmAllvisitor();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this.ParentForm;

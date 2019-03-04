@@ -6,7 +6,7 @@ using BIG.VMS.DATASERVICE;
 
 namespace BIG.VMS.PRESENT
 {
-    public partial class LogOn : Form
+    public partial class LogOn : PageBase
     {
         public LogOn()
         {
@@ -21,10 +21,12 @@ namespace BIG.VMS.PRESENT
             var res = service.Retrieve(container);
             if (res.Status)
             {
+                //USER = txtUsername.Text;
                 var obj = (MEMBER_LOGON)res.ResultObj; 
                 var frm = new FrmMain();
+               
+                frm.User = txtUsername.Text;
                 frm.Show(this);
-
                 this.Hide();
 
                 OnClearScreen();

@@ -52,7 +52,26 @@ namespace BIG.VMS.DATASERVICE
 
         public ContainerAuthentication Create(ContainerAuthentication obj)
         {
-            throw new NotImplementedException();
+            var result = new ContainerAuthentication();
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+                    ctx.MEMBER_LOGON.Add(obj.MEMBER_LOGON);
+                    ctx.SaveChanges();
+                    result.Status = true;
+                    result.Message = "Save Successful";
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString();
+                }
+
+            }
+
+            return result;
         }
 
         public ContainerAuthentication Update(ContainerAuthentication obj)

@@ -2,7 +2,7 @@
 
 namespace BIG.VMS.MODEL.CustomModel
 {
-    public class ContainerVisitor
+    public class ContainerAuthentication  
     {
         public bool Status { get; set; }
 
@@ -12,8 +12,8 @@ namespace BIG.VMS.MODEL.CustomModel
 
         public dynamic ResultObj { get; set; }
 
-        public dynamic Filter { get; set; }
+        public  dynamic Filter { get; set; }
 
-        public TRN_VISITOR TRN_VISITOR { get; set; }
+        public MEMBER_LOGON MEMBER_LOGON { get; set; }
     }
 }

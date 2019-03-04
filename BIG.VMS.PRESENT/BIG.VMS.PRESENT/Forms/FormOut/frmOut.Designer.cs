@@ -33,9 +33,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtMeet = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.txtTopic = new System.Windows.Forms.TextBox();
             this.txtLicensePLate = new System.Windows.Forms.TextBox();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.comboVehicle = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReadCard = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBlacklist = new System.Windows.Forms.Button();
             this.btnPhoto = new System.Windows.Forms.Button();
-            this.comboVehicle = new System.Windows.Forms.ComboBox();
+            this.comboMeet = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
@@ -131,22 +131,12 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "รูปจากบัตร";
             // 
-            // txtMeet
-            // 
-            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeet.Location = new System.Drawing.Point(240, 372);
-            this.txtMeet.Name = "txtMeet";
-            this.txtMeet.Size = new System.Drawing.Size(342, 31);
-            this.txtMeet.TabIndex = 11;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.52863F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.47137F));
-            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtLicensePLate, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
@@ -157,6 +147,7 @@
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtName, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.comboVehicle, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.comboMeet, 1, 5);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -170,14 +161,14 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(585, 426);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // txtPurpose
+            // txtTopic
             // 
-            this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurpose.Location = new System.Drawing.Point(240, 299);
-            this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(342, 31);
-            this.txtPurpose.TabIndex = 10;
+            this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTopic.Location = new System.Drawing.Point(240, 299);
+            this.txtTopic.Name = "txtTopic";
+            this.txtTopic.Size = new System.Drawing.Size(342, 31);
+            this.txtTopic.TabIndex = 10;
             // 
             // txtLicensePLate
             // 
@@ -272,6 +263,16 @@
             this.txtName.Size = new System.Drawing.Size(342, 31);
             this.txtName.TabIndex = 6;
             // 
+            // comboVehicle
+            // 
+            this.comboVehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboVehicle.FormattingEnabled = true;
+            this.comboVehicle.Location = new System.Drawing.Point(240, 158);
+            this.comboVehicle.Name = "comboVehicle";
+            this.comboVehicle.Size = new System.Drawing.Size(342, 33);
+            this.comboVehicle.TabIndex = 12;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -299,6 +300,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "บันทึก/พิมพ์";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReadCard
             // 
@@ -444,15 +446,15 @@
             this.btnPhoto.Text = "ถ่ายรูป";
             this.btnPhoto.UseVisualStyleBackColor = false;
             // 
-            // comboVehicle
+            // comboMeet
             // 
-            this.comboVehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboVehicle.FormattingEnabled = true;
-            this.comboVehicle.Location = new System.Drawing.Point(240, 164);
-            this.comboVehicle.Name = "comboVehicle";
-            this.comboVehicle.Size = new System.Drawing.Size(342, 33);
-            this.comboVehicle.TabIndex = 12;
+            this.comboMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboMeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboMeet.FormattingEnabled = true;
+            this.comboMeet.Location = new System.Drawing.Point(240, 371);
+            this.comboMeet.Name = "comboMeet";
+            this.comboMeet.Size = new System.Drawing.Size(342, 33);
+            this.comboMeet.TabIndex = 13;
             // 
             // frmOut
             // 
@@ -464,6 +466,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmOut";
             this.Text = "ออก";
+            this.Load += new System.EventHandler(this.frmOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -487,9 +490,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtMeet;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.TextBox txtTopic;
         private System.Windows.Forms.TextBox txtLicensePLate;
         private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label2;
@@ -513,5 +515,6 @@
         private System.Windows.Forms.Button btnPhoto;
         private System.Windows.Forms.Button btnBlacklist;
         private System.Windows.Forms.ComboBox comboVehicle;
+        private System.Windows.Forms.ComboBox comboMeet;
     }
 }

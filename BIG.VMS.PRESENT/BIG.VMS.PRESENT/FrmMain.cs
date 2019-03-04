@@ -8,6 +8,7 @@ namespace BIG.VMS.PRESENT
 {
     public partial class FrmMain : Form
     {
+        public string User { get; set; }
         public FrmMain()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace BIG.VMS.PRESENT
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel2.Text = User;
             //============ เปลี่ยนสี MDI form ===============
             foreach (Control ctrl in this.Controls)
             {

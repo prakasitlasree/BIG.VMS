@@ -16,5 +16,10 @@ namespace BIG.VMS.PRESENT.Forms.FormAppoinment
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -87,6 +87,30 @@
     <Compile Include="Forms\FormAppoinment\frmAppoinmentList.Designer.cs">
       <DependentUpon>frmAppoinmentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarBrandMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarBrandMaster.Designer.cs">
+      <DependentUpon>frmCarBrandMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarMasterDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarMasterDetail.Designer.cs">
+      <DependentUpon>frmCarMasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarModelMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarModelMaster.Designer.cs">
+      <DependentUpon>frmCarModelMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\frmCarTypeMaster.Designer.cs">
+      <DependentUpon>frmCarTypeMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormComeOften\frmComeOften.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +177,18 @@
     <Compile Include="Forms\FormReport\frmReportList.Designer.cs">
       <DependentUpon>frmReportList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitor.Designer.cs">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorList.Designer.cs">
+      <DependentUpon>frmVisitorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +229,18 @@
     <EmbeddedResource Include="Forms\FormAppoinment\frmAppoinmentList.resx">
       <DependentUpon>frmAppoinmentList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCarMasterDetail\frmCarBrandMaster.resx">
+      <DependentUpon>frmCarBrandMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCarMasterDetail\frmCarMasterDetail.resx">
+      <DependentUpon>frmCarMasterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCarMasterDetail\frmCarModelMaster.resx">
+      <DependentUpon>frmCarModelMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCarMasterDetail\frmCarTypeMaster.resx">
+      <DependentUpon>frmCarTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormComeOften\frmComeOften.resx">
       <DependentUpon>frmComeOften.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +273,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport\frmReportList.resx">
       <DependentUpon>frmReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmVisitor.resx">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmVisitorList.resx">
+      <DependentUpon>frmVisitorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
