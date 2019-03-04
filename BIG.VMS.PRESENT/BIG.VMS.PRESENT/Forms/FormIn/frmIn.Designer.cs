@@ -146,6 +146,7 @@
             this.Txt_No.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Txt_No.Location = new System.Drawing.Point(118, 31);
             this.Txt_No.Name = "Txt_No";
+            this.Txt_No.ReadOnly = true;
             this.Txt_No.Size = new System.Drawing.Size(109, 37);
             this.Txt_No.TabIndex = 1;
             // 
@@ -375,6 +376,7 @@
             // Combo_CarType
             // 
             this.Combo_CarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Combo_CarType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Combo_CarType.FormattingEnabled = true;
             this.Combo_CarType.Location = new System.Drawing.Point(176, 200);
             this.Combo_CarType.Name = "Combo_CarType";
@@ -428,7 +430,7 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel6.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel1, 1, 0);
@@ -455,9 +457,9 @@
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.bthCardDelete);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(203, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(177, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(214, 39);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // brn_UploadImgCard
