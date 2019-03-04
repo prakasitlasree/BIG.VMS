@@ -87,6 +87,7 @@
     <Compile Include="Forms\FormAppoinment\frmAppoinmentList.Designer.cs">
       <DependentUpon>frmAppoinmentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCarMasterDetail\containcarmodel.cs" />
     <Compile Include="Forms\FormCarMasterDetail\frmCarBrandMaster.cs">
       <SubType>Form</SubType>
     </Compile>

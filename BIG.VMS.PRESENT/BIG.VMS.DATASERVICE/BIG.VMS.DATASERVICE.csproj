@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="AppointmentServices.cs" />
     <Compile Include="AuthenticationServices.cs" />
+    <Compile Include="CarBrandServices.cs" />
+    <Compile Include="CarModelServices.cs" />
     <Compile Include="ComboBoxServices.cs" />
     <Compile Include="HardwareServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

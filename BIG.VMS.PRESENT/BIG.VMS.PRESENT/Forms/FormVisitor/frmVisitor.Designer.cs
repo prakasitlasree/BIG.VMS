@@ -36,7 +36,7 @@
             this.btnReadCard = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutCar = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblCarType = new System.Windows.Forms.Label();
             this.lblMeetDate = new System.Windows.Forms.Label();
             this.txtLicenseNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@
             this.comboProvince = new System.Windows.Forms.ComboBox();
             this.txtLicenseText = new System.Windows.Forms.TextBox();
             this.dtMeetDate = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblCarBrand = new System.Windows.Forms.Label();
+            this.lblCarModel = new System.Windows.Forms.Label();
             this.comboCarType = new System.Windows.Forms.ComboBox();
             this.comboCarBrand = new System.Windows.Forms.ComboBox();
             this.comboCarModel = new System.Windows.Forms.ComboBox();
@@ -205,7 +205,7 @@
             this.tableLayoutCar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutCar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tableLayoutCar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutCar.Controls.Add(this.label13, 0, 6);
+            this.tableLayoutCar.Controls.Add(this.lblCarType, 0, 6);
             this.tableLayoutCar.Controls.Add(this.lblMeetDate, 0, 5);
             this.tableLayoutCar.Controls.Add(this.txtLicenseNumber, 1, 3);
             this.tableLayoutCar.Controls.Add(this.label5, 0, 2);
@@ -216,8 +216,8 @@
             this.tableLayoutCar.Controls.Add(this.comboProvince, 1, 1);
             this.tableLayoutCar.Controls.Add(this.txtLicenseText, 1, 2);
             this.tableLayoutCar.Controls.Add(this.dtMeetDate, 1, 5);
-            this.tableLayoutCar.Controls.Add(this.label14, 0, 7);
-            this.tableLayoutCar.Controls.Add(this.label15, 0, 8);
+            this.tableLayoutCar.Controls.Add(this.lblCarBrand, 0, 7);
+            this.tableLayoutCar.Controls.Add(this.lblCarModel, 0, 8);
             this.tableLayoutCar.Controls.Add(this.comboCarType, 1, 6);
             this.tableLayoutCar.Controls.Add(this.comboCarBrand, 1, 7);
             this.tableLayoutCar.Controls.Add(this.comboCarModel, 1, 8);
@@ -241,23 +241,23 @@
             this.tableLayoutCar.Size = new System.Drawing.Size(390, 294);
             this.tableLayoutCar.TabIndex = 3;
             // 
-            // label13
+            // lblCarType
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(98, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 25);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "ประเภท";
+            this.lblCarType.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCarType.AutoSize = true;
+            this.lblCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarType.Location = new System.Drawing.Point(98, 192);
+            this.lblCarType.Name = "lblCarType";
+            this.lblCarType.Size = new System.Drawing.Size(73, 25);
+            this.lblCarType.TabIndex = 33;
+            this.lblCarType.Text = "ประเภท";
             // 
             // lblMeetDate
             // 
             this.lblMeetDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblMeetDate.AutoSize = true;
             this.lblMeetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeetDate.Location = new System.Drawing.Point(52, 153);
+            this.lblMeetDate.Location = new System.Drawing.Point(52, 154);
             this.lblMeetDate.Name = "lblMeetDate";
             this.lblMeetDate.Size = new System.Drawing.Size(119, 25);
             this.lblMeetDate.TabIndex = 31;
@@ -268,7 +268,7 @@
             this.txtLicenseNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLicenseNumber.Enabled = false;
             this.txtLicenseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicenseNumber.Location = new System.Drawing.Point(177, 113);
+            this.txtLicenseNumber.Location = new System.Drawing.Point(177, 114);
             this.txtLicenseNumber.Name = "txtLicenseNumber";
             this.txtLicenseNumber.Size = new System.Drawing.Size(177, 31);
             this.txtLicenseNumber.TabIndex = 21;
@@ -278,7 +278,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 79);
+            this.label5.Location = new System.Drawing.Point(3, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 25);
             this.label5.TabIndex = 4;
@@ -289,7 +289,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 41);
+            this.label6.Location = new System.Drawing.Point(21, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 25);
             this.label6.TabIndex = 1;
@@ -323,7 +323,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(54, 116);
+            this.label10.Location = new System.Drawing.Point(54, 117);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 25);
             this.label10.TabIndex = 18;
@@ -345,7 +345,7 @@
             this.txtLicenseText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLicenseText.Enabled = false;
             this.txtLicenseText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicenseText.Location = new System.Drawing.Point(177, 76);
+            this.txtLicenseText.Location = new System.Drawing.Point(177, 77);
             this.txtLicenseText.Name = "txtLicenseText";
             this.txtLicenseText.Size = new System.Drawing.Size(177, 31);
             this.txtLicenseText.TabIndex = 20;
@@ -355,32 +355,32 @@
             this.dtMeetDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtMeetDate.Enabled = false;
             this.dtMeetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtMeetDate.Location = new System.Drawing.Point(177, 150);
+            this.dtMeetDate.Location = new System.Drawing.Point(177, 151);
             this.dtMeetDate.Name = "dtMeetDate";
             this.dtMeetDate.Size = new System.Drawing.Size(177, 31);
             this.dtMeetDate.TabIndex = 32;
             // 
-            // label14
+            // lblCarBrand
             // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(124, 228);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 25);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "ยี่ห้อ";
+            this.lblCarBrand.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCarBrand.AutoSize = true;
+            this.lblCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarBrand.Location = new System.Drawing.Point(124, 231);
+            this.lblCarBrand.Name = "lblCarBrand";
+            this.lblCarBrand.Size = new System.Drawing.Size(47, 25);
+            this.lblCarBrand.TabIndex = 34;
+            this.lblCarBrand.Text = "ยี่ห้อ";
             // 
-            // label15
+            // lblCarModel
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(136, 266);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 25);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "รุ่น";
+            this.lblCarModel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCarModel.AutoSize = true;
+            this.lblCarModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarModel.Location = new System.Drawing.Point(136, 270);
+            this.lblCarModel.Name = "lblCarModel";
+            this.lblCarModel.Size = new System.Drawing.Size(35, 25);
+            this.lblCarModel.TabIndex = 35;
+            this.lblCarModel.Text = "รุ่น";
             // 
             // comboCarType
             // 
@@ -388,7 +388,7 @@
             this.comboCarType.Enabled = false;
             this.comboCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCarType.FormattingEnabled = true;
-            this.comboCarType.Location = new System.Drawing.Point(177, 187);
+            this.comboCarType.Location = new System.Drawing.Point(177, 188);
             this.comboCarType.Name = "comboCarType";
             this.comboCarType.Size = new System.Drawing.Size(177, 33);
             this.comboCarType.TabIndex = 36;
@@ -400,7 +400,7 @@
             this.comboCarBrand.Enabled = false;
             this.comboCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCarBrand.FormattingEnabled = true;
-            this.comboCarBrand.Location = new System.Drawing.Point(177, 225);
+            this.comboCarBrand.Location = new System.Drawing.Point(177, 227);
             this.comboCarBrand.Name = "comboCarBrand";
             this.comboCarBrand.Size = new System.Drawing.Size(177, 33);
             this.comboCarBrand.TabIndex = 37;
@@ -412,7 +412,7 @@
             this.comboCarModel.Enabled = false;
             this.comboCarModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCarModel.FormattingEnabled = true;
-            this.comboCarModel.Location = new System.Drawing.Point(177, 263);
+            this.comboCarModel.Location = new System.Drawing.Point(177, 266);
             this.comboCarModel.Name = "comboCarModel";
             this.comboCarModel.Size = new System.Drawing.Size(177, 33);
             this.comboCarModel.TabIndex = 38;
@@ -423,9 +423,9 @@
             this.btnAddCarModel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddCarModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCarModel.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCarModel.Image")));
-            this.btnAddCarModel.Location = new System.Drawing.Point(360, 263);
+            this.btnAddCarModel.Location = new System.Drawing.Point(360, 266);
             this.btnAddCarModel.Name = "btnAddCarModel";
-            this.btnAddCarModel.Size = new System.Drawing.Size(27, 32);
+            this.btnAddCarModel.Size = new System.Drawing.Size(27, 33);
             this.btnAddCarModel.TabIndex = 39;
             this.btnAddCarModel.UseVisualStyleBackColor = false;
             this.btnAddCarModel.Click += new System.EventHandler(this.btnAddCarModel_Click);
@@ -436,9 +436,9 @@
             this.btnAddCarBrand.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddCarBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCarBrand.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCarBrand.Image")));
-            this.btnAddCarBrand.Location = new System.Drawing.Point(360, 225);
+            this.btnAddCarBrand.Location = new System.Drawing.Point(360, 227);
             this.btnAddCarBrand.Name = "btnAddCarBrand";
-            this.btnAddCarBrand.Size = new System.Drawing.Size(27, 32);
+            this.btnAddCarBrand.Size = new System.Drawing.Size(27, 33);
             this.btnAddCarBrand.TabIndex = 40;
             this.btnAddCarBrand.UseVisualStyleBackColor = false;
             this.btnAddCarBrand.Click += new System.EventHandler(this.btnAddCarBrand_Click);
@@ -573,7 +573,7 @@
             this.Lbl_Topic.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Lbl_Topic.AutoSize = true;
             this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Topic.Location = new System.Drawing.Point(34, 191);
+            this.Lbl_Topic.Location = new System.Drawing.Point(34, 222);
             this.Lbl_Topic.Name = "Lbl_Topic";
             this.Lbl_Topic.Size = new System.Drawing.Size(120, 25);
             this.Lbl_Topic.TabIndex = 6;
@@ -586,7 +586,7 @@
             this.Txt_Topic.Location = new System.Drawing.Point(160, 176);
             this.Txt_Topic.Multiline = true;
             this.Txt_Topic.Name = "Txt_Topic";
-            this.Txt_Topic.Size = new System.Drawing.Size(242, 56);
+            this.Txt_Topic.Size = new System.Drawing.Size(242, 118);
             this.Txt_Topic.TabIndex = 11;
             // 
             // Lbl_IDCard
@@ -654,11 +654,11 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 0);
+            this.label2.Location = new System.Drawing.Point(81, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 25);
+            this.label2.Size = new System.Drawing.Size(73, 25);
             this.label2.TabIndex = 3;
-            this.label2.Text = "รายละเอียด";
+            this.label2.Text = "ประเภท";
             // 
             // Txt_No
             // 
@@ -966,9 +966,9 @@
         private System.Windows.Forms.Label lblMeetDate;
         private System.Windows.Forms.DateTimePicker dtMeetDate;
         private System.Windows.Forms.Label lblMode;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblCarType;
+        private System.Windows.Forms.Label lblCarBrand;
+        private System.Windows.Forms.Label lblCarModel;
         private System.Windows.Forms.ComboBox comboCarType;
         private System.Windows.Forms.ComboBox comboCarBrand;
         private System.Windows.Forms.ComboBox comboCarModel;

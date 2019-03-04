@@ -30,11 +30,11 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCarBrand = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboCarType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,13 +62,13 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "ยี่ห้อรถ";
             // 
-            // textBox2
+            // txtCarBrand
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(148, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(334, 31);
-            this.textBox2.TabIndex = 6;
+            this.txtCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarBrand.Location = new System.Drawing.Point(148, 42);
+            this.txtCarBrand.Name = "txtCarBrand";
+            this.txtCarBrand.Size = new System.Drawing.Size(334, 31);
+            this.txtCarBrand.TabIndex = 6;
             // 
             // tableLayoutPanel2
             // 
@@ -108,16 +108,17 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "บันทึก";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // comboBox1
+            // comboCarType
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(148, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(334, 33);
-            this.comboBox1.TabIndex = 7;
+            this.comboCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCarType.FormattingEnabled = true;
+            this.comboCarType.Location = new System.Drawing.Point(148, 3);
+            this.comboCarType.Name = "comboCarType";
+            this.comboCarType.Size = new System.Drawing.Size(334, 33);
+            this.comboCarType.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -127,8 +128,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtCarBrand, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboCarType, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -158,12 +159,12 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCarBrand;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboCarType;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

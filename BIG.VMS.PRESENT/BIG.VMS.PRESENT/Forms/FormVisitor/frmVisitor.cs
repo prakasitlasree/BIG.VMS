@@ -60,24 +60,25 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if (visitorMode == VisitorMode.In)
             {
                 lblMode.Text = "เข้า";
-                // btnMeet.Visible = false;
-                //btnVehicle.Visible = false;
                 lblMeetDate.Visible = false;
                 dtMeetDate.Visible = false;
+                lblMeetDate.Visible = false;
                 comboCarType.Visible = false;
                 comboCarBrand.Visible = false;
                 comboCarModel.Visible = false;
                 btnAddCarBrand.Visible = false;
                 btnAddCarModel.Visible = false;
+                lblCarBrand.Visible = false;
+                lblCarType.Visible = false;
+                lblCarModel.Visible = false;
             }
             else if (visitorMode == VisitorMode.Out)
             {
                 lblMode.Text = "ออก";
-                //btnMeet.Visible = false;
-                //btnVehicle.Visible = false;
                 Txt_Topic.Visible = false;
                 lblMeetDate.Visible = false;
                 dtMeetDate.Visible = false;
+                lblMeetDate.Visible = false;
                 tableLayoutCar.Visible = false;
                 tableLayoutMeet.Visible = false;
                 comboCarType.Visible = false;
@@ -85,25 +86,30 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 comboCarModel.Visible = false;
                 btnAddCarBrand.Visible = false;
                 btnAddCarModel.Visible = false;
+                lblCarBrand.Visible = false;
+                lblCarType.Visible = false;
+                lblCarModel.Visible = false;
 
             }
             else if (visitorMode == VisitorMode.Appointment)
             {
                 lblMode.Text = "นัดล่วงหน้า";
-                //btnBlacklist.Visible = false;
+               
             }
             else if (visitorMode == VisitorMode.ComeOften)
             {
                 lblMode.Text = "มาประจำ";
-                //btnMeet.Visible = false;
-                //btnVehicle.Visible = false;
                 lblMeetDate.Visible = false;
                 dtMeetDate.Visible = false;
+                lblMeetDate.Visible = false;
                 comboCarType.Visible = false;
                 comboCarBrand.Visible = false;
                 comboCarModel.Visible = false;
                 btnAddCarBrand.Visible = false;
                 btnAddCarModel.Visible = false;
+                lblCarBrand.Visible = false;
+                lblCarType.Visible = false;
+                lblCarModel.Visible = false;
             }
 
 
@@ -133,6 +139,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             AddRangeComboBox(comboProvince, _comboService.GetComboProvince());
             AddRangeComboBox(comboCarType, _comboService.GetComboCarType());
         }
+
         private void comboCarType_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddRangeComboBox(comboCarBrand, _comboService.GetComboCarBrandByTypeID(Convert.ToInt32(comboCarType.SelectedValue)));
@@ -142,7 +149,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             AddRangeComboBox(comboCarModel, _comboService.GetComboCarModelByBrandID(Convert.ToInt32(comboCarBrand.SelectedValue)));
         }
-
 
         private void comboDept_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -181,7 +187,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             if (IsValidCheckPersonID(Txt_IDCard.Text))
             {
-                DialogResult result = MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรอไม่", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     Save();
@@ -189,7 +195,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
             else
             {
-                DialogResult result = MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -284,7 +290,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             if (res.Status)
             {
-                MessageBox.Show(Message.MSG_SAVE_COMPLETE);
+                //MessageBox.Show(Message.MSG_SAVE_COMPLETE);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 

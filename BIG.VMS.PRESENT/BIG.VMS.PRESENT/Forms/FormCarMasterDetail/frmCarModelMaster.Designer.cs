@@ -33,13 +33,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.comboCarType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboCarBrand = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCarColor = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "บันทึก";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -104,23 +105,24 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "ยี่ห้อรถ";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(148, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(334, 31);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(148, 81);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(334, 31);
+            this.txtName.TabIndex = 6;
             // 
-            // comboBox1
+            // comboCarType
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(148, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(334, 33);
-            this.comboBox1.TabIndex = 7;
+            this.comboCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCarType.FormattingEnabled = true;
+            this.comboCarType.Location = new System.Drawing.Point(148, 3);
+            this.comboCarType.Name = "comboCarType";
+            this.comboCarType.Size = new System.Drawing.Size(334, 33);
+            this.comboCarType.TabIndex = 7;
+            this.comboCarType.SelectedIndexChanged += new System.EventHandler(this.comboCarType_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -129,13 +131,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboCarType, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboCarBrand, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtCarColor, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -148,15 +150,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(485, 224);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
-            // comboBox2
+            // comboCarBrand
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(148, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(334, 33);
-            this.comboBox2.TabIndex = 8;
+            this.comboCarBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCarBrand.FormattingEnabled = true;
+            this.comboCarBrand.Location = new System.Drawing.Point(148, 42);
+            this.comboCarBrand.Name = "comboCarBrand";
+            this.comboCarBrand.Size = new System.Drawing.Size(334, 33);
+            this.comboCarBrand.TabIndex = 8;
             // 
             // label3
             // 
@@ -180,13 +182,13 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "สี";
             // 
-            // textBox1
+            // txtCarColor
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(148, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 31);
-            this.textBox1.TabIndex = 11;
+            this.txtCarColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarColor.Location = new System.Drawing.Point(148, 118);
+            this.txtCarColor.Name = "txtCarColor";
+            this.txtCarColor.Size = new System.Drawing.Size(334, 31);
+            this.txtCarColor.TabIndex = 11;
             // 
             // frmCarModelMaster
             // 
@@ -212,12 +214,12 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ComboBox comboCarType;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboCarBrand;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCarColor;
     }
 }
