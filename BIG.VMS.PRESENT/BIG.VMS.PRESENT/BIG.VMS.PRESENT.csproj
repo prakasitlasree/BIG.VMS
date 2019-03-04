@@ -331,6 +331,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Master\" />
     <Folder Include="ResourceFile\icon\" />
     <Folder Include="ResourceFile\ico\" />
     <Folder Include="Resources\" />
