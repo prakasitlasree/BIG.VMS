@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelCarModel = new System.Windows.Forms.Panel();
+            this.panelCarBrand = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtCarModel = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtCarModel = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCarBrand = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.txtCarType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelCarType = new System.Windows.Forms.Panel();
-            this.panelCarBrand = new System.Windows.Forms.Panel();
-            this.panelCarModel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -68,29 +68,41 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // panelCarModel
+            // 
+            this.panelCarModel.AutoScroll = true;
+            this.panelCarModel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelCarModel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCarModel.Location = new System.Drawing.Point(658, 69);
+            this.panelCarModel.Name = "panelCarModel";
+            this.panelCarModel.Size = new System.Drawing.Size(323, 589);
+            this.panelCarModel.TabIndex = 6;
+            // 
+            // panelCarBrand
+            // 
+            this.panelCarBrand.AutoScroll = true;
+            this.panelCarBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelCarBrand.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCarBrand.Location = new System.Drawing.Point(330, 69);
+            this.panelCarBrand.Name = "panelCarBrand";
+            this.panelCarBrand.Size = new System.Drawing.Size(322, 589);
+            this.panelCarBrand.TabIndex = 6;
+            // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.Controls.Add(this.txtCarModel, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txtCarModel, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(658, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(321, 60);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(323, 60);
             this.tableLayoutPanel4.TabIndex = 4;
-            // 
-            // txtCarModel
-            // 
-            this.txtCarModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCarModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarModel.Location = new System.Drawing.Point(44, 14);
-            this.txtCarModel.Name = "txtCarModel";
-            this.txtCarModel.Size = new System.Drawing.Size(274, 31);
-            this.txtCarModel.TabIndex = 0;
-            this.txtCarModel.TextChanged += new System.EventHandler(this.txtCarModel_TextChanged);
             // 
             // label3
             // 
@@ -103,18 +115,30 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "รุ่น";
             // 
+            // txtCarModel
+            // 
+            this.txtCarModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCarModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarModel.Location = new System.Drawing.Point(44, 14);
+            this.txtCarModel.Name = "txtCarModel";
+            this.txtCarModel.Size = new System.Drawing.Size(276, 31);
+            this.txtCarModel.TabIndex = 0;
+            this.txtCarModel.TextChanged += new System.EventHandler(this.txtCarModel_TextChanged);
+            // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.Controls.Add(this.txtCarBrand, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(330, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(321, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(322, 60);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // txtCarBrand
@@ -123,7 +147,7 @@
             this.txtCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarBrand.Location = new System.Drawing.Point(56, 14);
             this.txtCarBrand.Name = "txtCarBrand";
-            this.txtCarBrand.Size = new System.Drawing.Size(262, 31);
+            this.txtCarBrand.Size = new System.Drawing.Size(263, 31);
             this.txtCarBrand.TabIndex = 0;
             this.txtCarBrand.TextChanged += new System.EventHandler(this.txtCarBrand_TextChanged);
             // 
@@ -140,11 +164,13 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Cyan;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.Controls.Add(this.txtCarType, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
@@ -175,35 +201,25 @@
             // 
             // panelCarType
             // 
+            this.panelCarType.AutoScroll = true;
+            this.panelCarType.BackColor = System.Drawing.Color.Cyan;
             this.panelCarType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCarType.Location = new System.Drawing.Point(3, 69);
             this.panelCarType.Name = "panelCarType";
             this.panelCarType.Size = new System.Drawing.Size(321, 589);
             this.panelCarType.TabIndex = 5;
             // 
-            // panelCarBrand
-            // 
-            this.panelCarBrand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCarBrand.Location = new System.Drawing.Point(330, 69);
-            this.panelCarBrand.Name = "panelCarBrand";
-            this.panelCarBrand.Size = new System.Drawing.Size(322, 589);
-            this.panelCarBrand.TabIndex = 6;
-            // 
-            // panelCarModel
-            // 
-            this.panelCarModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCarModel.Location = new System.Drawing.Point(658, 69);
-            this.panelCarModel.Name = "panelCarModel";
-            this.panelCarModel.Size = new System.Drawing.Size(323, 589);
-            this.panelCarModel.TabIndex = 6;
-            // 
             // frmCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCar";
             this.Load += new System.EventHandler(this.frmCar_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

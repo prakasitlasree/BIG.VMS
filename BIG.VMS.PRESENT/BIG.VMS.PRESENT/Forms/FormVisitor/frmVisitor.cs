@@ -1,8 +1,6 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
-using BIG.VMS.PRESENT.Forms.FormCarMasterDetail;
-using BIG.VMS.PRESENT.Forms.Home;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,105 +13,65 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    public partial class frmVisitor : PageBase
+    public partial class frmVisitor : Form
     {
         public FormMode formMode = new FormMode();
         public VisitorMode visitorMode = new VisitorMode();
         private readonly VisitorServices _service = new VisitorServices();
-        private ContainerVisitor _container = null;
+        private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
+
+        public int contactEmployeeId = 0;
+        public int provinceId = 0;
+        public int carModelId = 0;
+
+
         public frmVisitor()
         {
             InitializeComponent();
         }
 
-
-
         private void frmVisitor_Load(object sender, EventArgs e)
         {
-            SetControl();
-            if (formMode == FormMode.Add)
+            try
             {
                 InitialLoad();
-                InitialComboBox();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void SetControl()
+        private void Lbl_Vahicle_Click(object sender, EventArgs e)
         {
 
-            if (formMode == FormMode.View)
-            {
-                foreach (var control in this.Controls)
-                {
-                    if (control is TextBox)
-                    {
-                        ((TextBox)control).Enabled = false;
-                    }
-                    else if (control is Button)
-                    {
-                        ((Button)control).Enabled = false;
-                    }
-                }
-            }
+        }
 
-            if (visitorMode == VisitorMode.In)
+        private void btnVehicle_Click(object sender, EventArgs e)
+        {
+            frmCar frm = new frmCar();
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                lblMode.Text = "เข้า";
-                lblMeetDate.Visible = false;
-                dtMeetDate.Visible = false;
-                lblMeetDate.Visible = false;
-                comboCarType.Visible = false;
-                comboCarBrand.Visible = false;
-                comboCarModel.Visible = false;
-                btnAddCarBrand.Visible = false;
-                btnAddCarModel.Visible = false;
-                lblCarBrand.Visible = false;
-                lblCarType.Visible = false;
-                lblCarModel.Visible = false;
-            }
-            else if (visitorMode == VisitorMode.Out)
-            {
-                lblMode.Text = "ออก";
-                Txt_Topic.Visible = false;
-                lblMeetDate.Visible = false;
-                dtMeetDate.Visible = false;
-                lblMeetDate.Visible = false;
-                tableLayoutCar.Visible = false;
-                tableLayoutMeet.Visible = false;
-                comboCarType.Visible = false;
-                comboCarBrand.Visible = false;
-                comboCarModel.Visible = false;
-                btnAddCarBrand.Visible = false;
-                btnAddCarModel.Visible = false;
-                lblCarBrand.Visible = false;
-                lblCarType.Visible = false;
-                lblCarModel.Visible = false;
 
             }
-            else if (visitorMode == VisitorMode.Appointment)
-            {
-                lblMode.Text = "นัดล่วงหน้า";
-               
-            }
-            else if (visitorMode == VisitorMode.ComeOften)
-            {
-                lblMode.Text = "มาประจำ";
-                lblMeetDate.Visible = false;
-                dtMeetDate.Visible = false;
-                lblMeetDate.Visible = false;
-                comboCarType.Visible = false;
-                comboCarBrand.Visible = false;
-                comboCarModel.Visible = false;
-                btnAddCarBrand.Visible = false;
-                btnAddCarModel.Visible = false;
-                lblCarBrand.Visible = false;
-                lblCarType.Visible = false;
-                lblCarModel.Visible = false;
-            }
+        }
 
+        private void btnMeet_Click(object sender, EventArgs e)
+        {
+            frmEmployee frm = new frmEmployee();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void btnTopic_Click(object sender, EventArgs e)
+        {
 
         }
+
 
         private void InitialLoad()
         {
@@ -123,7 +81,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 int no = Convert.ToInt32(res.TRN_VISITOR.NO);
                 no = no + 1;
-                Txt_No.Text = no.ToString("D6");
+                txtNo.Text = no.ToString("D6");
             }
             else
             {
@@ -132,111 +90,42 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private void InitialComboBox()
-        {
-
-            AddRangeComboBox(comboDept, _comboService.GetComboDepartment());
-            AddRangeComboBox(comboProvince, _comboService.GetComboProvince());
-            AddRangeComboBox(comboCarType, _comboService.GetComboCarType());
-        }
-
-        private void comboCarType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AddRangeComboBox(comboCarBrand, _comboService.GetComboCarBrandByTypeID(Convert.ToInt32(comboCarType.SelectedValue)));
-        }
-
-        private void comboCarBrand_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AddRangeComboBox(comboCarModel, _comboService.GetComboCarModelByBrandID(Convert.ToInt32(comboCarBrand.SelectedValue)));
-        }
-
-        private void comboDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AddRangeComboBox(comboEmployee, _comboService.GetComboEmployeeByDepartmentID(Convert.ToInt32(comboDept.SelectedValue)));
-        }
-
-        private void chkCar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkCar.Checked)
-            {
-                comboProvince.Enabled = true;
-                txtLicenseText.Enabled = true;
-                txtLicenseNumber.Enabled = true;
-                dtMeetDate.Enabled = true;
-                comboCarModel.Enabled = true;
-                comboCarType.Enabled = true;
-                comboCarBrand.Enabled = true;
-                btnAddCarBrand.Enabled = true;
-                btnAddCarModel.Enabled = true;
-            }
-            else
-            {
-                comboProvince.Enabled = false;
-                txtLicenseText.Enabled = false;
-                txtLicenseNumber.Enabled = false;
-                dtMeetDate.Enabled = false;
-                comboCarModel.Enabled = false;
-                comboCarType.Enabled = false;
-                comboCarBrand.Enabled = false;
-                btnAddCarBrand.Enabled = false;
-                btnAddCarModel.Enabled = false;
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (IsValidCheckPersonID(Txt_IDCard.Text))
-            {
-                DialogResult result = MessageBox.Show("", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    Save();
-                }
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("", Message.MSG_SAVE_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            
-        }
-
         private void Save()
         {
 
             var obj = new TRN_VISITOR
             {
-                NO = Txt_No.Text.Trim(),
-                ID_CARD = Txt_IDCard.Text.Trim(),
-                LICENSE_PLATE = txtLicenseText.Text.Trim() + " " + txtLicenseNumber.Text.Trim(),
-                TOPIC = Txt_Topic.Text.Trim(),
-
-                LICENSE_PLATE_PROVINCE_ID = comboProvince.SelectedValue == null ? (int?)null : Convert.ToInt32(comboProvince.SelectedValue),
-                CONTACT_EMPLOYEE_ID = comboEmployee.SelectedValue == null ? (int?)null : Convert.ToInt32(comboEmployee.SelectedValue),
+                NO = txtNo.Text.Trim(),
+                ID_CARD = txtIDCard.Text.Trim(),
+                FIRST_NAME = txtFirstName.Text.Trim(),
+                LAST_NAME = txtLastName.Text.Trim(),
+                LICENSE_PLATE = txtLicense.Text.Trim(),
+                TOPIC = txtTopic.Text.Trim(),
+                CONTACT_EMPLOYEE_ID = contactEmployeeId,
+                CAR_MODEL_ID = carModelId,
+                LICENSE_PLATE_PROVINCE_ID = provinceId,
 
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
+
             };
 
-
-            #region === VISITOR ===
             if (visitorMode == VisitorMode.In)
             {
-                obj.TYPE = "IN";
+                obj.TYPE = "เข้า";
             }
-            else if (visitorMode == VisitorMode.Out)
+            if (visitorMode == VisitorMode.Out)
             {
-                obj.TYPE = "OUT";
+                obj.TYPE = "ออห";
             }
-            else if (visitorMode == VisitorMode.ComeOften)
+            if (visitorMode == VisitorMode.Appointment)
             {
-                obj.TYPE = "COME OFTEN";
+                obj.TYPE = "นัดล่วงหน้า";
             }
-            else if (visitorMode == VisitorMode.Appointment)
+            if (visitorMode == VisitorMode.ComeOften)
             {
-                obj.TYPE = "APPOINTMENT";
-                SaveAppointment();
+                obj.TYPE = "มาประจำ";
             }
-            #endregion
 
             var container = new ContainerVisitor { TRN_VISITOR = obj };
 
@@ -246,14 +135,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 MessageBox.Show(Message.MSG_SAVE_COMPLETE);
                 this.DialogResult = DialogResult.OK;
-
-                frmAllvisitor frm = new frmAllvisitor();
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.WindowState = FormWindowState.Maximized;
-                frm.MdiParent = this.ParentForm;
-                frm.Show();
-
-                //this.Close();
                 this.Close();
 
             }
@@ -264,94 +145,46 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private void SaveAppointment()
+        private void chkKeyIn_CheckedChanged(object sender, EventArgs e)
         {
-            var obj = new TRN_APPOINTMENT
+            if (chkKeyIn.Checked)
             {
-                REQUEST_FIRST_NAME = Txt_Name.Text,
-                REQUEST_LAST_NAME = Txt_LastName.Text,
-                REQUEST_ID_CARD = Txt_IDCard.Text,
-                REQUEST_LICENSE_PLATE = txtLicenseText.Text.Trim() + " " + txtLicenseNumber.Text.Trim(),
-                REQUEST_LICENSE_PLATE_PROVINCE_ID = comboProvince.SelectedValue == null ? (int?)null : Convert.ToInt32(comboProvince.SelectedValue),
-                REQUEST_CAR_MODEL_ID = comboCarModel.SelectedValue == null ? (int?)null : Convert.ToInt32(comboCarModel.SelectedValue),
-                //STATUS
-                CONTACT_TOPIC = Txt_Topic.Text,
-                CONTACT_EMPLOYEE_ID = comboEmployee.SelectedValue == null ? (int?)null : Convert.ToInt32(comboEmployee.SelectedValue),
-                CONTACT_DATE = dtMeetDate.Value,
-
-                CREATED_DATE = DateTime.Now,
-                UPDATED_DATE = DateTime.Now,
-
-            };
-
-            var container = new ContainerAppointment { TRN_APPOINTMENT = obj };
-            AppointmentServices _service = new AppointmentServices();
-            var res = _service.Create(container);
-
-            if (res.Status)
-            {
-                //MessageBox.Show(Message.MSG_SAVE_COMPLETE);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                txtFirstName.Enabled = true;
+                txtLastName.Enabled = true;
+                txtIDCard.Enabled = true;
 
             }
             else
             {
-                MessageBox.Show(res.Message + res.ExceptionMessage);
+                txtFirstName.Enabled = false;
+                txtLastName.Enabled = false;
+                txtIDCard.Enabled = false;
             }
         }
 
-        private void btnAddCarBrand_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            frmCarBrandMaster frm = new frmCarBrandMaster();
-            frm.ShowDialog();
-        }
-
-        private void btnAddCarModel_Click(object sender, EventArgs e)
-        {
-            frmCarModelMaster frm = new frmCarModelMaster();
-            frm.ShowDialog();
-        }
-
-        private bool IsValidCheckPersonID(string pid)
-        {
-
-            char[] numberChars = pid.ToCharArray();
-
-            int total = 0;
-            int mul = 13;
-            int mod = 0, mod2 = 0;
-            int nsub = 0;
-            int numberChars12 = 0;
-
-            for (int i = 0; i < numberChars.Length - 1; i++)
+            if (!string.IsNullOrEmpty(txtFirstName.Text) &&
+                !string.IsNullOrEmpty(txtLastName.Text) &&
+                !string.IsNullOrEmpty(txtIDCard.Text) &&
+                !string.IsNullOrEmpty(txtLicense.Text) &&
+                !string.IsNullOrEmpty(txtMeet.Text) &&
+                !string.IsNullOrEmpty(txtProvince.Text) &&
+                !string.IsNullOrEmpty(txtTopic.Text) &&
+                !string.IsNullOrEmpty(txtCar.Text))
             {
-                int num = 0;
-                int.TryParse(numberChars[i].ToString(), out num);
+                if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Save();
+                }
 
-                total = total + num * mul;
-                mul = mul - 1;
-
-                //Debug.Log(total + " - " + num + " - "+mul);
+            }
+            else
+            {
+                MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            mod = total % 11;
-            nsub = 11 - mod;
-            mod2 = nsub % 10;
 
-            //Debug.Log(mod);
-            //Debug.Log(nsub);
-            //Debug.Log(mod2);
-
-
-            int.TryParse(numberChars[12].ToString(), out numberChars12);
-
-            //Debug.Log(numberChars12);
-
-            if (mod2 != numberChars12)
-                return false;
-            else
-                return true;
         }
     }
 }

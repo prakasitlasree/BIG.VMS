@@ -251,7 +251,7 @@
             // 
             this.comboType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboType.FormattingEnabled = true;
-            this.comboType.Location = new System.Drawing.Point(401, 44);
+            this.comboType.Location = new System.Drawing.Point(401, 39);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(206, 33);
             this.comboType.TabIndex = 9;

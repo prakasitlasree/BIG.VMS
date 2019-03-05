@@ -43,7 +43,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnOut_Click(object sender, EventArgs e)
         {
-            frmVisitor frm = new frmVisitor();
+            frmVisitor_11 frm = new frmVisitor_11();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.formMode = FormMode.Add;
             frm.visitorMode = VisitorMode.Out;
@@ -54,7 +54,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnRegular_Click(object sender, EventArgs e)
         {
-            frmVisitor frm = new frmVisitor();
+            frmVisitor_11 frm = new frmVisitor_11();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.formMode = FormMode.Add;
             frm.visitorMode = VisitorMode.ComeOften;
@@ -65,7 +65,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnAhead_Click(object sender, EventArgs e)
         {
-            frmVisitor frm = new frmVisitor();
+            frmVisitor_11 frm = new frmVisitor_11();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.formMode = FormMode.Add;
             frm.visitorMode = VisitorMode.Appointment;

@@ -37,6 +37,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Top;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(241, 252, 156);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
@@ -59,6 +60,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Top;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(246, 252, 201);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
@@ -81,6 +83,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Top;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(241, 252, 156);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
@@ -105,6 +108,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Top;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(246, 252, 201);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
