@@ -68,6 +68,16 @@
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
           <Property Name="UPDATED_DATE" Type="datetime" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -94,9 +104,12 @@
           </Key>
           <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NO" Type="nvarchar" MaxLength="50" />
-          <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_CARD" Type="nvarchar" MaxLength="14" />
           <Property Name="ID_CARD_PHOTO" Type="varbinary(max)" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="LAST_NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="CAR_MODEL_ID" Type="int" />
           <Property Name="LICENSE_PLATE" Type="nvarchar" MaxLength="500" />
           <Property Name="LICENSE_PLATE_PROVINCE_ID" Type="int" />
           <Property Name="TOPIC" Type="nvarchar(max)" />
@@ -211,6 +224,7 @@
           <EntitySet Name="MAS_EMPLOYEE" EntityType="Self.MAS_EMPLOYEE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAS_PROVINCE" EntityType="Self.MAS_PROVINCE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMBER_LOGON" EntityType="Self.MEMBER_LOGON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="Self.TRN_APPOINTMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_VISITOR" EntityType="Self.TRN_VISITOR" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_MAS_CAR_BRAND_MAS_CAR_TYPE" Association="Self.FK_MAS_CAR_BRAND_MAS_CAR_TYPE">
@@ -258,6 +272,7 @@
           <EntitySet Name="MAS_EMPLOYEE" EntityType="BIG_VMSModel.MAS_EMPLOYEE" />
           <EntitySet Name="MAS_PROVINCE" EntityType="BIG_VMSModel.MAS_PROVINCE" />
           <EntitySet Name="MEMBER_LOGON" EntityType="BIG_VMSModel.MEMBER_LOGON" />
+          <EntitySet Name="sysdiagrams" EntityType="BIG_VMSModel.sysdiagrams" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="BIG_VMSModel.TRN_APPOINTMENT" />
           <EntitySet Name="TRN_VISITOR" EntityType="BIG_VMSModel.TRN_VISITOR" />
           <AssociationSet Name="FK_MAS_CAR_BRAND_MAS_CAR_TYPE" Association="BIG_VMSModel.FK_MAS_CAR_BRAND_MAS_CAR_TYPE">
@@ -367,6 +382,16 @@
           <Property Name="UPDATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -396,9 +421,12 @@
           </Key>
           <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_CARD" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
           <Property Name="ID_CARD_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CAR_MODEL_ID" Type="Int32" />
           <Property Name="LICENSE_PLATE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="LICENSE_PLATE_PROVINCE_ID" Type="Int32" />
           <Property Name="TOPIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -583,6 +611,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BIG_VMSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TRN_APPOINTMENT">
             <EntityTypeMapping TypeName="BIG_VMSModel.TRN_APPOINTMENT">
               <MappingFragment StoreEntitySet="TRN_APPOINTMENT">
@@ -616,9 +655,12 @@
                 <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
                 <ScalarProperty Name="LICENSE_PLATE_PROVINCE_ID" ColumnName="LICENSE_PLATE_PROVINCE_ID" />
                 <ScalarProperty Name="LICENSE_PLATE" ColumnName="LICENSE_PLATE" />
+                <ScalarProperty Name="CAR_MODEL_ID" ColumnName="CAR_MODEL_ID" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
                 <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="NO" ColumnName="NO" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>

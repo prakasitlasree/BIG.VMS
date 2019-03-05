@@ -76,12 +76,23 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            frmReportList frm = new frmReportList();
+            //frmReportList frm = new frmReportList();
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.MdiParent = this.ParentForm;
+            //frm.Show();
+            //this.Close();
+
+            frmCar frm = new frmCar();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.WindowState = FormWindowState.Maximized;
-            frm.MdiParent = this.ParentForm;
-            frm.Show();
-            this.Close();
+            //frm.MdiParent = this.ParentForm;
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                //var x = frm.selectedEmployeeID;
+                this.Close();
+            }
         }
 
         private void btnAllVisitor_Click(object sender, EventArgs e)

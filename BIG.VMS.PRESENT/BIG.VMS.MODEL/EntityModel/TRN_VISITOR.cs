@@ -16,9 +16,12 @@ namespace BIG.VMS.MODEL.EntityModel
     {
         public int AUTO_ID { get; set; }
         public string NO { get; set; }
-        public string TYPE { get; set; }
         public string ID_CARD { get; set; }
         public byte[] ID_CARD_PHOTO { get; set; }
+        public string TYPE { get; set; }
+        public string FIRST_NAME { get; set; }
+        public string LAST_NAME { get; set; }
+        public Nullable<int> CAR_MODEL_ID { get; set; }
         public string LICENSE_PLATE { get; set; }
         public Nullable<int> LICENSE_PLATE_PROVINCE_ID { get; set; }
         public string TOPIC { get; set; }

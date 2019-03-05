@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.PRESENT.Forms.FormVisitor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -148,6 +149,16 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         BindGridData();
                     }
                     break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmEmployee frm = new frmEmployee();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                var x = frm.selectedEmployeeID;
+               
             }
         }
     }
