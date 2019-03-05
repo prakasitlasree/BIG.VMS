@@ -71,6 +71,8 @@
           </Key>
           <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="REASON" Type="nvarchar" MaxLength="500" />
+          <Property Name="SHOW_FLAG" Type="nvarchar" MaxLength="50" />
+          <Property Name="SHOW_SEQ" Type="int" />
         </EntityType>
         <EntityType Name="MEMBER_LOGON">
           <Key>
@@ -488,6 +490,8 @@
           <Property Name="REASON" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TRN_APPOINTMENT" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_APPOINTMENT" />
           <NavigationProperty Name="TRN_VISITOR" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_VISITOR" />
+          <Property Name="SHOW_FLAG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SHOW_SEQ" Type="Int32" />
         </EntityType>
         <EntityType Name="MEMBER_LOGON">
           <Key>
@@ -786,6 +790,8 @@
           <EntitySetMapping Name="MAS_REASON">
             <EntityTypeMapping TypeName="BIG_VMSModel.MAS_REASON">
               <MappingFragment StoreEntitySet="MAS_REASON">
+                <ScalarProperty Name="SHOW_SEQ" ColumnName="SHOW_SEQ" />
+                <ScalarProperty Name="SHOW_FLAG" ColumnName="SHOW_FLAG" />
                 <ScalarProperty Name="REASON" ColumnName="REASON" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
