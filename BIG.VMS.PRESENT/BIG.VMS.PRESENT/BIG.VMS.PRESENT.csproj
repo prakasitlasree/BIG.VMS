@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Forms\FormAppoinment\frmAppoinment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,12 +215,19 @@
     <Compile Include="Forms\Home\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master\ReadCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\ReadCard.Designer.cs">
+      <DependentUpon>ReadCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\RDNIDWRAPPER.cs" />
     <Compile Include="LogOn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +247,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CardHelper.cs" />
     <EmbeddedResource Include="Forms\FormAppoinment\frmAppoinment.resx">
       <DependentUpon>frmAppoinment.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +320,9 @@
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\ReadCard.resx">
+      <DependentUpon>ReadCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +355,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RDNIDLib.DLD">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -358,7 +373,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Master\" />
     <Folder Include="ResourceFile\icon\" />
     <Folder Include="ResourceFile\ico\" />
     <Folder Include="Resources\" />
@@ -374,6 +388,9 @@
     <Content Include="dll\System.Windows.Forms.Ribbon35.dll" />
     <Content Include="dll\WebCam_Capture.dll" />
     <Content Include="lock.ico" />
+    <Content Include="RDNIDlibD.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ResourceFile\48_add.png" />
     <Content Include="ResourceFile\48_close.png" />
     <Content Include="ResourceFile\48_home.png" />

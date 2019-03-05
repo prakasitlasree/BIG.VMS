@@ -108,18 +108,18 @@
             // dtMeetDate
             // 
             this.dtMeetDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtMeetDate.Location = new System.Drawing.Point(680, 208);
+            this.dtMeetDate.Location = new System.Drawing.Point(718, 205);
             this.dtMeetDate.Name = "dtMeetDate";
-            this.dtMeetDate.Size = new System.Drawing.Size(389, 31);
+            this.dtMeetDate.Size = new System.Drawing.Size(351, 37);
             this.dtMeetDate.TabIndex = 31;
             // 
             // comboDept
             // 
             this.comboDept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboDept.FormattingEnabled = true;
-            this.comboDept.Location = new System.Drawing.Point(680, 85);
+            this.comboDept.Location = new System.Drawing.Point(718, 83);
             this.comboDept.Name = "comboDept";
-            this.comboDept.Size = new System.Drawing.Size(389, 33);
+            this.comboDept.Size = new System.Drawing.Size(351, 38);
             this.comboDept.TabIndex = 27;
             this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
             // 
@@ -127,18 +127,18 @@
             // 
             this.comboMeetName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboMeetName.FormattingEnabled = true;
-            this.comboMeetName.Location = new System.Drawing.Point(680, 149);
+            this.comboMeetName.Location = new System.Drawing.Point(718, 147);
             this.comboMeetName.Name = "comboMeetName";
-            this.comboMeetName.Size = new System.Drawing.Size(389, 33);
+            this.comboMeetName.Size = new System.Drawing.Size(351, 38);
             this.comboMeetName.TabIndex = 25;
             // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(555, 211);
+            this.label12.Location = new System.Drawing.Point(559, 208);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 25);
+            this.label12.Size = new System.Drawing.Size(153, 31);
             this.label12.TabIndex = 30;
             this.label12.Text = "วันที่จะเข้าพบ";
             // 
@@ -147,18 +147,18 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(555, 16);
+            this.label9.Location = new System.Drawing.Point(559, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 31);
+            this.label9.Size = new System.Drawing.Size(148, 39);
             this.label9.TabIndex = 17;
             this.label9.Text = "ผู้นัดหมาย";
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Location = new System.Drawing.Point(160, 80);
+            this.txtFirstName.Location = new System.Drawing.Point(202, 77);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(389, 31);
+            this.txtFirstName.Size = new System.Drawing.Size(351, 37);
             this.txtFirstName.TabIndex = 3;
             // 
             // label1
@@ -167,9 +167,9 @@
             this.label1.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.label1, 2);
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 31);
+            this.label1.Size = new System.Drawing.Size(323, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "บุคคลที่ต้องการนัดหมาย";
             // 
@@ -177,9 +177,9 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(555, 147);
+            this.label10.Location = new System.Drawing.Point(559, 144);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 25);
+            this.label10.Size = new System.Drawing.Size(138, 31);
             this.label10.TabIndex = 18;
             this.label10.Text = "ชื่อ-นามสกุล";
             // 
@@ -187,9 +187,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 83);
+            this.label2.Location = new System.Drawing.Point(3, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 25);
+            this.label2.Size = new System.Drawing.Size(43, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "ชื่อ";
             // 
@@ -197,9 +197,9 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(555, 83);
+            this.label7.Location = new System.Drawing.Point(559, 80);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 25);
+            this.label7.Size = new System.Drawing.Size(124, 31);
             this.label7.TabIndex = 15;
             this.label7.Text = "ฝ่าย/แผนก";
             // 
@@ -207,9 +207,9 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 147);
+            this.label11.Location = new System.Drawing.Point(3, 144);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 25);
+            this.label11.Size = new System.Drawing.Size(100, 31);
             this.label11.TabIndex = 34;
             this.label11.Text = "นามสกุล";
             // 
@@ -217,54 +217,54 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 211);
+            this.label3.Location = new System.Drawing.Point(3, 208);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 25);
+            this.label3.Size = new System.Drawing.Size(193, 31);
             this.label3.TabIndex = 11;
             this.label3.Text = "เลขบัตรประชาชน";
             // 
             // txtSurName
             // 
             this.txtSurName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSurName.Location = new System.Drawing.Point(160, 144);
+            this.txtSurName.Location = new System.Drawing.Point(202, 141);
             this.txtSurName.Name = "txtSurName";
-            this.txtSurName.Size = new System.Drawing.Size(389, 31);
+            this.txtSurName.Size = new System.Drawing.Size(351, 37);
             this.txtSurName.TabIndex = 33;
             this.txtSurName.TextChanged += new System.EventHandler(this.txtSurName_TextChanged);
             // 
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Location = new System.Drawing.Point(160, 208);
+            this.txtIDCard.Location = new System.Drawing.Point(202, 205);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(389, 31);
+            this.txtIDCard.Size = new System.Drawing.Size(351, 37);
             this.txtIDCard.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 275);
+            this.label4.Location = new System.Drawing.Point(3, 272);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 25);
+            this.label4.Size = new System.Drawing.Size(128, 31);
             this.label4.TabIndex = 28;
             this.label4.Text = "ยานภาหนะ";
             // 
             // txtCarLicense
             // 
             this.txtCarLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCarLicense.Location = new System.Drawing.Point(160, 400);
+            this.txtCarLicense.Location = new System.Drawing.Point(202, 397);
             this.txtCarLicense.Name = "txtCarLicense";
-            this.txtCarLicense.Size = new System.Drawing.Size(389, 31);
+            this.txtCarLicense.Size = new System.Drawing.Size(351, 37);
             this.txtCarLicense.TabIndex = 10;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 339);
+            this.label13.Location = new System.Drawing.Point(3, 336);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(150, 25);
+            this.label13.Size = new System.Drawing.Size(193, 31);
             this.label13.TabIndex = 36;
             this.label13.Text = "จังหวัดทะเบียนรถ";
             // 
@@ -272,9 +272,9 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 403);
+            this.label5.Location = new System.Drawing.Point(3, 400);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 25);
+            this.label5.Size = new System.Drawing.Size(97, 31);
             this.label5.TabIndex = 13;
             this.label5.Text = "ทะเบียน";
             // 
@@ -282,18 +282,18 @@
             // 
             this.comboVehicleModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboVehicleModel.FormattingEnabled = true;
-            this.comboVehicleModel.Location = new System.Drawing.Point(160, 277);
+            this.comboVehicleModel.Location = new System.Drawing.Point(202, 275);
             this.comboVehicleModel.Name = "comboVehicleModel";
-            this.comboVehicleModel.Size = new System.Drawing.Size(389, 33);
+            this.comboVehicleModel.Size = new System.Drawing.Size(351, 38);
             this.comboVehicleModel.TabIndex = 29;
             // 
             // comboProvince
             // 
             this.comboProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboProvince.FormattingEnabled = true;
-            this.comboProvince.Location = new System.Drawing.Point(160, 341);
+            this.comboProvince.Location = new System.Drawing.Point(202, 339);
             this.comboProvince.Name = "comboProvince";
-            this.comboProvince.Size = new System.Drawing.Size(389, 33);
+            this.comboProvince.Size = new System.Drawing.Size(351, 38);
             this.comboProvince.TabIndex = 35;
             // 
             // panel1
@@ -301,9 +301,9 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(680, 579);
+            this.panel1.Location = new System.Drawing.Point(718, 579);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 59);
+            this.panel1.Size = new System.Drawing.Size(351, 59);
             this.panel1.TabIndex = 32;
             // 
             // btnCancel
@@ -338,25 +338,25 @@
             // 
             this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.txtPurpose, 2);
-            this.txtPurpose.Location = new System.Drawing.Point(160, 451);
+            this.txtPurpose.Location = new System.Drawing.Point(202, 451);
             this.txtPurpose.Multiline = true;
             this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(514, 58);
+            this.txtPurpose.Size = new System.Drawing.Size(510, 58);
             this.txtPurpose.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 467);
+            this.label6.Location = new System.Drawing.Point(3, 464);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 25);
+            this.label6.Size = new System.Drawing.Size(138, 31);
             this.label6.TabIndex = 14;
             this.label6.Text = "วัตถุประสงค์";
             // 
             // frmAppoinmentKeyIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1072, 641);
