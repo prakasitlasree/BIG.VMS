@@ -92,11 +92,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             if (visitorMode == VisitorMode.In)
             {
-                obj.TYPE = "เข้า";
+                obj.TYPE = "In";
             }
             if (visitorMode == VisitorMode.Out)
             {
-                obj.TYPE = "ออห";
+                obj.TYPE = "Out";
             }
             if (visitorMode == VisitorMode.Appointment)
             {
@@ -115,8 +115,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 MessageBox.Show(Message.MSG_SAVE_COMPLETE);
                 this.DialogResult = DialogResult.OK;
-                this.Close();
-
+                this.Close(); 
             }
             else
             {
@@ -200,7 +199,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnTopic_Click(object sender, EventArgs e)
         {
-           
+            frmReason frm = new frmReason();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                reasonId = frm.SELECTED_REASON_ID;
+                txtTopic.Text = frm.SELECTED_REASON_TEXT;
+            }
         }
 
         private void btnReadCard_Click(object sender, EventArgs e)

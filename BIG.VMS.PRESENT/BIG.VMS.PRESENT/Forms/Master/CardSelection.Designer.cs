@@ -55,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_driving_licence.AutoEllipsis = true;
-            this.btn_driving_licence.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_driving_licence.BackColor = System.Drawing.Color.DarkGreen;
             this.btn_driving_licence.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_driving_licence.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_driving_licence.Location = new System.Drawing.Point(407, 3);
@@ -70,7 +70,7 @@
             this.btn_NID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_NID.BackColor = System.Drawing.Color.Crimson;
+            this.btn_NID.BackColor = System.Drawing.Color.MediumBlue;
             this.btn_NID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_NID.Location = new System.Drawing.Point(3, 3);

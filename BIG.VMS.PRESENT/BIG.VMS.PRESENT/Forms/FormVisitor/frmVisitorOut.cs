@@ -64,7 +64,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 var obj = new TRN_VISITOR();
                 obj = _container.TRN_VISITOR;
-                obj.TYPE = "ออก";
+                obj.TYPE = "Out";
 
                 var container = new ContainerVisitor { TRN_VISITOR = obj };
 

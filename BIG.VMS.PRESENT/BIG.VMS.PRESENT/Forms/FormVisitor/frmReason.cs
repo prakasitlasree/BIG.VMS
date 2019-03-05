@@ -53,7 +53,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void SearchReason(string filter)
         {
             var reason = _comboService.GetComboReason(filter);
-
+            panelReason.Controls.Clear();
             foreach (var item in reason)
             {
                 Button btn = new Button();

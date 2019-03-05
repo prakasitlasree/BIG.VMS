@@ -156,9 +156,9 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::BIG.VMS.PRESENT.Properties.Resources.big_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 125);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 123);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 179);
+            this.pictureBox1.Size = new System.Drawing.Size(214, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -174,7 +174,7 @@
             this.MinimizeBox = false;
             this.Name = "LogOn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogOn";
+            this.Text = "Big Visitor Mangement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogOn_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
