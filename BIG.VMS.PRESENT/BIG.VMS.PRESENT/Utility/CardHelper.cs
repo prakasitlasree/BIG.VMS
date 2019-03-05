@@ -57,12 +57,12 @@ namespace BIG.VMS.PRESENT
             return s;
         }
 
-        public static string DateFormat(String d)
+        public static string DateFormat(string date)
         {
-            string s = "";
-            string _yyyy = d.Substring(0, 4);
-            string _mm = d.Substring(4, 2);
-            string _dd = d.Substring(6, 2);
+            string result = "";
+            string _yyyy = date.Substring(0, 4);
+            string _mm = date.Substring(4, 2);
+            string _dd = date.Substring(6, 2);
 
 
             string[] mm = { "", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค." };
@@ -75,14 +75,19 @@ namespace BIG.VMS.PRESENT
             {
                 _tm = mm[int.Parse(_mm)];
             }
+
             if (_yyyy == "0000")
+            {
                 _yyyy = "-";
+            }
 
             if (_dd == "00")
+            {
                 _dd = "-";
+            }
 
-            s = _dd + " " + _tm + " " + _yyyy;
-            return s;
+            result = _dd + " " + _tm + " " + _yyyy;
+            return result;
         }
     }
 }

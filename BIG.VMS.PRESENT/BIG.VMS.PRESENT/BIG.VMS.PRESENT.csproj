@@ -233,6 +233,12 @@
     <Compile Include="Forms\Home\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master\CardSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\CardSelection.Designer.cs">
+      <DependentUpon>CardSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master\ReadCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\CardSelection.resx">
+      <DependentUpon>CardSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\ReadCard.resx">
       <DependentUpon>ReadCard.cs</DependentUpon>
