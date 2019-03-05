@@ -16,7 +16,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private ComboBoxServices _comboService = new ComboBoxServices();
         private int carType = 0;
         private int carBrand = 0;
-        public int carModel { get; set; }
+        public int SELECTED_CAR_ID { get; set; }
+        public string SELECTED_CAR_TEXT { get; set; }
+
         public frmCar()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Top;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
-                btn.BackColor = Color.FromArgb(232,249,102);
+                btn.BackColor = Color.FromArgb(232, 249, 102);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
@@ -176,7 +178,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             carType = 0;
             carBrand = 0;
-            carModel = 0;
+            SELECTED_CAR_ID = 0;
             panelCarBrand.Controls.Clear();
             panelCarModel.Controls.Clear();
             SearchCarType(txtCarType.Text);
@@ -185,14 +187,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void txtCarBrand_TextChanged(object sender, EventArgs e)
         {
             carBrand = 0;
-            carModel = 0;
+            SELECTED_CAR_ID = 0;
             panelCarModel.Controls.Clear();
             SearchCarBrand(txtCarBrand.Text);
         }
 
         private void txtCarModel_TextChanged(object sender, EventArgs e)
         {
-            carModel = 0;
+            SELECTED_CAR_ID = 0;
             SearchCarModel(txtCarModel.Text);
         }
     }

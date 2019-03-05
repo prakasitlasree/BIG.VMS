@@ -83,9 +83,9 @@ namespace BIG.VMS.PRESENT.Forms.Home
             //frm.Show();
             //this.Close();
 
-            frmCar frm = new frmCar();
-            frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.WindowState = FormWindowState.Maximized;
+            frmProvince frm = new frmProvince();
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.WindowState = FormWindowState.Maximized;
             //frm.MdiParent = this.ParentForm;
 
             if (frm.ShowDialog() == DialogResult.OK)
