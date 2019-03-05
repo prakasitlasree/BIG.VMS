@@ -21,7 +21,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
-
+         
         private int contactEmployeeId = 0;
         private int provinceId = 0;
         private int carModelId = 0;
@@ -219,6 +219,17 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 picCard.Image = (Image)frm.CARD.PHOTO;
 
                 MessageBox.Show("อ่านข้อมูลจากบัตร เรียบร้อย!!!");
+            }
+        }
+
+        private void BtnTakePhoto_Click(object sender, EventArgs e)
+        {
+            var frm = new CameraSelection();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                
+                MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
             }
         }
     }

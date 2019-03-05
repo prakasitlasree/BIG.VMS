@@ -233,6 +233,12 @@
     <Compile Include="Forms\Home\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master\CameraSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\CameraSelection.Designer.cs">
+      <DependentUpon>CameraSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master\CardSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Capture.cs" />
     <Compile Include="Lib\RDNIDWRAPPER.cs" />
     <Compile Include="LogOn.cs">
       <SubType>Form</SubType>
@@ -353,6 +360,9 @@
     <EmbeddedResource Include="Forms\Home\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\CameraSelection.resx">
+      <DependentUpon>CameraSelection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\CardSelection.resx">
       <DependentUpon>CardSelection.cs</DependentUpon>
     </EmbeddedResource>
@@ -415,14 +425,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="delivery.ico" />
-    <Content Include="dll\DirectShowLib-2005.dll" />
+    <Content Include="dll\DirectShowLib-2005.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="dll\MakarovDev.ExpandCollapsePanel.dll" />
     <Content Include="dll\pcsc-sharp.dll" />
     <Content Include="dll\RDNIDlibD.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="dll\System.Windows.Forms.Ribbon35.dll" />
-    <Content Include="dll\WebCam_Capture.dll" />
+    <Content Include="dll\WebCam_Capture.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lock.ico" />
     <Content Include="RDNIDlibD.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

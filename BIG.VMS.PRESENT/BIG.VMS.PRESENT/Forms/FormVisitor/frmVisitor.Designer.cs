@@ -73,12 +73,12 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtCar = new System.Windows.Forms.TextBox();
+            this.lbl_keyin = new System.Windows.Forms.Label();
             this.Lbl_Vahicle = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnProvince = new System.Windows.Forms.Button();
             this.txtProvince = new System.Windows.Forms.TextBox();
-            this.txtCar = new System.Windows.Forms.TextBox();
-            this.lbl_keyin = new System.Windows.Forms.Label();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
@@ -507,6 +507,7 @@
             this.BtnTakePhoto.Text = "ถ่ายรูป";
             this.BtnTakePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnTakePhoto.UseVisualStyleBackColor = false;
+            this.BtnTakePhoto.Click += new System.EventHandler(this.BtnTakePhoto_Click);
             // 
             // btnSave
             // 
@@ -681,6 +682,25 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "ประเภทรถยนต์";
             // 
+            // txtCar
+            // 
+            this.txtCar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCar.Enabled = false;
+            this.txtCar.Location = new System.Drawing.Point(230, 259);
+            this.txtCar.Name = "txtCar";
+            this.txtCar.Size = new System.Drawing.Size(554, 37);
+            this.txtCar.TabIndex = 14;
+            // 
+            // lbl_keyin
+            // 
+            this.lbl_keyin.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbl_keyin.AutoSize = true;
+            this.lbl_keyin.Location = new System.Drawing.Point(3, 5);
+            this.lbl_keyin.Name = "lbl_keyin";
+            this.lbl_keyin.Size = new System.Drawing.Size(221, 31);
+            this.lbl_keyin.TabIndex = 19;
+            this.lbl_keyin.Text = "ประเภทการคีย์ข้อมูล";
+            // 
             // Lbl_Vahicle
             // 
             this.Lbl_Vahicle.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -734,25 +754,6 @@
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(271, 37);
             this.txtProvince.TabIndex = 11;
-            // 
-            // txtCar
-            // 
-            this.txtCar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCar.Enabled = false;
-            this.txtCar.Location = new System.Drawing.Point(230, 259);
-            this.txtCar.Name = "txtCar";
-            this.txtCar.Size = new System.Drawing.Size(554, 37);
-            this.txtCar.TabIndex = 14;
-            // 
-            // lbl_keyin
-            // 
-            this.lbl_keyin.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbl_keyin.AutoSize = true;
-            this.lbl_keyin.Location = new System.Drawing.Point(3, 5);
-            this.lbl_keyin.Name = "lbl_keyin";
-            this.lbl_keyin.Size = new System.Drawing.Size(221, 31);
-            this.lbl_keyin.TabIndex = 19;
-            this.lbl_keyin.Text = "ประเภทการคีย์ข้อมูล";
             // 
             // frmVisitor
             // 
