@@ -1,11 +1,18 @@
-﻿namespace BIG.VMS.MODEL.CustomModel
+﻿using System.Drawing;
+
+namespace BIG.VMS.MODEL.CustomModel
 {
     public class PIDCard
     {
         /// <summary>
+        /// NO,    
+        /// </summary>
+        public string NO { get; set; }
+
+        /// <summary>
         /// TITLE_T,    //Thai title#
         /// </summary>
-        public string THAI_TITLE { get; set; }
+        public string TH_TITLE { get; set; }
 
         /// <summary>
         ///  NAME_T,     //Thai name#
@@ -42,6 +49,8 @@
         /// SURNAME_E,  //Eng surname#
         /// </summary>
         public string EN_LAST_NAME { get; set; }
+
+        public Bitmap PHOTO { get; set; }
 
         /// <summary>
         /// HOME_NO,    //12/34#

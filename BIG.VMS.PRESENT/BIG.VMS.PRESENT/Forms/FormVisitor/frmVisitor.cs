@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BIG.VMS.PRESENT.Forms.Master;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
@@ -189,7 +190,22 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnTopic_Click(object sender, EventArgs e)
         {
+           
+        }
 
+        private void btnReadCard_Click(object sender, EventArgs e)
+        {
+            var frm = new CardSelection();
+            frm.StartPosition  = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
+                txtLastName.Text = frm.CARD.TH_LAST_NAME;
+                txtIDCard.Text = frm.CARD.NO;
+                picCard.Image = (Image)frm.CARD.PHOTO;
+
+                MessageBox.Show("อ่านข้อมูลจากบัตร เรียบร้อย!!!");
+            }
         }
     }
 }

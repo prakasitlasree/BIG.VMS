@@ -41,17 +41,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
                 m = String.Format(" error no {0} ", nres);
                 MessageBox.Show(m);
             }
-
-            byte[] Licinfo = new byte[1024];
-
-            RDNID.getLicenseInfoRD(Licinfo);
-
-            //m_lblDLDInfo.Text = aByteToString(Licinfo);
-
-            byte[] Softinfo = new byte[1024];
-            RDNID.getSoftwareInfoRD(Softinfo);
-            // m_lblSoftwareInfo.Text = aByteToString(Softinfo);
-
+             
             ListCardReader();
 
         }
