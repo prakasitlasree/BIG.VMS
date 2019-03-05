@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BIG.VMS.PRESENT.Forms.Master;
 
 namespace BIG.VMS.PRESENT.Forms.FormIn
 {
@@ -106,7 +107,8 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
 
         private void btnReadCard_Click(object sender, EventArgs e)
         {
-
+            var frm = new CardSelection();
+            frm.ShowDialog();
         }
 
         private void brn_UploadImgCard_Click(object sender, EventArgs e)
