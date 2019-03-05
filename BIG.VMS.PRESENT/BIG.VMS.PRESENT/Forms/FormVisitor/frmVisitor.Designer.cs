@@ -75,9 +75,9 @@
             this.txtMeet = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtCar = new System.Windows.Forms.TextBox();
-            this.txtProvince = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnProvince = new System.Windows.Forms.Button();
+            this.txtProvince = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
@@ -96,6 +96,7 @@
             // txtTopic
             // 
             this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTopic.Enabled = false;
             this.txtTopic.Location = new System.Drawing.Point(167, 186);
             this.txtTopic.Name = "txtTopic";
             this.txtTopic.Size = new System.Drawing.Size(410, 31);
@@ -112,6 +113,7 @@
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDCard.Enabled = false;
             this.txtIDCard.Location = new System.Drawing.Point(167, 149);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(410, 31);
@@ -328,7 +330,6 @@
             this.Lbl_Vahicle.Size = new System.Drawing.Size(66, 25);
             this.Lbl_Vahicle.TabIndex = 2;
             this.Lbl_Vahicle.Text = "จังหวัด";
-            //this.Lbl_Vahicle.Click += new System.EventHandler(this.Lbl_Vahicle_Click);
             // 
             // openFileDialog1
             // 
@@ -535,14 +536,14 @@
             this.tableLayoutPanel4.Controls.Add(this.Lbl_IDCard, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_FirstName, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 9);
             this.tableLayoutPanel4.Controls.Add(this.txtLicense, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtLastName, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.txtCar, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.txtCar, 1, 9);
+            this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -646,8 +647,9 @@
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFirstName.Enabled = false;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(167, 365);
+            this.txtFirstName.Location = new System.Drawing.Point(167, 75);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(410, 31);
             this.txtFirstName.TabIndex = 6;
@@ -655,6 +657,7 @@
             // txtMeet
             // 
             this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeet.Enabled = false;
             this.txtMeet.Location = new System.Drawing.Point(167, 223);
             this.txtMeet.Name = "txtMeet";
             this.txtMeet.Size = new System.Drawing.Size(410, 31);
@@ -663,6 +666,7 @@
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLastName.Enabled = false;
             this.txtLastName.Location = new System.Drawing.Point(167, 112);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(410, 31);
@@ -671,18 +675,11 @@
             // txtCar
             // 
             this.txtCar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCar.Location = new System.Drawing.Point(167, 75);
+            this.txtCar.Enabled = false;
+            this.txtCar.Location = new System.Drawing.Point(167, 365);
             this.txtCar.Name = "txtCar";
             this.txtCar.Size = new System.Drawing.Size(410, 31);
             this.txtCar.TabIndex = 14;
-            // 
-            // txtProvince
-            // 
-            this.txtProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProvince.Location = new System.Drawing.Point(3, 15);
-            this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(199, 31);
-            this.txtProvince.TabIndex = 11;
             // 
             // tableLayoutPanel2
             // 
@@ -716,6 +713,15 @@
             this.btnProvince.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProvince.UseVisualStyleBackColor = false;
             this.btnProvince.Click += new System.EventHandler(this.btnProvince_Click);
+            // 
+            // txtProvince
+            // 
+            this.txtProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProvince.Enabled = false;
+            this.txtProvince.Location = new System.Drawing.Point(3, 15);
+            this.txtProvince.Name = "txtProvince";
+            this.txtProvince.Size = new System.Drawing.Size(199, 31);
+            this.txtProvince.TabIndex = 11;
             // 
             // frmVisitor
             // 

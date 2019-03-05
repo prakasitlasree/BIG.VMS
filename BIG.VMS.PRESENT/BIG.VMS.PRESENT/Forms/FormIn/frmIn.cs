@@ -78,7 +78,7 @@ namespace BIG.VMS.PRESENT.Forms.FormIn
                 NO = Txt_No.Text.Trim(),
                 ID_CARD = Txt_IDCard.Text.Trim(),
                 LICENSE_PLATE = Txt_LicensePlate.Text.Trim(),
-                TOPIC = Txt_Topic.Text.Trim(),
+                //TOPIC = Txt_Topic.Text.Trim(),
                 TYPE = "IN",  
                 //CREATED_BY      
                 CREATED_DATE = DateTime.Now,

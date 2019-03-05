@@ -197,6 +197,12 @@
     <Compile Include="Forms\FormVisitor\frmProvince.Designer.cs">
       <DependentUpon>frmProvince.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmReason.Designer.cs">
+      <DependentUpon>frmReason.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmVisitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmProvince.resx">
       <DependentUpon>frmProvince.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmReason.resx">
+      <DependentUpon>frmReason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmVisitor.resx">
       <DependentUpon>frmVisitor.cs</DependentUpon>

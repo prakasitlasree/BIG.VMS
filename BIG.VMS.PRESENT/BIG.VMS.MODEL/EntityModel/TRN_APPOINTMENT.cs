@@ -22,7 +22,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> REQUEST_LICENSE_PLATE_PROVINCE_ID { get; set; }
         public Nullable<int> REQUEST_CAR_MODEL_ID { get; set; }
         public Nullable<int> CONTACT_EMPLOYEE_ID { get; set; }
-        public string CONTACT_TOPIC { get; set; }
+        public Nullable<int> REASON_ID { get; set; }
         public Nullable<System.DateTime> CONTACT_DATE { get; set; }
         public string STATUS { get; set; }
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
@@ -33,5 +33,8 @@ namespace BIG.VMS.MODEL.EntityModel
         public virtual MAS_CAR_MODEL MAS_CAR_MODEL { get; set; }
         public virtual MAS_EMPLOYEE MAS_EMPLOYEE { get; set; }
         public virtual MAS_PROVINCE MAS_PROVINCE { get; set; }
+        public virtual MAS_REASON MAS_REASON { get; set; }
+        public virtual TRN_APPOINTMENT TRN_APPOINTMENT1 { get; set; }
+        public virtual TRN_APPOINTMENT TRN_APPOINTMENT2 { get; set; }
     }
 }

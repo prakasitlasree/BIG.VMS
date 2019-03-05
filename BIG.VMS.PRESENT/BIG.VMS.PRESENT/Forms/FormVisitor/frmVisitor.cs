@@ -70,7 +70,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 FIRST_NAME = txtFirstName.Text.Trim(),
                 LAST_NAME = txtLastName.Text.Trim(),
                 LICENSE_PLATE = txtLicense.Text.Trim(),
-                TOPIC = txtTopic.Text.Trim(),
+                //TOPIC = txtTopic.Text.Trim(),
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 CAR_MODEL_ID = carModelId,
                 LICENSE_PLATE_PROVINCE_ID = provinceId,
@@ -172,7 +172,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frmCar frm = new frmCar();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-
+                carModelId = frm.SELECTED_CAR_ID;
+                txtCar.Text = frm.SELECTED_CAR_TEXT;
             }
         }
 
@@ -181,7 +182,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frmEmployee frm = new frmEmployee();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-
+                contactEmployeeId = frm.SELECTED_EMPLOYEE_ID;
+                txtMeet.Text = frm.SELECTED_EMPLOYEE_TEXT;
             }
         }
 

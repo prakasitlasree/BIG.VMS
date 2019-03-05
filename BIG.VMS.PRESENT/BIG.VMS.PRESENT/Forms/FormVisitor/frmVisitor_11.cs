@@ -208,7 +208,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 NO = Txt_No.Text.Trim(),
                 ID_CARD = Txt_IDCard.Text.Trim(),
                 LICENSE_PLATE = txtLicenseText.Text.Trim() + " " + txtLicenseNumber.Text.Trim(),
-                TOPIC = Txt_Topic.Text.Trim(),
+                //TOPIC = Txt_Topic.Text.Trim(),
 
                 LICENSE_PLATE_PROVINCE_ID = comboProvince.SelectedValue == null ? (int?)null : Convert.ToInt32(comboProvince.SelectedValue),
                 CONTACT_EMPLOYEE_ID = comboEmployee.SelectedValue == null ? (int?)null : Convert.ToInt32(comboEmployee.SelectedValue),
@@ -275,7 +275,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 REQUEST_LICENSE_PLATE_PROVINCE_ID = comboProvince.SelectedValue == null ? (int?)null : Convert.ToInt32(comboProvince.SelectedValue),
                 REQUEST_CAR_MODEL_ID = comboCarModel.SelectedValue == null ? (int?)null : Convert.ToInt32(comboCarModel.SelectedValue),
                 //STATUS
-                CONTACT_TOPIC = Txt_Topic.Text,
+                //CONTACT_TOPIC = Txt_Topic.Text,
                 CONTACT_EMPLOYEE_ID = comboEmployee.SelectedValue == null ? (int?)null : Convert.ToInt32(comboEmployee.SelectedValue),
                 CONTACT_DATE = dtMeetDate.Value,
 

@@ -191,7 +191,7 @@ namespace BIG.VMS.DATASERVICE
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
-                        data.Text = item.FIRST_NAME + " " + item.LAST_NAME;
+                        data.Text = "คุณ" + item.FIRST_NAME + " " + item.LAST_NAME;
                         data.Value = item.AUTO_ID;
                         listData.Add(data);
                     }
@@ -215,7 +215,7 @@ namespace BIG.VMS.DATASERVICE
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
-                        data.Text = item.FIRST_NAME + " " + item.LAST_NAME;
+                        data.Text = "คุณ" + item.FIRST_NAME + " " + item.LAST_NAME;
                         data.Value = item.AUTO_ID;
                         listData.Add(data);
                     }
@@ -312,6 +312,30 @@ namespace BIG.VMS.DATASERVICE
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
                     var list = ctx.MAS_PROVINCE.OrderBy(o=>o.NAME).ToList();
+                    foreach (var item in list)
+                    {
+                        ComboBoxItem data = new ComboBoxItem();
+                        data.Text = item.NAME;
+                        data.Value = item.AUTO_ID;
+                        listData.Add(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listData;
+        }
+
+        public List<ComboBoxItem> GetComboReson()
+        {
+            List<ComboBoxItem> listData = new List<ComboBoxItem>();
+            try
+            {
+                using (BIG_VMSEntities ctx = new BIG_VMSEntities())
+                {
+                    var list = ctx.MAS_PROVINCE.OrderBy(o => o.NAME).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();

@@ -92,7 +92,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Font = new Font(btn.Font.FontFamily, 20);
                 btn.BackColor = Color.FromArgb(246, 252, 201);
 
-
+                btn.Click += new EventHandler(CarModelSelected_EventHadler);
 
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
@@ -101,6 +101,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
+        private void CarModelSelected_EventHadler(object sender, EventArgs e)
+        {
+            SELECTED_CAR_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_CAR_TEXT = ((Control)sender).Text.ToString();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        
         private void SearchCarType(string filter)
         {
             var carType = _comboService.GetComboCarType(filter);
@@ -167,7 +175,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
 
-                btn.Click += new EventHandler(CarBrandSelected_EventHadler);
+                btn.Click += new EventHandler(CarModelSelected_EventHadler);
 
 
                 panelCarModel.Controls.Add(btn);

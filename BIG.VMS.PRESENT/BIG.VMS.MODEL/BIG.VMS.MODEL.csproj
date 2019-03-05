@@ -60,9 +60,9 @@
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="EntityModel\MAS_CAR_BRAND.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
@@ -80,6 +80,9 @@
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\MAS_PROVINCE.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MAS_REASON.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\MEMBER_LOGON.cs">
@@ -103,17 +106,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityModel\BIG_VMS_DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BIG_VMS_DB.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityModel\BIG_VMS_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BIG_VMS_DB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
