@@ -22,9 +22,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
 
-        public int contactEmployeeId = 0;
-        public int provinceId = 0;
-        public int carModelId = 0;
+        private int contactEmployeeId = 0;
+        private int provinceId = 0;
+        private int carModelId = 0;
+        private int reasonId = 0;
+
+        private string no = "";
 
         public frmVisitor()
         {
@@ -61,6 +64,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
+        private void SetControl()
+        {
+            
+        }
+
         private void Save()
         {
 
@@ -74,6 +82,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 //TOPIC = txtTopic.Text.Trim(),
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 CAR_MODEL_ID = carModelId,
+                REASON_ID =reasonId,
                 LICENSE_PLATE_PROVINCE_ID = provinceId,
 
                 CREATED_DATE = DateTime.Now,
@@ -142,7 +151,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 !string.IsNullOrEmpty(txtMeet.Text) &&
                 !string.IsNullOrEmpty(txtProvince.Text) &&
                 !string.IsNullOrEmpty(txtTopic.Text) &&
-                !string.IsNullOrEmpty(txtCar.Text))
+                !string.IsNullOrEmpty(txtCar.Text) &&
+                contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0)
             {
                 if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {

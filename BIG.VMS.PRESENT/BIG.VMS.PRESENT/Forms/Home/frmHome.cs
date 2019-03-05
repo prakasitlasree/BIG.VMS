@@ -43,11 +43,8 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnOut_Click(object sender, EventArgs e)
         {
-            frmVisitor_11 frm = new frmVisitor_11();
-            frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.formMode = FormMode.Add;
-            frm.visitorMode = VisitorMode.Out;
-            frm.MdiParent = this.ParentForm;
+            frmVisitorOut frm = new frmVisitorOut();
+            
             frm.Show();
             this.Close();
         }

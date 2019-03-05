@@ -328,18 +328,42 @@ namespace BIG.VMS.DATASERVICE
             return listData;
         }
 
-        public List<ComboBoxItem> GetComboReson()
+        public List<ComboBoxItem> GetComboReason()
         {
             List<ComboBoxItem> listData = new List<ComboBoxItem>();
             try
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_PROVINCE.OrderBy(o => o.NAME).ToList();
+                    var list = ctx.MAS_REASON.OrderBy(o => o.REASON).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
-                        data.Text = item.NAME;
+                        data.Text = item.REASON;
+                        data.Value = item.AUTO_ID;
+                        listData.Add(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listData;
+        }
+
+        public List<ComboBoxItem> GetComboReason(string filter)
+        {
+            List<ComboBoxItem> listData = new List<ComboBoxItem>();
+            try
+            {
+                using (BIG_VMSEntities ctx = new BIG_VMSEntities())
+                {
+                    var list = ctx.MAS_REASON.Where(o=>o.REASON.Contains(filter)).OrderBy(o => o.REASON).ToList();
+                    foreach (var item in list)
+                    {
+                        ComboBoxItem data = new ComboBoxItem();
+                        data.Text = item.REASON;
                         data.Value = item.AUTO_ID;
                         listData.Add(data);
                     }

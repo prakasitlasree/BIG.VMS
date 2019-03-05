@@ -211,5 +211,44 @@ namespace BIG.VMS.DATASERVICE
                 throw;
             }
         }
+
+        public ContainerVisitor GetVisitorByNo(string no)
+        {
+            var result = new ContainerVisitor();
+            try
+            {
+                using (var ctx = new BIG_VMSEntities())
+                {
+                    var reTrnVisitor = ctx.TRN_VISITOR
+                                          .Include("MAS_PROVINCE")
+                                          .Where(o=>o.NO == no)
+                                          .OrderByDescending(x => x.NO).FirstOrDefault();
+                    if (reTrnVisitor != null)
+                    {
+
+
+                        result.TRN_VISITOR = reTrnVisitor;
+                        result.Status = true;
+
+                    }
+                    else
+                    {
+                        TRN_VISITOR visit = new TRN_VISITOR()
+                        {
+                            AUTO_ID = 0,
+                            NO = "0",
+                        };
+                        result.TRN_VISITOR = visit;
+                        result.Status = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ExceptionMessage = ex.Message;
+            }
+            return result;
+        }
     }
 }
