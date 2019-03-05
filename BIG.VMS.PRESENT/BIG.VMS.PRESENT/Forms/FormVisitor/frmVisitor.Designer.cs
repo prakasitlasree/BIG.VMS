@@ -72,10 +72,12 @@
             this.Lbl_Topic = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtProvince = new System.Windows.Forms.TextBox();
             this.txtMeet = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtCar = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnProvince = new System.Windows.Forms.Button();
+            this.txtProvince = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
@@ -88,11 +90,13 @@
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTopic
             // 
             this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTopic.Enabled = false;
             this.txtTopic.Location = new System.Drawing.Point(167, 186);
             this.txtTopic.Name = "txtTopic";
             this.txtTopic.Size = new System.Drawing.Size(410, 31);
@@ -101,7 +105,7 @@
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(167, 297);
+            this.txtLicense.Location = new System.Drawing.Point(167, 328);
             this.txtLicense.Name = "txtLicense";
             this.txtLicense.Size = new System.Drawing.Size(410, 31);
             this.txtLicense.TabIndex = 9;
@@ -109,6 +113,7 @@
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDCard.Enabled = false;
             this.txtIDCard.Location = new System.Drawing.Point(167, 149);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(410, 31);
@@ -320,12 +325,11 @@
             this.Lbl_Vahicle.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Lbl_Vahicle.AutoSize = true;
             this.Lbl_Vahicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Vahicle.Location = new System.Drawing.Point(95, 263);
+            this.Lbl_Vahicle.Location = new System.Drawing.Point(95, 278);
             this.Lbl_Vahicle.Name = "Lbl_Vahicle";
             this.Lbl_Vahicle.Size = new System.Drawing.Size(66, 25);
             this.Lbl_Vahicle.TabIndex = 2;
             this.Lbl_Vahicle.Text = "จังหวัด";
-            this.Lbl_Vahicle.Click += new System.EventHandler(this.Lbl_Vahicle_Click);
             // 
             // openFileDialog1
             // 
@@ -532,14 +536,14 @@
             this.tableLayoutPanel4.Controls.Add(this.Lbl_IDCard, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_FirstName, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 9);
             this.tableLayoutPanel4.Controls.Add(this.txtLicense, 1, 8);
-            this.tableLayoutPanel4.Controls.Add(this.txtProvince, 1, 7);
             this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtLastName, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.txtCar, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.txtCar, 1, 9);
+            this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -582,7 +586,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 337);
+            this.label2.Location = new System.Drawing.Point(128, 368);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 25);
             this.label2.TabIndex = 13;
@@ -603,7 +607,7 @@
             // 
             this.Lbl_LicensePlate.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Lbl_LicensePlate.AutoSize = true;
-            this.Lbl_LicensePlate.Location = new System.Drawing.Point(86, 300);
+            this.Lbl_LicensePlate.Location = new System.Drawing.Point(86, 331);
             this.Lbl_LicensePlate.Name = "Lbl_LicensePlate";
             this.Lbl_LicensePlate.Size = new System.Drawing.Size(75, 25);
             this.Lbl_LicensePlate.TabIndex = 3;
@@ -643,23 +647,17 @@
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFirstName.Enabled = false;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(167, 334);
+            this.txtFirstName.Location = new System.Drawing.Point(167, 75);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(410, 31);
             this.txtFirstName.TabIndex = 6;
             // 
-            // txtProvince
-            // 
-            this.txtProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProvince.Location = new System.Drawing.Point(167, 260);
-            this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(410, 31);
-            this.txtProvince.TabIndex = 11;
-            // 
             // txtMeet
             // 
             this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeet.Enabled = false;
             this.txtMeet.Location = new System.Drawing.Point(167, 223);
             this.txtMeet.Name = "txtMeet";
             this.txtMeet.Size = new System.Drawing.Size(410, 31);
@@ -668,6 +666,7 @@
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLastName.Enabled = false;
             this.txtLastName.Location = new System.Drawing.Point(167, 112);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(410, 31);
@@ -676,10 +675,53 @@
             // txtCar
             // 
             this.txtCar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCar.Location = new System.Drawing.Point(167, 75);
+            this.txtCar.Enabled = false;
+            this.txtCar.Location = new System.Drawing.Point(167, 365);
             this.txtCar.Name = "txtCar";
             this.txtCar.Size = new System.Drawing.Size(410, 31);
             this.txtCar.TabIndex = 14;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnProvince, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtProvince, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(167, 260);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(410, 62);
+            this.tableLayoutPanel2.TabIndex = 18;
+            // 
+            // btnProvince
+            // 
+            this.btnProvince.BackColor = System.Drawing.Color.White;
+            this.btnProvince.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnProvince.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProvince.Image = ((System.Drawing.Image)(resources.GetObject("btnProvince.Image")));
+            this.btnProvince.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProvince.Location = new System.Drawing.Point(211, 6);
+            this.btnProvince.Margin = new System.Windows.Forms.Padding(6);
+            this.btnProvince.Name = "btnProvince";
+            this.btnProvince.Size = new System.Drawing.Size(193, 50);
+            this.btnProvince.TabIndex = 12;
+            this.btnProvince.Text = "เลือกจังหวัด";
+            this.btnProvince.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProvince.UseVisualStyleBackColor = false;
+            this.btnProvince.Click += new System.EventHandler(this.btnProvince_Click);
+            // 
+            // txtProvince
+            // 
+            this.txtProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProvince.Enabled = false;
+            this.txtProvince.Location = new System.Drawing.Point(3, 15);
+            this.txtProvince.Name = "txtProvince";
+            this.txtProvince.Size = new System.Drawing.Size(199, 31);
+            this.txtProvince.TabIndex = 11;
             // 
             // frmVisitor
             // 
@@ -708,6 +750,8 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -761,5 +805,7 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Button btnTopic;
         private System.Windows.Forms.CheckBox chkKeyIn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btnProvince;
     }
 }

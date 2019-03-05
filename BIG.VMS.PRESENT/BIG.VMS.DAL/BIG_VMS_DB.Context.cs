@@ -32,6 +32,7 @@ namespace BIG.VMS.DAL
         public DbSet<MAS_DEPARTMENT> MAS_DEPARTMENT { get; set; }
         public DbSet<MAS_EMPLOYEE> MAS_EMPLOYEE { get; set; }
         public DbSet<MAS_PROVINCE> MAS_PROVINCE { get; set; }
+        public DbSet<MAS_REASON> MAS_REASON { get; set; }
         public DbSet<MEMBER_LOGON> MEMBER_LOGON { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }

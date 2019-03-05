@@ -70,7 +70,7 @@ namespace BIG.VMS.PRESENT.Forms.FormOut
                 NO = txtNo.Text.Trim(),
                 ID_CARD = txtIDCard.Text.Trim(),
                 LICENSE_PLATE = txtLicensePLate.Text.Trim(),
-                TOPIC = txtTopic.Text.Trim(),
+                //TOPIC = txtTopic.Text.Trim(),
                 TYPE = "OUT",
                 //CREATED_BY      
                 CREATED_DATE = DateTime.Now,

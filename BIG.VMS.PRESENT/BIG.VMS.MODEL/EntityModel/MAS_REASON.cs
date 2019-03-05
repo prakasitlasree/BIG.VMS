@@ -12,21 +12,18 @@ namespace BIG.VMS.MODEL.EntityModel
     using System;
     using System.Collections.Generic;
     
-    public partial class MAS_CAR_MODEL
+    public partial class MAS_REASON
     {
-        public MAS_CAR_MODEL()
+        public MAS_REASON()
         {
             this.TRN_APPOINTMENT = new HashSet<TRN_APPOINTMENT>();
+            this.TRN_VISITOR = new HashSet<TRN_VISITOR>();
         }
     
         public int AUTO_ID { get; set; }
-        public Nullable<int> BRAND_ID { get; set; }
-        public string NAME { get; set; }
-        public string COLOR { get; set; }
-        public string SHOW_FLAG { get; set; }
-        public Nullable<int> SHOW_SEQ { get; set; }
+        public string REASON { get; set; }
     
-        public virtual MAS_CAR_BRAND MAS_CAR_BRAND { get; set; }
         public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
+        public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
     }
 }

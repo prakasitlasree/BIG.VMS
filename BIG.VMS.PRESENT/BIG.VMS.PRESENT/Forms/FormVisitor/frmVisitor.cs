@@ -25,7 +25,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public int provinceId = 0;
         public int carModelId = 0;
 
-
         public frmVisitor()
         {
             InitializeComponent();
@@ -43,35 +42,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Lbl_Vahicle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVehicle_Click(object sender, EventArgs e)
-        {
-            frmCar frm = new frmCar();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-
-            }
-        }
-
-        private void btnMeet_Click(object sender, EventArgs e)
-        {
-            frmEmployee frm = new frmEmployee();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-
-            }
-        }
-
-        private void btnTopic_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void InitialLoad()
         {
@@ -100,7 +70,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 FIRST_NAME = txtFirstName.Text.Trim(),
                 LAST_NAME = txtLastName.Text.Trim(),
                 LICENSE_PLATE = txtLicense.Text.Trim(),
-                TOPIC = txtTopic.Text.Trim(),
+                //TOPIC = txtTopic.Text.Trim(),
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 CAR_MODEL_ID = carModelId,
                 LICENSE_PLATE_PROVINCE_ID = provinceId,
@@ -184,6 +154,41 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+
+        }
+
+        private void btnProvince_Click(object sender, EventArgs e)
+        {
+            frmProvince frm = new frmProvince();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                provinceId = frm.SELECTED_PROVINCE_ID;
+                txtProvince.Text = frm.SELECTED_PROVINCE_TEXT;
+            }
+        }
+
+        private void btnVehicle_Click(object sender, EventArgs e)
+        {
+            frmCar frm = new frmCar();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                carModelId = frm.SELECTED_CAR_ID;
+                txtCar.Text = frm.SELECTED_CAR_TEXT;
+            }
+        }
+
+        private void btnMeet_Click(object sender, EventArgs e)
+        {
+            frmEmployee frm = new frmEmployee();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                contactEmployeeId = frm.SELECTED_EMPLOYEE_ID;
+                txtMeet.Text = frm.SELECTED_EMPLOYEE_TEXT;
+            }
+        }
+
+        private void btnTopic_Click(object sender, EventArgs e)
+        {
 
         }
     }

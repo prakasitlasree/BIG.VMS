@@ -15,8 +15,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
     {
         private ComboBoxServices _comboService = new ComboBoxServices();
         private int deptID = 0;
-        private int employeeID = 0;
-        public int selectedEmployeeID { get; set; }
+
+        public int SELECTED_EMPLOYEE_ID { get; set; }
+        public string SELECTED_EMPLOYEE_TEXT { get; set; }
+
         public frmEmployee()
         {
             InitializeComponent();
@@ -73,7 +75,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void SearchEmployee(string filter)
         {
-            var employee = _comboService.GetComboEmployeeByDepartmentID(deptID,filter);
+            var employee = _comboService.GetComboEmployeeByDepartmentID(deptID, filter);
 
             panelEmployee.Controls.Clear();
 
@@ -121,7 +123,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void EmployeeSelected_EventHadler(object sender, EventArgs e)
         {
-            selectedEmployeeID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_EMPLOYEE_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_EMPLOYEE_TEXT = ((Control)sender).Text.ToString();
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -129,14 +132,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void txtDepartment_TextChanged(object sender, EventArgs e)
         {
             deptID = 0;
-            employeeID = 0;
+            SELECTED_EMPLOYEE_ID = 0;
             panelEmployee.Controls.Clear();
             SearchDepartment(txtDepartment.Text);
         }
 
         private void txtEmployee_TextChanged(object sender, EventArgs e)
         {
-            employeeID = 0;
+            SELECTED_EMPLOYEE_ID = 0;
             SearchEmployee(txtEmployee.Text);
         }
     }

@@ -44,7 +44,7 @@ namespace BIG.VMS.PRESENT.Forms.FormAppoinment
                 //REQUEST_LICENSE_PLATE_PROVINCE_ID = Convert.ToInt32(comboProvince.SelectedValue),            
                 //REQUEST_CAR_MODEL_ID = Convert.ToInt32(comboVehicleModel.SelectedValue),
                 //STATUS
-                CONTACT_TOPIC = txtPurpose.Text,
+                //CONTACT_TOPIC = txtPurpose.Text,
                 //CONTACT_EMPLOYEE_ID = Convert.ToInt32(comboMeetName.SelectedValue),
                 CONTACT_DATE = dtMeetDate.Value,
                 

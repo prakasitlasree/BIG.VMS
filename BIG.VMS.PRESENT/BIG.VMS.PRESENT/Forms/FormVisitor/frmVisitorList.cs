@@ -157,7 +157,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
             frmEmployee frm = new frmEmployee();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                var x = frm.selectedEmployeeID;
+                var x = frm.SELECTED_EMPLOYEE_ID;
                
             }
         }

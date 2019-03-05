@@ -22,6 +22,8 @@ namespace BIG.VMS.MODEL.EntityModel
         public int AUTO_ID { get; set; }
         public string NAME { get; set; }
         public Nullable<int> TYPE_ID { get; set; }
+        public string SHOW_FLAG { get; set; }
+        public Nullable<int> SHOW_SEQ { get; set; }
     
         public virtual MAS_CAR_TYPE MAS_CAR_TYPE { get; set; }
         public virtual ICollection<MAS_CAR_MODEL> MAS_CAR_MODEL { get; set; }
