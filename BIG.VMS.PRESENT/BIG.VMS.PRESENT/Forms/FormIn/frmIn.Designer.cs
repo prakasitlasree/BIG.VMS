@@ -39,6 +39,7 @@
             this.btnVehicle = new System.Windows.Forms.Button();
             this.btnReadCard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBlacklist = new System.Windows.Forms.Button();
             this.BtnTakePhoto = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -70,7 +71,6 @@
             this.btnUploadCam = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnDeleteCam = new System.Windows.Forms.Button();
-            this.btnBlacklist = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -140,18 +140,18 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 37);
+            this.label1.Location = new System.Drawing.Point(46, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 25);
+            this.label1.Size = new System.Drawing.Size(66, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "เลขที่";
             // 
             // Txt_No
             // 
             this.Txt_No.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_No.Location = new System.Drawing.Point(118, 34);
+            this.Txt_No.Location = new System.Drawing.Point(118, 31);
             this.Txt_No.Name = "Txt_No";
-            this.Txt_No.Size = new System.Drawing.Size(109, 31);
+            this.Txt_No.Size = new System.Drawing.Size(109, 37);
             this.Txt_No.TabIndex = 1;
             // 
             // btnMeet
@@ -206,6 +206,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(980, 102);
             this.panel2.TabIndex = 1;
+            // 
+            // btnBlacklist
+            // 
+            this.btnBlacklist.BackColor = System.Drawing.Color.Red;
+            this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBlacklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlacklist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBlacklist.Location = new System.Drawing.Point(335, 0);
+            this.btnBlacklist.Margin = new System.Windows.Forms.Padding(6);
+            this.btnBlacklist.Name = "btnBlacklist";
+            this.btnBlacklist.Size = new System.Drawing.Size(129, 102);
+            this.btnBlacklist.TabIndex = 3;
+            this.btnBlacklist.Text = "Blacklist";
+            this.btnBlacklist.UseVisualStyleBackColor = false;
             // 
             // BtnTakePhoto
             // 
@@ -283,34 +297,34 @@
             // Txt_Topic
             // 
             this.Txt_Topic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_Topic.Location = new System.Drawing.Point(176, 367);
+            this.Txt_Topic.Location = new System.Drawing.Point(176, 364);
             this.Txt_Topic.Name = "Txt_Topic";
-            this.Txt_Topic.Size = new System.Drawing.Size(406, 31);
+            this.Txt_Topic.Size = new System.Drawing.Size(406, 37);
             this.Txt_Topic.TabIndex = 10;
             // 
             // Txt_LicensePlate
             // 
             this.Txt_LicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_LicensePlate.Location = new System.Drawing.Point(176, 282);
+            this.Txt_LicensePlate.Location = new System.Drawing.Point(176, 279);
             this.Txt_LicensePlate.Name = "Txt_LicensePlate";
-            this.Txt_LicensePlate.Size = new System.Drawing.Size(406, 31);
+            this.Txt_LicensePlate.Size = new System.Drawing.Size(406, 37);
             this.Txt_LicensePlate.TabIndex = 9;
             // 
             // Txt_IDCard
             // 
             this.Txt_IDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_IDCard.Location = new System.Drawing.Point(176, 112);
+            this.Txt_IDCard.Location = new System.Drawing.Point(176, 109);
             this.Txt_IDCard.Name = "Txt_IDCard";
-            this.Txt_IDCard.Size = new System.Drawing.Size(406, 31);
+            this.Txt_IDCard.Size = new System.Drawing.Size(406, 37);
             this.Txt_IDCard.TabIndex = 7;
             // 
             // Lbl_FirstName
             // 
             this.Lbl_FirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_FirstName.AutoSize = true;
-            this.Lbl_FirstName.Location = new System.Drawing.Point(3, 30);
+            this.Lbl_FirstName.Location = new System.Drawing.Point(3, 27);
             this.Lbl_FirstName.Name = "Lbl_FirstName";
-            this.Lbl_FirstName.Size = new System.Drawing.Size(108, 25);
+            this.Lbl_FirstName.Size = new System.Drawing.Size(138, 31);
             this.Lbl_FirstName.TabIndex = 0;
             this.Lbl_FirstName.Text = "ชื่อ-นามสกุล";
             // 
@@ -318,9 +332,9 @@
             // 
             this.Lbl_IDCard.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_IDCard.AutoSize = true;
-            this.Lbl_IDCard.Location = new System.Drawing.Point(3, 115);
+            this.Lbl_IDCard.Location = new System.Drawing.Point(3, 96);
             this.Lbl_IDCard.Name = "Lbl_IDCard";
-            this.Lbl_IDCard.Size = new System.Drawing.Size(151, 25);
+            this.Lbl_IDCard.Size = new System.Drawing.Size(113, 62);
             this.Lbl_IDCard.TabIndex = 1;
             this.Lbl_IDCard.Text = "เลขบัตรประชาชน";
             // 
@@ -329,9 +343,9 @@
             this.Lbl_Vahicle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_Vahicle.AutoSize = true;
             this.Lbl_Vahicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Vahicle.Location = new System.Drawing.Point(3, 200);
+            this.Lbl_Vahicle.Location = new System.Drawing.Point(3, 181);
             this.Lbl_Vahicle.Name = "Lbl_Vahicle";
-            this.Lbl_Vahicle.Size = new System.Drawing.Size(150, 25);
+            this.Lbl_Vahicle.Size = new System.Drawing.Size(165, 62);
             this.Lbl_Vahicle.TabIndex = 2;
             this.Lbl_Vahicle.Text = "จังหวัดทะเบียนรถ";
             // 
@@ -339,9 +353,9 @@
             // 
             this.Lbl_LicensePlate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_LicensePlate.AutoSize = true;
-            this.Lbl_LicensePlate.Location = new System.Drawing.Point(3, 285);
+            this.Lbl_LicensePlate.Location = new System.Drawing.Point(3, 282);
             this.Lbl_LicensePlate.Name = "Lbl_LicensePlate";
-            this.Lbl_LicensePlate.Size = new System.Drawing.Size(75, 25);
+            this.Lbl_LicensePlate.Size = new System.Drawing.Size(97, 31);
             this.Lbl_LicensePlate.TabIndex = 3;
             this.Lbl_LicensePlate.Text = "ทะเบียน";
             // 
@@ -349,9 +363,9 @@
             // 
             this.Lbl_Topic.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_Topic.AutoSize = true;
-            this.Lbl_Topic.Location = new System.Drawing.Point(3, 370);
+            this.Lbl_Topic.Location = new System.Drawing.Point(3, 367);
             this.Lbl_Topic.Name = "Lbl_Topic";
-            this.Lbl_Topic.Size = new System.Drawing.Size(120, 25);
+            this.Lbl_Topic.Size = new System.Drawing.Size(153, 31);
             this.Lbl_Topic.TabIndex = 4;
             this.Lbl_Topic.Text = "วัตตถุประสงค์";
             // 
@@ -359,36 +373,36 @@
             // 
             this.Lbl_MeetPeople.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_MeetPeople.AutoSize = true;
-            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 457);
+            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 439);
             this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
-            this.Lbl_MeetPeople.Size = new System.Drawing.Size(158, 25);
+            this.Lbl_MeetPeople.Size = new System.Drawing.Size(129, 62);
             this.Lbl_MeetPeople.TabIndex = 5;
             this.Lbl_MeetPeople.Text = "บุคคลที่ต้องการพบ";
             // 
             // Txt_Name
             // 
             this.Txt_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_Name.Location = new System.Drawing.Point(176, 27);
+            this.Txt_Name.Location = new System.Drawing.Point(176, 24);
             this.Txt_Name.Name = "Txt_Name";
-            this.Txt_Name.Size = new System.Drawing.Size(406, 31);
+            this.Txt_Name.Size = new System.Drawing.Size(406, 37);
             this.Txt_Name.TabIndex = 6;
             // 
             // comboCarProvince
             // 
             this.comboCarProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboCarProvince.FormattingEnabled = true;
-            this.comboCarProvince.Location = new System.Drawing.Point(176, 202);
+            this.comboCarProvince.Location = new System.Drawing.Point(176, 200);
             this.comboCarProvince.Name = "comboCarProvince";
-            this.comboCarProvince.Size = new System.Drawing.Size(406, 33);
+            this.comboCarProvince.Size = new System.Drawing.Size(406, 38);
             this.comboCarProvince.TabIndex = 12;
             // 
             // combMeet
             // 
             this.combMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.combMeet.FormattingEnabled = true;
-            this.combMeet.Location = new System.Drawing.Point(176, 459);
+            this.combMeet.Location = new System.Drawing.Point(176, 457);
             this.combMeet.Name = "combMeet";
-            this.combMeet.Size = new System.Drawing.Size(406, 33);
+            this.combMeet.Size = new System.Drawing.Size(406, 38);
             this.combMeet.TabIndex = 13;
             // 
             // tableLayoutPanel5
@@ -453,9 +467,9 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 10);
+            this.label8.Location = new System.Drawing.Point(3, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 25);
+            this.label8.Size = new System.Drawing.Size(126, 31);
             this.label8.TabIndex = 2;
             this.label8.Text = "รูปจากบัตร";
             // 
@@ -520,9 +534,9 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Location = new System.Drawing.Point(3, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 25);
+            this.label9.Size = new System.Drawing.Size(175, 31);
             this.label9.TabIndex = 3;
             this.label9.Text = "รูปถ่ายจากกล้อง";
             // 
@@ -569,23 +583,9 @@
             this.btnDeleteCam.UseVisualStyleBackColor = true;
             this.btnDeleteCam.Click += new System.EventHandler(this.btnDeleteCam_Click);
             // 
-            // btnBlacklist
-            // 
-            this.btnBlacklist.BackColor = System.Drawing.Color.Red;
-            this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBlacklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlacklist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBlacklist.Location = new System.Drawing.Point(335, 0);
-            this.btnBlacklist.Margin = new System.Windows.Forms.Padding(6);
-            this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(129, 102);
-            this.btnBlacklist.TabIndex = 3;
-            this.btnBlacklist.Text = "Blacklist";
-            this.btnBlacklist.UseVisualStyleBackColor = false;
-            // 
             // frmIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 753);
             this.Controls.Add(this.tableLayoutPanel1);
