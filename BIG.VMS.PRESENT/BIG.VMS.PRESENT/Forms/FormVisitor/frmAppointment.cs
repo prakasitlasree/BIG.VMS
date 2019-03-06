@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
+using BIG.VMS.PRESENT.Forms.Master;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,16 +11,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BIG.VMS.PRESENT.Forms.Master;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    public partial class frmVisitor : Form
+    public partial class frmAppointment : Form
     {
-        public FormMode formMode = new FormMode();
-        public VisitorMode visitorMode = new VisitorMode();
-        private readonly VisitorServices _service = new VisitorServices();
-        private ContainerVisitor _container = new ContainerVisitor();
+        //public FormMode formMode = new FormMode();
+        //public VisitorMode visitorMode = new VisitorMode();
+        private readonly AppointmentServices _service = new AppointmentServices();
+        private ContainerAppointment _container = new ContainerAppointment();
         private ComboBoxServices _comboService = new ComboBoxServices();
 
         private int contactEmployeeId = 0;
@@ -28,39 +28,20 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private int reasonId = 0;
 
         private string no = "";
-
-        public frmVisitor()
+        public frmAppointment()
         {
             InitializeComponent();
         }
 
-        private void frmVisitor_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                InitialLoad();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        private void frmAppointment_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void InitialLoad()
         {
-            _container = new ContainerVisitor();
-            var res = _service.GetItem(_container);
-            if (res.Status)
-            {
-                int no = Convert.ToInt32(res.TRN_VISITOR.NO);
-                no = no + 1;
-                txtNo.Text = no.ToString("D6");
-            }
-            else
-            {
-                MessageBox.Show(res.ExceptionMessage);
-            }
+
 
         }
 
@@ -72,42 +53,27 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void Save()
         {
 
-            var obj = new TRN_VISITOR
+            var obj = new TRN_APPOINTMENT
             {
-                NO = txtNo.Text.Trim(),
-                ID_CARD = txtIDCard.Text.Trim(),
-                FIRST_NAME = txtFirstName.Text.Trim(),
-                LAST_NAME = txtLastName.Text.Trim(),
-                LICENSE_PLATE = txtLicense.Text.Trim(),
-                STATUS = 1,
+                //NO = txtNo.Text.Trim(),
+                REQUEST_ID_CARD = txtIDCard.Text.Trim(),
+                REQUEST_FIRST_NAME = txtFirstName.Text.Trim(),
+                REQUEST_LAST_NAME = txtLastName.Text.Trim(),
+                REQUEST_LICENSE_PLATE = txtLicense.Text.Trim(),
+                //STATUS = 1,
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
-                CAR_MODEL_ID = carModelId,
+                REQUEST_CAR_MODEL_ID = carModelId,
                 REASON_ID = reasonId,
-                LICENSE_PLATE_PROVINCE_ID = provinceId,
-
+                CONTACT_DATE = dtContactDate.Value,
+                REQUEST_LICENSE_PLATE_PROVINCE_ID = reasonId,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
-              
+
             };
 
-            if (visitorMode == VisitorMode.In)
-            {
-                obj.TYPE = "In";
-            }
-            if (visitorMode == VisitorMode.Out)
-            {
-                obj.TYPE = "Out";
-            }
-            if (visitorMode == VisitorMode.Appointment)
-            {
-                obj.TYPE = "นัดล่วงหน้า";
-            }
-            if (visitorMode == VisitorMode.ComeOften)
-            {
-                obj.TYPE = "มาประจำ";
-            }
 
-            var container = new ContainerVisitor { TRN_VISITOR = obj };
+
+            var container = new ContainerAppointment { TRN_APPOINTMENT = obj };
 
             var res = _service.Create(container);
 
@@ -152,7 +118,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 !string.IsNullOrEmpty(txtProvince.Text) &&
                 !string.IsNullOrEmpty(txtTopic.Text) &&
                 !string.IsNullOrEmpty(txtCar.Text) &&
-                contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0)
+                !string.IsNullOrEmpty(dtContactDate.Text) &&
+                contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 &&
+                dtContactDate.Value != null &&
+                dtContactDate.Value != DateTime.MinValue)
             {
                 if (IsValidCheckPersonID(txtIDCard.Text))
                 {
@@ -283,6 +252,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 return true;
         }
 
-        
+        private void chkKeyIn_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chkKeyIn.Checked)
+            {
+                txtFirstName.Enabled = true;
+                txtLastName.Enabled = true;
+                txtIDCard.Enabled = true;
+
+            }
+            else
+            {
+                txtFirstName.Enabled = false;
+                txtLastName.Enabled = false;
+                txtIDCard.Enabled = false;
+            }
+        }
     }
 }

@@ -175,35 +175,35 @@ namespace BIG.VMS.DATASERVICE
             try
             {
                 var ctx = new BIG_VMSEntities();
-                
-                    var filter = obj.Filter;
-                    IQueryable<TRN_VISITOR> query = ctx.TRN_VISITOR;
-                    if (obj.Filter != null)
+
+                var filter = obj.Filter;
+                IQueryable<TRN_VISITOR> query = ctx.TRN_VISITOR;
+                if (obj.Filter != null)
+                {
+
+                    if (!string.IsNullOrEmpty(filter.ID_CARD))
                     {
-
-                        if (!string.IsNullOrEmpty(filter.ID_CARD))
-                        {
-                            query = query.Where(o => o.ID_CARD == filter.ID_CARD);
-                        }
-                        if (!string.IsNullOrEmpty(filter.TYPE))
-                        {
-                            query = query.Where(o => o.TYPE == filter.TYPE);
-                        }
-                        if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
-                        {
-                            query = query.Where(o => o.LICENSE_PLATE == filter.LICENSE_PLATE);
-                        }
-                        if (!string.IsNullOrEmpty(filter.NO))
-                        {
-                            query = query.Where(o => o.NO == filter.NO);
-                        }
-
-                        return query;
+                        query = query.Where(o => o.ID_CARD == filter.ID_CARD);
                     }
-                    else
+                    if (!string.IsNullOrEmpty(filter.TYPE))
                     {
-                        return query;
-                    }            
+                        query = query.Where(o => o.TYPE == filter.TYPE);
+                    }
+                    if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
+                    {
+                        query = query.Where(o => o.LICENSE_PLATE == filter.LICENSE_PLATE);
+                    }
+                    if (!string.IsNullOrEmpty(filter.NO))
+                    {
+                        query = query.Where(o => o.NO == filter.NO);
+                    }
+
+                    return query;
+                }
+                else
+                {
+                    return query;
+                }
 
             }
             catch
@@ -212,20 +212,21 @@ namespace BIG.VMS.DATASERVICE
             }
         }
 
-        public ContainerVisitor GetVisitorByNo(string no)
+        public ContainerVisitor GetVisitorForOutByNo(string no)
         {
             var result = new ContainerVisitor();
             try
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
+
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
-                                          .Where(o=>o.NO == no)
+                                          .Where(o => o.NO == no && o.TYPE == "In" && o.STATUS == 1)
                                           .OrderByDescending(x => x.NO).FirstOrDefault();
+
                     if (reTrnVisitor != null)
                     {
-
 
                         result.TRN_VISITOR = reTrnVisitor;
                         result.Status = true;
@@ -240,6 +241,39 @@ namespace BIG.VMS.DATASERVICE
                         };
                         result.TRN_VISITOR = visit;
                         result.Status = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ExceptionMessage = ex.Message;
+            }
+            return result;
+        }
+
+        public ContainerVisitor UpdateVisitorOut(ContainerVisitor obj)
+        {
+            var result = new ContainerVisitor();
+            try
+            {
+                using (var ctx = new BIG_VMSEntities())
+                {
+
+                    var reTrnVisitor = ctx.TRN_VISITOR.Where(o => o.NO == obj.TRN_VISITOR.NO).FirstOrDefault();
+
+
+
+                    if (reTrnVisitor != null)
+                    {
+
+                        reTrnVisitor.STATUS = 2;
+                        ctx.SaveChanges();
+                        result.Status = true;
+                    }
+                    else
+                    {
+                        result.Status = false;
                     }
                 }
             }

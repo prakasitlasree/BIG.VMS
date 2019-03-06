@@ -136,6 +136,7 @@
           <Property Name="REASON_ID" Type="int" />
           <Property Name="CONTACT_EMPLOYEE_ID" Type="int" />
           <Property Name="CONTACT_PHOTO" Type="varbinary(max)" />
+          <Property Name="STATUS" Type="int" />
           <Property Name="CREATED_BY" Type="nvarchar" MaxLength="500" />
           <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
@@ -488,10 +489,10 @@
           </Key>
           <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="REASON" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TRN_APPOINTMENT" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_APPOINTMENT" />
-          <NavigationProperty Name="TRN_VISITOR" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_VISITOR" />
           <Property Name="SHOW_FLAG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SHOW_SEQ" Type="Int32" />
+          <NavigationProperty Name="TRN_APPOINTMENT" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_APPOINTMENT" />
+          <NavigationProperty Name="TRN_VISITOR" Relationship="BIG_VMSModel.FK_TRN_VISITOR_MAS_REASON" FromRole="MAS_REASON" ToRole="TRN_VISITOR" />
         </EntityType>
         <EntityType Name="MEMBER_LOGON">
           <Key>
@@ -561,6 +562,7 @@
           <Property Name="REASON_ID" Type="Int32" />
           <Property Name="CONTACT_EMPLOYEE_ID" Type="Int32" />
           <Property Name="CONTACT_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="STATUS" Type="Int32" />
           <Property Name="CREATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -852,6 +854,7 @@
                 <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
                 <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
                 <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="CONTACT_PHOTO" ColumnName="CONTACT_PHOTO" />
                 <ScalarProperty Name="CONTACT_EMPLOYEE_ID" ColumnName="CONTACT_EMPLOYEE_ID" />
                 <ScalarProperty Name="REASON_ID" ColumnName="REASON_ID" />

@@ -77,17 +77,7 @@ namespace BIG.VMS.PRESENT
                 control.Columns[item.FIELD].AutoSizeMode = item.AUTO_SIZE == autoSize.CellContent ? DataGridViewAutoSizeColumnMode.DisplayedCells : (item.AUTO_SIZE == autoSize.Fill ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells);
             }
 
-            for(int i = 0;i< control.Rows.Count; i++)
-            {
-                if(i%2 == 0)
-                {
-                    control.Rows[i].DefaultCellStyle.BackColor = Color.Aquamarine;
-                }
-                else
-                {
-                    control.Rows[i].DefaultCellStyle.BackColor = Color.White;
-                }
-            }
+            
             
         }
 

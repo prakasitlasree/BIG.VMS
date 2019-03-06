@@ -27,6 +27,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> REASON_ID { get; set; }
         public Nullable<int> CONTACT_EMPLOYEE_ID { get; set; }
         public byte[] CONTACT_PHOTO { get; set; }
+        public Nullable<int> STATUS { get; set; }
         public string CREATED_BY { get; set; }
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public string UPDATED_BY { get; set; }

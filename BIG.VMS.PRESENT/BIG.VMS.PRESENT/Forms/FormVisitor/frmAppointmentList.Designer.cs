@@ -1,6 +1,6 @@
-﻿namespace BIG.VMS.PRESENT.Forms.Home
+﻿namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    partial class frmVisitorList
+    partial class frmAppointmenList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVisitorList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointmenList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.gridVisitorList = new System.Windows.Forms.DataGridView();
+            this.gridAppointmentList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
@@ -39,11 +39,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnRegular = new System.Windows.Forms.Button();
-            this.btnOut = new System.Windows.Forms.Button();
-            this.btnIn = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnAhead = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtIDCard = new System.Windows.Forms.TextBox();
@@ -54,11 +50,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtLicense = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNo = new System.Windows.Forms.TextBox();
+            this.chkDate = new System.Windows.Forms.CheckBox();
+            this.dtContactDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridVisitorList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -79,13 +75,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.gridVisitorList, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.gridAppointmentList, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 267);
@@ -96,17 +92,17 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(978, 391);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // gridVisitorList
+            // gridAppointmentList
             // 
-            this.gridVisitorList.AllowUserToAddRows = false;
-            this.gridVisitorList.AllowUserToDeleteRows = false;
-            this.gridVisitorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridVisitorList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridVisitorList.Location = new System.Drawing.Point(3, 3);
-            this.gridVisitorList.Name = "gridVisitorList";
-            this.gridVisitorList.ReadOnly = true;
-            this.gridVisitorList.Size = new System.Drawing.Size(972, 318);
-            this.gridVisitorList.TabIndex = 0;
+            this.gridAppointmentList.AllowUserToAddRows = false;
+            this.gridAppointmentList.AllowUserToDeleteRows = false;
+            this.gridAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAppointmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
+            this.gridAppointmentList.Name = "gridAppointmentList";
+            this.gridAppointmentList.ReadOnly = true;
+            this.gridAppointmentList.Size = new System.Drawing.Size(972, 318);
+            this.gridAppointmentList.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -204,11 +200,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.btnRegular, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnOut, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnIn, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnReport, 4, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnAhead, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnAdd, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -218,71 +210,18 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(978, 126);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
-            // btnRegular
+            // btnAdd
             // 
-            this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRegular.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegular.Location = new System.Drawing.Point(393, 3);
-            this.btnRegular.Name = "btnRegular";
-            this.btnRegular.Size = new System.Drawing.Size(189, 120);
-            this.btnRegular.TabIndex = 3;
-            this.btnRegular.Text = "มาประจำ";
-            this.btnRegular.UseVisualStyleBackColor = false;
-            this.btnRegular.Click += new System.EventHandler(this.btnRegular_Click);
-            // 
-            // btnOut
-            // 
-            this.btnOut.BackColor = System.Drawing.Color.Red;
-            this.btnOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOut.Location = new System.Drawing.Point(198, 3);
-            this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(189, 120);
-            this.btnOut.TabIndex = 2;
-            this.btnOut.Text = "ออก";
-            this.btnOut.UseVisualStyleBackColor = false;
-            this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
-            // 
-            // btnIn
-            // 
-            this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Location = new System.Drawing.Point(3, 3);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(189, 120);
-            this.btnIn.TabIndex = 1;
-            this.btnIn.Text = "เข้า";
-            this.btnIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnIn.UseVisualStyleBackColor = false;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.Gold;
-            this.btnReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.Location = new System.Drawing.Point(783, 3);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(192, 120);
-            this.btnReport.TabIndex = 5;
-            this.btnReport.Text = "รายงาน";
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnAhead
-            // 
-            this.btnAhead.BackColor = System.Drawing.Color.Magenta;
-            this.btnAhead.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAhead.Location = new System.Drawing.Point(588, 3);
-            this.btnAhead.Name = "btnAhead";
-            this.btnAhead.Size = new System.Drawing.Size(189, 120);
-            this.btnAhead.TabIndex = 4;
-            this.btnAhead.Text = "รายการ\r\nนัดล่วงหน้า";
-            this.btnAhead.UseVisualStyleBackColor = false;
-            this.btnAhead.Click += new System.EventHandler(this.btnAhead_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(189, 120);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "นัดล่วงหน้า";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -303,8 +242,8 @@
             this.tableLayoutPanel5.Controls.Add(this.label5, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtName, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtLicense, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label6, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.txtNo, 3, 1);
+            this.tableLayoutPanel5.Controls.Add(this.chkDate, 2, 1);
+            this.tableLayoutPanel5.Controls.Add(this.dtContactDate, 3, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 135);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -323,7 +262,7 @@
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.Location = new System.Drawing.Point(105, 77);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(215, 46);
+            this.btnSearch.Size = new System.Drawing.Size(210, 46);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "ค้นหา";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -333,17 +272,17 @@
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Location = new System.Drawing.Point(760, 3);
+            this.txtIDCard.Location = new System.Drawing.Point(763, 3);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(215, 31);
+            this.txtIDCard.Size = new System.Drawing.Size(212, 31);
             this.txtIDCard.TabIndex = 10;
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(410, 3);
+            this.txtLastName.Location = new System.Drawing.Point(418, 3);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(215, 31);
+            this.txtLastName.Size = new System.Drawing.Size(210, 31);
             this.txtLastName.TabIndex = 8;
             // 
             // label1
@@ -370,7 +309,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(326, 6);
+            this.label3.Location = new System.Drawing.Point(321, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 25);
             this.label3.TabIndex = 2;
@@ -380,7 +319,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(631, 6);
+            this.label5.Location = new System.Drawing.Point(634, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 25);
             this.label5.TabIndex = 4;
@@ -391,7 +330,7 @@
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(105, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(215, 31);
+            this.txtName.Size = new System.Drawing.Size(210, 31);
             this.txtName.TabIndex = 6;
             // 
             // txtLicense
@@ -399,41 +338,41 @@
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLicense.Location = new System.Drawing.Point(105, 40);
             this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(215, 31);
+            this.txtLicense.Size = new System.Drawing.Size(210, 31);
             this.txtLicense.TabIndex = 7;
             // 
-            // label6
+            // chkDate
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(326, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 25);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "เลขที่";
+            this.chkDate.AutoSize = true;
+            this.chkDate.Location = new System.Drawing.Point(321, 40);
+            this.chkDate.Name = "chkDate";
+            this.chkDate.Size = new System.Drawing.Size(91, 29);
+            this.chkDate.TabIndex = 11;
+            this.chkDate.Text = "วันที่นัด";
+            this.chkDate.UseVisualStyleBackColor = true;
             // 
-            // txtNo
+            // dtContactDate
             // 
-            this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Location = new System.Drawing.Point(410, 40);
-            this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(215, 31);
-            this.txtNo.TabIndex = 12;
+            this.dtContactDate.Location = new System.Drawing.Point(418, 40);
+            this.dtContactDate.Name = "dtContactDate";
+            this.dtContactDate.Size = new System.Drawing.Size(210, 31);
+            this.dtContactDate.TabIndex = 12;
             // 
-            // frmVisitorList
+            // frmAppointmenList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "frmVisitorList";
-            this.Text = "รายการทั้งหมด";
-            this.Load += new System.EventHandler(this.frmAllvisitor_Load);
+            this.Name = "frmAppointmenList";
+            this.Text = "frmAppointmentList";
+            this.Load += new System.EventHandler(this.frmAppointmentList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridVisitorList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -447,20 +386,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView gridVisitorList;
+        private System.Windows.Forms.DataGridView gridAppointmentList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Button btnOut;
-        private System.Windows.Forms.Button btnIn;
-        private System.Windows.Forms.Button btnRegular;
-        private System.Windows.Forms.Button btnAhead;
-        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label1;
@@ -469,8 +405,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtLicense;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNo;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.CheckBox chkDate;
+        private System.Windows.Forms.DateTimePicker dtContactDate;
     }
 }

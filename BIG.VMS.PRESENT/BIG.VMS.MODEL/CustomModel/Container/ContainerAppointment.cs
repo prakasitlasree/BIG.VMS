@@ -21,5 +21,7 @@ namespace BIG.VMS.MODEL.CustomModel
         public AppointmentFilter Filter { get; set; }
 
         public TRN_APPOINTMENT TRN_APPOINTMENT { get; set; }
+
+        public Pagination PageInfo { get; set; }
     }
 }

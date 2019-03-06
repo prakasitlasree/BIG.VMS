@@ -8,10 +8,11 @@ namespace BIG.VMS.MODEL.CustomModel.Filter
 {
    public  class AppointmentFilter
     {
-        public string NAME { get; set; }
+        public string FIRST_NAME { get; set; }
+        public string LAST_NAME { get; set; }
         public DateTime CONTACT_DATE { get; set; }
         public string ID_CARD { get; set; }
         public string LICENSE_PLATE { get; set; }
-        public string CONTACT_EMPLOYEE_NAME { get; set; }
+      
     }
 }

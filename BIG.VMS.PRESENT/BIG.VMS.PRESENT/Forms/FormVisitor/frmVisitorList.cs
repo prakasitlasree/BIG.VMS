@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.Home
 {
-    public partial class frmAllvisitor : PageBase
+    public partial class frmVisitorList : PageBase
     {
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
-        public frmAllvisitor()
+        public frmVisitorList()
         {
             InitializeComponent();
         }
@@ -44,12 +44,34 @@ namespace BIG.VMS.PRESENT.Forms.Home
             };
             _container.Filter = filter;
             _container = _service.Retrieve(_container);
-            //gridVisitorList.DataSource = _container.ResultObj;
             SetDataSourceHeader(gridVisitorList, ListHeader(), _container.ResultObj);
             SetPageControl(_container);
+            CustomGrid();
+        }
+
+
+        private void CustomGrid()
+        {
+            gridVisitorList.RowTemplate.Height = 30;
+            for (int i = 0; i < gridVisitorList.Rows.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.Aquamarine;
+                }
+                else
+                {
+                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ResetScreen();
+        }
+
+        private void ResetScreen()
         {
             _container.PageInfo = new Pagination();
             BindGridData();
@@ -153,14 +175,52 @@ namespace BIG.VMS.PRESENT.Forms.Home
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+
+        private void btnIn_Click(object sender, EventArgs e)
         {
-            frmEmployee frm = new frmEmployee();
+            frmVisitor frm = new frmVisitor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+           
+
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+
+            frmVisitorOut frm = new frmVisitorOut();
+            frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                var x = frm.SELECTED_EMPLOYEE_ID;
-               
+                ResetScreen();
             }
+        }
+
+        private void btnRegular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAhead_Click(object sender, EventArgs e)
+        {
+            frmAppointmenList frm = new frmAppointmenList();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
