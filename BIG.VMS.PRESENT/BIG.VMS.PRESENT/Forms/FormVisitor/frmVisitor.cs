@@ -307,10 +307,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
-                txtLastName.Text = frm.CARD.TH_LAST_NAME;
-                txtIDCard.Text = frm.CARD.NO;
-                picCard.Image = (Image)frm.CARD.PHOTO;
+                if (frm.CARD_TYPE =="PID")
+                {
+                    //บัตรประชาชน
+                    txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
+                    txtLastName.Text = frm.CARD.TH_LAST_NAME;
+                    txtIDCard.Text = frm.CARD.NO;
+                    picCard.Image = (Image)frm.CARD.PHOTO;
+                }
+                else
+                {
+                    //ใบขับขี่
+                    txtFirstName.Text = frm.DID.FIRST_NAME_EN;
+                    txtLastName.Text = frm.DID.LAST_NAME_EN;
+                    txtIDCard.Text = frm.DID.NO;
+                }
 
                 MessageBox.Show("อ่านข้อมูลจากบัตร เรียบร้อย!!!");
             }
@@ -361,12 +372,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             mod = total % 11;
             nsub = 11 - mod;
             mod2 = nsub % 10;
-
-            //Debug.Log(mod);
-            //Debug.Log(nsub);
-            //Debug.Log(mod2);
-
-
+             
             int.TryParse(numberChars[12].ToString(), out numberChars12);
 
             //Debug.Log(numberChars12);
@@ -377,6 +383,19 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 return true;
         }
 
+        private void btnDeleteCam_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void brn_UploadImgCard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bthCardDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

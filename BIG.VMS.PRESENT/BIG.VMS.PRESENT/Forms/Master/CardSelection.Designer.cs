@@ -65,6 +65,7 @@
             this.btn_driving_licence.TabIndex = 1;
             this.btn_driving_licence.Text = "(2) ใบขับขี่";
             this.btn_driving_licence.UseVisualStyleBackColor = false;
+            this.btn_driving_licence.Click += new System.EventHandler(this.btn_driving_licence_Click);
             // 
             // btn_NID
             // 

@@ -238,6 +238,7 @@
             this.brn_UploadImgCard.Size = new System.Drawing.Size(38, 39);
             this.brn_UploadImgCard.TabIndex = 3;
             this.brn_UploadImgCard.UseVisualStyleBackColor = true;
+            this.brn_UploadImgCard.Click += new System.EventHandler(this.brn_UploadImgCard_Click);
             // 
             // button1
             // 
@@ -258,6 +259,7 @@
             this.bthCardDelete.Size = new System.Drawing.Size(38, 39);
             this.bthCardDelete.TabIndex = 6;
             this.bthCardDelete.UseVisualStyleBackColor = true;
+            this.bthCardDelete.Click += new System.EventHandler(this.bthCardDelete_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -315,6 +317,7 @@
             this.btnDeleteCam.Size = new System.Drawing.Size(38, 39);
             this.btnDeleteCam.TabIndex = 5;
             this.btnDeleteCam.UseVisualStyleBackColor = true;
+            this.btnDeleteCam.Click += new System.EventHandler(this.btnDeleteCam_Click);
             // 
             // Lbl_FirstName
             // 

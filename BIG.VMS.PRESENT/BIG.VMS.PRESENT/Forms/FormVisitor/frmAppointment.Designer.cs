@@ -655,6 +655,7 @@
             this.btnUploadCam.Size = new System.Drawing.Size(38, 39);
             this.btnUploadCam.TabIndex = 4;
             this.btnUploadCam.UseVisualStyleBackColor = true;
+            this.btnUploadCam.Click += new System.EventHandler(this.btnUploadCam_Click);
             // 
             // button3
             // 

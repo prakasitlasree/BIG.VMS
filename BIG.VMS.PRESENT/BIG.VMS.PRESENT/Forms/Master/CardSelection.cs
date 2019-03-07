@@ -10,6 +10,8 @@ namespace BIG.VMS.PRESENT.Forms.Master
     {
         public string CARD_READER { get; set; }
         public PIDCard CARD { get; set; }
+        public string CARD_TYPE { get; set; }
+        public DIDCard DID { get; set; }
 
         public CardSelection()
         {
@@ -70,6 +72,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
             { 
                 string strTerminal = CARD_READER;
                 CARD = new PIDCard();
+                CARD_TYPE = "PID";
                 IntPtr obj = CardHelper.SelectReader(strTerminal);
 
                 int nInsertCard = 0;
@@ -164,5 +167,26 @@ namespace BIG.VMS.PRESENT.Forms.Master
         }
 
         #endregion
+
+        private void btn_driving_licence_Click(object sender, EventArgs e)
+        {
+            DrivingLicenseCardInfo frm = new DrivingLicenseCardInfo();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                DID = new DIDCard();
+                CARD_TYPE = "DID"; //Driving card ID
+                string[] temp = frm.DID_INFO.Split('$');
+                if (temp.Length >= 3)
+                {
+                    string[] no = temp[2].Replace("\r\n","").Split('?');
+                    string[] no2 = no[1].Replace("\r\n", "").Split('=');
+                    DID.NO = no2[0].Replace(";", "").ToString();
+                    DID.FIRST_NAME_EN = temp[1].ToString();
+                    DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ",""); 
+                } 
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }
