@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCar));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelCarModel = new System.Windows.Forms.Panel();
             this.panelCarBrand = new System.Windows.Forms.Panel();
@@ -62,11 +63,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panelCarType, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1312, 814);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelCarModel
@@ -74,9 +76,10 @@
             this.panelCarModel.AutoScroll = true;
             this.panelCarModel.BackColor = System.Drawing.Color.White;
             this.panelCarModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCarModel.Location = new System.Drawing.Point(658, 69);
+            this.panelCarModel.Location = new System.Drawing.Point(878, 85);
+            this.panelCarModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCarModel.Name = "panelCarModel";
-            this.panelCarModel.Size = new System.Drawing.Size(323, 589);
+            this.panelCarModel.Size = new System.Drawing.Size(430, 725);
             this.panelCarModel.TabIndex = 6;
             // 
             // panelCarBrand
@@ -84,9 +87,10 @@
             this.panelCarBrand.AutoScroll = true;
             this.panelCarBrand.BackColor = System.Drawing.Color.White;
             this.panelCarBrand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCarBrand.Location = new System.Drawing.Point(330, 69);
+            this.panelCarBrand.Location = new System.Drawing.Point(441, 85);
+            this.panelCarBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCarBrand.Name = "panelCarBrand";
-            this.panelCarBrand.Size = new System.Drawing.Size(322, 589);
+            this.panelCarBrand.Size = new System.Drawing.Size(429, 725);
             this.panelCarBrand.TabIndex = 6;
             // 
             // tableLayoutPanel4
@@ -98,11 +102,12 @@
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.txtCarModel, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(658, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(878, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(323, 60);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(430, 73);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label3
@@ -111,9 +116,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 17);
+            this.label3.Location = new System.Drawing.Point(4, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 25);
+            this.label3.Size = new System.Drawing.Size(44, 31);
             this.label3.TabIndex = 1;
             this.label3.Text = "รุ่น";
             // 
@@ -122,9 +128,10 @@
             this.txtCarModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCarModel.BackColor = System.Drawing.Color.White;
             this.txtCarModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarModel.Location = new System.Drawing.Point(44, 14);
+            this.txtCarModel.Location = new System.Drawing.Point(56, 18);
+            this.txtCarModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCarModel.Name = "txtCarModel";
-            this.txtCarModel.Size = new System.Drawing.Size(276, 31);
+            this.txtCarModel.Size = new System.Drawing.Size(370, 37);
             this.txtCarModel.TabIndex = 0;
             this.txtCarModel.TextChanged += new System.EventHandler(this.txtCarModel_TextChanged);
             // 
@@ -137,11 +144,12 @@
             this.tableLayoutPanel2.Controls.Add(this.txtCarBrand, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(330, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(441, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(322, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(429, 73);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // txtCarBrand
@@ -149,9 +157,10 @@
             this.txtCarBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCarBrand.BackColor = System.Drawing.Color.White;
             this.txtCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarBrand.Location = new System.Drawing.Point(56, 14);
+            this.txtCarBrand.Location = new System.Drawing.Point(70, 18);
+            this.txtCarBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCarBrand.Name = "txtCarBrand";
-            this.txtCarBrand.Size = new System.Drawing.Size(263, 31);
+            this.txtCarBrand.Size = new System.Drawing.Size(355, 37);
             this.txtCarBrand.TabIndex = 0;
             this.txtCarBrand.TextChanged += new System.EventHandler(this.txtCarBrand_TextChanged);
             // 
@@ -161,9 +170,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Location = new System.Drawing.Point(4, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 25);
+            this.label1.Size = new System.Drawing.Size(58, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "ยี่ห้อ";
             // 
@@ -176,11 +186,12 @@
             this.tableLayoutPanel3.Controls.Add(this.txtCarType, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(321, 60);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(429, 73);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // txtCarType
@@ -188,9 +199,10 @@
             this.txtCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCarType.BackColor = System.Drawing.Color.White;
             this.txtCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarType.Location = new System.Drawing.Point(82, 14);
+            this.txtCarType.Location = new System.Drawing.Point(107, 18);
+            this.txtCarType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCarType.Name = "txtCarType";
-            this.txtCarType.Size = new System.Drawing.Size(236, 31);
+            this.txtCarType.Size = new System.Drawing.Size(318, 37);
             this.txtCarType.TabIndex = 0;
             this.txtCarType.TextChanged += new System.EventHandler(this.txtCarType_TextChanged);
             // 
@@ -200,9 +212,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 17);
+            this.label2.Location = new System.Drawing.Point(4, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.Size = new System.Drawing.Size(95, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "ประเภท";
             // 
@@ -211,18 +224,21 @@
             this.panelCarType.AutoScroll = true;
             this.panelCarType.BackColor = System.Drawing.Color.White;
             this.panelCarType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCarType.Location = new System.Drawing.Point(3, 69);
+            this.panelCarType.Location = new System.Drawing.Point(4, 85);
+            this.panelCarType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCarType.Name = "panelCarType";
-            this.panelCarType.Size = new System.Drawing.Size(321, 589);
+            this.panelCarType.Size = new System.Drawing.Size(429, 725);
             this.panelCarType.TabIndex = 5;
             // 
             // frmCar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(1312, 814);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCar";

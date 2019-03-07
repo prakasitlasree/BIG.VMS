@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVisitorOut));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,18 +87,18 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 25);
+            this.label1.Size = new System.Drawing.Size(66, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "เลขที่";
             // 
             // txtNo
             // 
             this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Location = new System.Drawing.Point(61, 7);
+            this.txtNo.Location = new System.Drawing.Point(75, 4);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(274, 31);
+            this.txtNo.Size = new System.Drawing.Size(260, 37);
             this.txtNo.TabIndex = 1;
             // 
             // btnFind
@@ -105,9 +106,9 @@
             this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFind.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Location = new System.Drawing.Point(61, 49);
+            this.btnFind.Location = new System.Drawing.Point(75, 49);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(274, 41);
+            this.btnFind.Size = new System.Drawing.Size(260, 41);
             this.btnFind.TabIndex = 2;
             this.btnFind.Text = "(1) ค้นหา";
             this.btnFind.UseVisualStyleBackColor = false;
@@ -199,9 +200,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 5);
+            this.label2.Location = new System.Drawing.Point(3, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 25);
+            this.label2.Size = new System.Drawing.Size(104, 31);
             this.label2.TabIndex = 5;
             this.label2.Text = "ข้อมูลคน";
             // 
@@ -209,25 +210,27 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 147);
+            this.label3.Location = new System.Drawing.Point(3, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 25);
+            this.label3.Size = new System.Drawing.Size(100, 31);
             this.label3.TabIndex = 6;
             this.label3.Text = "ข้อมูลรถ";
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // frmVisitorOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(893, 365);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
