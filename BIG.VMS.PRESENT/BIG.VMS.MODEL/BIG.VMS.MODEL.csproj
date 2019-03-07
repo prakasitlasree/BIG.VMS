@@ -60,6 +60,7 @@
     <Compile Include="CustomModel\HeaderGrid.cs" />
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />
+    <Compile Include="CustomModel\VisitorGroupModel.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
       <DesignTime>True</DesignTime>

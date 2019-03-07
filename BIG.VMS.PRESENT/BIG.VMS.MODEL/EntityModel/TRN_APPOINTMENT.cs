@@ -33,8 +33,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public virtual MAS_CAR_MODEL MAS_CAR_MODEL { get; set; }
         public virtual MAS_EMPLOYEE MAS_EMPLOYEE { get; set; }
         public virtual MAS_PROVINCE MAS_PROVINCE { get; set; }
+        public virtual MAS_PROVINCE MAS_PROVINCE1 { get; set; }
         public virtual MAS_REASON MAS_REASON { get; set; }
-        public virtual TRN_APPOINTMENT TRN_APPOINTMENT1 { get; set; }
-        public virtual TRN_APPOINTMENT TRN_APPOINTMENT2 { get; set; }
     }
 }

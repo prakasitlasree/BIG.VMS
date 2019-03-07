@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace BIG.VMS.MODEL.CustomModel
 {
-    public enum FormMode
+    public class VisitorGroupModel
     {
-        Add,
-        View,
-        Edit,
-    }
-
-    public enum VisitorMode
-    {
-        In,
-        Out,
-        Appointment,
-        Regulary,
+       public string Key { get; set; }
+        public int Count { get; set; }
     }
 }

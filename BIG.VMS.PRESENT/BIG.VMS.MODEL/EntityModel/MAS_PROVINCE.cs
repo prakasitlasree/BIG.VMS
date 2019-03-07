@@ -17,6 +17,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public MAS_PROVINCE()
         {
             this.TRN_APPOINTMENT = new HashSet<TRN_APPOINTMENT>();
+            this.TRN_APPOINTMENT1 = new HashSet<TRN_APPOINTMENT>();
             this.TRN_VISITOR = new HashSet<TRN_VISITOR>();
         }
     
@@ -27,6 +28,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> SHOW_SEQ { get; set; }
     
         public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
+        public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT1 { get; set; }
         public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
     }
 }

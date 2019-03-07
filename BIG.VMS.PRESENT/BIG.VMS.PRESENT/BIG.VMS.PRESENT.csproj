@@ -160,6 +160,12 @@
     <Compile Include="Forms\FormVisitor\frmReason.Designer.cs">
       <DependentUpon>frmReason.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmRegulary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmRegulary.Designer.cs">
+      <DependentUpon>frmRegulary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmVisitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmReason.resx">
       <DependentUpon>frmReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmRegulary.resx">
+      <DependentUpon>frmRegulary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmVisitor.resx">
       <DependentUpon>frmVisitor.cs</DependentUpon>

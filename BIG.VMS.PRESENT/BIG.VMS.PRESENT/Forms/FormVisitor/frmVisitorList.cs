@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
+
         public frmVisitorList()
         {
             InitializeComponent();
@@ -48,7 +50,6 @@ namespace BIG.VMS.PRESENT.Forms.Home
             SetPageControl(_container);
             CustomGrid();
         }
-
 
         private void CustomGrid()
         {
@@ -175,20 +176,17 @@ namespace BIG.VMS.PRESENT.Forms.Home
             }
         }
 
-
-
-
         private void btnIn_Click(object sender, EventArgs e)
         {
             frmVisitor frm = new frmVisitor();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.formMode = FormMode.Add;
             frm.visitorMode = VisitorMode.In;
-            if(frm.ShowDialog() == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 ResetScreen();
             }
-           
+
 
         }
 
@@ -205,7 +203,12 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnRegular_Click(object sender, EventArgs e)
         {
-
+            frmRegulary frm = new frmRegulary();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
         }
 
         private void btnAhead_Click(object sender, EventArgs e)
@@ -221,6 +224,48 @@ namespace BIG.VMS.PRESENT.Forms.Home
         private void btnReport_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                var obj = _service.GetVisitorByAutoID(id);
+                frmVisitor frm = new frmVisitor();
+                frm.visitorObj = obj.TRN_VISITOR;
+                frm.formMode = FormMode.Edit;
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    ResetScreen();
+                }
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                    ContainerVisitor obj = new ContainerVisitor
+                    {
+                        TRN_VISITOR = new TRN_VISITOR
+                        {
+                            AUTO_ID = id
+                        }
+                    };
+                    var res = _service.Delete(obj);
+                    if (res.Status)
+                    {
+                        MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetScreen();
+                    }
+                    else
+                    {
+                        MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }
         }
     }
 }
