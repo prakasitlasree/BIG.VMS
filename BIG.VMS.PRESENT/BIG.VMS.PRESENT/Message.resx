@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LOGOUT" xml:space="preserve">
-    <value>Do yo want to Logout</value>
+    <value>ยืนยันการออกจากระบบ?</value>
   </data>
   <data name="MSG_APPLICATION_ALREADLY_RUN" xml:space="preserve">
     <value>Application is already running.</value>
@@ -127,135 +127,114 @@
     <value>Something wrong on appliction, Please contact your Administrator.</value>
   </data>
   <data name="MSG_DELETE_COMPLETE" xml:space="preserve">
-    <value>Delete data successfully.</value>
+    <value>ลบข้อมูลเรียบร้อย</value>
   </data>
   <data name="MSG_DELETE_CONFIRM" xml:space="preserve">
-    <value>Do you want to delete {0} ?</value>
+    <value>ต้องการ ลบ ข้อมูล?</value>
   </data>
   <data name="MSG_DELETE_CONFIRM_BY" xml:space="preserve">
-    <value>Do you want to delete {0} ?</value>
-  </data>
-  <data name="MSG_DELETE_CONFIRM_SAP" xml:space="preserve">
-    <value>IDM and OS Material Group is strongly required for interface from the SAP system, Would you like to delete?</value>
-    <comment>using into Material Group profile</comment>
+    <value>ต้องการ ลบ ข้อมูล?</value>
   </data>
   <data name="MSG_DELETE_INCOMPLETE" xml:space="preserve">
-    <value>Can not delete this data.</value>
-  </data>
-  <data name="MSG_DELETE_INCOMPLETE_ALREADY" xml:space="preserve">
-    <value>Can not delete this data. Because it used in other module already.</value>
+    <value>ไม่สามารถลบข้อมูลได้ </value>
   </data>
   <data name="MSG_DELETE_INCOMPLETE_BY" xml:space="preserve">
-    <value>Can not delete this data. {0}</value>
+    <value>ไม่สามารถลบข้อมูลได้ {0}</value>
     <comment>ไม่สามารถลบข้อมูลได้ {0}</comment>
   </data>
   <data name="MSG_ERROR_TITLE" xml:space="preserve">
-    <value>System error.</value>
+    <value>ระบบทำงานผิดพลาด</value>
     <comment>ระบบทำงานผิดพลาด</comment>
   </data>
   <data name="MSG_ERROR_UNKNOWN" xml:space="preserve">
-    <value>System error. Please contact admin.</value>
+    <value>ระบบเกิดข้อผิดพลาด  กรุณาติดต่อผู้ดูแลระบบ</value>
     <comment>ระบบเกิดข้อผิดพลาด</comment>
   </data>
   <data name="MSG_ERROR_UNKNOWN_BY" xml:space="preserve">
-    <value>System error. {0}</value>
+    <value>ระบบเกิดข้อผิดพลาด {0}</value>
     <comment>ระบบเกิดข้อผิดพลาด {0}</comment>
   </data>
   <data name="MSG_LOGOFF_FAIL" xml:space="preserve">
-    <value>Logoff session id "{0}" fail. {1} </value>
+    <value>ออกจากระบบไม่สำเร็จ</value>
   </data>
   <data name="MSG_LOGOFF_SUCCESS" xml:space="preserve">
-    <value>Logoff session id "{0}" success.</value>
+    <value>ออกจากระบบสำเร็จ</value>
   </data>
   <data name="MSG_LOGOUT_QUESTION" xml:space="preserve">
-    <value>Confirm to Logout?</value>
+    <value>ยืนยันการออกจากระบบ?</value>
     <comment>ยืนยันการออกจากระบบ?</comment>
   </data>
   <data name="MSG_NOT_FOUND" xml:space="preserve">
-    <value>Not found data.</value>
+    <value>ไม่พบข้อมูล</value>
     <comment>ไม่พบข้อมูล</comment>
   </data>
   <data name="MSG_NOT_FOUND_TARGET_FILE" xml:space="preserve">
-    <value>Not found target file.</value>
+    <value>ไม่พบไฟล์</value>
     <comment>ไม่พบไฟล์</comment>
   </data>
   <data name="MSG_NOT_FOUND_TARGET_PATH" xml:space="preserve">
-    <value>Not found target path.</value>
+    <value>ไม่พบปลายทาง</value>
     <comment>ไม่พบปลายทาง</comment>
   </data>
-  <data name="MSG_NO_DATA_CHANGE" xml:space="preserve">
-    <value>No data change(s).</value>
-  </data>
   <data name="MSG_REVISE_CONFIRM" xml:space="preserve">
-    <value>Do you want to revise "{0}" ?</value>
+    <value>แจ้งเตือนการ revise ข้อมูล</value>
     <comment>แจ้งเตือนการ revise ข้อมูล</comment>
   </data>
   <data name="MSG_SAVE_COMPLETE" xml:space="preserve">
-    <value>Save data successfully.</value>
+    <value>บันทึกข้อมูลเรียบร้อย</value>
     <comment>บันทึกข้อมูลเรียบร้อย</comment>
   </data>
   <data name="MSG_SAVE_CONFIRM" xml:space="preserve">
-    <value>Do you want to save ?</value>
+    <value>ต้องการบันทึกข้อมูล?</value>
     <comment>ต้องการบันทึกข้อมูล?</comment>
   </data>
   <data name="MSG_SAVE_CONFIRM_BY_KEY" xml:space="preserve">
-    <value>Do you want to save [{0}]?</value>
+    <value>ต้องการบันทึกข้อมูล?</value>
     <comment>ต้องการบันทึกข้อมูล?</comment>
   </data>
   <data name="MSG_SAVE_INCOMPLETE" xml:space="preserve">
-    <value>Can not save data.</value>
+    <value>ไม่สามารถบันทึกข้อมูลได้</value>
     <comment>ไม่สามารถบันทึกข้อมูลได้</comment>
   </data>
   <data name="MSG_SAVE_INCOMPLETE_BY" xml:space="preserve">
-    <value>Can not save data.  "{0}"</value>
+    <value>ไม่สามารถบันทึกข้อมูลได้  "{0}"</value>
     <comment>ไม่สามารถบันทึกข้อมูลได้  {0}</comment>
   </data>
   <data name="MSG_SHUTDOWN_SYSTEM" xml:space="preserve">
-    <value>Do you want to close program?</value>
+    <value>ยืนยันการออกจากระบบ?</value>
   </data>
   <data name="MSG_TIME_EXPIRED" xml:space="preserve">
-    <value>Please login again.</value>
+    <value>กรุณาทำการ login ใหม่</value>
     <comment>กรุณาทำการ login ใหม่</comment>
   </data>
-  <data name="MSG_USER_DEPT_NOT_MATCH" xml:space="preserve">
-    <value>User&amp;apos;s department not match, Please contact administrator.</value>
-    <comment>User&amp;apos;s department not match, Please contact administrator.</comment>
-  </data>
   <data name="MSG_VALIDATE_COMPLELY" xml:space="preserve">
-    <value>Validate completely.</value>
+    <value>กรุณาระบุ username และ password</value>
     <comment>กรุณาระบุ username และ password</comment>
   </data>
   <data name="MSG_VALIDATE_LOGIN" xml:space="preserve">
-    <value>Please input username and password.</value>
+    <value>กรุณาระบุ username และ password</value>
     <comment>กรุณาระบุ username และ password</comment>
   </data>
   <data name="MSG_VALIDATE_NUMBER_INPUT" xml:space="preserve">
     <value>Please input number.  "{0}"</value>
   </data>
   <data name="MSG_VALIDATE_OVER_LENGTH" xml:space="preserve">
-    <value>The length of {0} can not more than {1} characters.</value>
+    <value>ความยาวของของ {0} ต้องไม่เกิน {1} ตัวอักษร</value>
     <comment>ความยาวของของ {0} ต้องไม่เกิน {1} ตัวอักษร</comment>
   </data>
   <data name="MSG_VALIDATE_REQ_INPUT" xml:space="preserve">
-    <value>Please input data.</value>
+    <value>กรุณาระบุข้อมูล</value>
     <comment>กรุณาระบุข้อมูล</comment>
   </data>
   <data name="MSG_VALIDATE_REQ_INPUT_BY" xml:space="preserve">
-    <value>Please input data. {0}</value>
+    <value>กรุณาระบุข้อมูล {0}</value>
     <comment>กรุณาระบุข้อมูล {0}</comment>
   </data>
-  <data name="MSG_VALIDATE_USAGE_COMPLELY" xml:space="preserve">
-    <value>Usage Calculation Completed.</value>
-  </data>
-  <data name="MSG_VALID_EN_AUTH" xml:space="preserve">
-    <value>EN Number correct.</value>
-    <comment>ยืนยัน EN Number ถูกต้อง</comment>
-  </data>
   <data name="MSG_WARNING_CAPTION" xml:space="preserve">
-    <value>Warning</value>
+    <value>คำเตือน</value>
   </data>
   <data name="MSG_WARNING_REQUIRED_FIELD" xml:space="preserve">
-    <value>Please input required field [" + label + "] !?</value>
+    <value>เตือน Require Fields</value>
     <comment>เตือน Require Fields</comment>
   </data>
 </root>

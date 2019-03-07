@@ -61,7 +61,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do yo want to Logout.
+        ///   Looks up a localized string similar to ยืนยันการออกจากระบบ?.
         /// </summary>
         internal static string LOGOUT {
             get {
@@ -88,7 +88,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete data successfully..
+        ///   Looks up a localized string similar to ลบข้อมูลเรียบร้อย.
         /// </summary>
         internal static string MSG_DELETE_COMPLETE {
             get {
@@ -97,7 +97,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to delete {0} ?.
+        ///   Looks up a localized string similar to ต้องการ ลบ ข้อมูล?.
         /// </summary>
         internal static string MSG_DELETE_CONFIRM {
             get {
@@ -106,7 +106,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to delete {0} ?.
+        ///   Looks up a localized string similar to ต้องการ ลบ ข้อมูล?.
         /// </summary>
         internal static string MSG_DELETE_CONFIRM_BY {
             get {
@@ -115,16 +115,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IDM and OS Material Group is strongly required for interface from the SAP system, Would you like to delete?.
-        /// </summary>
-        internal static string MSG_DELETE_CONFIRM_SAP {
-            get {
-                return ResourceManager.GetString("MSG_DELETE_CONFIRM_SAP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Can not delete this data..
+        ///   Looks up a localized string similar to ไม่สามารถลบข้อมูลได้ .
         /// </summary>
         internal static string MSG_DELETE_INCOMPLETE {
             get {
@@ -133,16 +124,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can not delete this data. Because it used in other module already..
-        /// </summary>
-        internal static string MSG_DELETE_INCOMPLETE_ALREADY {
-            get {
-                return ResourceManager.GetString("MSG_DELETE_INCOMPLETE_ALREADY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Can not delete this data. {0}.
+        ///   Looks up a localized string similar to ไม่สามารถลบข้อมูลได้ {0}.
         /// </summary>
         internal static string MSG_DELETE_INCOMPLETE_BY {
             get {
@@ -151,7 +133,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System error..
+        ///   Looks up a localized string similar to ระบบทำงานผิดพลาด.
         /// </summary>
         internal static string MSG_ERROR_TITLE {
             get {
@@ -160,7 +142,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System error. Please contact admin..
+        ///   Looks up a localized string similar to ระบบเกิดข้อผิดพลาด  กรุณาติดต่อผู้ดูแลระบบ.
         /// </summary>
         internal static string MSG_ERROR_UNKNOWN {
             get {
@@ -169,7 +151,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System error. {0}.
+        ///   Looks up a localized string similar to ระบบเกิดข้อผิดพลาด {0}.
         /// </summary>
         internal static string MSG_ERROR_UNKNOWN_BY {
             get {
@@ -178,7 +160,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logoff session id &quot;{0}&quot; fail. {1} .
+        ///   Looks up a localized string similar to ออกจากระบบไม่สำเร็จ.
         /// </summary>
         internal static string MSG_LOGOFF_FAIL {
             get {
@@ -187,7 +169,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logoff session id &quot;{0}&quot; success..
+        ///   Looks up a localized string similar to ออกจากระบบสำเร็จ.
         /// </summary>
         internal static string MSG_LOGOFF_SUCCESS {
             get {
@@ -196,7 +178,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm to Logout?.
+        ///   Looks up a localized string similar to ยืนยันการออกจากระบบ?.
         /// </summary>
         internal static string MSG_LOGOUT_QUESTION {
             get {
@@ -205,16 +187,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No data change(s)..
-        /// </summary>
-        internal static string MSG_NO_DATA_CHANGE {
-            get {
-                return ResourceManager.GetString("MSG_NO_DATA_CHANGE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not found data..
+        ///   Looks up a localized string similar to ไม่พบข้อมูล.
         /// </summary>
         internal static string MSG_NOT_FOUND {
             get {
@@ -223,7 +196,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not found target file..
+        ///   Looks up a localized string similar to ไม่พบไฟล์.
         /// </summary>
         internal static string MSG_NOT_FOUND_TARGET_FILE {
             get {
@@ -232,7 +205,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not found target path..
+        ///   Looks up a localized string similar to ไม่พบปลายทาง.
         /// </summary>
         internal static string MSG_NOT_FOUND_TARGET_PATH {
             get {
@@ -241,7 +214,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to revise &quot;{0}&quot; ?.
+        ///   Looks up a localized string similar to แจ้งเตือนการ revise ข้อมูล.
         /// </summary>
         internal static string MSG_REVISE_CONFIRM {
             get {
@@ -250,7 +223,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save data successfully..
+        ///   Looks up a localized string similar to บันทึกข้อมูลเรียบร้อย.
         /// </summary>
         internal static string MSG_SAVE_COMPLETE {
             get {
@@ -259,7 +232,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to save ?.
+        ///   Looks up a localized string similar to ต้องการบันทึกข้อมูล?.
         /// </summary>
         internal static string MSG_SAVE_CONFIRM {
             get {
@@ -268,7 +241,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to save [{0}]?.
+        ///   Looks up a localized string similar to ต้องการบันทึกข้อมูล?.
         /// </summary>
         internal static string MSG_SAVE_CONFIRM_BY_KEY {
             get {
@@ -277,7 +250,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can not save data..
+        ///   Looks up a localized string similar to ไม่สามารถบันทึกข้อมูลได้.
         /// </summary>
         internal static string MSG_SAVE_INCOMPLETE {
             get {
@@ -286,7 +259,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can not save data.  &quot;{0}&quot;.
+        ///   Looks up a localized string similar to ไม่สามารถบันทึกข้อมูลได้  &quot;{0}&quot;.
         /// </summary>
         internal static string MSG_SAVE_INCOMPLETE_BY {
             get {
@@ -295,7 +268,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to close program?.
+        ///   Looks up a localized string similar to ยืนยันการออกจากระบบ?.
         /// </summary>
         internal static string MSG_SHUTDOWN_SYSTEM {
             get {
@@ -304,7 +277,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please login again..
+        ///   Looks up a localized string similar to กรุณาทำการ login ใหม่.
         /// </summary>
         internal static string MSG_TIME_EXPIRED {
             get {
@@ -313,25 +286,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User&amp;apos;s department not match, Please contact administrator..
-        /// </summary>
-        internal static string MSG_USER_DEPT_NOT_MATCH {
-            get {
-                return ResourceManager.GetString("MSG_USER_DEPT_NOT_MATCH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EN Number correct..
-        /// </summary>
-        internal static string MSG_VALID_EN_AUTH {
-            get {
-                return ResourceManager.GetString("MSG_VALID_EN_AUTH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Validate completely..
+        ///   Looks up a localized string similar to กรุณาระบุ username และ password.
         /// </summary>
         internal static string MSG_VALIDATE_COMPLELY {
             get {
@@ -340,7 +295,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please input username and password..
+        ///   Looks up a localized string similar to กรุณาระบุ username และ password.
         /// </summary>
         internal static string MSG_VALIDATE_LOGIN {
             get {
@@ -358,7 +313,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The length of {0} can not more than {1} characters..
+        ///   Looks up a localized string similar to ความยาวของของ {0} ต้องไม่เกิน {1} ตัวอักษร.
         /// </summary>
         internal static string MSG_VALIDATE_OVER_LENGTH {
             get {
@@ -367,7 +322,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please input data..
+        ///   Looks up a localized string similar to กรุณาระบุข้อมูล.
         /// </summary>
         internal static string MSG_VALIDATE_REQ_INPUT {
             get {
@@ -376,7 +331,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please input data. {0}.
+        ///   Looks up a localized string similar to กรุณาระบุข้อมูล {0}.
         /// </summary>
         internal static string MSG_VALIDATE_REQ_INPUT_BY {
             get {
@@ -385,16 +340,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usage Calculation Completed..
-        /// </summary>
-        internal static string MSG_VALIDATE_USAGE_COMPLELY {
-            get {
-                return ResourceManager.GetString("MSG_VALIDATE_USAGE_COMPLELY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Warning.
+        ///   Looks up a localized string similar to คำเตือน.
         /// </summary>
         internal static string MSG_WARNING_CAPTION {
             get {
@@ -403,7 +349,7 @@ namespace BIG.VMS.PRESENT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please input required field [&quot; + label + &quot;] !?.
+        ///   Looks up a localized string similar to เตือน Require Fields.
         /// </summary>
         internal static string MSG_WARNING_REQUIRED_FIELD {
             get {
