@@ -65,6 +65,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void SetControl()
         {
+            if(formMode == FormMode.Add)
+            {
+                btnBlacklist.Visible = false;
+            }
             if (visitorMode == VisitorMode.Regulary || formMode == FormMode.Edit)
             {
 
@@ -400,7 +404,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnBlacklist_Click(object sender, EventArgs e)
         {
-
+            frmBlackList frm = new frmBlackList();
+            frm.FIRST_NAME = txtFirstName.Text;
+            frm.LAST_NAME = txtLastName.Text;
+            frm.ID_CARD = txtIDCard.Text;
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
     }
 }

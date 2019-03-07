@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModel\Container\ContainerBlackList.cs" />
     <Compile Include="CustomModel\Container\ContainerCarBrand.cs" />
     <Compile Include="CustomModel\Container\ContainerCarModel.cs" />
     <Compile Include="CustomModel\Container\ContainerCarType.cs" />
