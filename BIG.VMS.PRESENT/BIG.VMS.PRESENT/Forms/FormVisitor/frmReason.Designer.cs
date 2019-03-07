@@ -149,6 +149,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmReason";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "วัตถุประสงค์การติดต่อ";
             this.Load += new System.EventHandler(this.frmReason_Load);

@@ -181,6 +181,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEmployee";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "เลือกผู้ติดต่อ";
             this.Load += new System.EventHandler(this.frmEmployee_Load);

@@ -141,8 +141,8 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.txtCarBrand, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtCarBrand, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(441, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -242,8 +242,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCar";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmCar";
+            this.Text = "เลือกประเภทการเดินทาง";
             this.Load += new System.EventHandler(this.frmCar_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

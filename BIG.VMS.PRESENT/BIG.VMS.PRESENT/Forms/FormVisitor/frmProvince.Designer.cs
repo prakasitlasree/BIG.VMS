@@ -193,6 +193,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmProvince";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "เลือกจังหวัด";
             this.Load += new System.EventHandler(this.frmProvince_Load);

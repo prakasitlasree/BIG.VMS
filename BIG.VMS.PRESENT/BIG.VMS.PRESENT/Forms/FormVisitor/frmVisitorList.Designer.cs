@@ -227,10 +227,10 @@
             // 
             // btnRegular
             // 
-            this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnRegular.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegular.ForeColor = System.Drawing.Color.Black;
+            this.btnRegular.ForeColor = System.Drawing.Color.White;
             this.btnRegular.Image = ((System.Drawing.Image)(resources.GetObject("btnRegular.Image")));
             this.btnRegular.Location = new System.Drawing.Point(393, 3);
             this.btnRegular.Name = "btnRegular";
@@ -244,7 +244,7 @@
             // 
             // btnOut
             // 
-            this.btnOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOut.ForeColor = System.Drawing.Color.Black;
@@ -261,10 +261,10 @@
             // 
             // btnIn
             // 
-            this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.ForeColor = System.Drawing.Color.Black;
+            this.btnIn.ForeColor = System.Drawing.Color.White;
             this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
             this.btnIn.Location = new System.Drawing.Point(3, 3);
             this.btnIn.Name = "btnIn";
@@ -281,7 +281,7 @@
             this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.Black;
+            this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.Location = new System.Drawing.Point(783, 3);
             this.btnReport.Name = "btnReport";
@@ -295,10 +295,10 @@
             // 
             // btnAhead
             // 
-            this.btnAhead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAhead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnAhead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAhead.ForeColor = System.Drawing.Color.Black;
+            this.btnAhead.ForeColor = System.Drawing.Color.White;
             this.btnAhead.Image = ((System.Drawing.Image)(resources.GetObject("btnAhead.Image")));
             this.btnAhead.Location = new System.Drawing.Point(588, 3);
             this.btnAhead.Name = "btnAhead";
@@ -312,7 +312,7 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tableLayoutPanel5.ColumnCount = 6;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -477,6 +477,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmVisitorList";
+            this.ShowIcon = false;
             this.Text = "รายการทั้งหมด";
             this.Load += new System.EventHandler(this.frmAllvisitor_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

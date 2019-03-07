@@ -268,5 +268,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 txtIDCard.Enabled = false;
             }
         }
+
+        private void btnUploadCam_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

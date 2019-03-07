@@ -655,6 +655,7 @@
             this.btnUploadCam.Size = new System.Drawing.Size(38, 39);
             this.btnUploadCam.TabIndex = 4;
             this.btnUploadCam.UseVisualStyleBackColor = true;
+            this.btnUploadCam.Click += new System.EventHandler(this.btnUploadCam_Click);
             // 
             // button3
             // 
@@ -799,6 +800,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmAppointment";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "นัดล่วงหน้า";
             this.Load += new System.EventHandler(this.frmAppointment_Load);
