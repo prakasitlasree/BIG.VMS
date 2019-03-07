@@ -7,7 +7,7 @@ using WebCam_Capture;
 
 namespace BIG.VMS.PRESENT
 {
-    class WebCam
+    public class WebCam
     {
         private WebCamCapture webcam;
         private System.Windows.Forms.PictureBox _FrameImage;
@@ -21,7 +21,7 @@ namespace BIG.VMS.PRESENT
             _FrameImage = ImageControl;
         }
 
-        void webcam_ImageCaptured(object source, WebcamEventArgs e)
+        public void webcam_ImageCaptured(object source, WebcamEventArgs e)
         {
             _FrameImage.Image = e.WebCamImage;
         }

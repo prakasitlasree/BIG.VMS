@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.imgVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imgCurrentImage = new System.Windows.Forms.PictureBox();
             this.btn = new System.Windows.Forms.Button();
-            this.imgVideo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_OK = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCurrentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCurrentImage)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1039, 548);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // imgVideo
+            // 
+            this.imgVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.imgVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgVideo.Location = new System.Drawing.Point(49, 53);
+            this.imgVideo.Name = "imgVideo";
+            this.imgVideo.Size = new System.Drawing.Size(421, 448);
+            this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgVideo.TabIndex = 10;
+            this.imgVideo.TabStop = false;
             // 
             // label1
             // 
@@ -114,24 +125,13 @@
             this.btn.UseVisualStyleBackColor = false;
             this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
-            // imgVideo
-            // 
-            this.imgVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.imgVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgVideo.Location = new System.Drawing.Point(49, 53);
-            this.imgVideo.Name = "imgVideo";
-            this.imgVideo.Size = new System.Drawing.Size(421, 448);
-            this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.imgVideo.TabIndex = 10;
-            this.imgVideo.TabStop = false;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_Cancel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_OK, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(522, 507);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -140,31 +140,32 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 38);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
-            // button1
+            // btn_Cancel
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(104, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 32);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "(2) ตกลง";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Cancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Cancel.Location = new System.Drawing.Point(260, 3);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(150, 32);
+            this.btn_Cancel.TabIndex = 13;
+            this.btn_Cancel.Text = "(3) ยกเลิก";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_OK
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.BackColor = System.Drawing.Color.IndianRed;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(260, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 32);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "(3) ยกเลิก";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_OK.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_OK.BackColor = System.Drawing.Color.Blue;
+            this.btn_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_OK.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_OK.Location = new System.Drawing.Point(104, 3);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(150, 32);
+            this.btn_OK.TabIndex = 12;
+            this.btn_OK.Text = "(2) ตกลง";
+            this.btn_OK.UseVisualStyleBackColor = false;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // CameraSelection
             // 
@@ -182,8 +183,8 @@
             this.Load += new System.EventHandler(this.CameraSelection_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCurrentImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCurrentImage)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -198,7 +199,7 @@
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.PictureBox imgVideo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_OK;
     }
 }

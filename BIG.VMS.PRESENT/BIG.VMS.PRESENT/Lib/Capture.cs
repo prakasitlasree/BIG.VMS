@@ -15,20 +15,20 @@ namespace BIG.VMS.PRESENT
     public class Capture : ISampleGrabberCB, IDisposable
     {
         #region Member variables
-        
+
         private IFilterGraph2 m_FilterGraph = null;
-        
+
         private IAMVideoControl m_VidControl = null;
         private IPin m_pinStill = null;
-        
+
         private ManualResetEvent m_PictureReady = null;
 
         private bool m_WantOne = false;
-        
+
         private int m_videoWidth;
         private int m_videoHeight;
         private int m_stride;
-        
+
         private IntPtr m_ipBuffer = IntPtr.Zero;
 
 #if DEBUG
@@ -63,7 +63,6 @@ namespace BIG.VMS.PRESENT
             }
             catch (Exception ex)
             {
-                Dispose();
                 throw;
             }
         }
@@ -82,12 +81,12 @@ namespace BIG.VMS.PRESENT
                 m_PictureReady.Close();
             }
         }
-     
-        Capture()
+
+        public Capture()
         {
             Dispose();
         }
-        
+
         public IntPtr Click()
         {
             int hr;
@@ -148,7 +147,7 @@ namespace BIG.VMS.PRESENT
                 return m_stride;
             }
         }
-        
+
         private void SetupGraph(DsDevice dev, int iWidth, int iHeight, short iBPP, Control hControl)
         {
             int hr;
@@ -346,7 +345,7 @@ namespace BIG.VMS.PRESENT
             DsUtils.FreeAMMediaType(media);
             media = null;
         }
-        
+
         private void ConfigVideoWindow(Control hControl)
         {
             int hr;
@@ -390,7 +389,7 @@ namespace BIG.VMS.PRESENT
             hr = sampGrabber.SetCallback(this, 1);
             DsError.ThrowExceptionForHR(hr);
         }
-        
+
         private void SetConfigParms(IPin pStill, int iWidth, int iHeight, short iBPP)
         {
             int hr;
@@ -440,7 +439,7 @@ namespace BIG.VMS.PRESENT
                 media = null;
             }
         }
-        
+
         private void CloseInterfaces()
         {
             int hr;
@@ -478,13 +477,13 @@ namespace BIG.VMS.PRESENT
                 m_pinStill = null;
             }
         }
-        
+
         int ISampleGrabberCB.SampleCB(double SampleTime, IMediaSample pSample)
         {
             Marshal.ReleaseComObject(pSample);
             return 0;
         }
-        
+
         int ISampleGrabberCB.BufferCB(double SampleTime, IntPtr pBuffer, int BufferLen)
         {
             // Note that we depend on only being called once per call to Click.  Otherwise

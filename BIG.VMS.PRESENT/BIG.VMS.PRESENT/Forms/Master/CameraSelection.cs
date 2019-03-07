@@ -16,7 +16,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
     {
         private Capture cam;
         IntPtr m_ip = IntPtr.Zero;
-        WebCam webcam;
+       
         public CameraSelection()
         {
             InitializeComponent();
@@ -24,17 +24,22 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
         private void CameraSelection_Load(object sender, EventArgs e)
         {
-            const int VIDEODEVICE = 1; // zero based index of video capture device to use
+            const int VIDEODEVICE = 0; // zero based index of video capture device to use
             const int VIDEOWIDTH = 640; // Depends on video device caps
             const int VIDEOHEIGHT = 480; // Depends on video device caps
             const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
-
-            if (cam != null)
-            {
-                cam.Dispose();
+            try
+            { 
+                if (cam != null)
+                {
+                    cam.Dispose();
+                }
+                cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
             }
-            cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -44,7 +49,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
             {
                 if (cam == null)
                 {
-                    const int VIDEODEVICE = 1; // zero based index of video capture device to use
+                    const int VIDEODEVICE =0; // zero based index of video capture device to use
                     const int VIDEOWIDTH = 640; // Depends on video device caps
                     const int VIDEOHEIGHT = 480; // Depends on video device caps
                     const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
@@ -73,6 +78,9 @@ namespace BIG.VMS.PRESENT.Forms.Master
             }
         }
 
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

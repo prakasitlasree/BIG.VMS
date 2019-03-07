@@ -118,7 +118,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void Save()
         {
 
-            if(formMode == FormMode.Add)
+            if (formMode == FormMode.Add)
             {
                 var obj = new TRN_VISITOR
                 {
@@ -171,12 +171,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     MessageBox.Show(res.Message + res.ExceptionMessage);
                 }
             }
-            if(formMode == FormMode.Edit)
+            if (formMode == FormMode.Edit)
             {
                 var obj = new TRN_VISITOR
                 {
                     AUTO_ID = visitorObj.AUTO_ID,
-                  
+
                     ID_CARD = txtIDCard.Text.Trim(),
                     FIRST_NAME = txtFirstName.Text.Trim(),
                     LAST_NAME = txtLastName.Text.Trim(),
@@ -205,7 +205,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     MessageBox.Show(res.Message + res.ExceptionMessage);
                 }
             }
-            
+
 
         }
 
@@ -318,12 +318,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void BtnTakePhoto_Click(object sender, EventArgs e)
         {
-            var frm = new CameraSelection();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
+            try
+            { 
+                var frm = new CameraSelection();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
 
-                MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                    MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
             }
         }
 
