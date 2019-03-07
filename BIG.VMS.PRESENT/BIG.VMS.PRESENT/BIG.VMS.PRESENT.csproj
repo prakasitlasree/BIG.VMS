@@ -259,6 +259,7 @@
     </Compile>
     <Compile Include="Lib\Capture.cs" />
     <Compile Include="Lib\RDNIDWRAPPER.cs" />
+    <Compile Include="Lib\WebCam.cs" />
     <Compile Include="LogOn.cs">
       <SubType>Form</SubType>
     </Compile>

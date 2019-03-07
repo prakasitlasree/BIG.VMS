@@ -16,10 +16,10 @@ namespace BIG.VMS.PRESENT.Forms.Master
     {
         private Capture cam;
         IntPtr m_ip = IntPtr.Zero;
-
+        WebCam webcam;
         public CameraSelection()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         private void CameraSelection_Load(object sender, EventArgs e)
@@ -37,34 +37,42 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
         }
 
-        
+
         private void btn_Click(object sender, EventArgs e)
         {
-            if (cam == null)
+            try
             {
-                const int VIDEODEVICE = 0; // zero based index of video capture device to use
-                const int VIDEOWIDTH = 640; // Depends on video device caps
-                const int VIDEOHEIGHT = 480; // Depends on video device caps
-                const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
-                cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
+                if (cam == null)
+                {
+                    const int VIDEODEVICE = 1; // zero based index of video capture device to use
+                    const int VIDEOWIDTH = 640; // Depends on video device caps
+                    const int VIDEOHEIGHT = 480; // Depends on video device caps
+                    const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
+                    cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
+                }
+                // Release any previous buffer
+                if (m_ip != IntPtr.Zero)
+                {
+                    Marshal.FreeCoTaskMem(m_ip);
+                    m_ip = IntPtr.Zero;
+                }
+
+                // capture image
+                m_ip = cam.Click();
+                Bitmap b = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
+
+                // If the image is upsidedown
+                b.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+                imgCurrentImage.Image = b;
+
             }
-            // Release any previous buffer
-            if (m_ip != IntPtr.Zero)
+            catch (Exception ex)
             {
-                Marshal.FreeCoTaskMem(m_ip);
-                m_ip = IntPtr.Zero;
+                MessageBox.Show(ex.Message);
             }
-
-            // capture image
-            m_ip = cam.Click();
-            Bitmap b = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
-
-            // If the image is upsidedown
-            b.RotateFlip(RotateFlipType.RotateNoneFlipY);
-             
-            imgCurrentImage.Image = b;
         }
 
-      
+
     }
 }
