@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Home = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readIDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.readIDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,20 +59,27 @@
             // Home
             // 
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(62, 24);
-            this.Home.Text = "Home";
+            this.Home.Size = new System.Drawing.Size(72, 24);
+            this.Home.Text = "หน้าหลัก";
             this.Home.Click += new System.EventHandler(this.Home_Click);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.logOutToolStripMenuItem.Text = "LogOut";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 24);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.logOutToolStripMenuItem.Text = "ออกจากระบบ";
+            // 
+            // readIDCardToolStripMenuItem
+            // 
+            this.readIDCardToolStripMenuItem.Name = "readIDCardToolStripMenuItem";
+            this.readIDCardToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.readIDCardToolStripMenuItem.Text = "ทดสอบอ่านบัตร";
+            this.readIDCardToolStripMenuItem.Click += new System.EventHandler(this.readIDCardToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -99,13 +106,6 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
-            // 
-            // readIDCardToolStripMenuItem
-            // 
-            this.readIDCardToolStripMenuItem.Name = "readIDCardToolStripMenuItem";
-            this.readIDCardToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
-            this.readIDCardToolStripMenuItem.Text = "Read ID Card";
-            this.readIDCardToolStripMenuItem.Click += new System.EventHandler(this.readIDCardToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
