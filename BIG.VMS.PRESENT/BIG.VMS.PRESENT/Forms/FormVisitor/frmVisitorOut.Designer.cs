@@ -35,14 +35,14 @@
             this.txtNo = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPersonInfo = new System.Windows.Forms.TextBox();
             this.txtCarInfo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtPersonInfo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -109,7 +109,7 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(274, 41);
             this.btnFind.TabIndex = 2;
-            this.btnFind.Text = "ค้นหา";
+            this.btnFind.Text = "(1) ค้นหา";
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
@@ -133,15 +133,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(543, 359);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // txtPersonInfo
-            // 
-            this.txtPersonInfo.Location = new System.Drawing.Point(3, 38);
-            this.txtPersonInfo.Multiline = true;
-            this.txtPersonInfo.Name = "txtPersonInfo";
-            this.txtPersonInfo.ReadOnly = true;
-            this.txtPersonInfo.Size = new System.Drawing.Size(537, 101);
-            this.txtPersonInfo.TabIndex = 2;
             // 
             // txtCarInfo
             // 
@@ -177,7 +168,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(263, 63);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "ยกเลิก";
+            this.btnCancel.Text = "(3) ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -185,19 +176,24 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.Enabled = false;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Location = new System.Drawing.Point(3, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(262, 63);
             this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "ยืนยัน";
+            this.btnSave.Text = "(2) ยืนยัน";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // contextMenuStrip1
+            // txtPersonInfo
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.txtPersonInfo.Location = new System.Drawing.Point(3, 38);
+            this.txtPersonInfo.Multiline = true;
+            this.txtPersonInfo.Name = "txtPersonInfo";
+            this.txtPersonInfo.ReadOnly = true;
+            this.txtPersonInfo.Size = new System.Drawing.Size(537, 101);
+            this.txtPersonInfo.TabIndex = 2;
             // 
             // label2
             // 
@@ -219,6 +215,11 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "ข้อมูลรถ";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmVisitorOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -231,7 +232,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmVisitorOut";
-            this.Text = "frmVisitorOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "ออก";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

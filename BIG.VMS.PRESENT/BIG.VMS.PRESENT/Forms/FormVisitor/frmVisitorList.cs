@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,13 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.Home
 {
-    public partial class frmAllvisitor : PageBase
+    public partial class frmVisitorList : PageBase
     {
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
-        public frmAllvisitor()
+
+        public frmVisitorList()
         {
             InitializeComponent();
         }
@@ -44,12 +46,33 @@ namespace BIG.VMS.PRESENT.Forms.Home
             };
             _container.Filter = filter;
             _container = _service.Retrieve(_container);
-            //gridVisitorList.DataSource = _container.ResultObj;
             SetDataSourceHeader(gridVisitorList, ListHeader(), _container.ResultObj);
             SetPageControl(_container);
+            CustomGrid();
+        }
+
+        private void CustomGrid()
+        {
+            gridVisitorList.RowTemplate.Height = 30;
+            for (int i = 0; i < gridVisitorList.Rows.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.Aquamarine;
+                }
+                else
+                {
+                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ResetScreen();
+        }
+
+        private void ResetScreen()
         {
             _container.PageInfo = new Pagination();
             BindGridData();
@@ -153,13 +176,95 @@ namespace BIG.VMS.PRESENT.Forms.Home
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIn_Click(object sender, EventArgs e)
         {
-            frmEmployee frm = new frmEmployee();
+            frmVisitor frm = new frmVisitor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                var x = frm.SELECTED_EMPLOYEE_ID;
-               
+                ResetScreen();
+            }
+
+
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+
+            frmVisitorOut frm = new frmVisitorOut();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+        }
+
+        private void btnRegular_Click(object sender, EventArgs e)
+        {
+            frmRegulary frm = new frmRegulary();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+        }
+
+        private void btnAhead_Click(object sender, EventArgs e)
+        {
+            frmAppointmenList frm = new frmAppointmenList();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                var obj = _service.GetVisitorByAutoID(id);
+                frmVisitor frm = new frmVisitor();
+                frm.visitorObj = obj.TRN_VISITOR;
+                frm.formMode = FormMode.Edit;
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    ResetScreen();
+                }
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                    ContainerVisitor obj = new ContainerVisitor
+                    {
+                        TRN_VISITOR = new TRN_VISITOR
+                        {
+                            AUTO_ID = id
+                        }
+                    };
+                    var res = _service.Delete(obj);
+                    if (res.Status)
+                    {
+                        MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetScreen();
+                    }
+                    else
+                    {
+                        MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
             }
         }
     }

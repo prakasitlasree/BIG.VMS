@@ -57,6 +57,28 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var listData = new List<TRN_APPOINTMENT>();
                     listData = GetListAppointmentQuery(obj).ToList();
+
+                    if (obj.PageInfo != null)
+                    {
+                        obj.PageInfo.TOTAL_PAGE = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(listData.Count) / Convert.ToDouble(obj.PageInfo.PAGE_SIZE)));
+
+                        listData = listData.Skip(obj.PageInfo.PAGE_SIZE * (obj.PageInfo.PAGE - 1))
+                                           .Take(obj.PageInfo.PAGE_SIZE)
+                                           .ToList();
+
+                        result.PageInfo = obj.PageInfo;
+                    }
+                    else
+                    {
+                        Pagination page = new Pagination();
+                        page.TOTAL_PAGE = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(listData.Count) / Convert.ToDouble(page.PAGE_SIZE)));
+                        listData = listData.Skip(page.PAGE_SIZE * (page.PAGE - 1))
+                                          .Take(page.PAGE_SIZE)
+                                          .ToList();
+
+                        result.PageInfo = page;
+                    }
+
                     result.ResultObj = listData;
                     result.Status = true;
                     result.Message = "Retrive Data Successful";
@@ -96,9 +118,13 @@ namespace BIG.VMS.DATASERVICE
                     {
                         query = query.Where(o => o.REQUEST_LICENSE_PLATE == filter.LICENSE_PLATE);
                     }
-                    if (!string.IsNullOrEmpty(filter.NAME))
+                    if (!string.IsNullOrEmpty(filter.FIRST_NAME))
                     {
-                        query = query.Where(o => o.REQUEST_FIRST_NAME.Contains(filter.NAME) || o.REQUEST_LAST_NAME.Contains(filter.NAME));
+                        query = query.Where(o => o.REQUEST_FIRST_NAME.Contains(filter.FIRST_NAME));
+                    }
+                    if (!string.IsNullOrEmpty(filter.LAST_NAME))
+                    {
+                        query = query.Where(o => o.REQUEST_LAST_NAME.Contains(filter.LAST_NAME));
                     }
                     if (filter.CONTACT_DATE != null && filter.CONTACT_DATE != DateTime.MinValue)
                     {

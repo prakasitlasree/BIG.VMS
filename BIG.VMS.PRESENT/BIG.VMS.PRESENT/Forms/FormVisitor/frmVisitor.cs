@@ -21,13 +21,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
-         
-        private int contactEmployeeId = 0;
-        private int provinceId = 0;
-        private int carModelId = 0;
-        private int reasonId = 0;
 
-        private string no = "";
+        public TRN_VISITOR visitorObj = new TRN_VISITOR();
+        public int contactEmployeeId = 0;
+        public int provinceId = 0;
+        public int carModelId = 0;
+        public int reasonId = 0;
 
         public frmVisitor()
         {
@@ -39,7 +38,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 InitialLoad();
-
+                SetControl();
             }
             catch (Exception ex)
             {
@@ -66,61 +65,147 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void SetControl()
         {
-            
+            if (visitorMode == VisitorMode.Regulary || formMode == FormMode.Edit)
+            {
+
+                txtIDCard.Text = visitorObj.ID_CARD;
+                txtFirstName.Text = visitorObj.FIRST_NAME;
+                txtLastName.Text = visitorObj.LAST_NAME;
+                txtLicense.Text = visitorObj.LICENSE_PLATE;
+
+                if (visitorObj.MAS_EMPLOYEE != null)
+                {
+                    contactEmployeeId = visitorObj.MAS_EMPLOYEE.AUTO_ID;
+                    txtMeet.Text = visitorObj.MAS_EMPLOYEE.FIRST_NAME + " " + visitorObj.MAS_EMPLOYEE.LAST_NAME;
+                }
+                else
+                {
+                    txtMeet.Text = "";
+                }
+                if (visitorObj.MAS_REASON != null)
+                {
+                    reasonId = visitorObj.MAS_REASON.AUTO_ID;
+                    txtTopic.Text = visitorObj.MAS_REASON.REASON;
+                }
+                else
+                {
+                    txtTopic.Text = "";
+                }
+
+                if (visitorObj.MAS_PROVINCE != null)
+                {
+                    provinceId = visitorObj.MAS_PROVINCE.AUTO_ID;
+                    txtProvince.Text = visitorObj.MAS_PROVINCE.NAME;
+                }
+                else
+                {
+                    txtProvince.Text = "";
+                }
+
+                if (visitorObj.MAS_CAR_MODEL != null)
+                {
+                    carModelId = visitorObj.MAS_CAR_MODEL.AUTO_ID;
+                    txtCar.Text = visitorObj.MAS_CAR_MODEL.NAME;
+                }
+                else
+                {
+                    txtCar.Text = "";
+                }
+
+            }
         }
 
         private void Save()
         {
 
-            var obj = new TRN_VISITOR
+            if(formMode == FormMode.Add)
             {
-                NO = txtNo.Text.Trim(),
-                ID_CARD = txtIDCard.Text.Trim(),
-                FIRST_NAME = txtFirstName.Text.Trim(),
-                LAST_NAME = txtLastName.Text.Trim(),
-                LICENSE_PLATE = txtLicense.Text.Trim(),
-                //TOPIC = txtTopic.Text.Trim(),
-                CONTACT_EMPLOYEE_ID = contactEmployeeId,
-                CAR_MODEL_ID = carModelId,
-                REASON_ID =reasonId,
-                LICENSE_PLATE_PROVINCE_ID = provinceId,
+                var obj = new TRN_VISITOR
+                {
+                    NO = txtNo.Text.Trim(),
+                    ID_CARD = txtIDCard.Text.Trim(),
+                    FIRST_NAME = txtFirstName.Text.Trim(),
+                    LAST_NAME = txtLastName.Text.Trim(),
+                    LICENSE_PLATE = txtLicense.Text.Trim(),
+                    STATUS = 1,
+                    CONTACT_EMPLOYEE_ID = contactEmployeeId,
+                    CAR_MODEL_ID = carModelId,
+                    REASON_ID = reasonId,
+                    LICENSE_PLATE_PROVINCE_ID = provinceId,
 
-                CREATED_DATE = DateTime.Now,
-                UPDATED_DATE = DateTime.Now,
+                    CREATED_DATE = DateTime.Now,
+                    UPDATED_DATE = DateTime.Now,
 
-            };
+                };
 
-            if (visitorMode == VisitorMode.In)
-            {
-                obj.TYPE = "In";
-            }
-            if (visitorMode == VisitorMode.Out)
-            {
-                obj.TYPE = "Out";
-            }
-            if (visitorMode == VisitorMode.Appointment)
-            {
-                obj.TYPE = "นัดล่วงหน้า";
-            }
-            if (visitorMode == VisitorMode.ComeOften)
-            {
-                obj.TYPE = "มาประจำ";
-            }
+                if (visitorMode == VisitorMode.In)
+                {
+                    obj.TYPE = "In";
+                }
+                if (visitorMode == VisitorMode.Out)
+                {
+                    obj.TYPE = "Out";
+                }
+                if (visitorMode == VisitorMode.Appointment)
+                {
+                    obj.TYPE = "Appointment";
+                }
+                if (visitorMode == VisitorMode.Regulary)
+                {
+                    obj.TYPE = "Regulary";
+                }
 
-            var container = new ContainerVisitor { TRN_VISITOR = obj };
+                var container = new ContainerVisitor { TRN_VISITOR = obj };
 
-            var res = _service.Create(container);
+                var res = _service.Create(container);
 
-            if (res.Status)
-            {
-                MessageBox.Show(Message.MSG_SAVE_COMPLETE);
-                this.DialogResult = DialogResult.OK;
-                this.Close(); 
+                if (res.Status)
+                {
+
+                    MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(res.Message + res.ExceptionMessage);
+                }
             }
-            else
+            if(formMode == FormMode.Edit)
             {
-                MessageBox.Show(res.Message + res.ExceptionMessage);
+                var obj = new TRN_VISITOR
+                {
+                    AUTO_ID = visitorObj.AUTO_ID,
+                  
+                    ID_CARD = txtIDCard.Text.Trim(),
+                    FIRST_NAME = txtFirstName.Text.Trim(),
+                    LAST_NAME = txtLastName.Text.Trim(),
+                    LICENSE_PLATE = txtLicense.Text.Trim(),
+                    CONTACT_EMPLOYEE_ID = contactEmployeeId,
+                    CAR_MODEL_ID = carModelId,
+                    REASON_ID = reasonId,
+                    LICENSE_PLATE_PROVINCE_ID = provinceId,
+                    UPDATED_DATE = DateTime.Now,
+
+                };
+
+                var container = new ContainerVisitor { TRN_VISITOR = obj };
+
+                var res = _service.Update(container);
+
+                if (res.Status)
+                {
+
+                    MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(res.Message + res.ExceptionMessage);
+                }
             }
+            
 
         }
 
@@ -151,17 +236,26 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 !string.IsNullOrEmpty(txtProvince.Text) &&
                 !string.IsNullOrEmpty(txtTopic.Text) &&
                 !string.IsNullOrEmpty(txtCar.Text) &&
+                txtIDCard.TextLength >= 13 &&
                 contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0)
             {
-                if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (IsValidCheckPersonID(txtIDCard.Text))
                 {
-                    Save();
+                    if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Save();
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
 
             }
             else
             {
-                MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -210,7 +304,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnReadCard_Click(object sender, EventArgs e)
         {
             var frm = new CardSelection();
-            frm.StartPosition  = FormStartPosition.CenterParent;
+            frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
@@ -228,9 +322,52 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
+
                 MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
             }
         }
+
+        private bool IsValidCheckPersonID(string pid)
+        {
+
+            char[] numberChars = pid.ToCharArray();
+
+            int total = 0;
+            int mul = 13;
+            int mod = 0, mod2 = 0;
+            int nsub = 0;
+            int numberChars12 = 0;
+
+            for (int i = 0; i < numberChars.Length - 1; i++)
+            {
+                int num = 0;
+                int.TryParse(numberChars[i].ToString(), out num);
+
+                total = total + num * mul;
+                mul = mul - 1;
+
+                //Debug.Log(total + " - " + num + " - "+mul);
+            }
+
+            mod = total % 11;
+            nsub = 11 - mod;
+            mod2 = nsub % 10;
+
+            //Debug.Log(mod);
+            //Debug.Log(nsub);
+            //Debug.Log(mod2);
+
+
+            int.TryParse(numberChars[12].ToString(), out numberChars12);
+
+            //Debug.Log(numberChars12);
+
+            if (mod2 != numberChars12)
+                return false;
+            else
+                return true;
+        }
+
+
     }
 }

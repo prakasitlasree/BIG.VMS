@@ -1,4 +1,4 @@
-﻿using BIG.VMS.PRESENT.Forms.FormIn;
+﻿
 using BIG.VMS.PRESENT.Forms.Home;
 using System;
 using System.Drawing;
@@ -71,7 +71,7 @@ namespace BIG.VMS.PRESENT
 
         private void Home_Click(object sender, EventArgs e)
         {
-            frmHome frm = new frmHome();
+            frmVisitorList frm = new frmVisitorList();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;

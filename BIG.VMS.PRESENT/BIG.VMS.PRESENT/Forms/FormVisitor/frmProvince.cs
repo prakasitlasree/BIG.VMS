@@ -267,14 +267,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             SELECTED_PROVINCE_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
             SELECTED_PROVINCE_TEXT = ((Control)sender).Text.ToString();
-            lblSelectedProvince.Text = ((Control)sender).Text.ToString();
-
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
+            
             this.DialogResult = DialogResult.OK;
             this.Close();
+
         }
+
+       
     }
 }
