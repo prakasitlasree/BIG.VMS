@@ -99,6 +99,31 @@ namespace BIG.VMS.DATASERVICE
             throw new NotImplementedException();
         }
 
+        public ContainerAppointment UpdateStatus(int autoID)
+        {
+            var result = new ContainerAppointment();
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+                    var data = ctx.TRN_APPOINTMENT.Where(o => o.AUTO_ID == autoID).FirstOrDefault();
+                    data.STATUS = "เข้าพบแล้ว";
+                    ctx.SaveChanges();
+                    result.Status = true;
+                    result.Message = "Update Successful";
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString();
+                }
+
+            }
+
+            return result;
+        }
+
         public IQueryable<TRN_APPOINTMENT> GetListAppointmentQuery(ContainerAppointment obj)
         {
 
@@ -112,11 +137,11 @@ namespace BIG.VMS.DATASERVICE
                 {
                     if (!string.IsNullOrEmpty(filter.ID_CARD))
                     {
-                        query = query.Where(o => o.REQUEST_ID_CARD == filter.ID_CARD);
+                        query = query.Where(o => o.REQUEST_ID_CARD.Contains(filter.ID_CARD));
                     }
                     if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
                     {
-                        query = query.Where(o => o.REQUEST_LICENSE_PLATE == filter.LICENSE_PLATE);
+                        query = query.Where(o => o.REQUEST_LICENSE_PLATE.Contains(filter.LICENSE_PLATE));
                     }
                     if (!string.IsNullOrEmpty(filter.FIRST_NAME))
                     {
@@ -128,7 +153,9 @@ namespace BIG.VMS.DATASERVICE
                     }
                     if (filter.CONTACT_DATE != null && filter.CONTACT_DATE != DateTime.MinValue)
                     {
-                        query = query.Where(o => o.CONTACT_DATE == filter.CONTACT_DATE);
+                        var dateFrom = filter.CONTACT_DATE.AddDays(1);
+                        var dateTo = filter.CONTACT_DATE.AddDays(-1);
+                        query = query.Where(o => o.CONTACT_DATE < dateFrom && o.CONTACT_DATE >= dateTo);
                     }
                     return query;
                 }

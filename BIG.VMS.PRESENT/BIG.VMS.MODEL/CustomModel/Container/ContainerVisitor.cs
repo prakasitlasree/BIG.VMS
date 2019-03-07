@@ -1,4 +1,5 @@
 ﻿using BIG.VMS.MODEL.EntityModel;
+using System;
 
 namespace BIG.VMS.MODEL.CustomModel
 {
@@ -18,4 +19,6 @@ namespace BIG.VMS.MODEL.CustomModel
 
         public Pagination PageInfo { get; set; }
     }
+
+    
 }

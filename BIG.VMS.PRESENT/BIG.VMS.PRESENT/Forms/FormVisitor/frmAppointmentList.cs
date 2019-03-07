@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.CustomModel.Filter;
+using BIG.VMS.MODEL.EntityModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,8 +33,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             _container.PageInfo = new Pagination();
             BindGridData();
+            CustomGrid();
         }
 
+      
 
         private void InitialEventHandler()
         {
@@ -55,6 +58,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 FIRST_NAME = txtName.Text,
                 LAST_NAME = txtLastName.Text,
                 LICENSE_PLATE = txtLicense.Text,
+               
             };
 
             if (chkDate.Checked)
@@ -80,6 +84,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ", FIELD = "REQUEST_FIRST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "นามสกุล", FIELD = "REQUEST_LAST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่จะเข้า", FIELD = "CONTACT_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "สถานะ", FIELD = "STATUS", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
 
 
 
@@ -120,6 +125,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void CustomGrid()
         {
+          
+            foreach (DataGridViewRow row in gridAppointmentList.Rows)
+            {
+                if (row.Cells["STATUS"].Value.ToString() == "เข้าพบแล้ว")
+                {
+                    row.Cells[0].Value = Properties.Resources.approve;
+                }
+            }
             gridAppointmentList.RowTemplate.Height = 30;
             for (int i = 0; i < gridAppointmentList.Rows.Count; i++)
             {
@@ -132,12 +145,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     gridAppointmentList.Rows[i].DefaultCellStyle.BackColor = Color.White;
                 }
             }
+
+            gridAppointmentList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAppointment frm = new frmAppointment();
-            if(frm.ShowDialog()== DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 ResetScreen();
             }
@@ -179,6 +194,31 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ResetScreen();
+        }
+
+        private void gridAppointmentList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                if (e.ColumnIndex == 0 && gridAppointmentList.Rows[e.RowIndex].Cells["STATUS"].Value.ToString() != "เข้าพบแล้ว")
+                {
+                    if (MessageBox.Show("ต้องการปรับสถานะ", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        var id = Convert.ToInt32(gridAppointmentList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                        var res = _service.UpdateStatus(id);
+                        if (res.Status)
+                        {
+                            MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetScreen();
+                        }
+                        else
+                        {
+                            MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+           
         }
     }
 }

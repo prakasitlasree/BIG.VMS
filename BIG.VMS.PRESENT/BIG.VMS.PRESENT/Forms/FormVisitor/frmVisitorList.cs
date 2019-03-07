@@ -33,6 +33,8 @@ namespace BIG.VMS.PRESENT.Forms.Home
             InitialEventHandler();
             _container.PageInfo = new Pagination();
             BindGridData();
+            CustomGrid();
+
         }
 
         private void BindGridData()
@@ -48,7 +50,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
             _container = _service.Retrieve(_container);
             SetDataSourceHeader(gridVisitorList, ListHeader(), _container.ResultObj);
             SetPageControl(_container);
-            CustomGrid();
+            
         }
 
         private void CustomGrid()
@@ -76,19 +78,22 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
             _container.PageInfo = new Pagination();
             BindGridData();
+            CustomGrid();
         }
 
         private List<HeaderGrid> ListHeader()
         {
             List<HeaderGrid> listCol = new List<HeaderGrid>();
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ID", FIELD = "AUTO_ID", VISIBLE = false, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+
             listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่ทำการ", FIELD = "CREATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภท", FIELD = "TYPE", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "รหัสบัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ", FIELD = "FIRST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "นามสกุล", FIELD = "LAST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-
+          
             return listCol;
         }
 
@@ -228,44 +233,48 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if(e.RowIndex > -1)
             {
-                var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                var obj = _service.GetVisitorByAutoID(id);
-                frmVisitor frm = new frmVisitor();
-                frm.visitorObj = obj.TRN_VISITOR;
-                frm.formMode = FormMode.Edit;
-
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    ResetScreen();
-                }
-            }
-            else if (e.ColumnIndex == 1)
-            {
-                if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (e.ColumnIndex == 0)
                 {
                     var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                    ContainerVisitor obj = new ContainerVisitor
+                    var obj = _service.GetVisitorByAutoID(id);
+                    frmVisitor frm = new frmVisitor();
+                    frm.visitorObj = obj.TRN_VISITOR;
+                    frm.formMode = FormMode.Edit;
+
+                    if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        TRN_VISITOR = new TRN_VISITOR
-                        {
-                            AUTO_ID = id
-                        }
-                    };
-                    var res = _service.Delete(obj);
-                    if (res.Status)
-                    {
-                        MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetScreen();
                     }
-                    else
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                        var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                        ContainerVisitor obj = new ContainerVisitor
+                        {
+                            TRN_VISITOR = new TRN_VISITOR
+                            {
+                                AUTO_ID = id
+                            }
+                        };
+                        var res = _service.Delete(obj);
+                        if (res.Status)
+                        {
+                            MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetScreen();
+                        }
+                        else
+                        {
+                            MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
 
+                    }
                 }
             }
+         
         }
     }
 }

@@ -17,7 +17,7 @@ namespace BIG.VMS.PRESENT
         {
             InitializeComponent();
             this.BackColor = Color.White;
-           
+
         }
 
         public string USER = string.Empty;
@@ -53,32 +53,53 @@ namespace BIG.VMS.PRESENT
             }
         }
 
-        public void SetDataSourceHeader(DataGridView control, List<HeaderGrid> list_header,dynamic data)
+        public void SetDataSourceHeader(DataGridView control, List<HeaderGrid> list_header, dynamic data)
         {
-            
-            DataTable dt = ConvertToDataTable(data);
-            control.DataSource = dt;
-            List<string> columnNames = dt.Columns.Cast<DataColumn>()
-                             .Select(x => x.ColumnName)
-                             .ToList();
-
-            control.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            foreach (var item in columnNames)
-            {                
-                control.Columns[item].Visible = false;  
-            }
-
-            foreach (var item in list_header)
+            if (data != null)
             {
-                
-                control.Columns[item.FIELD].HeaderText = item.HEADER_TEXT;
-                control.Columns[item.FIELD].Visible = item.VISIBLE;
-                 control.Columns[item.FIELD].DefaultCellStyle.Alignment = item.ALIGN == align.Center ? DataGridViewContentAlignment.MiddleCenter : (item.ALIGN == align.Left ? DataGridViewContentAlignment.MiddleLeft : (item.ALIGN == align.Right ? DataGridViewContentAlignment.BottomRight : DataGridViewContentAlignment.MiddleLeft));
-                control.Columns[item.FIELD].AutoSizeMode = item.AUTO_SIZE == autoSize.CellContent ? DataGridViewAutoSizeColumnMode.DisplayedCells : (item.AUTO_SIZE == autoSize.Fill ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells);
+                DataTable dt = ConvertToDataTable(data);
+                control.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                //control.DataSource = dt;
+                List<string> columnNames = dt.Columns.Cast<DataColumn>()
+                                 .Select(x => x.ColumnName)
+                                 .ToList();
+
+                int columnIndex = 0;
+
+
+                foreach (var item in list_header)
+                {
+                    if (dt.Columns.Contains(item.FIELD))
+                    {
+                        dt.Columns[item.FIELD].SetOrdinal(columnIndex);
+                        columnIndex++;
+                    }
+
+                }
+
+                control.DataSource = dt;
+
+                foreach (var item in columnNames)
+                {
+                    control.Columns[item].Visible = false;
+                }
+                foreach (var item in list_header)
+                {
+                    if (control.Columns.Contains(item.FIELD))
+                    {
+
+                        control.Columns[item.FIELD].HeaderText = item.HEADER_TEXT;
+                        control.Columns[item.FIELD].Visible = item.VISIBLE;
+                        control.Columns[item.FIELD].DefaultCellStyle.Alignment = item.ALIGN == align.Center ? DataGridViewContentAlignment.MiddleCenter : (item.ALIGN == align.Left ? DataGridViewContentAlignment.MiddleLeft : (item.ALIGN == align.Right ? DataGridViewContentAlignment.BottomRight : DataGridViewContentAlignment.MiddleLeft));
+                        control.Columns[item.FIELD].AutoSizeMode = item.AUTO_SIZE == autoSize.CellContent ? DataGridViewAutoSizeColumnMode.DisplayedCells : (item.AUTO_SIZE == autoSize.Fill ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells);
+
+                    }
+                }
             }
 
-            
-            
+
+
+
         }
 
         public DataTable ConvertToDataTable<T>(IList<T> data)
@@ -101,7 +122,7 @@ namespace BIG.VMS.PRESENT
 
         private void PageBase_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

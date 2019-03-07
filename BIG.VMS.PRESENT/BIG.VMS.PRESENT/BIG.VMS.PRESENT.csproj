@@ -349,7 +349,6 @@
   <ItemGroup>
     <Folder Include="ResourceFile\icon\" />
     <Folder Include="ResourceFile\ico\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="delivery.ico" />
@@ -417,6 +416,7 @@
     <Content Include="ResourceFile\skill.png" />
     <Content Include="ResourceFile\User group.png" />
     <Content Include="ResourceFile\user-add-icon.png" />
+    <None Include="Resources\approve.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

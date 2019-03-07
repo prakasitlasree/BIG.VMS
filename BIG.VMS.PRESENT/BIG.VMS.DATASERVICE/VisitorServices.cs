@@ -108,6 +108,23 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var listData = GetListVisitorQuery(obj).ToList();
 
+                    foreach(var item  in listData)
+                    {
+                        if(item.TYPE == "In")
+                        {
+                            item.TYPE = "เข้า";
+                        }
+                        else if (item.TYPE == "Out")
+                        {
+                            item.TYPE = "ออก";
+                        }
+                        else if (item.TYPE == "Regulary")
+                        {
+                            item.TYPE = "มาประจำ";
+                        }
+
+                    }
+
                     if (obj.PageInfo != null)
                     {
                         obj.PageInfo.TOTAL_PAGE = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(listData.Count) / Convert.ToDouble(obj.PageInfo.PAGE_SIZE)));

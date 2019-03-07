@@ -16,6 +16,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private ComboBoxServices _comboService = new ComboBoxServices();
         private int carType = 0;
         private int carBrand = 0;
+        private string carBrandText = "";
         public int SELECTED_CAR_ID { get; set; }
         public string SELECTED_CAR_TEXT { get; set; }
 
@@ -80,7 +81,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void CarBrandSelected_EventHadler(object sender, EventArgs e)
         {
             carBrand = Convert.ToInt32(((Control)sender).Tag.ToString());
-
+            carBrandText = ((Control)sender).Text.ToString();
             var carModel = _comboService.GetComboCarModelByBrandID(carBrand);
             panelCarModel.Controls.Clear();
 
@@ -104,15 +105,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void CarModelSelected_EventHadler(object sender, EventArgs e)
         {
             SELECTED_CAR_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
-            SELECTED_CAR_TEXT = ((Control)sender).Text.ToString();
+            SELECTED_CAR_TEXT = carBrandText + " " + ((Control)sender).Text.ToString();
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-        
+
         private void SearchCarType(string filter)
         {
             var carType = _comboService.GetComboCarType(filter);
             panelCarType.Controls.Clear();
+            carBrandText = "";
             foreach (var item in carType)
             {
                 Button btn = new Button();
@@ -132,10 +134,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void SearchCarBrand(string filter)
         {
-
-
             var carBrand = _comboService.GetComboCarBrandByTypeID(carType, filter);
-
+            carBrandText = "";
             panelCarBrand.Controls.Clear();
 
             foreach (var item in carBrand)
@@ -163,7 +163,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             var carModel = _comboService.GetComboCarModelByBrandID(carBrand, filter);
 
             panelCarModel.Controls.Clear();
-
+            carBrandText = "";
             foreach (var item in carModel)
             {
                 Button btn = new Button();

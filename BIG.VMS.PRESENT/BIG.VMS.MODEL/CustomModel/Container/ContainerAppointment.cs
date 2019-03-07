@@ -24,4 +24,6 @@ namespace BIG.VMS.MODEL.CustomModel
 
         public Pagination PageInfo { get; set; }
     }
+
+    
 }

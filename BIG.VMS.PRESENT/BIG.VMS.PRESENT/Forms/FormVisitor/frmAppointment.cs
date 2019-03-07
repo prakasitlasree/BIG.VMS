@@ -60,7 +60,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 REQUEST_FIRST_NAME = txtFirstName.Text.Trim(),
                 REQUEST_LAST_NAME = txtLastName.Text.Trim(),
                 REQUEST_LICENSE_PLATE = txtLicense.Text.Trim(),
-                //STATUS = 1,
+                STATUS = "รอเข้าพบ",
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 REQUEST_CAR_MODEL_ID = carModelId,
                 REASON_ID = reasonId,
