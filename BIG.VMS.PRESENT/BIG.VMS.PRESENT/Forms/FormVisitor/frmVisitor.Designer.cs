@@ -498,6 +498,7 @@
             this.btnBlacklist.Text = "Blacklist";
             this.btnBlacklist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBlacklist.UseVisualStyleBackColor = false;
+            this.btnBlacklist.Click += new System.EventHandler(this.btnBlacklist_Click);
             // 
             // BtnTakePhoto
             // 

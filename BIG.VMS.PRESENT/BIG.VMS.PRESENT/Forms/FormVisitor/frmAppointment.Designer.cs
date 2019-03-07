@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointment));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBlacklist = new System.Windows.Forms.Button();
             this.BtnTakePhoto = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -81,6 +80,8 @@
             this.btnMeet = new System.Windows.Forms.Button();
             this.btnVehicle = new System.Windows.Forms.Button();
             this.btnReadCard = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -99,33 +100,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.btnBlacklist);
             this.panel2.Controls.Add(this.BtnTakePhoto);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(6, 567);
+            this.panel2.Location = new System.Drawing.Point(6, 587);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1260, 88);
+            this.panel2.Size = new System.Drawing.Size(1260, 68);
             this.panel2.TabIndex = 1;
-            // 
-            // btnBlacklist
-            // 
-            this.btnBlacklist.BackColor = System.Drawing.Color.White;
-            this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBlacklist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlacklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlacklist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBlacklist.Image = ((System.Drawing.Image)(resources.GetObject("btnBlacklist.Image")));
-            this.btnBlacklist.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBlacklist.Location = new System.Drawing.Point(400, 0);
-            this.btnBlacklist.Margin = new System.Windows.Forms.Padding(6);
-            this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(200, 88);
-            this.btnBlacklist.TabIndex = 3;
-            this.btnBlacklist.Text = "Blacklist";
-            this.btnBlacklist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBlacklist.UseVisualStyleBackColor = false;
             // 
             // BtnTakePhoto
             // 
@@ -138,7 +120,7 @@
             this.BtnTakePhoto.Location = new System.Drawing.Point(200, 0);
             this.BtnTakePhoto.Margin = new System.Windows.Forms.Padding(6);
             this.BtnTakePhoto.Name = "BtnTakePhoto";
-            this.BtnTakePhoto.Size = new System.Drawing.Size(200, 88);
+            this.BtnTakePhoto.Size = new System.Drawing.Size(200, 68);
             this.BtnTakePhoto.TabIndex = 1;
             this.BtnTakePhoto.Text = "ถ่ายรูป";
             this.BtnTakePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -156,7 +138,7 @@
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(200, 88);
+            this.btnSave.Size = new System.Drawing.Size(200, 68);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "บันทึก/พิมพ์";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -175,7 +157,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1266, 456);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1266, 476);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -184,6 +166,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 13);
             this.tableLayoutPanel4.Controls.Add(this.chkKeyIn, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_LicensePlate, 0, 11);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 7);
@@ -206,6 +189,7 @@
             this.tableLayoutPanel4.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.dtContactDate, 1, 12);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 12);
+            this.tableLayoutPanel4.Controls.Add(this.dtTime, 1, 13);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -224,7 +208,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(816, 450);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(816, 470);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // chkKeyIn
@@ -478,6 +462,8 @@
             // dtContactDate
             // 
             this.dtContactDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtContactDate.CustomFormat = "dd-MM-yy";
+            this.dtContactDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtContactDate.Location = new System.Drawing.Point(195, 394);
             this.dtContactDate.Name = "dtContactDate";
             this.dtContactDate.Size = new System.Drawing.Size(618, 31);
@@ -512,7 +498,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(438, 450);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(438, 470);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // picCard
@@ -522,9 +508,9 @@
             this.picCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picCard.Image = ((System.Drawing.Image)(resources.GetObject("picCard.Image")));
             this.picCard.InitialImage = null;
-            this.picCard.Location = new System.Drawing.Point(3, 48);
+            this.picCard.Location = new System.Drawing.Point(3, 50);
             this.picCard.Name = "picCard";
-            this.picCard.Size = new System.Drawing.Size(432, 174);
+            this.picCard.Size = new System.Drawing.Size(432, 182);
             this.picCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCard.TabIndex = 0;
             this.picCard.TabStop = false;
@@ -535,9 +521,9 @@
             this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picPhoto.Image = ((System.Drawing.Image)(resources.GetObject("picPhoto.Image")));
-            this.picPhoto.Location = new System.Drawing.Point(3, 273);
+            this.picPhoto.Location = new System.Drawing.Point(3, 285);
             this.picPhoto.Name = "picPhoto";
-            this.picPhoto.Size = new System.Drawing.Size(432, 174);
+            this.picPhoto.Size = new System.Drawing.Size(432, 182);
             this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPhoto.TabIndex = 1;
             this.picPhoto.TabStop = false;
@@ -555,14 +541,14 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(432, 39);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(432, 41);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 7);
+            this.label8.Location = new System.Drawing.Point(3, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 25);
             this.label8.TabIndex = 2;
@@ -576,7 +562,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(107, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 33);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 35);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // brn_UploadImgCard
@@ -618,18 +604,18 @@
             this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 228);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 238);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(432, 39);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(432, 41);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Location = new System.Drawing.Point(3, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(136, 25);
             this.label9.TabIndex = 3;
@@ -643,7 +629,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(145, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(284, 33);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(284, 35);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
             // btnUploadCam
@@ -713,8 +699,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.07111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.95159F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1272, 661);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -789,6 +775,29 @@
             this.btnReadCard.UseVisualStyleBackColor = false;
             this.btnReadCard.Click += new System.EventHandler(this.btnReadCard_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(138, 436);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 25);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "เวลา";
+            // 
+            // dtTime
+            // 
+            this.dtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtTime.CustomFormat = "hh:mm:ss";
+            this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtTime.Location = new System.Drawing.Point(195, 433);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.ShowUpDown = true;
+            this.dtTime.Size = new System.Drawing.Size(618, 31);
+            this.dtTime.TabIndex = 25;
+            // 
             // frmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -827,7 +836,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnBlacklist;
         private System.Windows.Forms.Button BtnTakePhoto;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -878,5 +886,7 @@
         private System.Windows.Forms.Button btnReadCard;
         private System.Windows.Forms.DateTimePicker dtContactDate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtTime;
     }
 }

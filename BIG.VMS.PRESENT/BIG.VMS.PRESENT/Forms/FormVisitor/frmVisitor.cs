@@ -397,5 +397,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
 
         }
+
+        private void btnBlacklist_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

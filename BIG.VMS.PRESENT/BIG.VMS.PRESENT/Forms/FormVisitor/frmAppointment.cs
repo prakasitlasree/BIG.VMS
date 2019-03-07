@@ -64,13 +64,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 REQUEST_CAR_MODEL_ID = carModelId,
                 REASON_ID = reasonId,
-                CONTACT_DATE = dtContactDate.Value,
+
                 REQUEST_LICENSE_PLATE_PROVINCE_ID = reasonId,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
 
             };
 
+            obj.CONTACT_DATE = dtContactDate.Value.Date + dtTime.Value.TimeOfDay;
 
 
             var container = new ContainerAppointment { TRN_APPOINTMENT = obj };
@@ -119,9 +120,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 !string.IsNullOrEmpty(txtTopic.Text) &&
                 !string.IsNullOrEmpty(txtCar.Text) &&
                 !string.IsNullOrEmpty(dtContactDate.Text) &&
+                 !string.IsNullOrEmpty(dtTime.Text) &&
                 contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 &&
                 dtContactDate.Value != null &&
-                dtContactDate.Value != DateTime.MinValue)
+                dtTime.Value != null &&
+                dtContactDate.Value != DateTime.MinValue &&
+                dtTime.Value != DateTime.MinValue)
             {
                 if (IsValidCheckPersonID(txtIDCard.Text))
                 {
