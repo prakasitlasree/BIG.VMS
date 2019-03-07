@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gridAppointmentList = new System.Windows.Forms.DataGridView();
+            this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
@@ -80,7 +81,7 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.gridAppointmentList, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,24 +90,39 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.07692F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.92308F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1159, 391);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(978, 391);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridAppointmentList
             // 
             this.gridAppointmentList.AllowUserToAddRows = false;
             this.gridAppointmentList.AllowUserToDeleteRows = false;
+            this.gridAppointmentList.BackgroundColor = System.Drawing.Color.White;
             this.gridAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMeeted});
             this.gridAppointmentList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
             this.gridAppointmentList.Name = "gridAppointmentList";
             this.gridAppointmentList.ReadOnly = true;
-            this.gridAppointmentList.Size = new System.Drawing.Size(1153, 318);
+            this.gridAppointmentList.Size = new System.Drawing.Size(972, 318);
             this.gridAppointmentList.TabIndex = 0;
+            this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
+            // 
+            // colMeeted
+            // 
+            this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMeeted.HeaderText = "เข้าพบ";
+            this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
+            this.colMeeted.Name = "colMeeted";
+            this.colMeeted.ReadOnly = true;
+            this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMeeted.Width = 90;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tableLayoutPanel4.ColumnCount = 5;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -119,20 +135,20 @@
             this.tableLayoutPanel4.Controls.Add(this.btnNext, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLast, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 327);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 344);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1153, 61);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(972, 61);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // txtPage
             // 
             this.txtPage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPage.Enabled = false;
-            this.txtPage.Location = new System.Drawing.Point(21, 12);
+            this.txtPage.Location = new System.Drawing.Point(3, 12);
             this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(188, 37);
+            this.txtPage.Size = new System.Drawing.Size(188, 31);
             this.txtPage.TabIndex = 1;
             this.txtPage.Text = "หน้า";
             // 
@@ -144,7 +160,7 @@
             this.btnFirst.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFirst.Location = new System.Drawing.Point(233, 3);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(224, 55);
+            this.btnFirst.Size = new System.Drawing.Size(188, 55);
             this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "หน้าแรก";
             this.btnFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,7 +174,7 @@
             this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrevious.Location = new System.Drawing.Point(463, 3);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(224, 55);
+            this.btnPrevious.Size = new System.Drawing.Size(188, 55);
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "หน้าก่อนหน้า";
             this.btnPrevious.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -172,7 +188,7 @@
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNext.Location = new System.Drawing.Point(693, 3);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(224, 55);
+            this.btnNext.Size = new System.Drawing.Size(188, 55);
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "หน้าถัดไป";
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -186,7 +202,7 @@
             this.btnLast.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLast.Location = new System.Drawing.Point(923, 3);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(227, 55);
+            this.btnLast.Size = new System.Drawing.Size(190, 55);
             this.btnLast.TabIndex = 3;
             this.btnLast.Text = "หน้าสุดท้าย";
             this.btnLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -224,7 +240,7 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel5.ColumnCount = 6;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -255,13 +271,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSearch.BackColor = System.Drawing.Color.White;
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.Location = new System.Drawing.Point(156, 89);
+            this.btnSearch.Location = new System.Drawing.Point(134, 89);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(235, 51);
+            this.btnSearch.Size = new System.Drawing.Size(182, 46);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "ค้นหา";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -271,17 +287,17 @@
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Location = new System.Drawing.Point(921, 3);
+            this.txtIDCard.Location = new System.Drawing.Point(793, 3);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(235, 37);
+            this.txtIDCard.Size = new System.Drawing.Size(182, 37);
             this.txtIDCard.TabIndex = 10;
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(517, 3);
+            this.txtLastName.Location = new System.Drawing.Point(442, 3);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(235, 37);
+            this.txtLastName.Size = new System.Drawing.Size(182, 37);
             this.txtLastName.TabIndex = 8;
             // 
             // label1
@@ -290,7 +306,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 31);
+            this.label1.Size = new System.Drawing.Size(43, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "ชื่อผู้นัดหมาย";
             // 
@@ -298,9 +314,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 49);
+            this.label2.Location = new System.Drawing.Point(3, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 31);
+            this.label2.Size = new System.Drawing.Size(96, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "ทะเบียนรถ";
             // 
@@ -308,9 +324,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(397, 6);
+            this.label3.Location = new System.Drawing.Point(322, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 31);
+            this.label3.Size = new System.Drawing.Size(78, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "นามสกุล";
             // 
@@ -318,50 +334,48 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(758, 6);
+            this.label5.Location = new System.Drawing.Point(630, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 31);
+            this.label5.Size = new System.Drawing.Size(123, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "บัตรประชาชน";
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(156, 3);
+            this.txtName.Location = new System.Drawing.Point(134, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(235, 37);
+            this.txtName.Size = new System.Drawing.Size(182, 37);
             this.txtName.TabIndex = 6;
             // 
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(156, 46);
+            this.txtLicense.Location = new System.Drawing.Point(134, 46);
             this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(235, 37);
+            this.txtLicense.Size = new System.Drawing.Size(182, 37);
             this.txtLicense.TabIndex = 7;
             // 
             // chkDate
             // 
             this.chkDate.AutoSize = true;
-            this.chkDate.Location = new System.Drawing.Point(397, 46);
+            this.chkDate.Location = new System.Drawing.Point(322, 46);
             this.chkDate.Name = "chkDate";
-            this.chkDate.Size = new System.Drawing.Size(114, 35);
+            this.chkDate.Size = new System.Drawing.Size(91, 29);
             this.chkDate.TabIndex = 11;
             this.chkDate.Text = "วันที่นัด";
             this.chkDate.UseVisualStyleBackColor = true;
             // 
             // dtContactDate
             // 
-            this.dtContactDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtContactDate.Location = new System.Drawing.Point(517, 46);
+            this.dtContactDate.Location = new System.Drawing.Point(442, 46);
             this.dtContactDate.Name = "dtContactDate";
-            this.dtContactDate.Size = new System.Drawing.Size(235, 37);
+            this.dtContactDate.Size = new System.Drawing.Size(182, 37);
             this.dtContactDate.TabIndex = 12;
             // 
             // frmAppointmenList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1165, 661);
@@ -410,5 +424,6 @@
         private System.Windows.Forms.TextBox txtLicense;
         private System.Windows.Forms.CheckBox chkDate;
         private System.Windows.Forms.DateTimePicker dtContactDate;
+        private System.Windows.Forms.DataGridViewImageColumn colMeeted;
     }
 }

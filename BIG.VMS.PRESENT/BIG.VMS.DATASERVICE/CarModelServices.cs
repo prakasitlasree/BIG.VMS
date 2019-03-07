@@ -54,5 +54,25 @@ namespace BIG.VMS.DATASERVICE
         {
             throw new NotImplementedException();
         }
+
+        public ContainerCarBrand GetAutoIDFromCarModel(string model)
+        {
+            ContainerCarBrand result = new ContainerCarBrand();
+            try
+            {
+                using (BIG_VMSEntities ctx = new BIG_VMSEntities())
+                {
+                    var data = ctx.MAS_CAR_MODEL.Where(o=>o.NAME == model).FirstOrDefault();
+                    result.ResultObj = data.AUTO_ID;
+                    result.Status = true ;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
     }
 }

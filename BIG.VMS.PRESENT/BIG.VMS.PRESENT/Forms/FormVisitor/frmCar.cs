@@ -19,6 +19,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private string carBrandText = "";
         public int SELECTED_CAR_ID { get; set; }
         public string SELECTED_CAR_TEXT { get; set; }
+        public CarModelServices _service = new CarModelServices();
+
 
         public frmCar()
         {
@@ -54,6 +56,30 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void CarTypeSelected_EventHadler(object sender, EventArgs e)
         {
             carType = Convert.ToInt32(((Control)sender).Tag.ToString());
+            var text = ((Control)sender).Text.ToString();
+
+            if (text == "เดินเท้า")
+            {
+                var res = _service.GetAutoIDFromCarModel("เดินเท้า");
+                if (res.Status)
+                {
+                    SELECTED_CAR_TEXT = "เดินเท้า";
+                    SELECTED_CAR_ID = (int)res.ResultObj;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else if (text == "ไม่ระบุ")
+            {
+                var res = _service.GetAutoIDFromCarModel("ไม่ระบุ");
+                if (res.Status)
+                {
+                    SELECTED_CAR_TEXT = "ไม่ระบุ";
+                    SELECTED_CAR_ID = (int)res.ResultObj;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
 
             var carBrand = _comboService.GetComboCarBrandByTypeID(carType);
 
