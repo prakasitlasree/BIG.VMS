@@ -51,6 +51,7 @@
     <Compile Include="CustomModel\Container\ContainerCarBrand.cs" />
     <Compile Include="CustomModel\Container\ContainerCarModel.cs" />
     <Compile Include="CustomModel\Container\ContainerCarType.cs" />
+    <Compile Include="CustomModel\CustomContainer\CustomVisitor.cs" />
     <Compile Include="CustomModel\DIDCard.cs" />
     <Compile Include="CustomModel\EnumType.cs" />
     <Compile Include="CustomModel\Filter\AppointmentFilter.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />
     <Compile Include="CustomModel\VisitorGroupModel.cs" />
+    <Compile Include="DGVPrinter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
       <DesignTime>True</DesignTime>

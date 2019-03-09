@@ -2,6 +2,7 @@
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
+using BIG.VMS.PRESENT.Forms.FormReport;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
 using System;
 using System.Collections.Generic;
@@ -228,7 +229,12 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-
+            frmReportList frm = new frmReportList();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
 
         private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)

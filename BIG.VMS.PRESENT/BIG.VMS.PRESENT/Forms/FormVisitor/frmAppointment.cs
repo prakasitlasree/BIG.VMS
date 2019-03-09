@@ -71,6 +71,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             };
 
+
             obj.CONTACT_DATE = dtContactDate.Value.Date + dtTime.Value.TimeOfDay;
 
 

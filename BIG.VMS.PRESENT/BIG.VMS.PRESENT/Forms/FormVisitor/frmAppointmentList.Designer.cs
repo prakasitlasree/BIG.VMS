@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1165, 661);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1165, 681);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -90,7 +90,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.07692F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.92308F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(978, 391);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1159, 394);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridAppointmentList
@@ -105,7 +105,7 @@
             this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
             this.gridAppointmentList.Name = "gridAppointmentList";
             this.gridAppointmentList.ReadOnly = true;
-            this.gridAppointmentList.Size = new System.Drawing.Size(972, 318);
+            this.gridAppointmentList.Size = new System.Drawing.Size(1153, 321);
             this.gridAppointmentList.TabIndex = 0;
             this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
             // 
@@ -135,18 +135,18 @@
             this.tableLayoutPanel4.Controls.Add(this.btnNext, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLast, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 344);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 330);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(972, 61);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1153, 61);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // txtPage
             // 
             this.txtPage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPage.Enabled = false;
-            this.txtPage.Location = new System.Drawing.Point(3, 12);
+            this.txtPage.Location = new System.Drawing.Point(21, 15);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(188, 31);
             this.txtPage.TabIndex = 1;
@@ -160,7 +160,7 @@
             this.btnFirst.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFirst.Location = new System.Drawing.Point(233, 3);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(188, 55);
+            this.btnFirst.Size = new System.Drawing.Size(224, 55);
             this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "หน้าแรก";
             this.btnFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -174,7 +174,7 @@
             this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrevious.Location = new System.Drawing.Point(463, 3);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(188, 55);
+            this.btnPrevious.Size = new System.Drawing.Size(224, 55);
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "หน้าก่อนหน้า";
             this.btnPrevious.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -188,7 +188,7 @@
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNext.Location = new System.Drawing.Point(693, 3);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(188, 55);
+            this.btnNext.Size = new System.Drawing.Size(224, 55);
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "หน้าถัดไป";
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -202,7 +202,7 @@
             this.btnLast.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLast.Location = new System.Drawing.Point(923, 3);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(190, 55);
+            this.btnLast.Size = new System.Drawing.Size(227, 55);
             this.btnLast.TabIndex = 3;
             this.btnLast.Text = "หน้าสุดท้าย";
             this.btnLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -275,9 +275,9 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.Location = new System.Drawing.Point(134, 89);
+            this.btnSearch.Location = new System.Drawing.Point(126, 77);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(182, 46);
+            this.btnSearch.Size = new System.Drawing.Size(264, 63);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "ค้นหา";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -287,17 +287,17 @@
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Location = new System.Drawing.Point(793, 3);
+            this.txtIDCard.Location = new System.Drawing.Point(892, 3);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(182, 37);
+            this.txtIDCard.Size = new System.Drawing.Size(264, 31);
             this.txtIDCard.TabIndex = 10;
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(442, 3);
+            this.txtLastName.Location = new System.Drawing.Point(493, 3);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(182, 37);
+            this.txtLastName.Size = new System.Drawing.Size(264, 31);
             this.txtLastName.TabIndex = 8;
             // 
             // label1
@@ -306,7 +306,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 31);
+            this.label1.Size = new System.Drawing.Size(117, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "ชื่อผู้นัดหมาย";
             // 
@@ -324,7 +324,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(322, 6);
+            this.label3.Location = new System.Drawing.Point(396, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 25);
             this.label3.TabIndex = 2;
@@ -334,7 +334,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(630, 6);
+            this.label5.Location = new System.Drawing.Point(763, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 25);
             this.label5.TabIndex = 4;
@@ -343,23 +343,23 @@
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(134, 3);
+            this.txtName.Location = new System.Drawing.Point(126, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(182, 37);
+            this.txtName.Size = new System.Drawing.Size(264, 31);
             this.txtName.TabIndex = 6;
             // 
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(134, 46);
+            this.txtLicense.Location = new System.Drawing.Point(126, 40);
             this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(182, 37);
+            this.txtLicense.Size = new System.Drawing.Size(264, 31);
             this.txtLicense.TabIndex = 7;
             // 
             // chkDate
             // 
             this.chkDate.AutoSize = true;
-            this.chkDate.Location = new System.Drawing.Point(322, 46);
+            this.chkDate.Location = new System.Drawing.Point(396, 40);
             this.chkDate.Name = "chkDate";
             this.chkDate.Size = new System.Drawing.Size(91, 29);
             this.chkDate.TabIndex = 11;
@@ -368,9 +368,9 @@
             // 
             // dtContactDate
             // 
-            this.dtContactDate.Location = new System.Drawing.Point(442, 46);
+            this.dtContactDate.Location = new System.Drawing.Point(493, 40);
             this.dtContactDate.Name = "dtContactDate";
-            this.dtContactDate.Size = new System.Drawing.Size(182, 37);
+            this.dtContactDate.Size = new System.Drawing.Size(264, 31);
             this.dtContactDate.TabIndex = 12;
             // 
             // frmAppointmenList
@@ -378,7 +378,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1165, 661);
+            this.ClientSize = new System.Drawing.Size(1165, 681);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

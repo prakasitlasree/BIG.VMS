@@ -7,6 +7,8 @@ using BIG.VMS.DAL;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
+using BIG.VMS.MODEL.CustomModel.CustomContainer;
+using System.Globalization;
 
 namespace BIG.VMS.DATASERVICE
 {
@@ -108,9 +110,9 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var listData = GetListVisitorQuery(obj).ToList();
 
-                    foreach(var item  in listData)
+                    foreach (var item in listData)
                     {
-                        if(item.TYPE == "In")
+                        if (item.TYPE == "In")
                         {
                             item.TYPE = "เข้า";
                         }
@@ -257,7 +259,7 @@ namespace BIG.VMS.DATASERVICE
 
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
-                                          .Where(o => o.NO == no && o.TYPE == "In" || o.TYPE == "Regulary" && o.STATUS == 1)
+                                          .Where(o => (o.NO == no && o.TYPE == "In" || o.TYPE == "Regulary") && o.STATUS == 1)
                                           .OrderByDescending(x => x.NO).FirstOrDefault();
 
                     if (reTrnVisitor != null)
@@ -380,6 +382,61 @@ namespace BIG.VMS.DATASERVICE
                     result.ResultObj = listData;
                     result.Status = true;
                     result.Message = "Retrive Data Successful";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ExceptionMessage = ex.Message;
+            }
+            return result;
+        }
+
+        public ContainerVisitor GetVisitorForReport(ContainerVisitor obj)
+        {
+            var result = new ContainerVisitor();
+            var filter = obj.Filter;
+            DateTime startDate = filter.DATE_FROM.Date;
+            DateTime endDate = filter.DATE_TO.AddDays(1).Date;
+            List<CustomVisitor> listData = new List<CustomVisitor>();
+            CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
+            try
+            {
+
+
+                using (var ctx = new BIG_VMSEntities())
+                {
+                    var reTrnVisitor = ctx.TRN_VISITOR
+                                          .Include("MAS_EMPLOYEE")
+                                          .Include("MAS_REASON")
+                                          .Include("MAS_PROVINCE")
+                                          .Include("MAS_CAR_MODEL")
+                                          .Where(x => x.CREATED_DATE >= startDate && x.CREATED_DATE <= endDate).ToList();
+
+                    if (reTrnVisitor.Count > 0)
+                    {
+
+
+                        listData = (from item in reTrnVisitor
+                                    select new CustomVisitor
+                                    {
+                                        AUTO_ID = item.AUTO_ID,
+                                        NO = item.NO,
+                                        ID_CARD = item.ID_CARD,
+                                        NAME = item.FIRST_NAME + " " + item.LAST_NAME,
+                                        CAR_TYPE_NAME = item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE != null ? item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE.NAME : "",
+                                        LICENSE_PLATE = item.LICENSE_PLATE,
+                                        PROVINCE = item.MAS_PROVINCE != null ? item.MAS_PROVINCE.NAME : "",
+                                        CONTACT_NAME = item.MAS_EMPLOYEE != null ? item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME : "",
+                                        TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
+                                        TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
+                                        DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
+                                    }).ToList();
+
+
+                    }
+
+                    result.ResultObj = listData;
                 }
             }
             catch (Exception ex)

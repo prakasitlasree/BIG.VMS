@@ -18,7 +18,10 @@ namespace BIG.VMS.MODEL.CustomModel
         public TRN_VISITOR TRN_VISITOR { get; set; }
 
         public Pagination PageInfo { get; set; }
+
+        
     }
 
     
+
 }

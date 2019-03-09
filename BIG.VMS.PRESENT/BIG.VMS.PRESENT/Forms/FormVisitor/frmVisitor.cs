@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIG.VMS.PRESENT.Forms.Master;
+using System.IO;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
@@ -65,7 +66,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void SetControl()
         {
-            if(formMode == FormMode.Add)
+            if (formMode == FormMode.Add)
             {
                 btnBlacklist.Visible = false;
             }
@@ -116,8 +117,38 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     txtCar.Text = "";
                 }
 
+                if (visitorObj.CONTACT_PHOTO != null)
+                {
+                    picPhoto.Image = ByteToImage(visitorObj.CONTACT_PHOTO);
+                }
+                if (visitorObj.ID_CARD_PHOTO != null)
+                {
+                    picPhoto.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
+                }
+
             }
         }
+
+        public Bitmap ByteToImage(byte[] blob)
+        {
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = blob;
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+        }
+
+        public byte[] ImageToByte(PictureBox source)
+        {
+            Image img = source.Image;
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
 
         private void Save()
         {
@@ -142,6 +173,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 };
 
+                obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                obj.ID_CARD_PHOTO = ImageToByte(picCard);
                 if (visitorMode == VisitorMode.In)
                 {
                     obj.TYPE = "In";
@@ -190,6 +223,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     REASON_ID = reasonId,
                     LICENSE_PLATE_PROVINCE_ID = provinceId,
                     UPDATED_DATE = DateTime.Now,
+                    CONTACT_PHOTO = ImageToByte(picPhoto),
+                    ID_CARD_PHOTO = ImageToByte(picCard),
 
                 };
 
@@ -247,6 +282,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+
                         Save();
                     }
                 }
@@ -264,6 +300,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
 
         }
+
 
         private void btnProvince_Click(object sender, EventArgs e)
         {
@@ -311,7 +348,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                if (frm.CARD_TYPE =="PID")
+                if (frm.CARD_TYPE == "PID")
                 {
                     //บัตรประชาชน
                     txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
@@ -334,7 +371,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void BtnTakePhoto_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 var frm = new CameraSelection();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -376,7 +413,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             mod = total % 11;
             nsub = 11 - mod;
             mod2 = nsub % 10;
-             
+
             int.TryParse(numberChars[12].ToString(), out numberChars12);
 
             //Debug.Log(numberChars12);
@@ -394,7 +431,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void brn_UploadImgCard_Click(object sender, EventArgs e)
         {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            dialog.InitialDirectory = @"C:\";
+            dialog.Title = "Please select an image file to encrypt.";
 
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = dialog.FileName;
+                picCard.Image = Image.FromFile(path);
+            }
         }
 
         private void bthCardDelete_Click(object sender, EventArgs e)
@@ -408,10 +454,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frm.FIRST_NAME = txtFirstName.Text;
             frm.LAST_NAME = txtLastName.Text;
             frm.ID_CARD = txtIDCard.Text;
-            if(frm.ShowDialog() == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 this.Close();
             }
+        }
+
+        private void btnUploadCam_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

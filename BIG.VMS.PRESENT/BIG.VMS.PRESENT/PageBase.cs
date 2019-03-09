@@ -91,7 +91,7 @@ namespace BIG.VMS.PRESENT
                         control.Columns[item.FIELD].HeaderText = item.HEADER_TEXT;
                         control.Columns[item.FIELD].Visible = item.VISIBLE;
                         control.Columns[item.FIELD].DefaultCellStyle.Alignment = item.ALIGN == align.Center ? DataGridViewContentAlignment.MiddleCenter : (item.ALIGN == align.Left ? DataGridViewContentAlignment.MiddleLeft : (item.ALIGN == align.Right ? DataGridViewContentAlignment.BottomRight : DataGridViewContentAlignment.MiddleLeft));
-                        control.Columns[item.FIELD].AutoSizeMode = item.AUTO_SIZE == autoSize.CellContent ? DataGridViewAutoSizeColumnMode.DisplayedCells : (item.AUTO_SIZE == autoSize.Fill ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells);
+                        control.Columns[item.FIELD].AutoSizeMode = item.AUTO_SIZE == autoSize.CellContent ? DataGridViewAutoSizeColumnMode.AllCells : (item.AUTO_SIZE == autoSize.Fill ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells);
 
                     }
                 }

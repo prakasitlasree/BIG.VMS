@@ -32,6 +32,12 @@ namespace BIG.VMS.PRESENT
                 }
             }
             //============================================
+
+            frmVisitorList frm = new frmVisitorList();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
