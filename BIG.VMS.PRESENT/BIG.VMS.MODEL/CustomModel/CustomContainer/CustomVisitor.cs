@@ -22,5 +22,8 @@ namespace BIG.VMS.MODEL.CustomModel.CustomContainer
         public DateTime? TIME_IN { get; set; }
         public DateTime? TIME_OUT { get; set; }
         public string BLACKLIST { get; set; }
+
+        public byte[] ID_CARD_PHOTO { get; set; }
+        public byte[] CONTACT_PHOTO { get; set; }
     }
 }

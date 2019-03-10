@@ -37,14 +37,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridListVisitor = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPrintReport = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.btnViewReport = new System.Windows.Forms.Button();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
@@ -56,7 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridListVisitor)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -168,7 +168,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.gridListVisitor, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -179,14 +179,15 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(585, 615);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // dataGridView1
+            // gridListVisitor
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(579, 380);
-            this.dataGridView1.TabIndex = 0;
+            this.gridListVisitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridListVisitor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridListVisitor.Location = new System.Drawing.Point(3, 3);
+            this.gridListVisitor.Name = "gridListVisitor";
+            this.gridListVisitor.Size = new System.Drawing.Size(579, 380);
+            this.gridListVisitor.TabIndex = 0;
+            this.gridListVisitor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridListVisitor_CellContentClick);
             // 
             // tableLayoutPanel4
             // 
@@ -246,7 +247,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnPrintReport);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnImport);
             this.panel1.Controls.Add(this.btnViewReport);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(463, 3);
@@ -259,6 +260,7 @@
             // 
             this.btnPrintReport.BackColor = System.Drawing.Color.Cyan;
             this.btnPrintReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrintReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintReport.Location = new System.Drawing.Point(0, 88);
             this.btnPrintReport.Name = "btnPrintReport";
@@ -266,23 +268,26 @@
             this.btnPrintReport.TabIndex = 2;
             this.btnPrintReport.Text = "พิมพ์รายงาน";
             this.btnPrintReport.UseVisualStyleBackColor = false;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
-            // button2
+            // btnImport
             // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 44);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "ส่งออก";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnImport.BackColor = System.Drawing.Color.Cyan;
+            this.btnImport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(0, 44);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(113, 44);
+            this.btnImport.TabIndex = 1;
+            this.btnImport.Text = "ส่งออก";
+            this.btnImport.UseVisualStyleBackColor = false;
             // 
             // btnViewReport
             // 
             this.btnViewReport.BackColor = System.Drawing.Color.Cyan;
             this.btnViewReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewReport.Location = new System.Drawing.Point(0, 0);
             this.btnViewReport.Name = "btnViewReport";
@@ -290,6 +295,7 @@
             this.btnViewReport.TabIndex = 0;
             this.btnViewReport.Text = "เรียกดูรายงาน";
             this.btnViewReport.UseVisualStyleBackColor = false;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
             // 
             // dtFrom
             // 
@@ -324,7 +330,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -348,7 +354,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridListVisitor)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -368,7 +374,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridListVisitor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label2;
@@ -376,7 +382,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnPrintReport;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnViewReport;
         private System.Windows.Forms.DateTimePicker dtFrom;
         private System.Windows.Forms.DateTimePicker dtTo;

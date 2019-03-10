@@ -319,6 +319,64 @@ namespace BIG.VMS.DATASERVICE
             return result;
         }
 
+        public ContainerVisitor GetVisitorByAutoIDForReport(int auto_id)
+        {
+            var result = new ContainerVisitor();
+
+
+            List<CustomVisitor> listData = new List<CustomVisitor>();
+            CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
+            try
+            {
+
+
+                using (var ctx = new BIG_VMSEntities())
+                {
+                    var reTrnVisitor = ctx.TRN_VISITOR
+                                          .Include("MAS_EMPLOYEE")
+                                          .Include("MAS_REASON")
+                                          .Include("MAS_PROVINCE")
+                                          .Include("MAS_CAR_MODEL")
+                                          .Where(x => x.AUTO_ID == auto_id).ToList();
+
+
+                    if (reTrnVisitor.Count > 0)
+                    {
+
+
+                        listData = (from item in reTrnVisitor
+                                    select new CustomVisitor
+                                    {
+                                        AUTO_ID = item.AUTO_ID,
+                                        NO = item.NO,
+                                        ID_CARD = item.ID_CARD,
+                                        NAME = item.FIRST_NAME + " " + item.LAST_NAME,
+                                        CAR_TYPE_NAME = item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE != null ? item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE.NAME : "",
+                                        LICENSE_PLATE = item.LICENSE_PLATE,
+                                        PROVINCE = item.MAS_PROVINCE != null ? item.MAS_PROVINCE.NAME : "",
+                                        CONTACT_NAME = item.MAS_EMPLOYEE != null ? item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME : "",
+                                        TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
+                                        TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
+                                        DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
+                                        ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                        CONTACT_PHOTO = item.CONTACT_PHOTO
+
+                                    }).ToList();
+
+
+                    }
+
+                    result.ResultObj = listData;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ExceptionMessage = ex.Message;
+            }
+            return result;
+        }
+
         public ContainerVisitor UpdateVisitorOut(ContainerVisitor obj)
         {
             var result = new ContainerVisitor();
@@ -413,6 +471,7 @@ namespace BIG.VMS.DATASERVICE
                                           .Include("MAS_CAR_MODEL")
                                           .Where(x => x.CREATED_DATE >= startDate && x.CREATED_DATE <= endDate).ToList();
 
+
                     if (reTrnVisitor.Count > 0)
                     {
 
@@ -431,6 +490,9 @@ namespace BIG.VMS.DATASERVICE
                                         TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
+                                        ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                        CONTACT_PHOTO = item.CONTACT_PHOTO
+
                                     }).ToList();
 
 

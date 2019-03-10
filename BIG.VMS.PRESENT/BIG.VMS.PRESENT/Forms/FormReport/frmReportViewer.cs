@@ -1,5 +1,4 @@
-﻿using BIG.VMS.MODEL.EntityModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +10,14 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormReport
 {
-    public partial class frmReportKeyIn : PageBase
+    public partial class frmReportViewer : Form
     {
-        public TRN_VISITOR visitorObj = new TRN_VISITOR();
-
-        public frmReportKeyIn()
+        public frmReportViewer()
         {
             InitializeComponent();
         }
 
-        private void frmReportKeyIn_Load(object sender, EventArgs e)
+        private void frmReportViewer_Load(object sender, EventArgs e)
         {
 
         }

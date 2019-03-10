@@ -35,21 +35,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtMeet = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtReport = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPurpose = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtLicensePlate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtNo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPrintReport = new System.Windows.Forms.Button();
@@ -57,7 +50,14 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnPrintMultiReport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboVehicle = new System.Windows.Forms.ComboBox();
+            this.txtNo = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtIDCard = new System.Windows.Forms.TextBox();
+            this.txtLicensePlate = new System.Windows.Forms.TextBox();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.txtMeet = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
@@ -155,37 +155,28 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "รูปจากบัตร";
             // 
-            // txtMeet
-            // 
-            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeet.Location = new System.Drawing.Point(240, 394);
-            this.txtMeet.Name = "txtMeet";
-            this.txtMeet.Size = new System.Drawing.Size(342, 31);
-            this.txtMeet.TabIndex = 11;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.52863F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.47137F));
-            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 7);
-            this.tableLayoutPanel4.Controls.Add(this.txtReport, 1, 7);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.txtLicensePlate, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtName, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtNo, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboVehicle, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.txtLicensePlate, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.txtPurpose, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 7);
+            this.tableLayoutPanel4.Controls.Add(this.textBox1, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this.textBox2, 1, 7);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 8;
@@ -212,15 +203,6 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "เวลาออก";
             // 
-            // txtReport
-            // 
-            this.txtReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReport.Location = new System.Drawing.Point(240, 457);
-            this.txtReport.Name = "txtReport";
-            this.txtReport.Size = new System.Drawing.Size(342, 31);
-            this.txtReport.TabIndex = 13;
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -243,15 +225,6 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "วัตตถุประสงค์";
             // 
-            // txtPurpose
-            // 
-            this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurpose.Location = new System.Drawing.Point(240, 331);
-            this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(342, 31);
-            this.txtPurpose.TabIndex = 10;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -262,15 +235,6 @@
             this.label5.Size = new System.Drawing.Size(75, 25);
             this.label5.TabIndex = 3;
             this.label5.Text = "ทะเบียน";
-            // 
-            // txtLicensePlate
-            // 
-            this.txtLicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicensePlate.Location = new System.Drawing.Point(240, 268);
-            this.txtLicensePlate.Name = "txtLicensePlate";
-            this.txtLicensePlate.Size = new System.Drawing.Size(342, 31);
-            this.txtLicensePlate.TabIndex = 9;
             // 
             // label4
             // 
@@ -294,15 +258,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "เลขบัตรประชาชน";
             // 
-            // txtIDCard
-            // 
-            this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCard.Location = new System.Drawing.Point(240, 142);
-            this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(342, 31);
-            this.txtIDCard.TabIndex = 7;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -313,24 +268,6 @@
             this.label2.Size = new System.Drawing.Size(108, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "ชื่อ-นามสกุล";
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(240, 79);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(342, 31);
-            this.txtName.TabIndex = 6;
-            // 
-            // txtNo
-            // 
-            this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNo.Location = new System.Drawing.Point(240, 16);
-            this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(342, 31);
-            this.txtNo.TabIndex = 14;
             // 
             // label11
             // 
@@ -427,15 +364,77 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 627);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // comboVehicle
+            // txtNo
             // 
-            this.comboVehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboVehicle.FormattingEnabled = true;
-            this.comboVehicle.Location = new System.Drawing.Point(240, 210);
-            this.comboVehicle.Name = "comboVehicle";
-            this.comboVehicle.Size = new System.Drawing.Size(342, 33);
-            this.comboVehicle.TabIndex = 16;
+            this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNo.Location = new System.Drawing.Point(240, 16);
+            this.txtNo.Name = "txtNo";
+            this.txtNo.Size = new System.Drawing.Size(342, 31);
+            this.txtNo.TabIndex = 14;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(240, 79);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(342, 31);
+            this.txtName.TabIndex = 6;
+            // 
+            // txtIDCard
+            // 
+            this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCard.Location = new System.Drawing.Point(240, 142);
+            this.txtIDCard.Name = "txtIDCard";
+            this.txtIDCard.Size = new System.Drawing.Size(342, 31);
+            this.txtIDCard.TabIndex = 7;
+            // 
+            // txtLicensePlate
+            // 
+            this.txtLicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLicensePlate.Location = new System.Drawing.Point(240, 205);
+            this.txtLicensePlate.Name = "txtLicensePlate";
+            this.txtLicensePlate.Size = new System.Drawing.Size(342, 31);
+            this.txtLicensePlate.TabIndex = 9;
+            // 
+            // txtPurpose
+            // 
+            this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose.Location = new System.Drawing.Point(240, 268);
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(342, 31);
+            this.txtPurpose.TabIndex = 10;
+            // 
+            // txtMeet
+            // 
+            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeet.Location = new System.Drawing.Point(240, 331);
+            this.txtMeet.Name = "txtMeet";
+            this.txtMeet.Size = new System.Drawing.Size(342, 31);
+            this.txtMeet.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(240, 394);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(342, 31);
+            this.textBox1.TabIndex = 16;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(240, 457);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(342, 31);
+            this.textBox2.TabIndex = 17;
             // 
             // frmReportKeyIn
             // 
@@ -446,6 +445,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmReportKeyIn";
             this.Text = "รายงาน";
+            this.Load += new System.EventHandler(this.frmReportKeyIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -469,28 +469,28 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtMeet;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox txtPurpose;
-        private System.Windows.Forms.TextBox txtLicensePlate;
-        private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnPrintReport;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnPrintMultiReport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtReport;
-        private System.Windows.Forms.TextBox txtNo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.ComboBox comboVehicle;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtNo;
+        private System.Windows.Forms.TextBox txtIDCard;
+        private System.Windows.Forms.TextBox txtLicensePlate;
+        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.TextBox txtMeet;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

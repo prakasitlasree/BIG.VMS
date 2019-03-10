@@ -32,6 +32,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gridVisitorList = new System.Windows.Forms.DataGridView();
+            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colPrint = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
@@ -56,8 +59,8 @@
             this.txtLicense = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNo = new System.Windows.Forms.TextBox();
-            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVisitorList)).BeginInit();
@@ -106,7 +109,8 @@
             this.gridVisitorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridVisitorList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEdit,
-            this.colDelete});
+            this.colDelete,
+            this.colPrint});
             this.gridVisitorList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridVisitorList.Location = new System.Drawing.Point(3, 3);
             this.gridVisitorList.Name = "gridVisitorList";
@@ -114,6 +118,35 @@
             this.gridVisitorList.Size = new System.Drawing.Size(972, 335);
             this.gridVisitorList.TabIndex = 0;
             this.gridVisitorList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVisitorList_CellContentClick);
+            // 
+            // colEdit
+            // 
+            this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colEdit.HeaderText = "แก้ไข";
+            this.colEdit.Image = ((System.Drawing.Image)(resources.GetObject("colEdit.Image")));
+            this.colEdit.Name = "colEdit";
+            this.colEdit.ReadOnly = true;
+            this.colEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colEdit.Width = 60;
+            // 
+            // colDelete
+            // 
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colDelete.HeaderText = "ลบ";
+            this.colDelete.Image = ((System.Drawing.Image)(resources.GetObject("colDelete.Image")));
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.Width = 60;
+            // 
+            // colPrint
+            // 
+            this.colPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPrint.HeaderText = "พิมพ์";
+            this.colPrint.Image = ((System.Drawing.Image)(resources.GetObject("colPrint.Image")));
+            this.colPrint.Name = "colPrint";
+            this.colPrint.ReadOnly = true;
+            this.colPrint.Width = 60;
             // 
             // tableLayoutPanel4
             // 
@@ -332,6 +365,8 @@
             this.tableLayoutPanel5.Controls.Add(this.txtLicense, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.label6, 2, 1);
             this.tableLayoutPanel5.Controls.Add(this.txtNo, 3, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label4, 4, 1);
+            this.tableLayoutPanel5.Controls.Add(this.comboType, 5, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 135);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -447,25 +482,29 @@
             this.txtNo.Size = new System.Drawing.Size(215, 31);
             this.txtNo.TabIndex = 12;
             // 
-            // colEdit
+            // label4
             // 
-            this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colEdit.HeaderText = "แก้ไข";
-            this.colEdit.Image = ((System.Drawing.Image)(resources.GetObject("colEdit.Image")));
-            this.colEdit.Name = "colEdit";
-            this.colEdit.ReadOnly = true;
-            this.colEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colEdit.Width = 63;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(631, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 25);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "ประเภท";
             // 
-            // colDelete
+            // comboType
             // 
-            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colDelete.HeaderText = "ลบ";
-            this.colDelete.Image = ((System.Drawing.Image)(resources.GetObject("colDelete.Image")));
-            this.colDelete.Name = "colDelete";
-            this.colDelete.ReadOnly = true;
-            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDelete.Width = 40;
+            this.comboType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboType.FormattingEnabled = true;
+            this.comboType.Items.AddRange(new object[] {
+            "ทั้งหมด",
+            "เข้า",
+            "ออก",
+            "มาประจำ"});
+            this.comboType.Location = new System.Drawing.Point(760, 45);
+            this.comboType.Name = "comboType";
+            this.comboType.Size = new System.Drawing.Size(215, 33);
+            this.comboType.TabIndex = 14;
             // 
             // frmVisitorList
             // 
@@ -523,5 +562,8 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
         private System.Windows.Forms.DataGridViewImageColumn colDelete;
+        private System.Windows.Forms.DataGridViewImageColumn colPrint;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboType;
     }
 }

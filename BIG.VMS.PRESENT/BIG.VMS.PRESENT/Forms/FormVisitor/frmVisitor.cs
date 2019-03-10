@@ -175,6 +175,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 obj.CONTACT_PHOTO = ImageToByte(picPhoto);
                 obj.ID_CARD_PHOTO = ImageToByte(picCard);
+
                 if (visitorMode == VisitorMode.In)
                 {
                     obj.TYPE = "In";

@@ -36,6 +36,10 @@
     <ApplicationIcon>delivery.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DGV Printer">
       <HintPath>..\DGV Printer.dll</HintPath>
     </Reference>
@@ -43,6 +47,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DirectShowLib-2005.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MakarovDev.ExpandCollapsePanel, Version=1.0.6072.26716, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\MakarovDev.ExpandCollapsePanel.dll</HintPath>
@@ -53,6 +58,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.Ribbon35, Version=3.5.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\System.Windows.Forms.Ribbon35.dll</HintPath>
@@ -114,6 +121,26 @@
     </Compile>
     <Compile Include="Forms\FormReport\frmReportList.Designer.cs">
       <DependentUpon>frmReportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReport\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\ReportDBSet.cs">
+      <DependentUpon>ReportDBSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\ReportDBSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDBSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport\VisitorReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitorReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\FormVisitor\frmAppointment.cs">
       <SubType>Form</SubType>
@@ -255,6 +282,13 @@
     <EmbeddedResource Include="Forms\FormReport\frmReportList.resx">
       <DependentUpon>frmReportList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport\VisitorReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VisitorReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmAppointment.resx">
       <DependentUpon>frmAppointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +352,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Forms\FormReport\ReportDBSet.xsc">
+      <DependentUpon>ReportDBSet.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\FormReport\ReportDBSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDBSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\FormReport\ReportDBSet.xss">
+      <DependentUpon>ReportDBSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -420,6 +465,9 @@
     <Content Include="ResourceFile\User group.png" />
     <Content Include="ResourceFile\user-add-icon.png" />
     <None Include="Resources\approve.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

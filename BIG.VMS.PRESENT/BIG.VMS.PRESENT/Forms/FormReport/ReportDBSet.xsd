@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportDBSet" targetNamespace="http://tempuri.org/ReportDBSet.xsd" xmlns:mstns="http://tempuri.org/ReportDBSet.xsd" xmlns="http://tempuri.org/ReportDBSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportDBSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportDBSet" msprop:Generator_UserDSName="ReportDBSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Visitor" msprop:Generator_TableClassName="VisitorDataTable" msprop:Generator_TableVarName="tableVisitor" msprop:Generator_RowChangedName="VisitorRowChanged" msprop:Generator_TablePropName="Visitor" msprop:Generator_RowDeletingName="VisitorRowDeleting" msprop:Generator_RowChangingName="VisitorRowChanging" msprop:Generator_RowEvHandlerName="VisitorRowChangeEventHandler" msprop:Generator_RowDeletedName="VisitorRowDeleted" msprop:Generator_RowClassName="VisitorRow" msprop:Generator_UserTableName="Visitor" msprop:Generator_RowEvArgName="VisitorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:string" minOccurs="0" />
+              <xs:element name="ID_CARD" msprop:Generator_ColumnVarNameInTable="columnID_CARD" msprop:Generator_ColumnPropNameInRow="ID_CARD" msprop:Generator_ColumnPropNameInTable="ID_CARDColumn" msprop:Generator_UserColumnName="ID_CARD" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CAR_TYPE_NAME" msprop:Generator_ColumnVarNameInTable="columnCAR_TYPE_NAME" msprop:Generator_ColumnPropNameInRow="CAR_TYPE_NAME" msprop:Generator_ColumnPropNameInTable="CAR_TYPE_NAMEColumn" msprop:Generator_UserColumnName="CAR_TYPE_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="LICENSE_PLATE" msprop:Generator_ColumnVarNameInTable="columnLICENSE_PLATE" msprop:Generator_ColumnPropNameInRow="LICENSE_PLATE" msprop:Generator_ColumnPropNameInTable="LICENSE_PLATEColumn" msprop:Generator_UserColumnName="LICENSE_PLATE" type="xs:string" minOccurs="0" />
+              <xs:element name="PROVINCE" msprop:Generator_ColumnVarNameInTable="columnPROVINCE" msprop:Generator_ColumnPropNameInRow="PROVINCE" msprop:Generator_ColumnPropNameInTable="PROVINCEColumn" msprop:Generator_UserColumnName="PROVINCE" type="xs:string" minOccurs="0" />
+              <xs:element name="CONTACT_NAME" msprop:Generator_ColumnVarNameInTable="columnCONTACT_NAME" msprop:Generator_ColumnPropNameInRow="CONTACT_NAME" msprop:Generator_ColumnPropNameInTable="CONTACT_NAMEColumn" msprop:Generator_UserColumnName="CONTACT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="TIME_IN" msprop:Generator_ColumnVarNameInTable="columnTIME_IN" msprop:Generator_ColumnPropNameInRow="TIME_IN" msprop:Generator_ColumnPropNameInTable="TIME_INColumn" msprop:Generator_UserColumnName="TIME_IN" type="xs:string" minOccurs="0" />
+              <xs:element name="TYPE" msprop:Generator_ColumnVarNameInTable="columnTYPE" msprop:Generator_ColumnPropNameInRow="TYPE" msprop:Generator_ColumnPropNameInTable="TYPEColumn" msprop:Generator_UserColumnName="TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="DEPT_NAME" msprop:Generator_ColumnVarNameInTable="columnDEPT_NAME" msprop:Generator_ColumnPropNameInRow="DEPT_NAME" msprop:Generator_ColumnPropNameInTable="DEPT_NAMEColumn" msprop:Generator_UserColumnName="DEPT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="ID_CARD_PHOTO" msprop:Generator_ColumnVarNameInTable="columnID_CARD_PHOTO" msprop:Generator_ColumnPropNameInRow="ID_CARD_PHOTO" msprop:Generator_ColumnPropNameInTable="ID_CARD_PHOTOColumn" msprop:Generator_UserColumnName="ID_CARD_PHOTO" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="CONTACT_PHOTO" msprop:Generator_ColumnVarNameInTable="columnCONTACT_PHOTO" msprop:Generator_ColumnPropNameInRow="CONTACT_PHOTO" msprop:Generator_ColumnPropNameInTable="CONTACT_PHOTOColumn" msprop:Generator_UserColumnName="CONTACT_PHOTO" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="AUTO_ID" msprop:Generator_ColumnVarNameInTable="columnAUTO_ID" msprop:Generator_ColumnPropNameInRow="AUTO_ID" msprop:Generator_ColumnPropNameInTable="AUTO_IDColumn" msprop:Generator_UserColumnName="AUTO_ID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

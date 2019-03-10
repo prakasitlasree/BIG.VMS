@@ -1,9 +1,11 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.PRESENT.Forms.FormReport;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
+using CrystalDecisions.CrystalReports.Engine;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,11 +49,28 @@ namespace BIG.VMS.PRESENT.Forms.Home
                 LICENSE_PLATE = txtLicense.Text,
                 NO = txtNo.Text
             };
+
+            if (comboType.SelectedIndex == 0)
+            {
+                //filter.TYPE = "In";
+            }
+            else if (comboType.SelectedIndex == 1)
+            {
+                filter.TYPE = "In";
+            }
+            else if (comboType.SelectedIndex == 2)
+            {
+                filter.TYPE = "Out";
+            }
+            else if (comboType.SelectedIndex == 3)
+            {
+                filter.TYPE = "Regulary";
+            }
             _container.Filter = filter;
             _container = _service.Retrieve(_container);
             SetDataSourceHeader(gridVisitorList, ListHeader(), _container.ResultObj);
             SetPageControl(_container);
-            
+
         }
 
         private void CustomGrid()
@@ -94,7 +113,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ", FIELD = "FIRST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "นามสกุล", FIELD = "LAST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-          
+
             return listCol;
         }
 
@@ -102,7 +121,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
 
             //AddRangeComboBox(comboType, _comboService.GetComboVisitorType());
-
+            comboType.SelectedIndex = 0;
 
         }
 
@@ -233,13 +252,13 @@ namespace BIG.VMS.PRESENT.Forms.Home
             frm.StartPosition = FormStartPosition.CenterParent;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
         }
 
         private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 if (e.ColumnIndex == 0)
                 {
@@ -279,8 +298,47 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                     }
                 }
+
+                if (e.ColumnIndex == 2)
+                {
+                    var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                    var obj = _service.GetVisitorByAutoIDForReport(id);
+                    if (obj.ResultObj.Count > 0)
+                    {
+                        List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
+                        DataTable dt = ConvertToDataTable(listData);
+                        if (listData.FirstOrDefault().CONTACT_PHOTO != null)
+                        {
+                            DataTable dtMap = new DataTable("myMember");
+                            dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
+                            DataRow dr = dtMap.NewRow();
+                            dr["Picture_Steam"] = listData.FirstOrDefault().CONTACT_PHOTO;
+                            dtMap.Rows.Add(dr);
+                        }
+
+                        if (listData.FirstOrDefault().ID_CARD_PHOTO != null)
+                        {
+                            DataTable dtMap = new DataTable("myMember");
+                            dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
+                            DataRow dr = dtMap.NewRow();
+                            dr["Picture_Steam"] = listData.FirstOrDefault().ID_CARD_PHOTO;
+                            dtMap.Rows.Add(dr);
+                        }
+
+                        ReportDocument rpt = new ReportDocument();
+                        //string directory = My.Application.Info.DirectoryPath;
+                        rpt.Load("C:\\Users\\Rock\\Source\\Repos\\BIG.VMS\\BIG.VMS.PRESENT\\BIG.VMS.PRESENT\\Forms\\FormReport\\VisitorReport.rpt");
+                        rpt.SetDataSource(dt);
+                        frmReportViewer frm = new frmReportViewer();
+                        frm.crystalReportViewer1.ReportSource = rpt;
+                        frm.Show();
+                    }
+
+
+
+                }
             }
-         
+
         }
     }
 }
