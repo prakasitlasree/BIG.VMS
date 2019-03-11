@@ -317,7 +317,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath +"\\"+ "VisitorReport.rpt";
+                            var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
                             //var directory = System.IO.Path.GetDirectoryName(path);
                             //directory = directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
                             rpt.Load(appPath);
