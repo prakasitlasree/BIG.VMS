@@ -141,6 +141,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisitorReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Forms\FormVisitor\frmAppointment.cs">
       <SubType>Form</SubType>
@@ -288,6 +289,7 @@
     <EmbeddedResource Include="VisitorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VisitorReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmAppointment.resx">
       <DependentUpon>frmAppointment.cs</DependentUpon>
