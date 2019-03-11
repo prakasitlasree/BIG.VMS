@@ -136,7 +136,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportDBSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormReport\VisitorReport.cs">
+    <Compile Include="VisitorReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VisitorReport.rpt</DependentUpon>
@@ -285,7 +285,7 @@
     <EmbeddedResource Include="Forms\FormReport\frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormReport\VisitorReport.rpt">
+    <EmbeddedResource Include="VisitorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VisitorReport.cs</LastGenOutput>
     </EmbeddedResource>

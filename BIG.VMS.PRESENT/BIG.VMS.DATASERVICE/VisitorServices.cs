@@ -108,7 +108,7 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var listData = GetListVisitorQuery(obj).ToList();
+                    var listData = GetListVisitorQuery(obj).OrderByDescending(o=>o.UPDATED_DATE).ToList();
 
                     foreach (var item in listData)
                     {

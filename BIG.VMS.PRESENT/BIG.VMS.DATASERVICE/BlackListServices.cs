@@ -35,6 +35,40 @@ namespace BIG.VMS.DATASERVICE
             return result;
         }
 
+        public ContainerBlackList GetBlackListByIdCard(string IdCard)
+        {
+            var result = new ContainerBlackList();
+            bool isBlackList = false;
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+                    var blackList = ctx.TRN_BLACKLIST.Where(o => o.ID_CARD == IdCard).FirstOrDefault();
+                    if (blackList != null)
+                    {
+                        isBlackList = true;
+                        result.ResultObj = isBlackList;
+                        result.TRN_BLACKLIST = blackList;
+                    }
+                    else
+                    {
+                        result.ResultObj = isBlackList;
+                    }
+                    result.Status = true;
+
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString();
+                }
+
+            }
+
+            return result;
+        }
+
         public ContainerBlackList Delete(ContainerBlackList obj)
         {
             throw new NotImplementedException();

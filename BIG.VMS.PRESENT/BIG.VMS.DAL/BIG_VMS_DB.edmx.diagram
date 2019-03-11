@@ -27,7 +27,7 @@
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_PROVINCE" />
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_REASON" />
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_REASON" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="2.25" PointX="8.375" PointY="5.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="1.5" PointX="8.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

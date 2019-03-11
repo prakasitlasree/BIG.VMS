@@ -107,7 +107,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ID", FIELD = "AUTO_ID", VISIBLE = false, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
 
             listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่ทำการ", FIELD = "CREATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่ทำการ", FIELD = "UPDATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภท", FIELD = "TYPE", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "รหัสบัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
@@ -250,6 +250,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
             frmReportList frm = new frmReportList();
             frm.StartPosition = FormStartPosition.CenterParent;
+            frm.WindowState = FormWindowState.Maximized;
             if (frm.ShowDialog() == DialogResult.OK)
             {
 
@@ -259,7 +260,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            { 
+            {
                 if (e.RowIndex > -1)
                 {
                     if (e.ColumnIndex == 0)
@@ -299,7 +300,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
                             else
                             {
                                 MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            } 
+                            }
                         }
                         #endregion
                     }
@@ -312,36 +313,21 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         {
                             List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
                             DataTable dt = ConvertToDataTable(listData);
-                            if (listData.FirstOrDefault().CONTACT_PHOTO != null)
-                            {
-                                DataTable dtMap = new DataTable("myMember");
-                                dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
-                                DataRow dr = dtMap.NewRow();
-                                dr["Picture_Steam"] = listData.FirstOrDefault().CONTACT_PHOTO;
-                                dtMap.Rows.Add(dr);
-                            }
 
-                            if (listData.FirstOrDefault().ID_CARD_PHOTO != null)
-                            {
-                                DataTable dtMap = new DataTable("myMember");
-                                dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
-                                DataRow dr = dtMap.NewRow();
-                                dr["Picture_Steam"] = listData.FirstOrDefault().ID_CARD_PHOTO;
-                                dtMap.Rows.Add(dr);
-                            }
 
-                            ReportDocument rpt = new ReportDocument(); 
-                            string path = System.Reflection.Assembly.GetExecutingAssembly().Location; 
-                            var directory = System.IO.Path.GetDirectoryName(path); 
-                            directory =  directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
-                            rpt.Load(directory);
+                            ReportDocument rpt = new ReportDocument();
+                            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                            var appPath = Application.StartupPath +"\\"+ "VisitorReport.rpt";
+                            //var directory = System.IO.Path.GetDirectoryName(path);
+                            //directory = directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
+                            rpt.Load(appPath);
 
                             rpt.SetDataSource(dt);
                             frmReportViewer frm = new frmReportViewer();
                             frm.crystalReportViewer1.ReportSource = rpt;
                             frm.Show();
 
-#endregion
+                            #endregion
                         }
                     }
                 }

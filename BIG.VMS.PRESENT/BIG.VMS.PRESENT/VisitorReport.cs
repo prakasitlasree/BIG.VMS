@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BIG.VMS.PRESENT.Forms.FormReport {
+namespace BIG.VMS.PRESENT {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
         
         public override string FullResourceName {
             get {
-                return "BIG.VMS.PRESENT.Forms.FormReport.VisitorReport.rpt";
+                return "BIG.VMS.PRESENT.VisitorReport.rpt";
             }
             set {
                 // Do nothing

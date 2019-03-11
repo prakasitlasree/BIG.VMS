@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIG.VMS.PRESENT.Forms.Master;
 using System.IO;
+using BIG.VMS.MODEL.CustomModel.Container;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
@@ -20,8 +21,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public FormMode formMode = new FormMode();
         public VisitorMode visitorMode = new VisitorMode();
         private readonly VisitorServices _service = new VisitorServices();
+        private readonly BlackListServices _blService = new BlackListServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
+        private ContainerBlackList _blContainer = new ContainerBlackList();
+
 
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;
@@ -123,7 +127,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 }
                 if (visitorObj.ID_CARD_PHOTO != null)
                 {
-                    picPhoto.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
+                    picCard.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
                 }
 
             }
@@ -149,6 +153,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
+        private ContainerBlackList isBlackList(string idCard)
+        {
+
+            var data = _blService.GetBlackListByIdCard(idCard);
+            if (data.TRN_BLACKLIST != null)
+            {
+
+            }
+            return data;
+        }
 
         private void Save()
         {
@@ -281,11 +295,24 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 if (IsValidCheckPersonID(txtIDCard.Text))
                 {
-                    if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                    if (data.TRN_BLACKLIST == null)
                     {
+                        if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
 
-                        Save();
+                            Save();
+                        }
                     }
+                    else
+                    {
+                        var blData = data.TRN_BLACKLIST;
+                        var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
+                        msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
+                        msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
+                        MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
