@@ -94,9 +94,6 @@
     <Compile Include="EntityModel\MEMBER_LOGON.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityModel\sysdiagrams.cs">
-      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityModel\TRN_APPOINTMENT.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>

@@ -89,16 +89,6 @@
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
           <Property Name="UPDATED_DATE" Type="datetime" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -123,7 +113,7 @@
           <Key>
             <PropertyRef Name="AUTO_ID" />
           </Key>
-          <Property Name="AUTO_ID" Type="int" Nullable="false" />
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_CARD" Type="nvarchar" MaxLength="50" />
           <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="500" />
           <Property Name="LAST_NAME" Type="nvarchar" MaxLength="500" />
@@ -298,7 +288,6 @@
           <EntitySet Name="MAS_PROVINCE" EntityType="Self.MAS_PROVINCE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAS_REASON" EntityType="Self.MAS_REASON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMBER_LOGON" EntityType="Self.MEMBER_LOGON" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="Self.TRN_APPOINTMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_BLACKLIST" EntityType="Self.TRN_BLACKLIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_VISITOR" EntityType="Self.TRN_VISITOR" Schema="dbo" store:Type="Tables" />
@@ -360,8 +349,8 @@
           <EntitySet Name="MAS_PROVINCE" EntityType="BIG_VMSModel.MAS_PROVINCE" />
           <EntitySet Name="MAS_REASON" EntityType="BIG_VMSModel.MAS_REASON" />
           <EntitySet Name="MEMBER_LOGON" EntityType="BIG_VMSModel.MEMBER_LOGON" />
-          <EntitySet Name="sysdiagrams" EntityType="BIG_VMSModel.sysdiagrams" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="BIG_VMSModel.TRN_APPOINTMENT" />
+          <EntitySet Name="TRN_BLACKLIST" EntityType="BIG_VMSModel.TRN_BLACKLIST" />
           <EntitySet Name="TRN_VISITOR" EntityType="BIG_VMSModel.TRN_VISITOR" />
           <AssociationSet Name="FK_MAS_CAR_BRAND_MAS_CAR_TYPE" Association="BIG_VMSModel.FK_MAS_CAR_BRAND_MAS_CAR_TYPE">
             <End Role="MAS_CAR_TYPE" EntitySet="MAS_CAR_TYPE" />
@@ -407,7 +396,6 @@
             <End Role="MAS_REASON" EntitySet="MAS_REASON" />
             <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
           </AssociationSet>
-          <EntitySet Name="TRN_BLACKLIST" EntityType="BIG_VMSModel.TRN_BLACKLIST" />
         </EntityContainer>
         <EntityType Name="MAS_CAR_BRAND">
           <Key>
@@ -507,16 +495,6 @@
           <Property Name="UPDATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -540,6 +518,21 @@
           <NavigationProperty Name="MAS_EMPLOYEE" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_EMPLOYEE" FromRole="TRN_APPOINTMENT" ToRole="MAS_EMPLOYEE" />
           <NavigationProperty Name="MAS_PROVINCE" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_PROVINCE" FromRole="TRN_APPOINTMENT" ToRole="MAS_PROVINCE" />
           <NavigationProperty Name="MAS_REASON" Relationship="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_REASON" FromRole="TRN_APPOINTMENT" ToRole="MAS_REASON" />
+        </EntityType>
+        <EntityType Name="TRN_BLACKLIST">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CARD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="REASON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TRN_VISITOR">
           <Key>
@@ -700,21 +693,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="TRN_BLACKLIST">
-          <Key>
-            <PropertyRef Name="AUTO_ID" />
-          </Key>
-          <Property Name="AUTO_ID" Type="Int32" Nullable="false" />
-          <Property Name="ID_CARD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FIRST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="REASON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CREATED_DATE" Type="DateTime" Precision="0" />
-          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -813,17 +791,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BIG_VMSModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TRN_APPOINTMENT">
             <EntityTypeMapping TypeName="BIG_VMSModel.TRN_APPOINTMENT">
               <MappingFragment StoreEntitySet="TRN_APPOINTMENT">
@@ -841,6 +808,22 @@
                 <ScalarProperty Name="REQUEST_LAST_NAME" ColumnName="REQUEST_LAST_NAME" />
                 <ScalarProperty Name="REQUEST_FIRST_NAME" ColumnName="REQUEST_FIRST_NAME" />
                 <ScalarProperty Name="REQUEST_ID_CARD" ColumnName="REQUEST_ID_CARD" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_BLACKLIST">
+            <EntityTypeMapping TypeName="BIG_VMSModel.TRN_BLACKLIST">
+              <MappingFragment StoreEntitySet="TRN_BLACKLIST">
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="REASON" ColumnName="REASON" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -865,22 +848,6 @@
                 <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
                 <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
                 <ScalarProperty Name="NO" ColumnName="NO" />
-                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_BLACKLIST">
-            <EntityTypeMapping TypeName="BIG_VMSModel.TRN_BLACKLIST">
-              <MappingFragment StoreEntitySet="TRN_BLACKLIST">
-                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
-                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="REASON" ColumnName="REASON" />
-                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
-                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
-                <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>

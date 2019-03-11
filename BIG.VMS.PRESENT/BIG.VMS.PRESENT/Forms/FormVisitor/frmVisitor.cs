@@ -123,7 +123,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 }
                 if (visitorObj.ID_CARD_PHOTO != null)
                 {
-                    picPhoto.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
+                    picCard.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
                 }
 
             }
@@ -148,8 +148,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 return ms.ToArray();
             }
         }
-
-
+         
         private void Save()
         {
 
