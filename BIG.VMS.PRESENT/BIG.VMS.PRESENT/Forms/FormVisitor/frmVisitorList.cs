@@ -320,12 +320,13 @@ namespace BIG.VMS.PRESENT.Forms.Home
                             var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
                             //var directory = System.IO.Path.GetDirectoryName(path);
                             //directory = directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
-                            rpt.Load(appPath);
-
+                            rpt.Load(appPath); 
                             rpt.SetDataSource(dt);
-                            frmReportViewer frm = new frmReportViewer();
-                            frm.crystalReportViewer1.ReportSource = rpt;
-                            frm.Show();
+                            rpt.PrintToPrinter(1, true, 0, 0);
+
+                            //frmReportViewer frm = new frmReportViewer();
+                            //frm.crystalReportViewer1.ReportSource = rpt;
+                            //frm.Show();
 
                             #endregion
                         }

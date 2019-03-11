@@ -141,6 +141,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportSlip.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="VisitorReport.cs">
       <AutoGen>True</AutoGen>
@@ -295,6 +296,7 @@
     <EmbeddedResource Include="ReportSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportSlip.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="VisitorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
