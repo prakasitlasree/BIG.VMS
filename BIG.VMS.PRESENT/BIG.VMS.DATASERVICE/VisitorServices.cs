@@ -354,6 +354,7 @@ namespace BIG.VMS.DATASERVICE
                                         CAR_TYPE_NAME = item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE != null ? item.MAS_CAR_MODEL.MAS_CAR_BRAND.MAS_CAR_TYPE.NAME : "",
                                         LICENSE_PLATE = item.LICENSE_PLATE,
                                         PROVINCE = item.MAS_PROVINCE != null ? item.MAS_PROVINCE.NAME : "",
+                                        TOPIC = item.MAS_REASON != null ? item.MAS_REASON.REASON : "",
                                         CONTACT_NAME = item.MAS_EMPLOYEE != null ? item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME : "",
                                         TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),

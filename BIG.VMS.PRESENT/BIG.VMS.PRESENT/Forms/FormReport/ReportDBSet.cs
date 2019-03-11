@@ -4,5 +4,8 @@
 
     public partial class ReportDBSet
     {
+        partial class VisitorDataTable
+        {
+        }
     }
 }

@@ -305,6 +305,8 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             
             private global::System.Data.DataColumn columnAUTO_ID;
             
+            private global::System.Data.DataColumn columnTOPIC;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public VisitorDataTable() {
@@ -444,6 +446,14 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOPICColumn {
+                get {
+                    return this.columnTOPIC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +489,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VisitorRow AddVisitorRow(string NO, string ID_CARD, string NAME, string CAR_TYPE_NAME, string LICENSE_PLATE, string PROVINCE, string CONTACT_NAME, string TIME_IN, string TYPE, string DEPT_NAME, byte[] ID_CARD_PHOTO, byte[] CONTACT_PHOTO, string AUTO_ID) {
+            public VisitorRow AddVisitorRow(string NO, string ID_CARD, string NAME, string CAR_TYPE_NAME, string LICENSE_PLATE, string PROVINCE, string CONTACT_NAME, string TIME_IN, string TYPE, string DEPT_NAME, byte[] ID_CARD_PHOTO, byte[] CONTACT_PHOTO, string AUTO_ID, string TOPIC) {
                 VisitorRow rowVisitorRow = ((VisitorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NO,
@@ -494,7 +504,8 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
                         DEPT_NAME,
                         ID_CARD_PHOTO,
                         CONTACT_PHOTO,
-                        AUTO_ID};
+                        AUTO_ID,
+                        TOPIC};
                 rowVisitorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVisitorRow);
                 return rowVisitorRow;
@@ -530,6 +541,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
                 this.columnID_CARD_PHOTO = base.Columns["ID_CARD_PHOTO"];
                 this.columnCONTACT_PHOTO = base.Columns["CONTACT_PHOTO"];
                 this.columnAUTO_ID = base.Columns["AUTO_ID"];
+                this.columnTOPIC = base.Columns["TOPIC"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +573,8 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
                 base.Columns.Add(this.columnCONTACT_PHOTO);
                 this.columnAUTO_ID = new global::System.Data.DataColumn("AUTO_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAUTO_ID);
+                this.columnTOPIC = new global::System.Data.DataColumn("TOPIC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOPIC);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -911,6 +925,22 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TOPIC {
+                get {
+                    try {
+                        return ((string)(this[this.tableVisitor.TOPICColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TOPIC\' in table \'Visitor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitor.TOPICColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNONull() {
                 return this.IsNull(this.tableVisitor.NOColumn);
             }
@@ -1063,6 +1093,18 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAUTO_IDNull() {
                 this[this.tableVisitor.AUTO_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTOPICNull() {
+                return this.IsNull(this.tableVisitor.TOPICColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTOPICNull() {
+                this[this.tableVisitor.TOPICColumn] = global::System.Convert.DBNull;
             }
         }
         

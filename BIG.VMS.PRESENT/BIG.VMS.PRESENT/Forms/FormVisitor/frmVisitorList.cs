@@ -313,8 +313,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         {
                             List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
                             DataTable dt = ConvertToDataTable(listData);
-
-
+                             
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                             var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
@@ -327,9 +326,9 @@ namespace BIG.VMS.PRESENT.Forms.Home
                             //frmReportViewer frm = new frmReportViewer();
                             //frm.crystalReportViewer1.ReportSource = rpt;
                             //frm.Show();
-
-                            #endregion
+                             
                         }
+                        #endregion
                     }
                 }
             }
