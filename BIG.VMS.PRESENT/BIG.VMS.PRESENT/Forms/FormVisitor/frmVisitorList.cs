@@ -258,87 +258,98 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void gridVisitorList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
-            {
-                if (e.ColumnIndex == 0)
+            try
+            { 
+                if (e.RowIndex > -1)
                 {
-                    var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                    var obj = _service.GetVisitorByAutoID(id);
-                    frmVisitor frm = new frmVisitor();
-                    frm.visitorObj = obj.TRN_VISITOR;
-                    frm.formMode = FormMode.Edit;
-
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (e.ColumnIndex == 0)
                     {
-                        ResetScreen();
-                    }
-                }
-                else if (e.ColumnIndex == 1)
-                {
-                    if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
+                        #region ===================== edit =====================
                         var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                        ContainerVisitor obj = new ContainerVisitor
+                        var obj = _service.GetVisitorByAutoID(id);
+                        frmVisitor frm = new frmVisitor();
+                        frm.visitorObj = obj.TRN_VISITOR;
+                        frm.formMode = FormMode.Edit;
+
+                        if (frm.ShowDialog() == DialogResult.OK)
                         {
-                            TRN_VISITOR = new TRN_VISITOR
-                            {
-                                AUTO_ID = id
-                            }
-                        };
-                        var res = _service.Delete(obj);
-                        if (res.Status)
-                        {
-                            MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ResetScreen();
                         }
-                        else
-                        {
-                            MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-
+                        #endregion
                     }
-                }
-
-                if (e.ColumnIndex == 2)
-                {
-                    var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                    var obj = _service.GetVisitorByAutoIDForReport(id);
-                    if (obj.ResultObj.Count > 0)
+                    else if (e.ColumnIndex == 1)
                     {
-                        List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
-                        DataTable dt = ConvertToDataTable(listData);
-                        if (listData.FirstOrDefault().CONTACT_PHOTO != null)
+                        #region ===================== delete =====================
+                        if (MessageBox.Show(Message.MSG_DELETE_CONFIRM, "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
-                            DataTable dtMap = new DataTable("myMember");
-                            dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
-                            DataRow dr = dtMap.NewRow();
-                            dr["Picture_Steam"] = listData.FirstOrDefault().CONTACT_PHOTO;
-                            dtMap.Rows.Add(dr);
+                            var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                            ContainerVisitor obj = new ContainerVisitor
+                            {
+                                TRN_VISITOR = new TRN_VISITOR
+                                {
+                                    AUTO_ID = id
+                                }
+                            };
+                            var res = _service.Delete(obj);
+                            if (res.Status)
+                            {
+                                MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetScreen();
+                            }
+                            else
+                            {
+                                MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            } 
                         }
-
-                        if (listData.FirstOrDefault().ID_CARD_PHOTO != null)
-                        {
-                            DataTable dtMap = new DataTable("myMember");
-                            dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
-                            DataRow dr = dtMap.NewRow();
-                            dr["Picture_Steam"] = listData.FirstOrDefault().ID_CARD_PHOTO;
-                            dtMap.Rows.Add(dr);
-                        }
-
-                        ReportDocument rpt = new ReportDocument();
-                        //string directory = My.Application.Info.DirectoryPath;
-                        rpt.Load("C:\\Users\\Rock\\Source\\Repos\\BIG.VMS\\BIG.VMS.PRESENT\\BIG.VMS.PRESENT\\Forms\\FormReport\\VisitorReport.rpt");
-                        rpt.SetDataSource(dt);
-                        frmReportViewer frm = new frmReportViewer();
-                        frm.crystalReportViewer1.ReportSource = rpt;
-                        frm.Show();
+                        #endregion
                     }
+                    else if (e.ColumnIndex == 2)
+                    {
+                        #region ===================== print =====================
+                        var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                        var obj = _service.GetVisitorByAutoIDForReport(id);
+                        if (obj.ResultObj.Count > 0)
+                        {
+                            List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
+                            DataTable dt = ConvertToDataTable(listData);
+                            if (listData.FirstOrDefault().CONTACT_PHOTO != null)
+                            {
+                                DataTable dtMap = new DataTable("myMember");
+                                dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
+                                DataRow dr = dtMap.NewRow();
+                                dr["Picture_Steam"] = listData.FirstOrDefault().CONTACT_PHOTO;
+                                dtMap.Rows.Add(dr);
+                            }
 
+                            if (listData.FirstOrDefault().ID_CARD_PHOTO != null)
+                            {
+                                DataTable dtMap = new DataTable("myMember");
+                                dtMap.Columns.Add(new DataColumn("Picture_Steam", typeof(System.Byte[])));
+                                DataRow dr = dtMap.NewRow();
+                                dr["Picture_Steam"] = listData.FirstOrDefault().ID_CARD_PHOTO;
+                                dtMap.Rows.Add(dr);
+                            }
 
+                            ReportDocument rpt = new ReportDocument(); 
+                            string path = System.Reflection.Assembly.GetExecutingAssembly().Location; 
+                            var directory = System.IO.Path.GetDirectoryName(path); 
+                            directory =  directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
+                            rpt.Load(directory);
 
+                            rpt.SetDataSource(dt);
+                            frmReportViewer frm = new frmReportViewer();
+                            frm.crystalReportViewer1.ReportSource = rpt;
+                            frm.Show();
+
+#endregion
+                        }
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
