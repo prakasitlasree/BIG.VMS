@@ -42,20 +42,12 @@ namespace BIG.VMS.PRESENT
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show(Message.LOGOUT,Message.MSG_WARNING_CAPTION, MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-            { 
-                OnCloseAllChildrenForm();
-
-                if (Owner != null)
-                {
-                    Owner.Show();
-                }
-                else
-                {
-                    Dispose(true);
-                    Application.ExitThread();
-                    Application.Exit();
-                }
+            if (MessageBox.Show(Message.LOGOUT, Message.MSG_WARNING_CAPTION, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                OnCloseAllChildrenForm(); 
+                Dispose(true);
+                Application.ExitThread();
+                Application.Exit(); 
             }
             else
             {
@@ -71,7 +63,6 @@ namespace BIG.VMS.PRESENT
                 c.Close();
             }
         }
-
 
         #endregion
 
@@ -91,6 +82,17 @@ namespace BIG.VMS.PRESENT
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void scheduling_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            OnCloseAllChildrenForm();
+            Application.Exit();
         }
     }
 }

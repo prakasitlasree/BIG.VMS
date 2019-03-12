@@ -32,11 +32,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Home = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduling = new System.Windows.Forms.ToolStripMenuItem();
             this.readIDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,8 +48,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Home,
             this.toolStripMenuItem1,
-            this.logOutToolStripMenuItem,
-            this.readIDCardToolStripMenuItem});
+            this.scheduling,
+            this.readIDCardToolStripMenuItem,
+            this.logout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -68,11 +70,12 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 24);
             // 
-            // logOutToolStripMenuItem
+            // scheduling
             // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
-            this.logOutToolStripMenuItem.Text = "ออกจากระบบ";
+            this.scheduling.Name = "scheduling";
+            this.scheduling.Size = new System.Drawing.Size(117, 24);
+            this.scheduling.Text = "นัดหมายล่วงหน้า";
+            this.scheduling.Click += new System.EventHandler(this.scheduling_Click);
             // 
             // readIDCardToolStripMenuItem
             // 
@@ -107,6 +110,13 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
+            // logout
+            // 
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(99, 24);
+            this.logout.Text = "ออกจากระบบ";
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -137,11 +147,12 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Home;
-        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduling;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripMenuItem readIDCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logout;
     }
 }

@@ -89,6 +89,16 @@
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
           <Property Name="UPDATED_DATE" Type="datetime" />
         </EntityType>
+        <EntityType Name="SYS_CONFIGURATION">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MODULE" Type="nvarchar" MaxLength="500" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="VALUE" Type="nvarchar" MaxLength="500" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -288,6 +298,7 @@
           <EntitySet Name="MAS_PROVINCE" EntityType="Self.MAS_PROVINCE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAS_REASON" EntityType="Self.MAS_REASON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMBER_LOGON" EntityType="Self.MEMBER_LOGON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_CONFIGURATION" EntityType="Self.SYS_CONFIGURATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="Self.TRN_APPOINTMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_BLACKLIST" EntityType="Self.TRN_BLACKLIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_VISITOR" EntityType="Self.TRN_VISITOR" Schema="dbo" store:Type="Tables" />
@@ -396,6 +407,7 @@
             <End Role="MAS_REASON" EntitySet="MAS_REASON" />
             <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
           </AssociationSet>
+          <EntitySet Name="SYS_CONFIGURATION" EntityType="BIG_VMSModel.SYS_CONFIGURATION" />
         </EntityContainer>
         <EntityType Name="MAS_CAR_BRAND">
           <Key>
@@ -693,6 +705,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SYS_CONFIGURATION">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MODULE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -848,6 +870,17 @@
                 <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
                 <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
                 <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_CONFIGURATION">
+            <EntityTypeMapping TypeName="BIG_VMSModel.SYS_CONFIGURATION">
+              <MappingFragment StoreEntitySet="SYS_CONFIGURATION">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="MODULE" ColumnName="MODULE" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
