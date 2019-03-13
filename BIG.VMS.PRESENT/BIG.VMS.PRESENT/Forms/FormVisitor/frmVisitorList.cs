@@ -31,20 +31,17 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void frmAllvisitor_Load(object sender, EventArgs e)
         {
-
+            ResetScreen();
             InitialComboBox();
             InitialEventHandler();
-            _container.PageInfo = new Pagination();
-            BindGridData();
-            CustomGrid();
-
+           
         }
 
         private void BindGridData()
         {
             var filter = new VisitorFilter()
             {
-                //TYPE = "IN",
+                
                 ID_CARD = txtIDCard.Text,
                 LICENSE_PLATE = txtLicense.Text,
                 NO = txtNo.Text
@@ -313,20 +310,20 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         {
                             List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
                             DataTable dt = ConvertToDataTable(listData);
-                             
+
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
+                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
                             //var directory = System.IO.Path.GetDirectoryName(path);
                             //directory = directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
-                            rpt.Load(appPath); 
+                            rpt.Load(appPath);
                             rpt.SetDataSource(dt);
                             rpt.PrintToPrinter(1, true, 0, 0);
 
                             //frmReportViewer frm = new frmReportViewer();
                             //frm.crystalReportViewer1.ReportSource = rpt;
                             //frm.Show();
-                             
+
                         }
                         #endregion
                     }
@@ -336,6 +333,12 @@ namespace BIG.VMS.PRESENT.Forms.Home
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnBlacklist_Click(object sender, EventArgs e)
+        {
+            frmBlacklistList frm = new frmBlacklistList();
+            frm.ShowDialog();
         }
     }
 }

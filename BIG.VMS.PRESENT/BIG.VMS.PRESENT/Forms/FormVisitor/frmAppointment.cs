@@ -1,5 +1,6 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.CustomModel.Container;
 using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.PRESENT.Forms.Master;
 using System;
@@ -21,6 +22,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private readonly AppointmentServices _service = new AppointmentServices();
         private ContainerAppointment _container = new ContainerAppointment();
         private ComboBoxServices _comboService = new ComboBoxServices();
+        private ContainerBlackList _blContainer = new ContainerBlackList();
+        private readonly BlackListServices _blService = new BlackListServices();
+
 
         private int contactEmployeeId = 0;
         private int provinceId = 0;
@@ -128,17 +132,32 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 dtContactDate.Value != DateTime.MinValue &&
                 dtTime.Value != DateTime.MinValue)
             {
-                if (IsValidCheckPersonID(txtIDCard.Text))
+                var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                if (data.TRN_BLACKLIST == null)
                 {
-                    if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (IsValidCheckPersonID(txtIDCard.Text))
                     {
-                        Save();
+                        if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Save();
+                        }
+                        else
+                        {
+                            MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
+                    else
+                    {
+                        var blData = data.TRN_BLACKLIST;
+                        var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
+                        msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
+                        msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
+                        MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                  
                 }
-                else
-                {
-                    MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+               
+
 
 
             }
@@ -199,7 +218,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
                 txtLastName.Text = frm.CARD.TH_LAST_NAME;
                 txtIDCard.Text = frm.CARD.NO;
-                picCard.Image = (Image)frm.CARD.PHOTO;
+                //picCard.Image = (Image)frm.CARD.PHOTO;
 
                 MessageBox.Show("อ่านข้อมูลจากบัตร เรียบร้อย!!!");
             }

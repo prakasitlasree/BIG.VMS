@@ -1,4 +1,5 @@
-﻿using BIG.VMS.MODEL.EntityModel;
+﻿using BIG.VMS.MODEL.CustomModel.Filter;
+using BIG.VMS.MODEL.EntityModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace BIG.VMS.MODEL.CustomModel.Container
 
         public dynamic ResultObj { get; set; }
 
-        public dynamic Filter { get; set; }
+        public BlacklistFilter Filter { get; set; }
 
         public TRN_BLACKLIST TRN_BLACKLIST { get; set; }
 
