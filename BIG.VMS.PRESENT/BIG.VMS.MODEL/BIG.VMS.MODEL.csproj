@@ -61,6 +61,7 @@
     <Compile Include="CustomModel\Container\ContainerAppointment.cs" />
     <Compile Include="CustomModel\Container\ContainerHardware.cs" />
     <Compile Include="CustomModel\Container\ContainerVisitor.cs" />
+    <Compile Include="CustomModel\Filter\BlacklistFilter.cs" />
     <Compile Include="CustomModel\HeaderGrid.cs" />
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />

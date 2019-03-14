@@ -71,7 +71,27 @@ namespace BIG.VMS.DATASERVICE
 
         public ContainerBlackList Delete(ContainerBlackList obj)
         {
-            throw new NotImplementedException();
+            var result = new ContainerBlackList();
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+                    var deleteData = ctx.TRN_BLACKLIST.Where(o => o.AUTO_ID == obj.TRN_BLACKLIST.AUTO_ID).FirstOrDefault();
+                    ctx.TRN_BLACKLIST.Remove(deleteData);
+                    ctx.SaveChanges();
+                    result.Status = true;
+                    result.Message = "Delete Successful";
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString();
+                }
+
+            }
+
+            return result;
         }
 
         public ContainerBlackList GetItem(ContainerBlackList obj)
@@ -81,7 +101,33 @@ namespace BIG.VMS.DATASERVICE
 
         public ContainerBlackList Retrieve(ContainerBlackList obj)
         {
-            throw new NotImplementedException();
+            var result = new ContainerBlackList();
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+                    var blackList = ctx.TRN_BLACKLIST.ToList();
+                    if (obj.Filter != null)
+                    {
+                        if (!string.IsNullOrEmpty(obj.Filter.ID_CARD))
+                        {
+                            blackList = blackList.Where(o => o.ID_CARD == obj.Filter.ID_CARD).ToList();
+                        }
+                    }
+                    result.ResultObj = blackList;
+                    result.Status = true;
+
+                }
+                catch (Exception ex)
+                {
+                    result.Status = false;
+                    result.Message = ex.Message.ToString();
+                }
+
+            }
+
+            return result;
         }
 
         public ContainerBlackList Update(ContainerBlackList obj)

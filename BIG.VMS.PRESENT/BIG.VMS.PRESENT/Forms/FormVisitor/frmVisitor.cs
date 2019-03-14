@@ -23,10 +23,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public FormMode formMode = new FormMode();
         public VisitorMode visitorMode = new VisitorMode();
         private readonly VisitorServices _service = new VisitorServices();
-        private readonly BlackListServices _blService = new BlackListServices();
+      
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
         private ContainerBlackList _blContainer = new ContainerBlackList();
+        private readonly BlackListServices _blService = new BlackListServices();
 
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;

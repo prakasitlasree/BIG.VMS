@@ -136,6 +136,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportDBSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmBlacklistList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmBlacklistList.Designer.cs">
+      <DependentUpon>frmBlacklistList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportSlip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport\frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmBlacklistList.resx">
+      <DependentUpon>frmBlacklistList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

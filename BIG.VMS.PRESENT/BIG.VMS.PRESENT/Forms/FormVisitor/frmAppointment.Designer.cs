@@ -34,6 +34,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.chkKeyIn = new System.Windows.Forms.CheckBox();
             this.Lbl_LicensePlate = new System.Windows.Forms.Label();
             this.Lbl_MeetPeople = new System.Windows.Forms.Label();
@@ -58,21 +59,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtContactDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.picCard = new System.Windows.Forms.PictureBox();
-            this.picPhoto = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.brn_UploadImgCard = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.bthCardDelete = new System.Windows.Forms.Button();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnUploadCam = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnDeleteCam = new System.Windows.Forms.Button();
+            this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.btnTopic = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -80,19 +67,10 @@
             this.btnMeet = new System.Windows.Forms.Button();
             this.btnVehicle = new System.Windows.Forms.Button();
             this.btnReadCard = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +129,6 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 102);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -210,6 +187,18 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(816, 470);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(138, 436);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 25);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "เวลา";
             // 
             // chkKeyIn
             // 
@@ -481,187 +470,16 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "วันที่จะเข้า";
             // 
-            // tableLayoutPanel5
+            // dtTime
             // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.picCard, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.picPhoto, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 2);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(825, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(438, 470);
-            this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // picCard
-            // 
-            this.picCard.BackColor = System.Drawing.Color.White;
-            this.picCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picCard.Image = ((System.Drawing.Image)(resources.GetObject("picCard.Image")));
-            this.picCard.InitialImage = null;
-            this.picCard.Location = new System.Drawing.Point(3, 50);
-            this.picCard.Name = "picCard";
-            this.picCard.Size = new System.Drawing.Size(432, 182);
-            this.picCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCard.TabIndex = 0;
-            this.picCard.TabStop = false;
-            // 
-            // picPhoto
-            // 
-            this.picPhoto.BackColor = System.Drawing.Color.White;
-            this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPhoto.Image = ((System.Drawing.Image)(resources.GetObject("picPhoto.Image")));
-            this.picPhoto.Location = new System.Drawing.Point(3, 285);
-            this.picPhoto.Name = "picPhoto";
-            this.picPhoto.Size = new System.Drawing.Size(432, 182);
-            this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPhoto.TabIndex = 1;
-            this.picPhoto.TabStop = false;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel1, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(432, 41);
-            this.tableLayoutPanel6.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 25);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "รูปจากบัตร";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.brn_UploadImgCard);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.bthCardDelete);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(107, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 35);
-            this.flowLayoutPanel1.TabIndex = 3;
-            // 
-            // brn_UploadImgCard
-            // 
-            this.brn_UploadImgCard.Image = ((System.Drawing.Image)(resources.GetObject("brn_UploadImgCard.Image")));
-            this.brn_UploadImgCard.Location = new System.Drawing.Point(0, 0);
-            this.brn_UploadImgCard.Margin = new System.Windows.Forms.Padding(0);
-            this.brn_UploadImgCard.Name = "brn_UploadImgCard";
-            this.brn_UploadImgCard.Size = new System.Drawing.Size(38, 39);
-            this.brn_UploadImgCard.TabIndex = 3;
-            this.brn_UploadImgCard.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(38, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 39);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // bthCardDelete
-            // 
-            this.bthCardDelete.Image = ((System.Drawing.Image)(resources.GetObject("bthCardDelete.Image")));
-            this.bthCardDelete.Location = new System.Drawing.Point(76, 0);
-            this.bthCardDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.bthCardDelete.Name = "bthCardDelete";
-            this.bthCardDelete.Size = new System.Drawing.Size(38, 39);
-            this.bthCardDelete.TabIndex = 6;
-            this.bthCardDelete.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel2, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 238);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(432, 41);
-            this.tableLayoutPanel7.TabIndex = 5;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 8);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 25);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "รูปถ่ายจากกล้อง";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.btnUploadCam);
-            this.flowLayoutPanel2.Controls.Add(this.button3);
-            this.flowLayoutPanel2.Controls.Add(this.btnDeleteCam);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(145, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(284, 35);
-            this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // btnUploadCam
-            // 
-            this.btnUploadCam.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadCam.Image")));
-            this.btnUploadCam.Location = new System.Drawing.Point(0, 0);
-            this.btnUploadCam.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUploadCam.Name = "btnUploadCam";
-            this.btnUploadCam.Size = new System.Drawing.Size(38, 39);
-            this.btnUploadCam.TabIndex = 4;
-            this.btnUploadCam.UseVisualStyleBackColor = true;
-            this.btnUploadCam.Click += new System.EventHandler(this.btnUploadCam_Click);
-            // 
-            // button3
-            // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(38, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(38, 39);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteCam
-            // 
-            this.btnDeleteCam.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCam.Image")));
-            this.btnDeleteCam.Location = new System.Drawing.Point(76, 0);
-            this.btnDeleteCam.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDeleteCam.Name = "btnDeleteCam";
-            this.btnDeleteCam.Size = new System.Drawing.Size(38, 39);
-            this.btnDeleteCam.TabIndex = 5;
-            this.btnDeleteCam.UseVisualStyleBackColor = true;
+            this.dtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtTime.CustomFormat = "hh:mm:ss";
+            this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtTime.Location = new System.Drawing.Point(195, 433);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.ShowUpDown = true;
+            this.dtTime.Size = new System.Drawing.Size(618, 31);
+            this.dtTime.TabIndex = 25;
             // 
             // btnTopic
             // 
@@ -775,29 +593,6 @@
             this.btnReadCard.UseVisualStyleBackColor = false;
             this.btnReadCard.Click += new System.EventHandler(this.btnReadCard_Click);
             // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(138, 436);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 25);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "เวลา";
-            // 
-            // dtTime
-            // 
-            this.dtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtTime.CustomFormat = "hh:mm:ss";
-            this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtTime.Location = new System.Drawing.Point(195, 433);
-            this.dtTime.Name = "dtTime";
-            this.dtTime.ShowUpDown = true;
-            this.dtTime.Size = new System.Drawing.Size(618, 31);
-            this.dtTime.TabIndex = 25;
-            // 
             // frmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -819,15 +614,6 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -862,21 +648,6 @@
         private System.Windows.Forms.TextBox txtLicense;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.PictureBox picCard;
-        private System.Windows.Forms.PictureBox picPhoto;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button brn_UploadImgCard;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button bthCardDelete;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnUploadCam;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnDeleteCam;
         private System.Windows.Forms.Button btnTopic;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
