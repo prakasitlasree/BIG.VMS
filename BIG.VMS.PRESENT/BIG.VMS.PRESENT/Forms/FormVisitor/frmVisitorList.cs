@@ -31,17 +31,24 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void frmAllvisitor_Load(object sender, EventArgs e)
         {
-            ResetScreen();
+
             InitialComboBox();
             InitialEventHandler();
-           
+            ResetScreen();
+            gridVisitorList.DataBindingComplete += BindingComplete;
+
+        }
+
+        private void BindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            CustomGrid();
         }
 
         private void BindGridData()
         {
             var filter = new VisitorFilter()
             {
-                
+
                 ID_CARD = txtIDCard.Text,
                 LICENSE_PLATE = txtLicense.Text,
                 NO = txtNo.Text
@@ -77,7 +84,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
             {
                 if (i % 2 == 0)
                 {
-                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.Aquamarine;
+                    gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.SeaShell;
                 }
                 else
                 {
@@ -102,15 +109,18 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
             List<HeaderGrid> listCol = new List<HeaderGrid>();
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ID", FIELD = "AUTO_ID", VISIBLE = false, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-
             listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่ทำการ", FIELD = "UPDATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภท", FIELD = "TYPE", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "รหัสบัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "บัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ-สกุล", FIELD = "FULL_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภทรถ", FIELD = "CAR_TYPE_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ", FIELD = "FIRST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "นามสกุล", FIELD = "LAST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "บุคคลที่ต้องการพบ", FIELD = "CONTACT_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "แผนก", FIELD = "DEPT_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วัตถุประสงค์", FIELD = "TOPIC", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่บันทึก", FIELD = "CREATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ผู้บันทึก", FIELD = "CREATED_BY", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่แก้ไข", FIELD = "UPDATED_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ผู้แก้ไข", FIELD = "UPDATED_BY", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             return listCol;
         }
 
@@ -314,11 +324,11 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
-                             
-                            rpt.Load(appPath); 
+                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
+
+                            rpt.Load(appPath);
                             rpt.SetDataSource(dt);
-                            rpt.PrintToPrinter(1, true, 0, 0); 
+                            rpt.PrintToPrinter(1, true, 0, 0);
                         }
                         #endregion
                     }

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    public partial class frmBlackList : Form
+    public partial class frmBlackList : PageBase
     {
         public string ID_CARD;
         public string FIRST_NAME;
@@ -55,7 +55,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 REASON = txtReason.Text,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
-
+                CREATED_BY = LOGIN,
+                UPDATED_BY =LOGIN
             };
 
             var container = new ContainerBlackList { TRN_BLACKLIST = obj };

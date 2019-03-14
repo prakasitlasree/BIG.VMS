@@ -1,6 +1,7 @@
 ﻿using BIG.VMS.DAL;
 using BIG.VMS.MODEL;
 using BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using BIG.VMS.MODEL.CustomModel.Filter;
 using BIG.VMS.MODEL.EntityModel;
 using System;
@@ -55,8 +56,31 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var listData = new List<TRN_APPOINTMENT>();
-                    listData = GetListAppointmentQuery(obj).ToList();
+                    var listData = new List<CustomAppointment>();
+                    var listApointment = GetListAppointmentQuery(obj).ToList();
+
+                    listData = (from item in listApointment
+                                select new CustomAppointment
+                                {
+                                    AUTO_ID = item.AUTO_ID,
+                                    CONTACT_DATE = item.CONTACT_DATE,
+                                    CONTACT_EMPLOYEE_ID =item.CONTACT_EMPLOYEE_ID,
+                                    CONTACT_EMPLOYEE_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME,
+                                    CREATED_BY =item.CREATED_BY,
+                                    STATUS = item.STATUS,
+                                    REASON_ID =item.REASON_ID,
+                                    REASON_NAME = item.MAS_REASON.REASON,
+                                    REQUEST_CAR_MODEL_ID = item.REQUEST_CAR_MODEL_ID,
+                                    REQUEST_NAME =  item.REQUEST_FIRST_NAME + " "+item.REQUEST_LAST_NAME,
+                                    REQUEST_LICENSE_PLATE = item.REQUEST_LICENSE_PLATE,
+                                    REQUEST_LICENSE_PLATE_PROVINCE_ID = item.REQUEST_LICENSE_PLATE_PROVINCE_ID,
+                                    REQUEST_ID_CARD = item.REQUEST_ID_CARD,
+                                    UPDATED_BY = item.UPDATED_BY,
+                                    REQUEST_CAR_NAME = item.MAS_CAR_MODEL.NAME,
+                                    
+                                }).ToList();
+
+
 
                     if (obj.PageInfo != null)
                     {

@@ -227,8 +227,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     LICENSE_PLATE_PROVINCE_ID = provinceId, 
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
+                   
 
                 };
+
+                if(formMode == FormMode.Add)
+                {
+                    obj.CREATED_BY = LOGIN;
+                    obj.UPDATED_BY = LOGIN;
+                }
+                if (formMode == FormMode.Edit)
+                {                   
+                    obj.UPDATED_BY = LOGIN;
+                    obj.AUTO_ID = visitorObj.AUTO_ID;
+                }
+
                 return obj;
             }
             catch (Exception)

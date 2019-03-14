@@ -27,6 +27,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             InitialEventHandler();
             ResetScreen();
+            gridAppointmentList.DataBindingComplete += BindingComplete;
+        }
+
+        private void BindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            CustomGrid();
         }
 
         private void ResetScreen()
@@ -77,15 +83,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             List<HeaderGrid> listCol = new List<HeaderGrid>();
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ID", FIELD = "AUTO_ID", VISIBLE = false, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            //listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            //listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภท", FIELD = "TYPE", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "รหัสบัตรประชาชน", FIELD = "REQUEST_ID_CARD", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "REQUEST_LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ", FIELD = "REQUEST_FIRST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "นามสกุล", FIELD = "REQUEST_LAST_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่จะเข้า", FIELD = "CONTACT_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "สถานะ", FIELD = "STATUS", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.Fill });
-
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "บัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ-สกุล", FIELD = "REQUEST_NAME", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.Fill });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภทรถ", FIELD = "REQUEST_CAR_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "บุคคลที่ต้องการพบ", FIELD = "CONTACT_EMPLOYEE_NAME", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.Fill });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วัตถุประสงค์", FIELD = "REASON_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่เข้าพบ", FIELD = "CONTACT_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "สถานะ", FIELD = "STATUS", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "ผู้บันทึก", FIELD = "UPDATED_BY", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
 
 
             return listCol;
@@ -138,7 +145,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 if (i % 2 == 0)
                 {
-                    gridAppointmentList.Rows[i].DefaultCellStyle.BackColor = Color.Aquamarine;
+                    gridAppointmentList.Rows[i].DefaultCellStyle.BackColor = Color.MistyRose;
                 }
                 else
                 {

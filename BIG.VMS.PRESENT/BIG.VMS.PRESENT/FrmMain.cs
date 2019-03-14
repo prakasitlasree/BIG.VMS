@@ -9,7 +9,7 @@ using BIG.VMS.PRESENT.Forms.FormReport;
 
 namespace BIG.VMS.PRESENT
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain : PageBase
     {
         public string User { get; set; }
         public FrmMain()
