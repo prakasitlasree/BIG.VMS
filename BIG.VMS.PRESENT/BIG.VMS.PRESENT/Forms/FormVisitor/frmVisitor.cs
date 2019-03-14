@@ -421,8 +421,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     txtIDCard.TextLength >= 13 &&
                     contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0)
                 {
-                    if (IsValidCheckPersonID(txtIDCard.Text))
-                    {
+                    //if (IsValidCheckPersonID(txtIDCard.Text))
+                    //{
                         var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
                         if (data.TRN_BLACKLIST == null)
                         {
@@ -440,11 +440,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
                             MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         } 
-                    }
-                    else
-                    {
-                        MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    } 
+                    //}
+                   // else
+                   // {
+                        //MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   // } 
                 }
                 else
                 {

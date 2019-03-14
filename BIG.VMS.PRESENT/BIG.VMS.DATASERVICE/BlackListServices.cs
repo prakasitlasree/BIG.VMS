@@ -44,7 +44,7 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var blackList = ctx.TRN_BLACKLIST.Where(o => o.ID_CARD == IdCard).FirstOrDefault();
+                    var blackList = ctx.TRN_BLACKLIST.Where(o => o.ID_CARD == IdCard).OrderByDescending(x=> x.AUTO_ID).FirstOrDefault();
                     if (blackList != null)
                     {
                         isBlackList = true;
@@ -62,8 +62,7 @@ namespace BIG.VMS.DATASERVICE
                 {
                     result.Status = false;
                     result.Message = ex.Message.ToString();
-                }
-
+                } 
             }
 
             return result;

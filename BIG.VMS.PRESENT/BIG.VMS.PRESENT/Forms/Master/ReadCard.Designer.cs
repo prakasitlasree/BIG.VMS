@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadCard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.m_txtID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,16 +51,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.m_ListReaderCard = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_picPhoto)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.56849F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.21233F));
             this.tableLayoutPanel1.Controls.Add(this.m_txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -81,7 +88,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.m_ListReaderCard, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 42);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -95,14 +103,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(842, 565);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 495);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // m_txtID
             // 
-            this.m_txtID.Location = new System.Drawing.Point(283, 3);
+            this.m_txtID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtID.Location = new System.Drawing.Point(197, 3);
             this.m_txtID.Name = "m_txtID";
-            this.m_txtID.Size = new System.Drawing.Size(274, 22);
+            this.m_txtID.Size = new System.Drawing.Size(300, 22);
             this.m_txtID.TabIndex = 19;
             // 
             // label9
@@ -147,9 +156,10 @@
             // 
             // m_txtFullNameT
             // 
-            this.m_txtFullNameT.Location = new System.Drawing.Point(283, 33);
+            this.m_txtFullNameT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtFullNameT.Location = new System.Drawing.Point(197, 33);
             this.m_txtFullNameT.Name = "m_txtFullNameT";
-            this.m_txtFullNameT.Size = new System.Drawing.Size(274, 22);
+            this.m_txtFullNameT.Size = new System.Drawing.Size(300, 22);
             this.m_txtFullNameT.TabIndex = 8;
             // 
             // label5
@@ -164,33 +174,37 @@
             // 
             // m_txtFullNameE
             // 
-            this.m_txtFullNameE.Location = new System.Drawing.Point(283, 63);
+            this.m_txtFullNameE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtFullNameE.Location = new System.Drawing.Point(197, 63);
             this.m_txtFullNameE.Name = "m_txtFullNameE";
-            this.m_txtFullNameE.Size = new System.Drawing.Size(274, 22);
+            this.m_txtFullNameE.Size = new System.Drawing.Size(300, 22);
             this.m_txtFullNameE.TabIndex = 9;
             // 
             // m_txtAddress
             // 
-            this.m_txtAddress.Location = new System.Drawing.Point(283, 93);
+            this.m_txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtAddress.Location = new System.Drawing.Point(197, 93);
             this.m_txtAddress.Multiline = true;
             this.m_txtAddress.Name = "m_txtAddress";
             this.tableLayoutPanel1.SetRowSpan(this.m_txtAddress, 2);
             this.m_txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.m_txtAddress.Size = new System.Drawing.Size(274, 54);
+            this.m_txtAddress.Size = new System.Drawing.Size(300, 54);
             this.m_txtAddress.TabIndex = 10;
             // 
             // m_txtBrithDate
             // 
-            this.m_txtBrithDate.Location = new System.Drawing.Point(283, 153);
+            this.m_txtBrithDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtBrithDate.Location = new System.Drawing.Point(197, 153);
             this.m_txtBrithDate.Name = "m_txtBrithDate";
-            this.m_txtBrithDate.Size = new System.Drawing.Size(274, 22);
+            this.m_txtBrithDate.Size = new System.Drawing.Size(300, 22);
             this.m_txtBrithDate.TabIndex = 11;
             // 
             // m_txtGender
             // 
-            this.m_txtGender.Location = new System.Drawing.Point(283, 183);
+            this.m_txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtGender.Location = new System.Drawing.Point(197, 183);
             this.m_txtGender.Name = "m_txtGender";
-            this.m_txtGender.Size = new System.Drawing.Size(274, 22);
+            this.m_txtGender.Size = new System.Drawing.Size(300, 22);
             this.m_txtGender.TabIndex = 12;
             // 
             // label6
@@ -225,33 +239,36 @@
             // 
             // m_txtIssueDate
             // 
-            this.m_txtIssueDate.Location = new System.Drawing.Point(283, 213);
+            this.m_txtIssueDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtIssueDate.Location = new System.Drawing.Point(197, 213);
             this.m_txtIssueDate.Name = "m_txtIssueDate";
-            this.m_txtIssueDate.Size = new System.Drawing.Size(274, 22);
+            this.m_txtIssueDate.Size = new System.Drawing.Size(300, 22);
             this.m_txtIssueDate.TabIndex = 16;
             // 
             // m_txtExpiryDate
             // 
-            this.m_txtExpiryDate.Location = new System.Drawing.Point(283, 243);
+            this.m_txtExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_txtExpiryDate.Location = new System.Drawing.Point(197, 243);
             this.m_txtExpiryDate.Name = "m_txtExpiryDate";
-            this.m_txtExpiryDate.Size = new System.Drawing.Size(274, 22);
+            this.m_txtExpiryDate.Size = new System.Drawing.Size(300, 22);
             this.m_txtExpiryDate.TabIndex = 17;
             // 
             // m_picPhoto
             // 
             this.m_picPhoto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.m_picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.m_picPhoto.Location = new System.Drawing.Point(283, 303);
+            this.m_picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_picPhoto.Location = new System.Drawing.Point(197, 303);
             this.m_picPhoto.Name = "m_picPhoto";
-            this.m_picPhoto.Size = new System.Drawing.Size(274, 259);
+            this.m_picPhoto.Size = new System.Drawing.Size(300, 189);
             this.m_picPhoto.TabIndex = 0;
             this.m_picPhoto.TabStop = false;
             // 
             // btn_read
             // 
-            this.btn_read.Location = new System.Drawing.Point(563, 3);
+            this.btn_read.Location = new System.Drawing.Point(503, 3);
             this.btn_read.Name = "btn_read";
-            this.btn_read.Size = new System.Drawing.Size(93, 24);
+            this.btn_read.Size = new System.Drawing.Size(78, 24);
             this.btn_read.TabIndex = 1;
             this.btn_read.Text = "Read Card";
             this.btn_read.UseVisualStyleBackColor = true;
@@ -269,33 +286,109 @@
             // 
             // m_ListReaderCard
             // 
+            this.m_ListReaderCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_ListReaderCard.FormattingEnabled = true;
-            this.m_ListReaderCard.Location = new System.Drawing.Point(283, 273);
+            this.m_ListReaderCard.Location = new System.Drawing.Point(197, 273);
             this.m_ListReaderCard.Name = "m_ListReaderCard";
-            this.m_ListReaderCard.Size = new System.Drawing.Size(274, 24);
+            this.m_ListReaderCard.Size = new System.Drawing.Size(300, 24);
             this.m_ListReaderCard.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(563, 33);
+            this.button1.Location = new System.Drawing.Point(503, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 24);
+            this.button1.Size = new System.Drawing.Size(78, 24);
             this.button1.TabIndex = 20;
             this.button1.Text = "Test";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtDID, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 2);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.909091F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.09091F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1183, 589);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // txtDID
+            // 
+            this.txtDID.Location = new System.Drawing.Point(595, 42);
+            this.txtDID.Multiline = true;
+            this.txtDID.Name = "txtDID";
+            this.txtDID.Size = new System.Drawing.Size(577, 306);
+            this.txtDID.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.LightCoral;
+            this.label10.Location = new System.Drawing.Point(4, 1);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(584, 37);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "บัตรประชาชน (เสียบบัตร)";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label11.Location = new System.Drawing.Point(595, 1);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(584, 37);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "ใบขับขี่ (รูดบัตร)";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.button2.Location = new System.Drawing.Point(595, 544);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(206, 41);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "อ่านใบขับขี่อีกครั้ง";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ReadCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 589);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1183, 589);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReadCard";
             this.Text = "ReadCard";
+            this.Load += new System.EventHandler(this.ReadCard_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_picPhoto)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +417,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox m_txtID;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox txtDID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button2;
     }
 }
