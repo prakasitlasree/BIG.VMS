@@ -209,24 +209,30 @@ namespace BIG.VMS.DATASERVICE
                     if (updateData != null)
                     {
 
-                    //updateData.n = visitorObj.CAR_MODEL_ID;
-                    updateData.ID_CARD = visitorObj.ID_CARD;
-                    updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
-                    //updateData.TYPE = visitorObj.TYPE;
-                    updateData.FIRST_NAME = visitorObj.FIRST_NAME;
-                    updateData.LAST_NAME = visitorObj.LAST_NAME;
-                    updateData.CAR_MODEL_ID = visitorObj.CAR_MODEL_ID;
-                    updateData.LICENSE_PLATE = visitorObj.LICENSE_PLATE;
-                    updateData.LICENSE_PLATE_PROVINCE_ID = visitorObj.LICENSE_PLATE_PROVINCE_ID;
-                    updateData.REASON_ID = visitorObj.REASON_ID;
-                    updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
-                    updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
-                    //updateData.STATUS = visitorObj.STATUS;
-                    updateData.UPDATED_DATE = DateTime.Now;
+                        //updateData.n = visitorObj.CAR_MODEL_ID;
+                        updateData.ID_CARD = visitorObj.ID_CARD;
+                        updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
+                        //updateData.TYPE = visitorObj.TYPE;
+                        updateData.FIRST_NAME = visitorObj.FIRST_NAME;
+                        updateData.LAST_NAME = visitorObj.LAST_NAME;
+                        updateData.CAR_MODEL_ID = visitorObj.CAR_MODEL_ID;
+                        updateData.LICENSE_PLATE = visitorObj.LICENSE_PLATE;
+                        updateData.LICENSE_PLATE_PROVINCE_ID = visitorObj.LICENSE_PLATE_PROVINCE_ID;
+                        updateData.REASON_ID = visitorObj.REASON_ID;
+                        updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
+                        updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
+                        //updateData.STATUS = visitorObj.STATUS;
+                        updateData.UPDATED_DATE = DateTime.Now;
 
-                    ctx.SaveChanges();
-                    result.Status = true;
-                    result.Message = "Update Successful";
+                        ctx.SaveChanges();
+                        result.Status = true;
+                        result.Message = "Update Successful";
+                    }
+                    else
+                    {
+                        result.Status = false;
+                    }
+
                 }
                 catch (Exception ex)
                 {
