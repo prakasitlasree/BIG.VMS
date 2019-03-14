@@ -69,7 +69,6 @@ namespace BIG.VMS.DATASERVICE
                     result.Status = false;
                     result.Message = ex.Message.ToString();
                 }
-
             }
 
             return result;
@@ -207,6 +206,8 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var visitorObj = obj.TRN_VISITOR;
                     var updateData = ctx.TRN_VISITOR.Where(o => o.AUTO_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
+                    if (updateData != null)
+                    {
 
                     //updateData.n = visitorObj.CAR_MODEL_ID;
                     updateData.ID_CARD = visitorObj.ID_CARD;
@@ -222,7 +223,7 @@ namespace BIG.VMS.DATASERVICE
                     updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
                     //updateData.STATUS = visitorObj.STATUS;
                     updateData.UPDATED_DATE = DateTime.Now;
-                    updateData.UPDATED_BY = visitorObj.UPDATED_BY;
+
                     ctx.SaveChanges();
                     result.Status = true;
                     result.Message = "Update Successful";

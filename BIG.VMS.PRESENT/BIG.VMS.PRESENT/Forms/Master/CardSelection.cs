@@ -153,6 +153,8 @@ namespace BIG.VMS.PRESENT.Forms.Master
                     //m_picPhoto
                     Image img = Image.FromStream(new MemoryStream(byteImage));
                     CARD.PHOTO = new Bitmap(img, 270 - 2, 180 - 2);
+                    CARD.CARD_IMAGE = img;
+                    CARD.BYTE_IMAGE = byteImage;
                 }
                 RDNID.disconnectCardRD(obj);
                 RDNID.deselectReaderRD(obj);

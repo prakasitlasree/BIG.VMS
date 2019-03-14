@@ -34,6 +34,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public int provinceId = 0;
         public int carModelId = 0;
         public int reasonId = 0;
+        public bool manualUploadPhoto_idcard;
+        public Image CARD_IMAGE { get; set; }
+        
+        public byte[] BYTE_IMAGE { get; set; }
 
         public frmVisitor()
         {
@@ -86,7 +90,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 }
                 if (visitorMode == VisitorMode.Regulary || formMode == FormMode.Edit)
                 {
+                    #region === hid control ===
+                    if (formMode == FormMode.Edit)
+                    {
+                        brn_UploadImgCard.Visible = false;
+                        btnRefresh.Visible = false;
+                        bthCardDelete.Visible = false;
+                    }
 
+                    #endregion
                     txtIDCard.Text = visitorObj.ID_CARD;
                     txtFirstName.Text = visitorObj.FIRST_NAME;
                     txtLastName.Text = visitorObj.LAST_NAME;
@@ -177,7 +189,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     return ms.ToArray();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -238,32 +250,40 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 throw;
             }
         }
+
         private void Save()
         {
             try
             {
                 if (formMode == FormMode.Add)
-                {
-                    var obj = new TRN_VISITOR();
-                    obj = GetObjectfromControl();
+                { 
+                    var obj = GetObjectfromControl();
+
                     obj.CONTACT_PHOTO = ImageToByte(picPhoto);
-                    obj.ID_CARD_PHOTO = ImageToByte(picCard);
+                    if (manualUploadPhoto_idcard)
+                    {
+                        obj.ID_CARD_PHOTO = ImageToByte(picCard);
+                    }
+                    else
+                    {
+                        obj.ID_CARD_PHOTO = BYTE_IMAGE;
+                    }
 
                     if (visitorMode == VisitorMode.In)
                     {
-                        obj.TYPE = "In";
+                        obj.TYPE = VisitorMode.In.ToString();
                     }
                     if (visitorMode == VisitorMode.Out)
                     {
-                        obj.TYPE = "Out";
+                        obj.TYPE = VisitorMode.Out.ToString();
                     }
                     if (visitorMode == VisitorMode.Appointment)
                     {
-                        obj.TYPE = "Appointment";
+                        obj.TYPE = VisitorMode.Appointment.ToString();
                     }
                     if (visitorMode == VisitorMode.Regulary)
                     {
-                        obj.TYPE = "Regulary";
+                        obj.TYPE = VisitorMode.Regulary.ToString();
                     }
 
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
@@ -272,7 +292,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (res.Status)
                     {
-
+                        PrintSlip(res.ResultObj.AUTO_ID);
                         MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -283,16 +303,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
                 }
                 if (formMode == FormMode.Edit)
-                {
-                    var obj = new TRN_VISITOR();
-                    obj = GetObjectfromControl(); 
+                { 
+                    var obj = GetObjectfromControl(); 
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
                     var res = _service.Update(container);
 
                     if (res.Status)
-                    {
-
+                    { 
                         MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -519,6 +537,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         txtLastName.Text = frm.CARD.TH_LAST_NAME;
                         txtIDCard.Text = frm.CARD.NO;
                         picCard.Image = (Image)frm.CARD.PHOTO;
+                        CARD_IMAGE = frm.CARD.CARD_IMAGE;
+                        BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
+                        manualUploadPhoto_idcard = false;
                     }
                     else
                     {
@@ -546,8 +567,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-
-                    MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                    if (frm.CAMERA !=null)
+                    {
+                        picPhoto.Image = frm.CAMERA;
+                    }
+                   // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
                 }
 
             }
@@ -558,10 +582,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
          
-        private void btnDeleteCam_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void brn_UploadImgCard_Click(object sender, EventArgs e)
         {
@@ -576,6 +597,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     string path = dialog.FileName;
                     picCard.Image = Image.FromFile(path);
+                    CARD_IMAGE = null;
+                    BYTE_IMAGE = null;
+                    manualUploadPhoto_idcard = true;
                 }
 
             }
@@ -587,7 +611,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void bthCardDelete_Click(object sender, EventArgs e)
         {
+            picCard.Image = Properties.Resources.emploee;
+        }
 
+        private void btnDeleteCam_Click(object sender, EventArgs e)
+        {
+            picPhoto.Image = Properties.Resources.emploee;
         }
 
         private void btnBlacklist_Click(object sender, EventArgs e)
@@ -632,5 +661,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         }
 
         #endregion
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

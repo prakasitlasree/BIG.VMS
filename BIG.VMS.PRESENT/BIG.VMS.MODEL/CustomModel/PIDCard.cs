@@ -120,5 +120,9 @@ namespace BIG.VMS.MODEL.CustomModel
         /// ISSUE_NUM,  //12345678901234 //14-Char
         /// </summary>
         public string ISSUE_NUM { get; set; }
-    }
+
+        public Image CARD_IMAGE { get; set; }
+
+        public byte[] BYTE_IMAGE  { get; set; }
+}
 }
