@@ -30,12 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointment));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnTakePhoto = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.chkKeyIn = new System.Windows.Forms.CheckBox();
             this.Lbl_LicensePlate = new System.Windows.Forms.Label();
             this.Lbl_MeetPeople = new System.Windows.Forms.Label();
             this.Lbl_Topic = new System.Windows.Forms.Label();
@@ -49,7 +48,6 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCar = new System.Windows.Forms.TextBox();
-            this.lbl_keyin = new System.Windows.Forms.Label();
             this.Lbl_Vahicle = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnProvince = new System.Windows.Forms.Button();
@@ -78,7 +76,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.BtnTakePhoto);
+            this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(6, 587);
@@ -87,23 +85,23 @@
             this.panel2.Size = new System.Drawing.Size(1260, 68);
             this.panel2.TabIndex = 1;
             // 
-            // BtnTakePhoto
+            // btnCancel
             // 
-            this.BtnTakePhoto.BackColor = System.Drawing.Color.White;
-            this.BtnTakePhoto.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnTakePhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTakePhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTakePhoto.Image = ((System.Drawing.Image)(resources.GetObject("BtnTakePhoto.Image")));
-            this.BtnTakePhoto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTakePhoto.Location = new System.Drawing.Point(200, 0);
-            this.BtnTakePhoto.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnTakePhoto.Name = "BtnTakePhoto";
-            this.BtnTakePhoto.Size = new System.Drawing.Size(200, 68);
-            this.BtnTakePhoto.TabIndex = 1;
-            this.BtnTakePhoto.Text = "ถ่ายรูป";
-            this.BtnTakePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnTakePhoto.UseVisualStyleBackColor = false;
-            this.BtnTakePhoto.Click += new System.EventHandler(this.BtnTakePhoto_Click);
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Location = new System.Drawing.Point(200, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(200, 68);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "ยกเลิก";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnTakePhoto_Click);
             // 
             // btnSave
             // 
@@ -118,7 +116,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(200, 68);
             this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "บันทึก/พิมพ์";
+            this.btnSave.Text = "บันทึก";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -144,7 +142,6 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 13);
-            this.tableLayoutPanel4.Controls.Add(this.chkKeyIn, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_LicensePlate, 0, 11);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Topic, 0, 6);
@@ -158,7 +155,6 @@
             this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.txtCar, 1, 8);
-            this.tableLayoutPanel4.Controls.Add(this.lbl_keyin, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Vahicle, 0, 9);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 1, 9);
             this.tableLayoutPanel4.Controls.Add(this.txtLicense, 1, 11);
@@ -194,22 +190,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(138, 436);
+            this.label6.Location = new System.Drawing.Point(155, 447);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 25);
+            this.label6.Size = new System.Drawing.Size(63, 23);
             this.label6.TabIndex = 24;
             this.label6.Text = "เวลา";
-            // 
-            // chkKeyIn
-            // 
-            this.chkKeyIn.AutoSize = true;
-            this.chkKeyIn.Location = new System.Drawing.Point(195, 28);
-            this.chkKeyIn.Name = "chkKeyIn";
-            this.chkKeyIn.Size = new System.Drawing.Size(145, 29);
-            this.chkKeyIn.TabIndex = 17;
-            this.chkKeyIn.Text = "กรอกข้อมูลเอง";
-            this.chkKeyIn.UseVisualStyleBackColor = true;
-            this.chkKeyIn.CheckedChanged += new System.EventHandler(this.chkKeyIn_CheckedChanged_1);
             // 
             // Lbl_LicensePlate
             // 
@@ -217,9 +202,9 @@
             this.Lbl_LicensePlate.AutoSize = true;
             this.Lbl_LicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_LicensePlate.ForeColor = System.Drawing.Color.Crimson;
-            this.Lbl_LicensePlate.Location = new System.Drawing.Point(28, 360);
+            this.Lbl_LicensePlate.Location = new System.Drawing.Point(15, 367);
             this.Lbl_LicensePlate.Name = "Lbl_LicensePlate";
-            this.Lbl_LicensePlate.Size = new System.Drawing.Size(161, 25);
+            this.Lbl_LicensePlate.Size = new System.Drawing.Size(203, 31);
             this.Lbl_LicensePlate.TabIndex = 3;
             this.Lbl_LicensePlate.Text = "หมายเลขทะเบียน";
             // 
@@ -229,9 +214,9 @@
             this.Lbl_MeetPeople.AutoSize = true;
             this.Lbl_MeetPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_MeetPeople.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_MeetPeople.Location = new System.Drawing.Point(18, 214);
+            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 209);
             this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
-            this.Lbl_MeetPeople.Size = new System.Drawing.Size(171, 25);
+            this.Lbl_MeetPeople.Size = new System.Drawing.Size(215, 31);
             this.Lbl_MeetPeople.TabIndex = 5;
             this.Lbl_MeetPeople.Text = "บุคคลที่ต้องการพบ";
             // 
@@ -241,9 +226,9 @@
             this.Lbl_Topic.AutoSize = true;
             this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Topic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_Topic.Location = new System.Drawing.Point(72, 177);
+            this.Lbl_Topic.Location = new System.Drawing.Point(71, 166);
             this.Lbl_Topic.Name = "Lbl_Topic";
-            this.Lbl_Topic.Size = new System.Drawing.Size(117, 25);
+            this.Lbl_Topic.Size = new System.Drawing.Size(147, 31);
             this.Lbl_Topic.TabIndex = 4;
             this.Lbl_Topic.Text = "วัตถุประสงค์";
             // 
@@ -253,9 +238,9 @@
             this.Lbl_IDCard.AutoSize = true;
             this.Lbl_IDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_IDCard.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Lbl_IDCard.Location = new System.Drawing.Point(25, 140);
+            this.Lbl_IDCard.Location = new System.Drawing.Point(12, 123);
             this.Lbl_IDCard.Name = "Lbl_IDCard";
-            this.Lbl_IDCard.Size = new System.Drawing.Size(164, 25);
+            this.Lbl_IDCard.Size = new System.Drawing.Size(206, 31);
             this.Lbl_IDCard.TabIndex = 1;
             this.Lbl_IDCard.Text = "เลขบัตรประชาชน";
             // 
@@ -265,9 +250,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label3.Location = new System.Drawing.Point(105, 103);
+            this.label3.Location = new System.Drawing.Point(112, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.Size = new System.Drawing.Size(106, 31);
             this.label3.TabIndex = 16;
             this.label3.Text = "นามสกุล";
             // 
@@ -277,57 +262,52 @@
             this.Lbl_FirstName.AutoSize = true;
             this.Lbl_FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_FirstName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Lbl_FirstName.Location = new System.Drawing.Point(152, 66);
+            this.Lbl_FirstName.Location = new System.Drawing.Point(173, 37);
             this.Lbl_FirstName.Name = "Lbl_FirstName";
-            this.Lbl_FirstName.Size = new System.Drawing.Size(37, 25);
+            this.Lbl_FirstName.Size = new System.Drawing.Size(45, 31);
             this.Lbl_FirstName.TabIndex = 0;
             this.Lbl_FirstName.Text = "ชื่อ";
             // 
             // txtMeet
             // 
             this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMeet.Enabled = false;
-            this.txtMeet.Location = new System.Drawing.Point(195, 211);
+            this.txtMeet.Location = new System.Drawing.Point(224, 206);
             this.txtMeet.Name = "txtMeet";
-            this.txtMeet.Size = new System.Drawing.Size(618, 31);
+            this.txtMeet.Size = new System.Drawing.Size(589, 37);
             this.txtMeet.TabIndex = 12;
             // 
             // txtTopic
             // 
             this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTopic.Enabled = false;
-            this.txtTopic.Location = new System.Drawing.Point(195, 174);
+            this.txtTopic.Location = new System.Drawing.Point(224, 163);
             this.txtTopic.Name = "txtTopic";
-            this.txtTopic.Size = new System.Drawing.Size(618, 31);
+            this.txtTopic.Size = new System.Drawing.Size(589, 37);
             this.txtTopic.TabIndex = 10;
             // 
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Enabled = false;
-            this.txtIDCard.Location = new System.Drawing.Point(195, 137);
+            this.txtIDCard.Location = new System.Drawing.Point(224, 120);
             this.txtIDCard.MaxLength = 14;
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(618, 31);
+            this.txtIDCard.Size = new System.Drawing.Size(589, 37);
             this.txtIDCard.TabIndex = 2;
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Enabled = false;
-            this.txtLastName.Location = new System.Drawing.Point(195, 100);
+            this.txtLastName.Location = new System.Drawing.Point(224, 77);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(618, 31);
+            this.txtLastName.Size = new System.Drawing.Size(589, 37);
             this.txtLastName.TabIndex = 1;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Enabled = false;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(195, 63);
+            this.txtFirstName.Location = new System.Drawing.Point(224, 34);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(618, 31);
+            this.txtFirstName.Size = new System.Drawing.Size(589, 37);
             this.txtFirstName.TabIndex = 0;
             // 
             // label2
@@ -336,31 +316,19 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Crimson;
-            this.label2.Location = new System.Drawing.Point(48, 251);
+            this.label2.Location = new System.Drawing.Point(38, 252);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 25);
+            this.label2.Size = new System.Drawing.Size(180, 31);
             this.label2.TabIndex = 13;
             this.label2.Text = "ประเภทรถยนต์";
             // 
             // txtCar
             // 
             this.txtCar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCar.Enabled = false;
-            this.txtCar.Location = new System.Drawing.Point(195, 248);
+            this.txtCar.Location = new System.Drawing.Point(224, 249);
             this.txtCar.Name = "txtCar";
-            this.txtCar.Size = new System.Drawing.Size(618, 31);
+            this.txtCar.Size = new System.Drawing.Size(589, 37);
             this.txtCar.TabIndex = 14;
-            // 
-            // lbl_keyin
-            // 
-            this.lbl_keyin.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbl_keyin.AutoSize = true;
-            this.lbl_keyin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_keyin.Location = new System.Drawing.Point(3, 30);
-            this.lbl_keyin.Name = "lbl_keyin";
-            this.lbl_keyin.Size = new System.Drawing.Size(186, 25);
-            this.lbl_keyin.TabIndex = 19;
-            this.lbl_keyin.Text = "ประเภทการคีย์ข้อมูล";
             // 
             // Lbl_Vahicle
             // 
@@ -368,9 +336,9 @@
             this.Lbl_Vahicle.AutoSize = true;
             this.Lbl_Vahicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Vahicle.ForeColor = System.Drawing.Color.Crimson;
-            this.Lbl_Vahicle.Location = new System.Drawing.Point(118, 305);
+            this.Lbl_Vahicle.Location = new System.Drawing.Point(131, 309);
             this.Lbl_Vahicle.Name = "Lbl_Vahicle";
-            this.Lbl_Vahicle.Size = new System.Drawing.Size(71, 25);
+            this.Lbl_Vahicle.Size = new System.Drawing.Size(87, 31);
             this.Lbl_Vahicle.TabIndex = 2;
             this.Lbl_Vahicle.Text = "จังหวัด";
             // 
@@ -382,11 +350,11 @@
             this.tableLayoutPanel2.Controls.Add(this.btnProvince, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtProvince, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(195, 285);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(224, 292);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(618, 66);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(589, 66);
             this.tableLayoutPanel2.TabIndex = 18;
             // 
             // btnProvince
@@ -398,10 +366,10 @@
             this.btnProvince.ForeColor = System.Drawing.Color.Crimson;
             this.btnProvince.Image = ((System.Drawing.Image)(resources.GetObject("btnProvince.Image")));
             this.btnProvince.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProvince.Location = new System.Drawing.Point(315, 6);
+            this.btnProvince.Location = new System.Drawing.Point(300, 6);
             this.btnProvince.Margin = new System.Windows.Forms.Padding(6);
             this.btnProvince.Name = "btnProvince";
-            this.btnProvince.Size = new System.Drawing.Size(297, 54);
+            this.btnProvince.Size = new System.Drawing.Size(283, 54);
             this.btnProvince.TabIndex = 0;
             this.btnProvince.Text = "เลือกจังหวัด";
             this.btnProvince.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -411,18 +379,17 @@
             // txtProvince
             // 
             this.txtProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProvince.Enabled = false;
-            this.txtProvince.Location = new System.Drawing.Point(3, 17);
+            this.txtProvince.Location = new System.Drawing.Point(3, 14);
             this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(303, 31);
+            this.txtProvince.Size = new System.Drawing.Size(288, 37);
             this.txtProvince.TabIndex = 11;
             // 
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(195, 357);
+            this.txtLicense.Location = new System.Drawing.Point(224, 364);
             this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(618, 31);
+            this.txtLicense.Size = new System.Drawing.Size(589, 37);
             this.txtLicense.TabIndex = 3;
             // 
             // label4
@@ -430,9 +397,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 0);
+            this.label4.Location = new System.Drawing.Point(50, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 25);
+            this.label4.Size = new System.Drawing.Size(168, 31);
             this.label4.TabIndex = 20;
             this.label4.Text = "การทำรายการ";
             // 
@@ -442,9 +409,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(195, 0);
+            this.label5.Location = new System.Drawing.Point(224, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(618, 25);
+            this.label5.Size = new System.Drawing.Size(589, 31);
             this.label5.TabIndex = 21;
             this.label5.Text = "นัดล่วงหน้า";
             // 
@@ -453,9 +420,9 @@
             this.dtContactDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtContactDate.CustomFormat = "dd-MM-yy";
             this.dtContactDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtContactDate.Location = new System.Drawing.Point(195, 394);
+            this.dtContactDate.Location = new System.Drawing.Point(224, 407);
             this.dtContactDate.Name = "dtContactDate";
-            this.dtContactDate.Size = new System.Drawing.Size(618, 31);
+            this.dtContactDate.Size = new System.Drawing.Size(589, 37);
             this.dtContactDate.TabIndex = 4;
             // 
             // label1
@@ -464,9 +431,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(88, 397);
+            this.label1.Location = new System.Drawing.Point(91, 410);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 25);
+            this.label1.Size = new System.Drawing.Size(127, 31);
             this.label1.TabIndex = 23;
             this.label1.Text = "วันที่จะเข้า";
             // 
@@ -475,10 +442,10 @@
             this.dtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtTime.CustomFormat = "hh:mm:ss";
             this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtTime.Location = new System.Drawing.Point(195, 433);
+            this.dtTime.Location = new System.Drawing.Point(224, 450);
             this.dtTime.Name = "dtTime";
             this.dtTime.ShowUpDown = true;
-            this.dtTime.Size = new System.Drawing.Size(618, 31);
+            this.dtTime.Size = new System.Drawing.Size(589, 37);
             this.dtTime.TabIndex = 25;
             // 
             // btnTopic
@@ -595,7 +562,7 @@
             // 
             // frmAppointment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1272, 661);
@@ -622,11 +589,10 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BtnTakePhoto;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.CheckBox chkKeyIn;
         private System.Windows.Forms.Label Lbl_LicensePlate;
         private System.Windows.Forms.Label Lbl_MeetPeople;
         private System.Windows.Forms.Label Lbl_Topic;
@@ -640,7 +606,6 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCar;
-        private System.Windows.Forms.Label lbl_keyin;
         private System.Windows.Forms.Label Lbl_Vahicle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnProvince;

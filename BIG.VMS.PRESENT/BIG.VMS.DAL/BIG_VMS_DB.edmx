@@ -360,6 +360,7 @@
           <EntitySet Name="MAS_PROVINCE" EntityType="BIG_VMSModel.MAS_PROVINCE" />
           <EntitySet Name="MAS_REASON" EntityType="BIG_VMSModel.MAS_REASON" />
           <EntitySet Name="MEMBER_LOGON" EntityType="BIG_VMSModel.MEMBER_LOGON" />
+          <EntitySet Name="SYS_CONFIGURATION" EntityType="BIG_VMSModel.SYS_CONFIGURATION" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="BIG_VMSModel.TRN_APPOINTMENT" />
           <EntitySet Name="TRN_BLACKLIST" EntityType="BIG_VMSModel.TRN_BLACKLIST" />
           <EntitySet Name="TRN_VISITOR" EntityType="BIG_VMSModel.TRN_VISITOR" />
@@ -407,7 +408,6 @@
             <End Role="MAS_REASON" EntitySet="MAS_REASON" />
             <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
           </AssociationSet>
-          <EntitySet Name="SYS_CONFIGURATION" EntityType="BIG_VMSModel.SYS_CONFIGURATION" />
         </EntityContainer>
         <EntityType Name="MAS_CAR_BRAND">
           <Key>
@@ -506,6 +506,16 @@
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SYS_CONFIGURATION">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MODULE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
@@ -705,16 +715,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SYS_CONFIGURATION">
-          <Key>
-            <PropertyRef Name="AUTO_ID" />
-          </Key>
-          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MODULE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="VALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -813,6 +813,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SYS_CONFIGURATION">
+            <EntityTypeMapping TypeName="BIG_VMSModel.SYS_CONFIGURATION">
+              <MappingFragment StoreEntitySet="SYS_CONFIGURATION">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="MODULE" ColumnName="MODULE" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TRN_APPOINTMENT">
             <EntityTypeMapping TypeName="BIG_VMSModel.TRN_APPOINTMENT">
               <MappingFragment StoreEntitySet="TRN_APPOINTMENT">
@@ -870,17 +881,6 @@
                 <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
                 <ScalarProperty Name="ID_CARD" ColumnName="ID_CARD" />
                 <ScalarProperty Name="NO" ColumnName="NO" />
-                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SYS_CONFIGURATION">
-            <EntityTypeMapping TypeName="BIG_VMSModel.SYS_CONFIGURATION">
-              <MappingFragment StoreEntitySet="SYS_CONFIGURATION">
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="MODULE" ColumnName="MODULE" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>

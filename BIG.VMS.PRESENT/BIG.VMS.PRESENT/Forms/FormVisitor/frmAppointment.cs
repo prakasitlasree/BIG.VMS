@@ -49,14 +49,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private void SetControl()
+        private TRN_APPOINTMENT GetObjectFromControl()
         {
-
-        }
-
-        private void Save()
-        {
-
             var obj = new TRN_APPOINTMENT
             {
                 //NO = txtNo.Text.Trim(),
@@ -68,17 +62,20 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
                 REQUEST_CAR_MODEL_ID = carModelId,
                 REASON_ID = reasonId,
-
-                REQUEST_LICENSE_PLATE_PROVINCE_ID = reasonId,
+                REQUEST_LICENSE_PLATE_PROVINCE_ID = provinceId,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
 
             };
+            return obj;
+        }
 
-
+        private void Save()
+        { 
+            var obj = new TRN_APPOINTMENT();
+            obj = GetObjectFromControl();
             obj.CONTACT_DATE = dtContactDate.Value.Date + dtTime.Value.TimeOfDay;
-
-
+             
             var container = new ContainerAppointment { TRN_APPOINTMENT = obj };
 
             var res = _service.Create(container);
@@ -99,52 +96,43 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void chkKeyIn_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkKeyIn.Checked)
-            {
-                txtFirstName.Enabled = true;
-                txtLastName.Enabled = true;
-                txtIDCard.Enabled = true;
 
-            }
-            else
-            {
-                txtFirstName.Enabled = false;
-                txtLastName.Enabled = false;
-                txtIDCard.Enabled = false;
-            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtFirstName.Text) &&
-                !string.IsNullOrEmpty(txtLastName.Text) &&
-                !string.IsNullOrEmpty(txtIDCard.Text) &&
-                !string.IsNullOrEmpty(txtLicense.Text) &&
-                !string.IsNullOrEmpty(txtMeet.Text) &&
-                !string.IsNullOrEmpty(txtProvince.Text) &&
-                !string.IsNullOrEmpty(txtTopic.Text) &&
-                !string.IsNullOrEmpty(txtCar.Text) &&
-                !string.IsNullOrEmpty(dtContactDate.Text) &&
-                 !string.IsNullOrEmpty(dtTime.Text) &&
-                contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 &&
-                dtContactDate.Value != null &&
-                dtTime.Value != null &&
-                dtContactDate.Value != DateTime.MinValue &&
-                dtTime.Value != DateTime.MinValue)
+            try
             {
-                var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
-                if (data.TRN_BLACKLIST == null)
+                if (!string.IsNullOrEmpty(txtFirstName.Text) &&
+                    !string.IsNullOrEmpty(txtLastName.Text) &&
+                    !string.IsNullOrEmpty(txtIDCard.Text) &&
+                    !string.IsNullOrEmpty(txtLicense.Text) &&
+                    !string.IsNullOrEmpty(txtMeet.Text) &&
+                    !string.IsNullOrEmpty(txtProvince.Text) &&
+                    !string.IsNullOrEmpty(txtTopic.Text) &&
+                    !string.IsNullOrEmpty(txtCar.Text) &&
+                    !string.IsNullOrEmpty(dtContactDate.Text) &&
+                     !string.IsNullOrEmpty(dtTime.Text) &&
+                    contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 &&
+                    dtContactDate.Value != null &&
+                    dtTime.Value != null &&
+                    dtContactDate.Value != DateTime.MinValue &&
+                    dtTime.Value != DateTime.MinValue)
                 {
-                    if (IsValidCheckPersonID(txtIDCard.Text))
+                    var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                    if (data.TRN_BLACKLIST == null)
                     {
-                        if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            Save();
-                        }
-                        else
-                        {
-                            MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        //if (IsValidCheckPersonID(txtIDCard.Text))
+                       // {
+                            if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                Save();
+                            }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //}
                     }
                     else
                     {
@@ -154,18 +142,17 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
                         MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                  
+
                 }
-               
-
-
-
+                else
+                {
+                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
             }
-
 
         }
 
@@ -237,60 +224,56 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private bool IsValidCheckPersonID(string pid)
         {
+            try
+            { 
+                char[] numberChars = pid.ToCharArray(); 
+                int total = 0;
+                int mul = 13;
+                int mod = 0, mod2 = 0;
+                int nsub = 0;
+                int numberChars12 = 0;
 
-            char[] numberChars = pid.ToCharArray();
+                for (int i = 0; i < numberChars.Length - 1; i++)
+                {
+                    int num = 0;
+                    int.TryParse(numberChars[i].ToString(), out num);
 
-            int total = 0;
-            int mul = 13;
-            int mod = 0, mod2 = 0;
-            int nsub = 0;
-            int numberChars12 = 0;
+                    total = total + num * mul;
+                    mul = mul - 1; 
+                }
 
-            for (int i = 0; i < numberChars.Length - 1; i++)
-            {
-                int num = 0;
-                int.TryParse(numberChars[i].ToString(), out num);
-
-                total = total + num * mul;
-                mul = mul - 1;
-
-                //Debug.Log(total + " - " + num + " - "+mul);
+                mod = total % 11;
+                nsub = 11 - mod;
+                mod2 = nsub % 10;
+                 
+                int.TryParse(numberChars[12].ToString(), out numberChars12);
+                 
+                if (mod2 != numberChars12)
+                    return false;
+                else
+                    return true; 
             }
-
-            mod = total % 11;
-            nsub = 11 - mod;
-            mod2 = nsub % 10;
-
-            //Debug.Log(mod);
-            //Debug.Log(nsub);
-            //Debug.Log(mod2);
-
-
-            int.TryParse(numberChars[12].ToString(), out numberChars12);
-
-            //Debug.Log(numberChars12);
-
-            if (mod2 != numberChars12)
-                return false;
-            else
-                return true;
+            catch (Exception)
+            { 
+                throw;
+            }
         }
 
         private void chkKeyIn_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (chkKeyIn.Checked)
-            {
-                txtFirstName.Enabled = true;
-                txtLastName.Enabled = true;
-                txtIDCard.Enabled = true;
+            //if (chkKeyIn.Checked)
+            //{
+            //    txtFirstName.Enabled = true;
+            //    txtLastName.Enabled = true;
+            //    txtIDCard.Enabled = true;
 
-            }
-            else
-            {
-                txtFirstName.Enabled = false;
-                txtLastName.Enabled = false;
-                txtIDCard.Enabled = false;
-            }
+            //}
+            //else
+            //{
+            //    txtFirstName.Enabled = false;
+            //    txtLastName.Enabled = false;
+            //    txtIDCard.Enabled = false;
+            //}
         }
 
         private void btnUploadCam_Click(object sender, EventArgs e)
