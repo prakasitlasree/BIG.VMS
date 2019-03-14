@@ -16,7 +16,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
     {
         private Capture cam;
         IntPtr m_ip = IntPtr.Zero;
-       
+        public Image CAMERA { get; set; }
         public CameraSelection()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
             const int VIDEOHEIGHT = 480; // Depends on video device caps
             const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
             try
-            { 
+            {
                 if (cam != null)
                 {
                     cam.Dispose();
@@ -49,7 +49,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
             {
                 if (cam == null)
                 {
-                    const int VIDEODEVICE =0; // zero based index of video capture device to use
+                    const int VIDEODEVICE = 0; // zero based index of video capture device to use
                     const int VIDEOWIDTH = 640; // Depends on video device caps
                     const int VIDEOHEIGHT = 480; // Depends on video device caps
                     const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
@@ -64,23 +64,41 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
                 // capture image
                 m_ip = cam.Click();
-                Bitmap b = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
+                Bitmap photo = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
 
                 // If the image is upsidedown
-                b.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
-                imgCurrentImage.Image = b;
+                photo.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                CAMERA = photo;
+                imgCurrentImage.Image = photo;
 
             }
             catch (Exception ex)
             {
+                if (cam != null)
+                {
+                    cam.Dispose();
+                }
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        { 
+            this.Close();
+        }
+
+        private void CameraSelection_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cam != null)
+            {
+                cam.Dispose();
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public int reasonId = 0;
         public bool manualUploadPhoto_idcard;
         public Image CARD_IMAGE { get; set; }
-
+        
         public byte[] BYTE_IMAGE { get; set; }
 
         public frmVisitor()
@@ -554,8 +554,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-
-                    MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                    if (frm.CAMERA !=null)
+                    {
+                        picPhoto.Image = frm.CAMERA;
+                    }
+                   // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
                 }
 
             }
