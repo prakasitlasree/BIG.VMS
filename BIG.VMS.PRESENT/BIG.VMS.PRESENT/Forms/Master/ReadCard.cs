@@ -178,5 +178,10 @@ namespace BIG.VMS.PRESENT.Forms.Master
         {
             ReadPIDCard();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

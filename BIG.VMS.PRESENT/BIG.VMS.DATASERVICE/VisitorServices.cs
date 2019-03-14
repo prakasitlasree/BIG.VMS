@@ -69,7 +69,6 @@ namespace BIG.VMS.DATASERVICE
                     result.Status = false;
                     result.Message = ex.Message.ToString();
                 }
-
             }
 
             return result;
@@ -174,25 +173,34 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var visitorObj = obj.TRN_VISITOR;
                     var updateData = ctx.TRN_VISITOR.Where(o => o.AUTO_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
+                    if (updateData != null)
+                    {
 
-                    //updateData.n = visitorObj.CAR_MODEL_ID;
-                    updateData.ID_CARD = visitorObj.ID_CARD;
-                    updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
-                    //updateData.TYPE = visitorObj.TYPE;
-                    updateData.FIRST_NAME = visitorObj.FIRST_NAME;
-                    updateData.LAST_NAME = visitorObj.LAST_NAME;
-                    updateData.CAR_MODEL_ID = visitorObj.CAR_MODEL_ID;
-                    updateData.LICENSE_PLATE = visitorObj.LICENSE_PLATE;
-                    updateData.LICENSE_PLATE_PROVINCE_ID = visitorObj.LICENSE_PLATE_PROVINCE_ID;
-                    updateData.REASON_ID = visitorObj.REASON_ID;
-                    updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
-                    updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
-                    //updateData.STATUS = visitorObj.STATUS;
-                    updateData.UPDATED_DATE = DateTime.Now;
 
-                    ctx.SaveChanges();
-                    result.Status = true;
-                    result.Message = "Update Successful";
+                        //updateData.n = visitorObj.CAR_MODEL_ID;
+                        updateData.ID_CARD = visitorObj.ID_CARD;
+                        updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
+                        //updateData.TYPE = visitorObj.TYPE;
+                        updateData.FIRST_NAME = visitorObj.FIRST_NAME;
+                        updateData.LAST_NAME = visitorObj.LAST_NAME;
+                        updateData.CAR_MODEL_ID = visitorObj.CAR_MODEL_ID;
+                        updateData.LICENSE_PLATE = visitorObj.LICENSE_PLATE;
+                        updateData.LICENSE_PLATE_PROVINCE_ID = visitorObj.LICENSE_PLATE_PROVINCE_ID;
+                        updateData.REASON_ID = visitorObj.REASON_ID;
+                        updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
+                        updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
+                        //updateData.STATUS = visitorObj.STATUS;
+                        updateData.UPDATED_DATE = DateTime.Now;
+
+                        ctx.SaveChanges();
+                        result.Status = true;
+                        result.Message = "บันทึกข้อมูลเรียบร้อย";
+                    }
+                    else
+                    {
+                        result.Status = false;
+                        result.Message = "แก้ไขไม่สำเร็จ";
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -376,7 +384,7 @@ namespace BIG.VMS.DATASERVICE
 
         public List<ReportParameter> GetReportParameter()
         {
-            List<ReportParameter> listData = new List<ReportParameter>(); 
+            List<ReportParameter> listData = new List<ReportParameter>();
             try
             {
                 using (var ctx = new BIG_VMSEntities())
