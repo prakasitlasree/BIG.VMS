@@ -272,6 +272,12 @@ namespace BIG.VMS.DATASERVICE
                     {
                         query = query.Where(o => o.NO == filter.NO);
                     }
+                    if(filter.DATE_TO != null&& filter.DATE_TO != DateTime.MinValue)
+                    {
+                        var endDate = filter.DATE_TO.AddDays(1);
+                        query = query.Where(x => x.CREATED_DATE >= filter.DATE_TO && x.CREATED_DATE <= endDate);
+                        
+                    }
 
                     query.OrderByDescending(o => o.UPDATED_DATE);
                     return query;

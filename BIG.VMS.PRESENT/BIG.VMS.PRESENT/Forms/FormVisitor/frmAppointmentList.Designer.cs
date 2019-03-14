@@ -105,6 +105,8 @@
             this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
             this.gridAppointmentList.Name = "gridAppointmentList";
             this.gridAppointmentList.ReadOnly = true;
+            this.gridAppointmentList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.gridAppointmentList.RowTemplate.Height = 30;
             this.gridAppointmentList.Size = new System.Drawing.Size(1153, 321);
             this.gridAppointmentList.TabIndex = 0;
             this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
@@ -112,13 +114,13 @@
             // colMeeted
             // 
             this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMeeted.HeaderText = "เข้าพบ";
+            this.colMeeted.HeaderText = "การเข้าพบ";
             this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
             this.colMeeted.Name = "colMeeted";
             this.colMeeted.ReadOnly = true;
             this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMeeted.Width = 90;
+            this.colMeeted.Width = 120;
             // 
             // tableLayoutPanel4
             // 
