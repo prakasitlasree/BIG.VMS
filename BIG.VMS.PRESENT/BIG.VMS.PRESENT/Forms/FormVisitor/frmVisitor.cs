@@ -23,11 +23,13 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public FormMode formMode = new FormMode();
         public VisitorMode visitorMode = new VisitorMode();
         private readonly VisitorServices _service = new VisitorServices();
-      
+
         private ContainerVisitor _container = new ContainerVisitor();
         private ComboBoxServices _comboService = new ComboBoxServices();
         private ContainerBlackList _blContainer = new ContainerBlackList();
         private readonly BlackListServices _blService = new BlackListServices();
+
+        private Image defaultImage;
 
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;
@@ -36,7 +38,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public int reasonId = 0;
         public bool manualUploadPhoto_idcard;
         public Image CARD_IMAGE { get; set; }
-        
+
         public byte[] BYTE_IMAGE { get; set; }
 
         public frmVisitor()
@@ -48,6 +50,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             try
             {
+                defaultImage = picCard.Image;
                 InitialLoad();
                 SetControl();
             }
@@ -200,7 +203,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 var data = _blService.GetBlackListByIdCard(idCard);
-                
+
                 return data;
             }
             catch (Exception)
@@ -224,20 +227,20 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     CONTACT_EMPLOYEE_ID = contactEmployeeId,
                     CAR_MODEL_ID = carModelId,
                     REASON_ID = reasonId,
-                    LICENSE_PLATE_PROVINCE_ID = provinceId, 
+                    LICENSE_PLATE_PROVINCE_ID = provinceId,
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
-                   
+
 
                 };
 
-                if(formMode == FormMode.Add)
+                if (formMode == FormMode.Add)
                 {
                     obj.CREATED_BY = LOGIN;
                     obj.UPDATED_BY = LOGIN;
                 }
                 if (formMode == FormMode.Edit)
-                {                   
+                {
                     obj.UPDATED_BY = LOGIN;
                     obj.AUTO_ID = visitorObj.AUTO_ID;
                 }
@@ -256,7 +259,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 if (formMode == FormMode.Add)
-                { 
+                {
                     var obj = GetObjectfromControl();
 
                     obj.CONTACT_PHOTO = ImageToByte(picPhoto);
@@ -303,14 +306,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
                 }
                 if (formMode == FormMode.Edit)
-                { 
-                    var obj = GetObjectfromControl(); 
+                {
+                    var obj = GetObjectfromControl();
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
                     var res = _service.Update(container);
 
                     if (res.Status)
-                    { 
+                    {
                         MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -329,8 +332,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private   void PrintSlip(int id)
-        { 
+        private void PrintSlip(int id)
+        {
             var obj = _service.GetVisitorByAutoIDForReport(id);
             var reportPara = _service.GetReportParameter();
             if (obj.ResultObj.Count > 0)
@@ -347,7 +350,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 rpt.PrintToPrinter(1, true, 0, 0);
             }
         }
-         
+
         private bool IsValidCheckPersonID(string pid)
         {
             try
@@ -388,6 +391,26 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
+        private bool IsChangePicCard()
+        {
+            if (formMode == FormMode.Add)
+            {
+
+                if (defaultImage != picCard.Image)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         #region ============= EVENTS  =============
         private void chkKeyIn_CheckedChanged(object sender, EventArgs e)
         {
@@ -419,7 +442,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     !string.IsNullOrEmpty(txtTopic.Text) &&
                     !string.IsNullOrEmpty(txtCar.Text) &&
                     txtIDCard.TextLength >= 13 &&
-                    contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0)
+                    contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 && IsChangePicCard())
                 {
                     if (IsValidCheckPersonID(txtIDCard.Text))
                     {
@@ -439,12 +462,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
                             msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
                             MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        } 
+                        }
                     }
                     else
                     {
                         MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    } 
+                    }
                 }
                 else
                 {
@@ -567,11 +590,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (frm.CAMERA !=null)
+                    if (frm.CAMERA != null)
                     {
                         picPhoto.Image = frm.CAMERA;
                     }
-                   // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                    // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
                 }
 
             }
@@ -581,8 +604,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             }
         }
-         
-       
+
+
 
         private void brn_UploadImgCard_Click(object sender, EventArgs e)
         {

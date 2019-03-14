@@ -75,28 +75,26 @@
             // txtReason
             // 
             this.txtReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReason.Location = new System.Drawing.Point(209, 132);
+            this.txtReason.Location = new System.Drawing.Point(166, 114);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(472, 136);
+            this.txtReason.Size = new System.Drawing.Size(515, 136);
             this.txtReason.TabIndex = 7;
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Enabled = false;
-            this.txtLastName.Location = new System.Drawing.Point(209, 89);
+            this.txtLastName.Location = new System.Drawing.Point(166, 77);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(472, 37);
+            this.txtLastName.Size = new System.Drawing.Size(515, 31);
             this.txtLastName.TabIndex = 6;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Enabled = false;
-            this.txtFirstName.Location = new System.Drawing.Point(209, 46);
+            this.txtFirstName.Location = new System.Drawing.Point(166, 40);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(472, 37);
+            this.txtFirstName.Size = new System.Drawing.Size(515, 31);
             this.txtFirstName.TabIndex = 5;
             // 
             // label1
@@ -105,7 +103,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 31);
+            this.label1.Size = new System.Drawing.Size(157, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "รหัสบัตรประชาชน";
             // 
@@ -113,9 +111,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(160, 49);
+            this.label2.Location = new System.Drawing.Point(125, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 31);
+            this.label2.Size = new System.Drawing.Size(35, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "ชื่อ";
             // 
@@ -123,9 +121,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 92);
+            this.label3.Location = new System.Drawing.Point(82, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 31);
+            this.label3.Size = new System.Drawing.Size(78, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "นามสกุล";
             // 
@@ -133,19 +131,18 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(122, 184);
+            this.label4.Location = new System.Drawing.Point(95, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 31);
+            this.label4.Size = new System.Drawing.Size(65, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "เหตุผล";
             // 
             // txtIDCard
             // 
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCard.Enabled = false;
-            this.txtIDCard.Location = new System.Drawing.Point(209, 3);
+            this.txtIDCard.Location = new System.Drawing.Point(166, 3);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(472, 37);
+            this.txtIDCard.Size = new System.Drawing.Size(515, 31);
             this.txtIDCard.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -156,20 +153,20 @@
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnBlacklist, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(209, 274);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(166, 256);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(472, 70);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(515, 88);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // btnCancel
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(239, 3);
+            this.btnCancel.Location = new System.Drawing.Point(260, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(230, 64);
+            this.btnCancel.Size = new System.Drawing.Size(252, 82);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -182,7 +179,7 @@
             this.btnBlacklist.ForeColor = System.Drawing.Color.White;
             this.btnBlacklist.Location = new System.Drawing.Point(3, 3);
             this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(230, 64);
+            this.btnBlacklist.Size = new System.Drawing.Size(251, 82);
             this.btnBlacklist.TabIndex = 0;
             this.btnBlacklist.Text = "Black List";
             this.btnBlacklist.UseVisualStyleBackColor = false;
@@ -190,7 +187,7 @@
             // 
             // frmBlackList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(684, 347);
@@ -214,15 +211,15 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtReason;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnBlacklist;
+        public System.Windows.Forms.TextBox txtLastName;
+        public System.Windows.Forms.TextBox txtFirstName;
+        public System.Windows.Forms.TextBox txtIDCard;
     }
 }

@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnExport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReportList)).BeginInit();
@@ -66,6 +67,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnPrintReport);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 598);
@@ -80,7 +82,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(143, 0);
+            this.button1.Location = new System.Drawing.Point(397, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 59);
@@ -119,7 +121,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 690F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
@@ -197,6 +199,21 @@
             this.dtFrom.TabIndex = 1;
             this.dtFrom.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnExport.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.Black;
+            this.btnExport.Location = new System.Drawing.Point(143, 0);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(8);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(254, 59);
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Text = "นำออก Excel";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // frmReportList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -231,5 +248,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtTo;
+        private System.Windows.Forms.Button btnExport;
     }
 }

@@ -40,6 +40,7 @@
             // 
             // panelRegulary
             // 
+            this.panelRegulary.AutoScroll = true;
             this.panelRegulary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegulary.Location = new System.Drawing.Point(6, 72);
             this.panelRegulary.Margin = new System.Windows.Forms.Padding(6);
@@ -83,24 +84,24 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 31);
+            this.label1.Size = new System.Drawing.Size(59, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "ค้นหา";
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(82, 8);
+            this.txtSearch.Location = new System.Drawing.Point(68, 11);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(512, 37);
+            this.txtSearch.Size = new System.Drawing.Size(526, 31);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // frmRegulary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(609, 661);
@@ -108,6 +109,8 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegulary";
             this.ShowInTaskbar = false;
             this.Text = "ค้นหาผู้ติดต่อประจำ";
