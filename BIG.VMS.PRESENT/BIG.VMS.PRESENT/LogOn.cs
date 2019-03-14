@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BIG.VMS.MODEL.EntityModel;
-using  BIG.VMS.MODEL.CustomModel;
+using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.DATASERVICE;
 
 namespace BIG.VMS.PRESENT
@@ -16,15 +16,15 @@ namespace BIG.VMS.PRESENT
         private void btnLogon_Click(object sender, EventArgs e)
         {
             var service = new AuthenticationServices();
-            var filter = new AuthenticationFilter {UserName = txtUsername.Text, Password = txtPassword.Text}; 
-            var container = new ContainerAuthentication {Filter = filter };
+            var filter = new AuthenticationFilter { UserName = txtUsername.Text, Password = txtPassword.Text };
+            var container = new ContainerAuthentication { Filter = filter };
             var res = service.Retrieve(container);
             if (res.Status)
             {
                 //USER = txtUsername.Text;
-                var obj = (MEMBER_LOGON)res.ResultObj; 
+                var obj = (MEMBER_LOGON)res.ResultObj;
                 var frm = new FrmMain();
-               
+                LOGIN = txtUsername.Text;
                 frm.User = txtUsername.Text;
                 frm.Show(this);
                 this.Hide();
@@ -39,7 +39,7 @@ namespace BIG.VMS.PRESENT
 
         private void LogOn_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show(Message.MSG_SHUTDOWN_SYSTEM,Message.MSG_WARNING_CAPTION,MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Message.MSG_SHUTDOWN_SYSTEM, Message.MSG_WARNING_CAPTION, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 Application.Exit();
             }

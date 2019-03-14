@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="BIG_VMSModel.MEMBER_LOGON" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.SYS_CONFIGURATION" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.TRN_APPOINTMENT" Width="1.5" PointX="3" PointY="4.375" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="3.5" PointX="8.75" PointY="4.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.TRN_VISITOR" Width="1.5" PointX="6" PointY="4.125" />
         <AssociationConnector Association="BIG_VMSModel.FK_MAS_CAR_BRAND_MAS_CAR_TYPE" />
         <AssociationConnector Association="BIG_VMSModel.FK_MAS_CAR_MODEL_MAS_CAR_BRAND" />

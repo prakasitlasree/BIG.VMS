@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    public partial class frmAppointment : Form
+    public partial class frmAppointment : PageBase
     {
         //public FormMode formMode = new FormMode();
         //public VisitorMode visitorMode = new VisitorMode();
@@ -65,6 +65,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 REQUEST_LICENSE_PLATE_PROVINCE_ID = provinceId,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
+                CREATED_BY = LOGIN,
+                UPDATED_BY = LOGIN,
+                
 
             };
             return obj;

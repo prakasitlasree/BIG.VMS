@@ -109,7 +109,40 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var listData = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).ToList();
+                    var list = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).ToList();
+
+                    var listData = new List<CustomVisitor>();
+                    listData = (from item in list
+                                select new CustomVisitor
+                                {
+                                    AUTO_ID = item.AUTO_ID,
+                                    NO =item.NO,
+                                    ID_CARD = item.ID_CARD,
+                                    ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                    TYPE = item.TYPE,
+                                    FIRST_NAME = item.FIRST_NAME,
+                                    LAST_NAME = item.LAST_NAME,
+                                    CAR_MODEL_ID = item.CAR_MODEL_ID,
+                                    LICENSE_PLATE = item.LICENSE_PLATE,
+                                    LICENSE_PLATE_PROVINCE_ID = item.LICENSE_PLATE_PROVINCE_ID,
+                                    REASON_ID = item.REASON_ID,
+                                    CONTACT_EMPLOYEE_ID = item.CONTACT_EMPLOYEE_ID,
+                                    CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                    STATUS = item.STATUS,
+                                    CREATED_BY = item.CREATED_BY,
+                                    CREATED_DATE = item.CREATED_DATE,
+                                    UPDATED_BY = item.UPDATED_BY,
+                                    UPDATED_DATE = item.UPDATED_DATE,
+                                   
+                                    CONTACT_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " +item.MAS_EMPLOYEE.LAST_NAME,
+                                    CAR_TYPE_NAME = item.MAS_CAR_MODEL.NAME,
+                                    FULL_NAME = item.FIRST_NAME + " " + item.LAST_NAME,
+                                    DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME,
+                                    TIME_IN  = item.CREATED_DATE,
+                                    TOPIC  = item.MAS_REASON.REASON
+
+                                }).ToList();
+
 
                     foreach (var item in listData)
                     {
@@ -189,7 +222,7 @@ namespace BIG.VMS.DATASERVICE
                     updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
                     //updateData.STATUS = visitorObj.STATUS;
                     updateData.UPDATED_DATE = DateTime.Now;
-
+                    updateData.UPDATED_BY = visitorObj.UPDATED_BY;
                     ctx.SaveChanges();
                     result.Status = true;
                     result.Message = "Update Successful";
@@ -211,12 +244,10 @@ namespace BIG.VMS.DATASERVICE
             try
             {
                 var ctx = new BIG_VMSEntities();
-
                 var filter = obj.Filter;
                 IQueryable<TRN_VISITOR> query = ctx.TRN_VISITOR;
                 if (obj.Filter != null)
                 {
-
                     if (!string.IsNullOrEmpty(filter.ID_CARD))
                     {
                         query = query.Where(o => o.ID_CARD == filter.ID_CARD);
@@ -376,7 +407,7 @@ namespace BIG.VMS.DATASERVICE
 
         public List<ReportParameter> GetReportParameter()
         {
-            List<ReportParameter> listData = new List<ReportParameter>(); 
+            List<ReportParameter> listData = new List<ReportParameter>();
             try
             {
                 using (var ctx = new BIG_VMSEntities())
