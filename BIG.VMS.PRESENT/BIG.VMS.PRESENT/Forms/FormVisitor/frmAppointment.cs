@@ -213,13 +213,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void BtnTakePhoto_Click(object sender, EventArgs e)
         {
-            var frm = new CameraSelection();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-
-                MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
-            }
+            this.Close();
         }
 
         private bool IsValidCheckPersonID(string pid)
