@@ -52,6 +52,7 @@
     <Compile Include="CustomModel\Container\ContainerCarModel.cs" />
     <Compile Include="CustomModel\Container\ContainerCarType.cs" />
     <Compile Include="CustomModel\CustomContainer\CustomVisitor.cs" />
+    <Compile Include="CustomModel\CustomContainer\ReportParameter.cs" />
     <Compile Include="CustomModel\DIDCard.cs" />
     <Compile Include="CustomModel\EnumType.cs" />
     <Compile Include="CustomModel\Filter\AppointmentFilter.cs" />

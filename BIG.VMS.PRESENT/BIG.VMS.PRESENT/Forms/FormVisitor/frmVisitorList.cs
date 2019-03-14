@@ -309,6 +309,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         #region ===================== print =====================
                         var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
                         var obj = _service.GetVisitorByAutoIDForReport(id);
+                        var reportPara = _service.GetReportParameter();
                         if (obj.ResultObj.Count > 0)
                         {
                             List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
@@ -317,16 +318,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                             var appPath = Application.StartupPath +"\\"+ "ReportSlip.rpt";
-                            //var directory = System.IO.Path.GetDirectoryName(path);
-                            //directory = directory.Replace("\\bin\\Debug", "\\Forms\\FormReport\\VisitorReport.rpt");
+                             
                             rpt.Load(appPath); 
                             rpt.SetDataSource(dt);
-                            rpt.PrintToPrinter(1, true, 0, 0);
-
-                            //frmReportViewer frm = new frmReportViewer();
-                            //frm.crystalReportViewer1.ReportSource = rpt;
-                            //frm.Show();
-                             
+                            rpt.PrintToPrinter(1, true, 0, 0); 
                         }
                         #endregion
                     }

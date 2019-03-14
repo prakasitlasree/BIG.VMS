@@ -86,8 +86,7 @@ namespace BIG.VMS.PRESENT
                 foreach (var item in list_header)
                 {
                     if (control.Columns.Contains(item.FIELD))
-                    {
-
+                    { 
                         control.Columns[item.FIELD].HeaderText = item.HEADER_TEXT;
                         control.Columns[item.FIELD].Visible = item.VISIBLE;
                         control.Columns[item.FIELD].DefaultCellStyle.Alignment = item.ALIGN == align.Center ? DataGridViewContentAlignment.MiddleCenter : (item.ALIGN == align.Left ? DataGridViewContentAlignment.MiddleLeft : (item.ALIGN == align.Right ? DataGridViewContentAlignment.BottomRight : DataGridViewContentAlignment.MiddleLeft));
@@ -95,20 +94,18 @@ namespace BIG.VMS.PRESENT
 
                     }
                 }
-            }
-
-
-
-
+            } 
         }
 
         public DataTable ConvertToDataTable<T>(IList<T> data)
         {
-            PropertyDescriptorCollection properties =
-               TypeDescriptor.GetProperties(typeof(T));
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
             DataTable table = new DataTable();
             foreach (PropertyDescriptor prop in properties)
+            {
                 table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+
             foreach (T item in data)
             {
                 DataRow row = table.NewRow();

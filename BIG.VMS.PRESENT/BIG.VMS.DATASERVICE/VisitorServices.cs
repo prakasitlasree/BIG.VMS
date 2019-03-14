@@ -60,6 +60,7 @@ namespace BIG.VMS.DATASERVICE
                 {
                     ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
                     ctx.SaveChanges();
+                    result.ResultObj = obj.TRN_VISITOR;
                     result.Status = true;
                     result.Message = "Save Successful";
                 }
@@ -108,7 +109,7 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var listData = GetListVisitorQuery(obj).OrderByDescending(o=>o.UPDATED_DATE).ToList();
+                    var listData = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).ToList();
 
                     foreach (var item in listData)
                     {
@@ -323,13 +324,10 @@ namespace BIG.VMS.DATASERVICE
         {
             var result = new ContainerVisitor();
 
-
             List<CustomVisitor> listData = new List<CustomVisitor>();
             CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
             try
             {
-
-
                 using (var ctx = new BIG_VMSEntities())
                 {
                     var reTrnVisitor = ctx.TRN_VISITOR
@@ -363,8 +361,6 @@ namespace BIG.VMS.DATASERVICE
                                         CONTACT_PHOTO = item.CONTACT_PHOTO
 
                                     }).ToList();
-
-
                     }
 
                     result.ResultObj = listData;
@@ -376,6 +372,34 @@ namespace BIG.VMS.DATASERVICE
                 result.ExceptionMessage = ex.Message;
             }
             return result;
+        }
+
+        public List<ReportParameter> GetReportParameter()
+        {
+            List<ReportParameter> listData = new List<ReportParameter>(); 
+            try
+            {
+                using (var ctx = new BIG_VMSEntities())
+                {
+                    var reParameter = ctx.SYS_CONFIGURATION.Where(x => x.MODULE == "SLIP").ToList();
+                    if (reParameter.Count > 0)
+                    {
+                        listData = (from item in reParameter
+                                    select new ReportParameter
+                                    {
+                                        MODULE = item.MODULE,
+                                        NAME = item.NAME,
+                                        VALUE = item.VALUE,
+                                        DESCRIPTION = item.DESCRIPTION
+                                    }).ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listData;
         }
 
         public ContainerVisitor UpdateVisitorOut(ContainerVisitor obj)
