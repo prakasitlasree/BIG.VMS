@@ -382,7 +382,16 @@ namespace BIG.VMS.DATASERVICE
                                           .Include("MAS_CAR_MODEL")
                                           .Where(x => x.AUTO_ID == auto_id).ToList();
 
-
+                    var reParameter = ctx.SYS_CONFIGURATION.Where(x => x.MODULE == "SLIP" && x.NAME == "COMPANY_NAME").FirstOrDefault();
+                    string company = "";
+                    if (reParameter!= null)
+                    {
+                        company = reParameter.VALUE;
+                    }
+                    else
+                    {
+                        company = "BIG Visitor Management";
+                    }
                     if (reTrnVisitor.Count > 0)
                     {
 
@@ -403,7 +412,8 @@ namespace BIG.VMS.DATASERVICE
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
                                         ID_CARD_PHOTO = item.ID_CARD_PHOTO,
-                                        CONTACT_PHOTO = item.CONTACT_PHOTO
+                                        CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                        COMPANY_NAME = company
 
                                     }).ToList();
                     }
