@@ -209,9 +209,10 @@ namespace BIG.VMS.DATASERVICE
                     if (updateData != null)
                     {
 
+
                         //updateData.n = visitorObj.CAR_MODEL_ID;
                         updateData.ID_CARD = visitorObj.ID_CARD;
-                        //updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
+                        updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
                         //updateData.TYPE = visitorObj.TYPE;
                         updateData.FIRST_NAME = visitorObj.FIRST_NAME;
                         updateData.LAST_NAME = visitorObj.LAST_NAME;
@@ -223,16 +224,16 @@ namespace BIG.VMS.DATASERVICE
                         updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
                         //updateData.STATUS = visitorObj.STATUS;
                         updateData.UPDATED_DATE = DateTime.Now;
-
+                        updateData.UPDATED_BY = visitorObj.UPDATED_BY;
                         ctx.SaveChanges();
                         result.Status = true;
-                        result.Message = "Update Successful";
+                        result.Message = "บันทึกข้อมูลเรียบร้อย";
                     }
                     else
                     {
                         result.Status = false;
+                        result.Message = "แก้ไขไม่สำเร็จ";
                     }
-
                 }
                 catch (Exception ex)
                 {
