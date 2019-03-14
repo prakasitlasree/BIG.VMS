@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using BIG.VMS.PRESENT.Forms.Master;
+using BIG.VMS.PRESENT.Forms.FormVisitor;
 
 namespace BIG.VMS.PRESENT
 {
@@ -86,7 +87,11 @@ namespace BIG.VMS.PRESENT
 
         private void scheduling_Click(object sender, EventArgs e)
         {
-
+            frmAppointmenList frm = new frmAppointmenList();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void logout_Click(object sender, EventArgs e)
