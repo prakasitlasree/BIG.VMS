@@ -152,7 +152,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel4.ColumnCount = 5;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -262,10 +262,10 @@
             // 
             // btnRegular
             // 
-            this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnRegular.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegular.ForeColor = System.Drawing.Color.White;
+            this.btnRegular.ForeColor = System.Drawing.Color.Black;
             this.btnRegular.Image = ((System.Drawing.Image)(resources.GetObject("btnRegular.Image")));
             this.btnRegular.Location = new System.Drawing.Point(393, 3);
             this.btnRegular.Name = "btnRegular";
@@ -296,10 +296,10 @@
             // 
             // btnIn
             // 
-            this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.ForeColor = System.Drawing.Color.White;
+            this.btnIn.ForeColor = System.Drawing.Color.Black;
             this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
             this.btnIn.Location = new System.Drawing.Point(3, 3);
             this.btnIn.Name = "btnIn";
@@ -330,10 +330,10 @@
             // 
             // btnAhead
             // 
-            this.btnAhead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAhead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnAhead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAhead.ForeColor = System.Drawing.Color.White;
+            this.btnAhead.ForeColor = System.Drawing.Color.Black;
             this.btnAhead.Image = ((System.Drawing.Image)(resources.GetObject("btnAhead.Image")));
             this.btnAhead.Location = new System.Drawing.Point(588, 3);
             this.btnAhead.Name = "btnAhead";
@@ -512,7 +512,7 @@
             // 
             // btnBlacklist
             // 
-            this.btnBlacklist.BackColor = System.Drawing.Color.Red;
+            this.btnBlacklist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBlacklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBlacklist.ForeColor = System.Drawing.Color.White;
