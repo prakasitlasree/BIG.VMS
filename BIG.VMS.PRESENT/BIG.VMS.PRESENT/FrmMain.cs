@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using BIG.VMS.PRESENT.Forms.Master;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
+using BIG.VMS.PRESENT.Forms.FormReport;
 
 namespace BIG.VMS.PRESENT
 {
@@ -94,10 +95,24 @@ namespace BIG.VMS.PRESENT
             frm.Show();
         }
 
+        private void report_Click(object sender, EventArgs e)
+        {
+            frmReportList frm = new frmReportList();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
         private void logout_Click(object sender, EventArgs e)
         {
             OnCloseAllChildrenForm();
             Application.Exit();
         }
+
+      
+
+        
     }
 }
