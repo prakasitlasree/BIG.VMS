@@ -211,7 +211,7 @@ namespace BIG.VMS.DATASERVICE
 
                         //updateData.n = visitorObj.CAR_MODEL_ID;
                         updateData.ID_CARD = visitorObj.ID_CARD;
-                        updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
+                        //updateData.ID_CARD_PHOTO = visitorObj.ID_CARD_PHOTO;
                         //updateData.TYPE = visitorObj.TYPE;
                         updateData.FIRST_NAME = visitorObj.FIRST_NAME;
                         updateData.LAST_NAME = visitorObj.LAST_NAME;
@@ -228,6 +228,11 @@ namespace BIG.VMS.DATASERVICE
                         result.Status = true;
                         result.Message = "Update Successful";
                     }
+                    else
+                    {
+                        result.Status = false;
+                    }
+
                 }
                 catch (Exception ex)
                 {
