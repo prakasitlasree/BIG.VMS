@@ -52,9 +52,9 @@
             this.m_ListReaderCard = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtDID = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_picPhoto)).BeginInit();
@@ -324,14 +324,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1183, 589);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // txtDID
-            // 
-            this.txtDID.Location = new System.Drawing.Point(595, 42);
-            this.txtDID.Multiline = true;
-            this.txtDID.Name = "txtDID";
-            this.txtDID.Size = new System.Drawing.Size(577, 306);
-            this.txtDID.TabIndex = 12;
-            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -361,6 +353,14 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "ใบขับขี่ (รูดบัตร)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtDID
+            // 
+            this.txtDID.Location = new System.Drawing.Point(595, 42);
+            this.txtDID.Multiline = true;
+            this.txtDID.Name = "txtDID";
+            this.txtDID.Size = new System.Drawing.Size(577, 306);
+            this.txtDID.TabIndex = 12;
             // 
             // button2
             // 
