@@ -305,7 +305,7 @@ namespace BIG.VMS.DATASERVICE
 
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
-                                          .Where(o => (o.NO == no && o.TYPE == "In" || o.TYPE == "Regulary") && o.STATUS == 1)
+                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Regulary") && o.STATUS == 1)
                                           .OrderByDescending(x => x.NO).FirstOrDefault();
 
                     if (reTrnVisitor != null)
@@ -340,6 +340,7 @@ namespace BIG.VMS.DATASERVICE
             var result = new ContainerVisitor();
             try
             {
+
                 using (var ctx = new BIG_VMSEntities())
                 {
                     var reTrnVisitor = ctx.TRN_VISITOR
@@ -350,7 +351,7 @@ namespace BIG.VMS.DATASERVICE
                                           .Where(x => x.AUTO_ID == auto_id).FirstOrDefault();
                     if (reTrnVisitor != null)
                     {
-
+                        //var x = string.Join(",",reTrnVisitor.ID_CARD_PHOTO);
                         result.TRN_VISITOR = reTrnVisitor;
                         result.Status = true;
                     }
@@ -499,7 +500,7 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var listVisitorGroup = new List<VisitorGroupModel>();
 
-                    var group = ctx.TRN_VISITOR.Where(x => x.TYPE == "In" || x.TYPE == "Regulary").GroupBy(o => o.ID_CARD)
+                    var group = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null).GroupBy(o => o.ID_CARD)
                                                .Select(o => o.FirstOrDefault()).ToList();
 
                     var allIdCard = group.Select(o => o.ID_CARD).ToList();
@@ -508,14 +509,14 @@ namespace BIG.VMS.DATASERVICE
                     {
                         VisitorGroupModel visitor = new VisitorGroupModel();
                         visitor.Key = id;
-                        visitor.Count = ctx.TRN_VISITOR.Where(x => x.TYPE == "In" && x.ID_CARD == id).Count();
+                        visitor.Count = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null).Count();
                         listVisitorGroup.Add(visitor);
                     }
 
                     listVisitorGroup = listVisitorGroup.OrderByDescending(o => o.Count).Take(10).ToList();
                     var listTopIdCard = listVisitorGroup.Select(x => x.Key).ToList();
 
-                    var listData = ctx.TRN_VISITOR.Where(o => listTopIdCard.Contains(o.ID_CARD)).GroupBy(o => o.ID_CARD).Select(o => o.FirstOrDefault()).ToList();
+                    var listData = ctx.TRN_VISITOR.Where(x => listTopIdCard.Contains(x.ID_CARD) && ((x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null)).GroupBy(o => o.ID_CARD).Select(o => o.FirstOrDefault()).ToList();
 
                     result.ResultObj = listData;
                     result.Status = true;
@@ -571,7 +572,13 @@ namespace BIG.VMS.DATASERVICE
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
                                         ID_CARD_PHOTO = item.ID_CARD_PHOTO,
-                                        CONTACT_PHOTO = item.CONTACT_PHOTO
+                                        CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                        CREATED_BY = item.CREATED_BY,
+                                        CREATED_DATE = item .CREATED_DATE,
+                                        UPDATED_BY = item.UPDATED_BY,
+                                        UPDATED_DATE = item.UPDATED_DATE
+
+                                        
 
                                     }).ToList();
 

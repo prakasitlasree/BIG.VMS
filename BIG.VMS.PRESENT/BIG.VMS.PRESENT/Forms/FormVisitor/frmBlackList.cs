@@ -35,7 +35,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnBlacklist_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtReason.Text))
+            if (!string.IsNullOrEmpty(txtReason.Text) &&
+                !string.IsNullOrEmpty(txtIDCard.Text))
             {
                 if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -48,15 +49,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             var obj = new TRN_BLACKLIST
             {
-                ID_CARD = ID_CARD,
-                FIRST_NAME = FIRST_NAME,
-                LAST_NAME = LAST_NAME,
+                ID_CARD = txtIDCard.Text,
+                FIRST_NAME = txtFirstName.Text,
+                LAST_NAME = txtLastName.Text,
                 STATUS = "",
                 REASON = txtReason.Text,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
                 CREATED_BY = LOGIN,
-                UPDATED_BY =LOGIN
+                UPDATED_BY = LOGIN
             };
 
             var container = new ContainerBlackList { TRN_BLACKLIST = obj };

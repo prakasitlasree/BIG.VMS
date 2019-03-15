@@ -172,10 +172,6 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
         private void btn_driving_licence_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-          
             DrivingLicenseCardInfo frm = new DrivingLicenseCardInfo();
             if (frm.ShowDialog() == DialogResult.OK)
             {
@@ -186,19 +182,12 @@ namespace BIG.VMS.PRESENT.Forms.Master
                 {
                     string[] no = temp[2].Replace("\r\n","").Split('?');
                     string[] no2 = no[1].Replace("\r\n", "").Split('=');
-                    string  DID_NO = no2[0].Replace(";", "").ToString();
-
-                    DID.NO = DID_NO.Substring(6, DID_NO.Length - 6);
+                    DID.NO = no2[0].Replace(";", "").ToString();
                     DID.FIRST_NAME_EN = temp[1].ToString();
                     DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ",""); 
                 } 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
     }

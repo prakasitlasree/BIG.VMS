@@ -183,16 +183,5 @@ namespace BIG.VMS.PRESENT.Forms.Master
         {
 
         }
-
-        private void ReadCard_Load(object sender, EventArgs e)
-        {
-            txtDID.Focus();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            txtDID.Text = "";
-            txtDID.Focus();
-        }
     }
 }

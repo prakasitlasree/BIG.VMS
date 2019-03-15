@@ -120,5 +120,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             CustomGrid();
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmBlackList frm = new frmBlackList();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
+        }
     }
 }

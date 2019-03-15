@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DGVPrinterHelper;
 using System.Globalization;
+using ClosedXML.Excel;
 
 namespace BIG.VMS.PRESENT.Forms.FormReport
 {
@@ -107,6 +108,60 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
         private void btnSearch_Click(object sender, EventArgs e)
         {
             BindGridData();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable data = (DataTable)(gridReportList.DataSource);
+
+                data.Columns.Remove("ID_CARD_PHOTO");
+                data.Columns.Remove("AUTO_ID");
+                data.Columns.Remove("CONTACT_PHOTO");
+                data.Columns.Remove("TIME_OUT");
+                data.Columns.Remove("BLACKLIST");
+                data.Columns.Remove("TOPIC");
+                data.Columns.Remove("FIRST_NAME");
+                data.Columns.Remove("LAST_NAME");
+                data.Columns.Remove("CAR_MODEL_ID");
+                data.Columns.Remove("LICENSE_PLATE_PROVINCE_ID");
+                data.Columns.Remove("REASON_ID");
+                data.Columns.Remove("CONTACT_EMPLOYEE_ID");
+                data.Columns.Remove("STATUS");
+                data.Columns.Remove("FULL_NAME");
+                data.Columns.Remove("COMPANY_NAME");
+
+
+                data.Columns["NO"].ColumnName = "เลขที่";
+                data.Columns["TIME_IN"].ColumnName = "วันที่ทำการ";
+                data.Columns["TYPE"].ColumnName = "ประเภท";
+                data.Columns["ID_CARD"].ColumnName = "รหัสบัตรประชาชน";
+                data.Columns["NAME"].ColumnName = "ชื่อ-นามสกุล";
+                data.Columns["PROVINCE"].ColumnName = "จังหวัด";
+                data.Columns["LICENSE_PLATE"].ColumnName = "ทะเบียนรถ";
+                data.Columns["CAR_TYPE_NAME"].ColumnName = "ประเภทรถ";
+                data.Columns["CONTACT_NAME"].ColumnName = "บุคคลที่ต้องการพบ";
+                data.Columns["DEPT_NAME"].ColumnName = "แผนก";
+                data.Columns["CREATED_BY"].ColumnName = "ผู้บันทึก";
+                data.Columns["CREATED_DATE"].ColumnName = "วันที่บันทึก";
+                data.Columns["UPDATED_BY"].ColumnName = "ผู้แก้ไข";
+                data.Columns["UPDATED_DATE"].ColumnName = "วันที่แก้ไข";
+
+                var wb = new XLWorkbook();
+                wb.Worksheets.Add(data, "Sheet1");
+                var path = "C:\\VisitorReport";
+                System.IO.Directory.CreateDirectory(path);
+                var filePath = "\\VisitorReport" + DateTime.Now.ToString("dd-MM-yyyy HHmm") + ".xlsx";
+                var savePath = path + filePath;
+                wb.SaveAs(savePath);
+                MessageBox.Show("บันทึกไฟล์ไปที่ " + savePath, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+          
         }
     }
 }
