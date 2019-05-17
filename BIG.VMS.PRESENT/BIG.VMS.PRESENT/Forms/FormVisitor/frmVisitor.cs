@@ -37,6 +37,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public int carModelId = 0;
         public int reasonId = 0;
         public bool manualUploadPhoto_idcard;
+        public bool isChangePhoto = false;
         public Image CARD_IMAGE { get; set; }
 
         public byte[] BYTE_IMAGE { get; set; }
@@ -188,8 +189,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 Image img = source.Image;
                 using (var ms = new MemoryStream())
                 {
-                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    Bitmap bmp = new Bitmap(img);
+                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
+                    
                 }
             }
             catch (Exception ex)
@@ -308,7 +311,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (formMode == FormMode.Edit)
                 {
                     var obj = GetObjectfromControl();
-                    obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+
+                    if (isChangePhoto)
+                    {
+                        obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                    }
+                    
                     //obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
@@ -446,8 +454,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     txtIDCard.TextLength >= 13 &&
                     contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 && IsChangePicCard())
                 {
-                    if (IsValidCheckPersonID(txtIDCard.Text))
-                    {
+                    //if (IsValidCheckPersonID(txtIDCard.Text))
+                    //{
                         var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
                         if (data.TRN_BLACKLIST == null)
                         {
@@ -465,11 +473,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
                             MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("บัตรประชาชนไม่ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //}
                 }
 
                 else
@@ -593,8 +601,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
+                    
                     if (frm.CAMERA != null)
                     {
+                        isChangePhoto = true;
                         picPhoto.Image = frm.CAMERA;
                     }
                     // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
