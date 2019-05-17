@@ -56,5 +56,30 @@ namespace BIG.VMS.PRESENT
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var service = new AuthenticationServices();
+            var filter = new AuthenticationFilter { UserName ="admin", Password = "1234"};
+            var container = new ContainerAuthentication { Filter = filter };
+            var res = service.Retrieve(container);
+            if (res.Status)
+            {
+                //USER = txtUsername.Text;
+                var obj = (MEMBER_LOGON)res.ResultObj;
+                var frm = new FrmMain();
+                LOGIN = txtUsername.Text;
+                frm.User = txtUsername.Text;
+                frm.Show(this);
+                this.Hide();
+
+                OnClearScreen();
+            }
+            else
+            {
+                MessageBox.Show(res.Message + res.ExceptionMessage);
+            }
+        }
+        
     }
 }

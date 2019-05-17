@@ -372,7 +372,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "อ่านใบขับขี่อีกครั้ง";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            //this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ReadCard
             // 
@@ -383,7 +383,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReadCard";
             this.Text = "ReadCard";
-            this.Load += new System.EventHandler(this.ReadCard_Load);
+            //this.Load += new System.EventHandler(this.ReadCard_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_picPhoto)).EndInit();

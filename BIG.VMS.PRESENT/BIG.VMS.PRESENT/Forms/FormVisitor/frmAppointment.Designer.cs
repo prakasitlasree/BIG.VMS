@@ -92,7 +92,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.07111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.95159F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1272, 661);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1272, 611);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -106,7 +106,7 @@
             this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1260, 87);
+            this.panel1.Size = new System.Drawing.Size(1260, 79);
             this.panel1.TabIndex = 0;
             // 
             // btnTopic
@@ -121,7 +121,7 @@
             this.btnTopic.Location = new System.Drawing.Point(880, 0);
             this.btnTopic.Margin = new System.Windows.Forms.Padding(6);
             this.btnTopic.Name = "btnTopic";
-            this.btnTopic.Size = new System.Drawing.Size(250, 87);
+            this.btnTopic.Size = new System.Drawing.Size(250, 79);
             this.btnTopic.TabIndex = 0;
             this.btnTopic.Text = "(4) เลือกวัตถุประสงค์";
             this.btnTopic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -140,7 +140,7 @@
             this.btnMeet.Location = new System.Drawing.Point(550, 0);
             this.btnMeet.Margin = new System.Windows.Forms.Padding(6);
             this.btnMeet.Name = "btnMeet";
-            this.btnMeet.Size = new System.Drawing.Size(330, 87);
+            this.btnMeet.Size = new System.Drawing.Size(330, 79);
             this.btnMeet.TabIndex = 1;
             this.btnMeet.Text = "(3) เลือกบุคคลที่ต้องการเข้าพบ";
             this.btnMeet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -159,7 +159,7 @@
             this.btnVehicle.Location = new System.Drawing.Point(220, 0);
             this.btnVehicle.Margin = new System.Windows.Forms.Padding(6);
             this.btnVehicle.Name = "btnVehicle";
-            this.btnVehicle.Size = new System.Drawing.Size(330, 87);
+            this.btnVehicle.Size = new System.Drawing.Size(330, 79);
             this.btnVehicle.TabIndex = 2;
             this.btnVehicle.Text = "(2) เลือกประเภทรถยนต์";
             this.btnVehicle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,7 +178,7 @@
             this.btnReadCard.Location = new System.Drawing.Point(0, 0);
             this.btnReadCard.Margin = new System.Windows.Forms.Padding(6);
             this.btnReadCard.Name = "btnReadCard";
-            this.btnReadCard.Size = new System.Drawing.Size(220, 87);
+            this.btnReadCard.Size = new System.Drawing.Size(220, 79);
             this.btnReadCard.TabIndex = 0;
             this.btnReadCard.Text = "(1) อ่านบัตร";
             this.btnReadCard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -191,10 +191,10 @@
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(6, 587);
+            this.panel2.Location = new System.Drawing.Point(6, 543);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1260, 68);
+            this.panel2.Size = new System.Drawing.Size(1260, 62);
             this.panel2.TabIndex = 1;
             // 
             // btnCancel
@@ -208,7 +208,7 @@
             this.btnCancel.Location = new System.Drawing.Point(200, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(200, 68);
+            this.btnCancel.Size = new System.Drawing.Size(200, 62);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -226,7 +226,7 @@
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(200, 68);
+            this.btnSave.Size = new System.Drawing.Size(200, 62);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "บันทึก";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -240,11 +240,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 102);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 94);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1266, 476);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1266, 440);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -293,7 +293,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(816, 470);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(816, 434);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label6
@@ -304,7 +304,7 @@
             this.label6.ForeColor = System.Drawing.Color.Crimson;
             this.label6.Location = new System.Drawing.Point(155, 447);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 23);
+            this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 24;
             this.label6.Text = "เวลา";
             // 
@@ -569,7 +569,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1272, 661);
+            this.ClientSize = new System.Drawing.Size(1272, 611);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

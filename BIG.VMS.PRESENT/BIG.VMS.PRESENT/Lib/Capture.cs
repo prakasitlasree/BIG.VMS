@@ -12,26 +12,32 @@ using System.Drawing;
 
 namespace BIG.VMS.PRESENT
 {
-    public class Capture : ISampleGrabberCB, IDisposable
+    internal class Capture : ISampleGrabberCB, IDisposable
     {
         #region Member variables
 
+        /// <summary> graph builder interface. </summary>
         private IFilterGraph2 m_FilterGraph = null;
 
+        // Used to snap picture on Still pin
         private IAMVideoControl m_VidControl = null;
         private IPin m_pinStill = null;
 
+        /// <summary> so we can wait for the async job to finish </summary>
         private ManualResetEvent m_PictureReady = null;
 
         private bool m_WantOne = false;
 
+        /// <summary> Dimensions of the image, calculated once in constructor for perf. </summary>
         private int m_videoWidth;
         private int m_videoHeight;
         private int m_stride;
 
+        /// <summary> buffer for bitmap data.  Always release by caller</summary>
         private IntPtr m_ipBuffer = IntPtr.Zero;
 
 #if DEBUG
+        // Allow you to "Connect to remote graph" from GraphEdit
         DsROTEntry m_rot = null;
 #endif
         #endregion
@@ -41,6 +47,7 @@ namespace BIG.VMS.PRESENT
         private static extern void CopyMemory(IntPtr Destination, IntPtr Source, [MarshalAs(UnmanagedType.U4)] int Length);
         #endregion
 
+        // Zero based device index and device params and output window
         public Capture(int iDeviceNum, int iWidth, int iHeight, short iBPP, Control hControl)
         {
             DsDevice[] capDevices;
@@ -61,12 +68,14 @@ namespace BIG.VMS.PRESENT
                 // tell the callback to ignore new images
                 m_PictureReady = new ManualResetEvent(false);
             }
-            catch (Exception ex)
+            catch
             {
+                Dispose();
                 throw;
             }
         }
 
+        /// <summary> release everything. </summary>
         public void Dispose()
         {
 #if DEBUG
@@ -81,12 +90,19 @@ namespace BIG.VMS.PRESENT
                 m_PictureReady.Close();
             }
         }
-
-        public Capture()
+        // Destructor
+        Capture()
         {
             Dispose();
         }
 
+        /// <summary>
+        /// Get the image from the Still pin.  The returned image can turned into a bitmap with
+        /// Bitmap b = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
+        /// If the image is upside down, you can fix it with
+        /// b.RotateFlip(RotateFlipType.RotateNoneFlipY);
+        /// </summary>
+        /// <returns>Returned pointer to be freed by caller with Marshal.FreeCoTaskMem</returns>
         public IntPtr Click()
         {
             int hr;
@@ -131,7 +147,6 @@ namespace BIG.VMS.PRESENT
                 return m_videoWidth;
             }
         }
-
         public int Height
         {
             get
@@ -139,7 +154,6 @@ namespace BIG.VMS.PRESENT
                 return m_videoHeight;
             }
         }
-
         public int Stride
         {
             get
@@ -148,6 +162,8 @@ namespace BIG.VMS.PRESENT
             }
         }
 
+
+        /// <summary> build the capture graph for grabber. </summary>
         private void SetupGraph(DsDevice dev, int iWidth, int iHeight, short iBPP, Control hControl)
         {
             int hr;
@@ -346,6 +362,7 @@ namespace BIG.VMS.PRESENT
             media = null;
         }
 
+        // Set the video window within the control specified by hControl
         private void ConfigVideoWindow(Control hControl)
         {
             int hr;
@@ -390,6 +407,7 @@ namespace BIG.VMS.PRESENT
             DsError.ThrowExceptionForHR(hr);
         }
 
+        // Set the Framerate, and video size
         private void SetConfigParms(IPin pStill, int iWidth, int iHeight, short iBPP)
         {
             int hr;
@@ -440,6 +458,7 @@ namespace BIG.VMS.PRESENT
             }
         }
 
+        /// <summary> Shut down capture </summary>
         private void CloseInterfaces()
         {
             int hr;
@@ -478,12 +497,14 @@ namespace BIG.VMS.PRESENT
             }
         }
 
+        /// <summary> sample callback, NOT USED. </summary>
         int ISampleGrabberCB.SampleCB(double SampleTime, IMediaSample pSample)
         {
             Marshal.ReleaseComObject(pSample);
             return 0;
         }
 
+        /// <summary> buffer callback, COULD BE FROM FOREIGN THREAD. </summary>
         int ISampleGrabberCB.BufferCB(double SampleTime, IntPtr pBuffer, int BufferLen)
         {
             // Note that we depend on only being called once per call to Click.  Otherwise

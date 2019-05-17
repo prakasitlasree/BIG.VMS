@@ -10,12 +10,20 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
 
+using AForge.Video;
+using AForge.Video.DirectShow;
+
 namespace BIG.VMS.PRESENT.Forms.Master
 {
     public partial class CameraSelection : Form
     {
-        private Capture cam;
-        IntPtr m_ip = IntPtr.Zero;
+
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice videoDevice;
+        private VideoCapabilities[] videoCapabilities;
+        private VideoCapabilities[] snapshotCapabilities;
+
+
         public Image CAMERA { get; set; }
         public CameraSelection()
         {
@@ -24,17 +32,48 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
         private void CameraSelection_Load(object sender, EventArgs e)
         {
-            const int VIDEODEVICE = 0; // zero based index of video capture device to use
-            const int VIDEOWIDTH = 640; // Depends on video device caps
-            const int VIDEOHEIGHT = 480; // Depends on video device caps
-            const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
+            
             try
             {
-                if (cam != null)
+                // enumerate video devices
+                videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+                if (videoDevices.Count != 0)
                 {
-                    cam.Dispose();
+                    // add all devices to combo
+                    foreach (FilterInfo device in videoDevices)
+                    {
+                        //devicesCombo.Items.Add(device.Name);
+                    }
+
+                     
+                        videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                        EnumeratedSupportedFrameSizes(videoDevice);
+                   
+                    if (videoDevice != null)
+                    {
+                        if ((videoCapabilities != null) && (videoCapabilities.Length != 0))
+                        {
+                            videoDevice.VideoResolution = videoCapabilities[videoResolutionsCombo.SelectedIndex];
+                        }
+
+                        if ((snapshotCapabilities != null) && (snapshotCapabilities.Length != 0))
+                        {
+                            videoDevice.ProvideSnapshots = true;
+                            videoDevice.SnapshotResolution = snapshotCapabilities[snapshotResolutionsCombo.SelectedIndex];
+                            videoDevice.SnapshotFrame += new NewFrameEventHandler(videoDevice_SnapshotFrame);
+                        }
+
+                       
+                        videoSourcePlayer.VideoSource = videoDevice;
+                        videoSourcePlayer.Start();
+                    }
                 }
-                cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
+                else
+                {
+                    MessageBox.Show("No DirectShow devices found");
+                }
+ 
             }
             catch (Exception ex)
             {
@@ -47,37 +86,15 @@ namespace BIG.VMS.PRESENT.Forms.Master
         {
             try
             {
-                if (cam == null)
+                if ((videoDevice != null) && (videoDevice.ProvideSnapshots))
                 {
-                    const int VIDEODEVICE = 0; // zero based index of video capture device to use
-                    const int VIDEOWIDTH = 640; // Depends on video device caps
-                    const int VIDEOHEIGHT = 480; // Depends on video device caps
-                    const int VIDEOBITSPERPIXEL = 24; // BitsPerPixel values determined by device
-                    cam = new Capture(VIDEODEVICE, VIDEOWIDTH, VIDEOHEIGHT, VIDEOBITSPERPIXEL, imgVideo);
+                    videoDevice.SimulateTrigger();
                 }
-                // Release any previous buffer
-                if (m_ip != IntPtr.Zero)
-                {
-                    Marshal.FreeCoTaskMem(m_ip);
-                    m_ip = IntPtr.Zero;
-                }
-
-                // capture image
-                m_ip = cam.Click();
-                Bitmap photo = new Bitmap(cam.Width, cam.Height, cam.Stride, PixelFormat.Format24bppRgb, m_ip);
-
-                // If the image is upsidedown
-                photo.RotateFlip(RotateFlipType.RotateNoneFlipY);
-                CAMERA = photo;
-                imgCurrentImage.Image = photo;
 
             }
             catch (Exception ex)
             {
-                if (cam != null)
-                {
-                    cam.Dispose();
-                }
+                Disconnect();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -95,10 +112,91 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
         private void CameraSelection_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (cam != null)
+            Disconnect();
+        }
+
+        #region ==== Method =====
+
+        private void Disconnect()
+        {
+            if (videoSourcePlayer.VideoSource != null)
             {
-                cam.Dispose();
+                // stop video device
+                videoSourcePlayer.SignalToStop();
+                videoSourcePlayer.WaitForStop();
+                videoSourcePlayer.VideoSource = null;
+
+                if (videoDevice.ProvideSnapshots)
+                {
+                    videoDevice.SnapshotFrame -= new NewFrameEventHandler(videoDevice_SnapshotFrame);
+                }
+
+                 
             }
         }
+
+        private void videoDevice_SnapshotFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Console.WriteLine(eventArgs.Frame.Size);
+
+            ShowSnapshot((Bitmap)eventArgs.Frame.Clone());
+        }
+
+        private void ShowSnapshot(Bitmap snapshot)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<Bitmap>(ShowSnapshot), snapshot);
+            }
+            else
+            {
+                Bitmap old = (Bitmap)imgCurrentImage.Image;
+                imgCurrentImage.Image = snapshot;
+                CAMERA = imgCurrentImage.Image;
+            }
+        }
+
+        private void EnumeratedSupportedFrameSizes(VideoCaptureDevice videoDevice)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            videoResolutionsCombo.Items.Clear();
+            snapshotResolutionsCombo.Items.Clear();
+
+            try
+            {
+                videoCapabilities = videoDevice.VideoCapabilities;
+                snapshotCapabilities = videoDevice.SnapshotCapabilities;
+
+                foreach (VideoCapabilities capabilty in videoCapabilities)
+                {
+                    videoResolutionsCombo.Items.Add(string.Format("{0} x {1}",
+                        capabilty.FrameSize.Width, capabilty.FrameSize.Height));
+                }
+
+                foreach (VideoCapabilities capabilty in snapshotCapabilities)
+                {
+                    snapshotResolutionsCombo.Items.Add(string.Format("{0} x {1}",
+                        capabilty.FrameSize.Width, capabilty.FrameSize.Height));
+                }
+
+                if (videoCapabilities.Length == 0)
+                {
+                    videoResolutionsCombo.Items.Add("Not supported");
+                }
+                if (snapshotCapabilities.Length == 0)
+                {
+                    snapshotResolutionsCombo.Items.Add("Not supported");
+                }
+
+                videoResolutionsCombo.SelectedIndex = 0;
+                snapshotResolutionsCombo.SelectedIndex = 0;
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+        #endregion
     }
 }
