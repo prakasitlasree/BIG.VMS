@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
-    public partial class frmVisitorOut : Form
+    public partial class frmVisitorOut : PageBase
     {
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
@@ -100,6 +100,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 CONTACT_EMPLOYEE_ID = org_obj.CONTACT_EMPLOYEE_ID,
                                 CONTACT_PHOTO = org_obj.CONTACT_PHOTO,
                                 STATUS = 2,
+                                CREATED_BY = LOGIN,
+                                UPDATED_BY = LOGIN,
                                 CREATED_DATE = DateTime.Now,
                                 UPDATED_DATE = DateTime.Now
 
