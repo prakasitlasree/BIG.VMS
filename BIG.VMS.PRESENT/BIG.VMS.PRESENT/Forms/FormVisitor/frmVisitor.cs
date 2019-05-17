@@ -188,7 +188,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 Image img = source.Image;
                 using (var ms = new MemoryStream())
                 {
-                    img.Save(ms, img.RawFormat);
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
                 }
             }
@@ -308,6 +308,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (formMode == FormMode.Edit)
                 {
                     var obj = GetObjectfromControl();
+                    obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                    //obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
                     var res = _service.Update(container);
