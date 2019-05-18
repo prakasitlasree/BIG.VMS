@@ -42,7 +42,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             CustomGrid();
         }
 
-      
+
 
         private void InitialEventHandler()
         {
@@ -64,7 +64,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 FIRST_NAME = txtName.Text,
                 LAST_NAME = txtLastName.Text,
                 LICENSE_PLATE = txtLicense.Text,
-               
+
             };
 
             if (chkDate.Checked)
@@ -83,11 +83,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             List<HeaderGrid> listCol = new List<HeaderGrid>();
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ID", FIELD = "AUTO_ID", VISIBLE = false, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "บัตรประชาชน", FIELD = "ID_CARD", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            //listCol.Add(new HeaderGrid { HEADER_TEXT = "เลขที่", FIELD = "NO", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
+            listCol.Add(new HeaderGrid { HEADER_TEXT = "บัตรประชาชน", FIELD = "REQUEST_ID_CARD", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "ชื่อ-สกุล", FIELD = "REQUEST_NAME", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.Fill });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภทรถ", FIELD = "REQUEST_CAR_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
-            listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            //listCol.Add(new HeaderGrid { HEADER_TEXT = "ประเภทรถ", FIELD = "REQUEST_CAR_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
+            //listCol.Add(new HeaderGrid { HEADER_TEXT = "ทะเบียนรถ", FIELD = "LICENSE_PLATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "บุคคลที่ต้องการพบ", FIELD = "CONTACT_EMPLOYEE_NAME", VISIBLE = true, ALIGN = align.Center, AUTO_SIZE = autoSize.Fill });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "วัตถุประสงค์", FIELD = "REASON_NAME", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
             listCol.Add(new HeaderGrid { HEADER_TEXT = "วันที่เข้าพบ", FIELD = "CONTACT_DATE", VISIBLE = true, ALIGN = align.Left, AUTO_SIZE = autoSize.CellContent });
@@ -132,7 +132,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void CustomGrid()
         {
-          
+
             foreach (DataGridViewRow row in gridAppointmentList.Rows)
             {
                 if (row.Cells["STATUS"].Value.ToString() == "เข้าพบแล้ว")
@@ -205,32 +205,63 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void gridAppointmentList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 if (e.ColumnIndex == 0 && gridAppointmentList.Rows[e.RowIndex].Cells["STATUS"].Value.ToString() != "เข้าพบแล้ว")
                 {
-                    if (MessageBox.Show("ต้องการปรับสถานะ", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                    var id = Convert.ToInt32(gridAppointmentList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                    ContainerAppointment container = new ContainerAppointment();
+                    var filter = new AppointmentFilter();
+                    TRN_VISITOR visitorObj = new TRN_VISITOR();
+                    filter.AUTO_ID = id;
+                    container.Filter = filter;
+                    var obj = _service.GetItem(container);
+                    visitorObj.CONTACT_EMPLOYEE_ID = obj.TRN_APPOINTMENT.CONTACT_EMPLOYEE_ID;
+                    visitorObj.FIRST_NAME = obj.TRN_APPOINTMENT.REQUEST_FIRST_NAME;
+                    visitorObj.LAST_NAME = obj.TRN_APPOINTMENT.REQUEST_LAST_NAME;
+                    visitorObj.ID_CARD = obj.TRN_APPOINTMENT.REQUEST_ID_CARD;
+                    visitorObj.REASON_ID = obj.TRN_APPOINTMENT.REASON_ID;
+                    visitorObj.MAS_EMPLOYEE = obj.TRN_APPOINTMENT.MAS_EMPLOYEE;
+                    visitorObj.MAS_REASON = obj.TRN_APPOINTMENT.MAS_REASON;
+                    frmVisitor frm = new frmVisitor();
+                    frm.visitorObj = visitorObj;
+                    frm.formMode = FormMode.Add;
+                    frm.visitorMode = VisitorMode.Appointment;
+
+                    if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        var id = Convert.ToInt32(gridAppointmentList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
                         var res = _service.UpdateStatus(id);
-                        if (res.Status)
-                        {
-                            MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ResetScreen();
-                        }
-                        else
-                        {
-                            MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
                     }
+
+                    //var res = _service.UpdateStatus(id);
+                    //if (res.Status)
+                    //{
+                    //    MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    ResetScreen();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
+
                 }
             }
-           
+
         }
 
         private void gridAppointmentList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnComein_Click(object sender, EventArgs e)
+        {
+            frmSelectAppointment frm = new frmSelectAppointment();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

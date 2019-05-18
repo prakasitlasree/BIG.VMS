@@ -12,6 +12,9 @@ using System.Windows.Forms;
 using DGVPrinterHelper;
 using System.Globalization;
 using ClosedXML.Excel;
+using BIG.VMS.MODEL.CustomModel.CustomContainer;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
 
 namespace BIG.VMS.PRESENT.Forms.FormReport
 {
@@ -29,33 +32,69 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
+            try
+            {
+                DataTable data = (DataTable)(gridReportList.DataSource);
+                ReportDocument rpt = new ReportDocument();
+                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
+                rpt.Load(appPath);
+                rpt.SetDataSource(data);
+                // ===== View Report =====
+                using (Form form = new Form())
+                {
+                    //writeLog("new form");
+                    CrystalReportViewer tempViewer = new CrystalReportViewer();
 
-            CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
+                    tempViewer.ActiveViewIndex = -1;
+                    tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                    tempViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                    tempViewer.Name = "tempViewer";
+                    tempViewer.SelectionFormula = "";
+                    tempViewer.TabIndex = 0;
+                    tempViewer.ViewTimeSelectionFormula = "";
 
-            printer.Title = "รายงาน ณ วันที่ " + Convert.ToDateTime(dtFrom.Value, _cultureTHInfo).ToShortDateString();
+                    tempViewer.ReportSource = rpt;
+                    //writeLog(Convert.ToString(tempViewer.ReportSource));
+                    tempViewer.AutoSize = true;
+                    tempViewer.Refresh();
+                    form.Controls.Add(tempViewer);
+                    form.AutoSize = true;
+                    form.ShowDialog();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //DGVPrinter printer = new DGVPrinter();
 
-            printer.SubTitle = "รายงานเข้า-ออก";
+            //CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
 
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
+            //printer.Title = "รายงาน ณ วันที่ " + Convert.ToDateTime(dtFrom.Value, _cultureTHInfo).ToShortDateString();
 
-                                          StringFormatFlags.NoClip;
+            //printer.SubTitle = "รายงานเข้า-ออก";
 
-            printer.PageNumbers = true;
+            //printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
 
-            printer.PageNumberInHeader = true;
+            //                              StringFormatFlags.NoClip;
 
-            printer.PorportionalColumns = true;
+            //printer.PageNumbers = true;
 
-            printer.HeaderCellAlignment = StringAlignment.Center;
+            //printer.PageNumberInHeader = true;
 
-            printer.Footer = "BIG VMS";
+            //printer.PorportionalColumns = true;
 
-            printer.FooterSpacing = 15;
+            //printer.HeaderCellAlignment = StringAlignment.Center;
 
-            printer.PageSettings.Landscape = true;
+            //printer.Footer = "BIG VMS";
 
-            printer.PrintDataGridView(gridReportList);
+            //printer.FooterSpacing = 15;
+
+            //printer.PageSettings.Landscape = true;
+
+            //printer.PrintDataGridView(gridReportList);
+
         }
 
         private void frmReportList_Load(object sender, EventArgs e)
@@ -67,7 +106,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
         {
             var filter = new VisitorFilter()
             {
-                TYPE = "IN",
+                //TYPE = "IN",
                 DATE_FROM = (dtFrom.Value == null || dtFrom.Value == DateTime.MinValue) ? DateTime.Now : dtFrom.Value,
                 DATE_TO = (dtTo.Value == null || dtTo.Value == DateTime.MinValue) ? DateTime.Now : dtTo.Value
 
@@ -114,8 +153,9 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
         {
             try
             {
-                DataTable data = (DataTable)(gridReportList.DataSource);
-
+                DataTable tableData = (DataTable)(gridReportList.DataSource);
+                DataTable data = new DataTable();
+                data = tableData.Copy();
                 var col = data.Columns;
                 if (col.Contains("ID_CARD_PHOTO"))
                 {
@@ -134,7 +174,6 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     data.Columns.Remove("STATUS");
                     data.Columns.Remove("FULL_NAME");
                     data.Columns.Remove("COMPANY_NAME");
-
 
                     data.Columns["NO"].ColumnName = "เลขที่";
                     data.Columns["TIME_IN"].ColumnName = "วันที่ทำการ";
@@ -161,11 +200,130 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                 wb.SaveAs(savePath);
                 MessageBox.Show("บันทึกไฟล์ไปที่ " + savePath, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-          
+
+        }
+
+        public DateTime ChangeTime(DateTime dateTime, int hours, int minutes, int seconds, int milliseconds)
+        {
+            return new DateTime(
+                dateTime.Year,
+                dateTime.Month,
+                dateTime.Day,
+                hours,
+                minutes,
+                seconds,
+                milliseconds,
+                dateTime.Kind);
+        }
+
+        private void btnPrintToday_Click(object sender, EventArgs e)
+        {
+
+            var filter = new VisitorFilter()
+            {
+                //TYPE = "IN",
+                DATE_FROM = ChangeTime(DateTime.Now, 0, 0, 0, 1),
+                DATE_TO = ChangeTime(DateTime.Now, 23, 59, 59, 59),
+
+            };
+
+            _container.Filter = filter;
+            _container = _service.GetVisitorForReport(_container);
+
+            if (_container.ResultObj.Count > 0)
+            {
+                List<CustomVisitor> listData = (List<CustomVisitor>)_container.ResultObj;
+                DataTable dt = ConvertToDataTable(listData);
+
+                ReportDocument rpt = new ReportDocument();
+                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
+                rpt.Load(appPath);
+                rpt.SetDataSource(dt);
+                // ===== View Report =====
+                using (Form form = new Form())
+                {
+                    //writeLog("new form");
+                    CrystalReportViewer tempViewer = new CrystalReportViewer();
+
+                    tempViewer.ActiveViewIndex = -1;
+                    tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                    tempViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                    tempViewer.Name = "tempViewer";
+                    tempViewer.SelectionFormula = "";
+                    tempViewer.TabIndex = 0;
+                    tempViewer.ViewTimeSelectionFormula = "";
+
+                    tempViewer.ReportSource = rpt;
+                    //writeLog(Convert.ToString(tempViewer.ReportSource));
+                    tempViewer.AutoSize = true;
+                    tempViewer.Refresh();
+                    form.Controls.Add(tempViewer);
+                    form.AutoSize = true;
+                    form.ShowDialog();
+                }
+                //rpt.PrintToPrinter(1, true, 0, 0);
+            }
+
+            SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
+        }
+
+        private void btnPrintMonth_Click(object sender, EventArgs e)
+        {
+            var timeNow = DateTime.Now;
+            var firstDayOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            var filter = new VisitorFilter()
+            {
+                //TYPE = "IN",
+                DATE_FROM =ChangeTime(firstDayOfMonth,0,0,0,1),
+                DATE_TO = ChangeTime(lastDayOfMonth, 23, 59, 59, 59),
+
+            };
+
+            _container.Filter = filter;
+            _container = _service.GetVisitorForReport(_container);
+
+            if (_container.ResultObj.Count > 0)
+            {
+                List<CustomVisitor> listData = (List<CustomVisitor>)_container.ResultObj;
+                DataTable dt = ConvertToDataTable(listData);
+
+                ReportDocument rpt = new ReportDocument();
+                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
+                rpt.Load(appPath);
+                rpt.SetDataSource(dt);
+                // ===== View Report =====
+                using (Form form = new Form())
+                {
+                    //writeLog("new form");
+                    CrystalReportViewer tempViewer = new CrystalReportViewer();
+
+                    tempViewer.ActiveViewIndex = -1;
+                    tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                    tempViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                    tempViewer.Name = "tempViewer";
+                    tempViewer.SelectionFormula = "";
+                    tempViewer.TabIndex = 0;
+                    tempViewer.ViewTimeSelectionFormula = "";
+
+                    tempViewer.ReportSource = rpt;
+                    //writeLog(Convert.ToString(tempViewer.ReportSource));
+                    tempViewer.AutoSize = true;
+                    tempViewer.Refresh();
+                    form.Controls.Add(tempViewer);
+                    form.AutoSize = true;
+                    form.ShowDialog();
+                }
+                //rpt.PrintToPrinter(1, true, 0, 0);
+            }
+
+            SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
         }
     }
 }

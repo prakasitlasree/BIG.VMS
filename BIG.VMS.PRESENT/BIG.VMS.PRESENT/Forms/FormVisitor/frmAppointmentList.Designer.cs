@@ -31,14 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointmenList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.gridAppointmentList = new System.Windows.Forms.DataGridView();
-            this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
+            this.gridAppointmentList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,10 +52,11 @@
             this.txtLicense = new System.Windows.Forms.TextBox();
             this.chkDate = new System.Windows.Forms.CheckBox();
             this.dtContactDate = new System.Windows.Forms.DateTimePicker();
+            this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -82,45 +82,17 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.gridAppointmentList, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.gridAppointmentList, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 284);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.07692F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.92308F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1159, 394);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // gridAppointmentList
-            // 
-            this.gridAppointmentList.AllowUserToAddRows = false;
-            this.gridAppointmentList.AllowUserToDeleteRows = false;
-            this.gridAppointmentList.BackgroundColor = System.Drawing.Color.White;
-            this.gridAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMeeted});
-            this.gridAppointmentList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
-            this.gridAppointmentList.Name = "gridAppointmentList";
-            this.gridAppointmentList.ReadOnly = true;
-            this.gridAppointmentList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.gridAppointmentList.RowTemplate.Height = 30;
-            this.gridAppointmentList.Size = new System.Drawing.Size(1153, 321);
-            this.gridAppointmentList.TabIndex = 0;
-            this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
-            // 
-            // colMeeted
-            // 
-            this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMeeted.HeaderText = "การเข้าพบ";
-            this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
-            this.colMeeted.Name = "colMeeted";
-            this.colMeeted.ReadOnly = true;
-            this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMeeted.Width = 120;
             // 
             // tableLayoutPanel4
             // 
@@ -137,18 +109,19 @@
             this.tableLayoutPanel4.Controls.Add(this.btnNext, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLast, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 330);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 313);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1153, 61);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1153, 57);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // txtPage
             // 
             this.txtPage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPage.Enabled = false;
-            this.txtPage.Location = new System.Drawing.Point(21, 15);
+            this.txtPage.Location = new System.Drawing.Point(21, 13);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(188, 31);
             this.txtPage.TabIndex = 1;
@@ -162,7 +135,7 @@
             this.btnFirst.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFirst.Location = new System.Drawing.Point(233, 3);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(224, 55);
+            this.btnFirst.Size = new System.Drawing.Size(224, 51);
             this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "หน้าแรก";
             this.btnFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -176,7 +149,7 @@
             this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrevious.Location = new System.Drawing.Point(463, 3);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(224, 55);
+            this.btnPrevious.Size = new System.Drawing.Size(224, 51);
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "หน้าก่อนหน้า";
             this.btnPrevious.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -190,7 +163,7 @@
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNext.Location = new System.Drawing.Point(693, 3);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(224, 55);
+            this.btnNext.Size = new System.Drawing.Size(224, 51);
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "หน้าถัดไป";
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -204,18 +177,36 @@
             this.btnLast.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLast.Location = new System.Drawing.Point(923, 3);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(227, 55);
+            this.btnLast.Size = new System.Drawing.Size(227, 51);
             this.btnLast.TabIndex = 3;
             this.btnLast.Text = "หน้าสุดท้าย";
             this.btnLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLast.UseVisualStyleBackColor = false;
             // 
+            // gridAppointmentList
+            // 
+            this.gridAppointmentList.AllowUserToAddRows = false;
+            this.gridAppointmentList.AllowUserToDeleteRows = false;
+            this.gridAppointmentList.BackgroundColor = System.Drawing.Color.White;
+            this.gridAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMeeted});
+            this.gridAppointmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridAppointmentList.Location = new System.Drawing.Point(3, 3);
+            this.gridAppointmentList.Name = "gridAppointmentList";
+            this.gridAppointmentList.ReadOnly = true;
+            this.gridAppointmentList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.gridAppointmentList.RowTemplate.Height = 30;
+            this.gridAppointmentList.Size = new System.Drawing.Size(1153, 304);
+            this.gridAppointmentList.TabIndex = 0;
+            this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.67645F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.4245F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.98533F));
             this.tableLayoutPanel6.Controls.Add(this.btnAdd, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
@@ -228,13 +219,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(380, 120);
+            this.btnAdd.Size = new System.Drawing.Size(279, 120);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "นัดหมายล่วงหน้า";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -375,6 +366,17 @@
             this.dtContactDate.Size = new System.Drawing.Size(264, 31);
             this.dtContactDate.TabIndex = 12;
             // 
+            // colMeeted
+            // 
+            this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMeeted.HeaderText = "การเข้าพบ";
+            this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
+            this.colMeeted.Name = "colMeeted";
+            this.colMeeted.ReadOnly = true;
+            this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMeeted.Width = 120;
+            // 
             // frmAppointmenList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -391,9 +393,9 @@
             this.Load += new System.EventHandler(this.frmAppointmentList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();

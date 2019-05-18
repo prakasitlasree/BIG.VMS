@@ -258,7 +258,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
             frmReportList frm = new frmReportList();
             frm.StartPosition = FormStartPosition.CenterParent;
-            frm.WindowState = FormWindowState.Maximized;
+            //frm.WindowState = FormWindowState.Maximized;
             if (frm.ShowDialog() == DialogResult.OK)
             {
 
@@ -325,10 +325,13 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-
+                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";                  
                             rpt.Load(appPath);
                             rpt.SetDataSource(dt);
+                            //===== View Report =====
+                            //frmReportViewer frm = new frmReportViewer();
+                            //frm.crystalReportViewer1.ReportSource = rpt;
+                            //frm.ShowDialog();
                             rpt.PrintToPrinter(1, true, 0, 0);
                         }
                         #endregion

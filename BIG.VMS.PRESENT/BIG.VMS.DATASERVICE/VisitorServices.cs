@@ -157,6 +157,10 @@ namespace BIG.VMS.DATASERVICE
                         {
                             item.TYPE = "มาประจำ";
                         }
+                        else if (item.TYPE == "Appointment")
+                        {
+                            item.TYPE = "นัดล่วงหน้า";
+                        }
 
                     }
 
@@ -305,7 +309,7 @@ namespace BIG.VMS.DATASERVICE
 
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
-                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Regulary") && o.STATUS == 1)
+                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment") && o.STATUS == 1)
                                           .OrderByDescending(x => x.NO).FirstOrDefault();
 
                     if (reTrnVisitor != null)
@@ -414,7 +418,8 @@ namespace BIG.VMS.DATASERVICE
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
                                         ID_CARD_PHOTO = item.ID_CARD_PHOTO,
                                         CONTACT_PHOTO = item.CONTACT_PHOTO,
-                                        COMPANY_NAME = company
+                                        COMPANY_NAME = company,
+                                        CREATED_BY = item.CREATED_BY
 
                                     }).ToList();
                     }

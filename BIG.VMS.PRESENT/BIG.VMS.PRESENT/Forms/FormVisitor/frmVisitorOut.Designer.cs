@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNo = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
+            this.btnPhoto = new System.Windows.Forms.Button();
+            this.picPhoto = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCarInfo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +48,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -74,12 +77,16 @@
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtNo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnFind, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnPhoto, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.picPhoto, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.83784F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.16216F));
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 359);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -87,7 +94,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 25);
             this.label1.TabIndex = 0;
@@ -96,7 +103,7 @@
             // txtNo
             // 
             this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Location = new System.Drawing.Point(61, 7);
+            this.txtNo.Location = new System.Drawing.Point(61, 3);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(274, 31);
             this.txtNo.TabIndex = 1;
@@ -107,13 +114,39 @@
             this.btnFind.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(61, 49);
+            this.btnFind.Location = new System.Drawing.Point(61, 40);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(274, 41);
             this.btnFind.TabIndex = 2;
             this.btnFind.Text = "(1) ค้นหา";
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnPhoto
+            // 
+            this.btnPhoto.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhoto.Location = new System.Drawing.Point(61, 87);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(274, 53);
+            this.btnPhoto.TabIndex = 4;
+            this.btnPhoto.Text = "ถ่ายรูปสลิป";
+            this.btnPhoto.UseVisualStyleBackColor = false;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // picPhoto
+            // 
+            this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPhoto.Image = ((System.Drawing.Image)(resources.GetObject("picPhoto.Image")));
+            this.picPhoto.Location = new System.Drawing.Point(61, 146);
+            this.picPhoto.Name = "picPhoto";
+            this.picPhoto.Size = new System.Drawing.Size(274, 210);
+            this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPhoto.TabIndex = 5;
+            this.picPhoto.TabStop = false;
             // 
             // tableLayoutPanel3
             // 
@@ -133,6 +166,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(543, 359);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -158,6 +192,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(537, 69);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
@@ -244,6 +279,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -267,5 +303,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPhoto;
+        private System.Windows.Forms.PictureBox picPhoto;
     }
 }

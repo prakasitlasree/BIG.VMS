@@ -45,7 +45,22 @@ namespace BIG.VMS.DATASERVICE
 
         public ContainerAppointment GetItem(ContainerAppointment obj)
         {
-            throw new NotImplementedException();
+            var result = new ContainerAppointment();
+            using (var ctx = new BIG_VMSEntities())
+            {
+
+                try
+                {
+
+                    result.TRN_APPOINTMENT = GetListAppointmentQuery(obj).FirstOrDefault();
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            return result;
         }
 
         public ContainerAppointment Retrieve(ContainerAppointment obj)
@@ -64,20 +79,20 @@ namespace BIG.VMS.DATASERVICE
                                 {
                                     AUTO_ID = item.AUTO_ID,
                                     CONTACT_DATE = item.CONTACT_DATE,
-                                    CONTACT_EMPLOYEE_ID =item.CONTACT_EMPLOYEE_ID,
+                                    CONTACT_EMPLOYEE_ID = item.CONTACT_EMPLOYEE_ID,
                                     CONTACT_EMPLOYEE_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME,
-                                    CREATED_BY =item.CREATED_BY,
+                                    CREATED_BY = item.CREATED_BY,
                                     STATUS = item.STATUS,
-                                    REASON_ID =item.REASON_ID,
+                                    REASON_ID = item.REASON_ID,
                                     REASON_NAME = item.MAS_REASON.REASON,
-                                    REQUEST_CAR_MODEL_ID = item.REQUEST_CAR_MODEL_ID,
-                                    REQUEST_NAME =  item.REQUEST_FIRST_NAME + " "+item.REQUEST_LAST_NAME,
-                                    REQUEST_LICENSE_PLATE = item.REQUEST_LICENSE_PLATE,
-                                    REQUEST_LICENSE_PLATE_PROVINCE_ID = item.REQUEST_LICENSE_PLATE_PROVINCE_ID,
+                                    //REQUEST_CAR_MODEL_ID = item.REQUEST_CAR_MODEL_ID,
+                                    REQUEST_NAME = item.REQUEST_FIRST_NAME + " " + item.REQUEST_LAST_NAME,
+                                    //REQUEST_LICENSE_PLATE = item.REQUEST_LICENSE_PLATE,
+                                    //REQUEST_LICENSE_PLATE_PROVINCE_ID = item.REQUEST_LICENSE_PLATE_PROVINCE_ID,
                                     REQUEST_ID_CARD = item.REQUEST_ID_CARD,
                                     UPDATED_BY = item.UPDATED_BY,
-                                    REQUEST_CAR_NAME = item.MAS_CAR_MODEL.NAME,
-                                    
+                                    //REQUEST_CAR_NAME = item.MAS_CAR_MODEL.NAME,
+
                                 }).ToList();
 
 
@@ -159,6 +174,10 @@ namespace BIG.VMS.DATASERVICE
                 IQueryable<TRN_APPOINTMENT> query = ctx.TRN_APPOINTMENT;
                 if (filter != null)
                 {
+                    if (filter.AUTO_ID > 0)
+                    {
+                        query = query.Where(o => o.AUTO_ID == filter.AUTO_ID);
+                    }
                     if (!string.IsNullOrEmpty(filter.ID_CARD))
                     {
                         query = query.Where(o => o.REQUEST_ID_CARD.Contains(filter.ID_CARD));

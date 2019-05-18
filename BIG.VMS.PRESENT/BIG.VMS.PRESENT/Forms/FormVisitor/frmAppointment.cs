@@ -57,28 +57,28 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 REQUEST_ID_CARD = txtIDCard.Text.Trim(),
                 REQUEST_FIRST_NAME = txtFirstName.Text.Trim(),
                 REQUEST_LAST_NAME = txtLastName.Text.Trim(),
-                REQUEST_LICENSE_PLATE = txtLicense.Text.Trim(),
+                //REQUEST_LICENSE_PLATE = txtLicense.Text.Trim(),
                 STATUS = "รอเข้าพบ",
                 CONTACT_EMPLOYEE_ID = contactEmployeeId,
-                REQUEST_CAR_MODEL_ID = carModelId,
+                //REQUEST_CAR_MODEL_ID = 1,
                 REASON_ID = reasonId,
-                REQUEST_LICENSE_PLATE_PROVINCE_ID = provinceId,
+                //REQUEST_LICENSE_PLATE_PROVINCE_ID = 1,
                 CREATED_DATE = DateTime.Now,
                 UPDATED_DATE = DateTime.Now,
                 CREATED_BY = LOGIN,
                 UPDATED_BY = LOGIN,
-                
+
 
             };
             return obj;
         }
 
         private void Save()
-        { 
+        {
             var obj = new TRN_APPOINTMENT();
             obj = GetObjectFromControl();
             obj.CONTACT_DATE = dtContactDate.Value.Date + dtTime.Value.TimeOfDay;
-             
+
             var container = new ContainerAppointment { TRN_APPOINTMENT = obj };
 
             var res = _service.Create(container);
@@ -109,14 +109,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (!string.IsNullOrEmpty(txtFirstName.Text) &&
                     !string.IsNullOrEmpty(txtLastName.Text) &&
                     !string.IsNullOrEmpty(txtIDCard.Text) &&
-                    !string.IsNullOrEmpty(txtLicense.Text) &&
                     !string.IsNullOrEmpty(txtMeet.Text) &&
-                    !string.IsNullOrEmpty(txtProvince.Text) &&
                     !string.IsNullOrEmpty(txtTopic.Text) &&
-                    !string.IsNullOrEmpty(txtCar.Text) &&
                     !string.IsNullOrEmpty(dtContactDate.Text) &&
                      !string.IsNullOrEmpty(dtTime.Text) &&
-                    contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 &&
+                    contactEmployeeId > 0  && reasonId > 0 &&
                     dtContactDate.Value != null &&
                     dtTime.Value != null &&
                     dtContactDate.Value != DateTime.MinValue &&
@@ -126,11 +123,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (data.TRN_BLACKLIST == null)
                     {
                         //if (IsValidCheckPersonID(txtIDCard.Text))
-                       // {
-                            if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
-                                Save();
-                            }
+                        // {
+                        if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Save();
+                        }
                         //}
                         //else
                         //{
@@ -165,7 +162,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 provinceId = frm.SELECTED_PROVINCE_ID;
-                txtProvince.Text = frm.SELECTED_PROVINCE_TEXT;
+                //txtProvince.Text = frm.SELECTED_PROVINCE_TEXT;
             }
         }
 
@@ -175,7 +172,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 carModelId = frm.SELECTED_CAR_ID;
-                txtCar.Text = frm.SELECTED_CAR_TEXT;
+                //txtCar.Text = frm.SELECTED_CAR_TEXT;
             }
         }
 
@@ -222,8 +219,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private bool IsValidCheckPersonID(string pid)
         {
             try
-            { 
-                char[] numberChars = pid.ToCharArray(); 
+            {
+                char[] numberChars = pid.ToCharArray();
                 int total = 0;
                 int mul = 13;
                 int mod = 0, mod2 = 0;
@@ -236,22 +233,22 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     int.TryParse(numberChars[i].ToString(), out num);
 
                     total = total + num * mul;
-                    mul = mul - 1; 
+                    mul = mul - 1;
                 }
 
                 mod = total % 11;
                 nsub = 11 - mod;
                 mod2 = nsub % 10;
-                 
+
                 int.TryParse(numberChars[12].ToString(), out numberChars12);
-                 
+
                 if (mod2 != numberChars12)
                     return false;
                 else
-                    return true; 
+                    return true;
             }
             catch (Exception)
-            { 
+            {
                 throw;
             }
         }

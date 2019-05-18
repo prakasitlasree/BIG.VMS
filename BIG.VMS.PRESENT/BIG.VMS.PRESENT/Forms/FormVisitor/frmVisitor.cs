@@ -15,6 +15,7 @@ using System.IO;
 using BIG.VMS.MODEL.CustomModel.Container;
 using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using CrystalDecisions.CrystalReports.Engine;
+using BIG.VMS.PRESENT.Forms.FormReport;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
@@ -92,7 +93,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     btnBlacklist.Visible = false;
                 }
-                if (visitorMode == VisitorMode.Regulary || formMode == FormMode.Edit)
+                if (visitorMode == VisitorMode.Appointment || formMode == FormMode.Edit)
                 {
                     #region === hid control ===
                     if (formMode == FormMode.Edit)
@@ -100,6 +101,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         brn_UploadImgCard.Visible = false;
                         btnRefresh.Visible = false;
                         bthCardDelete.Visible = false;
+                    }
+
+                    if (visitorMode == VisitorMode.Appointment)
+                    {
+                        label5.Text = "นัดล่วงหน้า";
                     }
 
                     #endregion
@@ -192,7 +198,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     Bitmap bmp = new Bitmap(img);
                     bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
-                    
+
                 }
             }
             catch (Exception ex)
@@ -316,7 +322,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     {
                         obj.CONTACT_PHOTO = ImageToByte(picPhoto);
                     }
-                    
+
                     //obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
@@ -354,7 +360,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-
+      
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
@@ -456,23 +462,23 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     //if (IsValidCheckPersonID(txtIDCard.Text))
                     //{
-                        var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
-                        if (data.TRN_BLACKLIST == null)
+                    var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                    if (data.TRN_BLACKLIST == null)
+                    {
+                        if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
 
-                                Save();
-                            }
+                            Save();
                         }
-                        else
-                        {
-                            var blData = data.TRN_BLACKLIST;
-                            var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
-                            msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
-                            msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
-                            MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    }
+                    else
+                    {
+                        var blData = data.TRN_BLACKLIST;
+                        var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
+                        msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
+                        msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
+                        MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     //}
                     //else
                     //{
@@ -511,6 +517,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     carModelId = frm.SELECTED_CAR_ID;
                     txtCar.Text = frm.SELECTED_CAR_TEXT;
+                    if(frm.SELECTED_CAR_TEXT == "เดินเท้า")
+                    {
+                        txtLicense.Text = "ไม่ระบุ";
+                        txtLicense.Enabled = false;
+                    }
+                    else
+                    {
+                        txtLicense.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -601,7 +616,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    
+
                     if (frm.CAMERA != null)
                     {
                         isChangePhoto = true;
@@ -701,6 +716,24 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnRefresh_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIDCard_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDCard_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&(e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

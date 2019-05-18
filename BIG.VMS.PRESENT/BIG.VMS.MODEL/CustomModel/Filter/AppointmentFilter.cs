@@ -13,6 +13,6 @@ namespace BIG.VMS.MODEL.CustomModel.Filter
         public DateTime CONTACT_DATE { get; set; }
         public string ID_CARD { get; set; }
         public string LICENSE_PLATE { get; set; }
-      
+        public int AUTO_ID { get; set; }
     }
 }

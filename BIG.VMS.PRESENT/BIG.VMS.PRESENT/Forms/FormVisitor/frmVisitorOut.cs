@@ -1,11 +1,13 @@
 ﻿using BIG.VMS.DATASERVICE;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
+using BIG.VMS.PRESENT.Forms.Master;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,7 +85,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             var org_obj = _container.TRN_VISITOR;
                             int no = Convert.ToInt32(res.TRN_VISITOR.NO);
-                            no = no + 1;
+                            //no = no + 1;
                             var obj = new TRN_VISITOR()
                             {
 
@@ -108,6 +110,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                             };
 
+                            obj.CONTACT_PHOTO = ImageToByte(picPhoto);
                             var container = new ContainerVisitor { TRN_VISITOR = obj };
                             res = _service.Create(container);
 
@@ -149,6 +152,50 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public byte[] ImageToByte(PictureBox source)
+        {
+            try
+            {
+                Image img = source.Image;
+                using (var ms = new MemoryStream())
+                {
+                    Bitmap bmp = new Bitmap(img);
+                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    return ms.ToArray();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+        private void btnPhoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new CameraSelection();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+
+                    if (frm.CAMERA != null)
+                    {
+                        picPhoto.Image = frm.CAMERA;
+                    }
+                    // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

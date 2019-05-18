@@ -246,11 +246,11 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.btnRegular, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnOut, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnIn, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnReport, 4, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnAhead, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnAhead, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnRegular, 4, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnReport, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -263,11 +263,10 @@
             // btnRegular
             // 
             this.btnRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRegular.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegular.ForeColor = System.Drawing.Color.Black;
             this.btnRegular.Image = ((System.Drawing.Image)(resources.GetObject("btnRegular.Image")));
-            this.btnRegular.Location = new System.Drawing.Point(393, 3);
+            this.btnRegular.Location = new System.Drawing.Point(783, 3);
             this.btnRegular.Name = "btnRegular";
             this.btnRegular.Size = new System.Drawing.Size(189, 120);
             this.btnRegular.TabIndex = 3;
@@ -275,6 +274,7 @@
             this.btnRegular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegular.UseVisualStyleBackColor = false;
+            this.btnRegular.Visible = false;
             this.btnRegular.Click += new System.EventHandler(this.btnRegular_Click);
             // 
             // btnOut
@@ -318,9 +318,9 @@
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.Location = new System.Drawing.Point(783, 3);
+            this.btnReport.Location = new System.Drawing.Point(588, 3);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(192, 120);
+            this.btnReport.Size = new System.Drawing.Size(189, 120);
             this.btnReport.TabIndex = 5;
             this.btnReport.Text = "รายงาน";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -335,7 +335,7 @@
             this.btnAhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAhead.ForeColor = System.Drawing.Color.Black;
             this.btnAhead.Image = ((System.Drawing.Image)(resources.GetObject("btnAhead.Image")));
-            this.btnAhead.Location = new System.Drawing.Point(588, 3);
+            this.btnAhead.Location = new System.Drawing.Point(393, 3);
             this.btnAhead.Name = "btnAhead";
             this.btnAhead.Size = new System.Drawing.Size(189, 120);
             this.btnAhead.TabIndex = 4;

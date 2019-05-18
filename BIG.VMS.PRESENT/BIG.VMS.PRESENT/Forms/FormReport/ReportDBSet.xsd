@@ -30,6 +30,7 @@
               <xs:element name="AUTO_ID" msprop:Generator_ColumnVarNameInTable="columnAUTO_ID" msprop:Generator_ColumnPropNameInRow="AUTO_ID" msprop:Generator_ColumnPropNameInTable="AUTO_IDColumn" msprop:Generator_UserColumnName="AUTO_ID" type="xs:string" minOccurs="0" />
               <xs:element name="TOPIC" msprop:Generator_ColumnVarNameInTable="columnTOPIC" msprop:Generator_ColumnPropNameInRow="TOPIC" msprop:Generator_ColumnPropNameInTable="TOPICColumn" msprop:Generator_UserColumnName="TOPIC" type="xs:string" minOccurs="0" />
               <xs:element name="COMPANY_NAME" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_NAME" msprop:Generator_ColumnPropNameInRow="COMPANY_NAME" msprop:Generator_ColumnPropNameInTable="COMPANY_NAMEColumn" msprop:Generator_UserColumnName="COMPANY_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CREATED_BY" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_UserColumnName="CREATED_BY" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -41,6 +42,10 @@
               <xs:element name="VALUE" msprop:Generator_ColumnVarNameInTable="columnVALUE" msprop:Generator_ColumnPropNameInRow="VALUE" msprop:Generator_ColumnPropNameInTable="VALUEColumn" msprop:Generator_UserColumnName="VALUE" type="xs:string" minOccurs="0" />
               <xs:element name="DESCRIPTION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPTION" msprop:Generator_ColumnPropNameInRow="DESCRIPTION" msprop:Generator_ColumnPropNameInTable="DESCRIPTIONColumn" msprop:Generator_UserColumnName="DESCRIPTION" type="xs:string" minOccurs="0" />
             </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportVisitorList" msprop:Generator_TableClassName="ReportVisitorListDataTable" msprop:Generator_TableVarName="tableReportVisitorList" msprop:Generator_TablePropName="ReportVisitorList" msprop:Generator_RowDeletingName="ReportVisitorListRowDeleting" msprop:Generator_RowChangingName="ReportVisitorListRowChanging" msprop:Generator_RowEvHandlerName="ReportVisitorListRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportVisitorListRowDeleted" msprop:Generator_UserTableName="ReportVisitorList" msprop:Generator_RowChangedName="ReportVisitorListRowChanged" msprop:Generator_RowEvArgName="ReportVisitorListRowChangeEvent" msprop:Generator_RowClassName="ReportVisitorListRow">
+          <xs:complexType>
           </xs:complexType>
         </xs:element>
       </xs:choice>
