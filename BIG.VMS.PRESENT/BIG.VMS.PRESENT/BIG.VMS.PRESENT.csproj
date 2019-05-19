@@ -203,6 +203,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisitorListReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="VisitorReport.cs">
       <AutoGen>True</AutoGen>
@@ -368,6 +369,7 @@
     <EmbeddedResource Include="VisitorListReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VisitorListReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="VisitorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

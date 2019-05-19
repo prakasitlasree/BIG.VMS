@@ -306,7 +306,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
-
+                    no = no.PadLeft(6, '0');
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
                                           .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment") && o.STATUS == 1)

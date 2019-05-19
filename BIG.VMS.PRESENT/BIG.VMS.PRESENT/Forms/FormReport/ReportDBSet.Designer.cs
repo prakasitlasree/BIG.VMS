@@ -1111,6 +1111,10 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ReportVisitorListDataTable : global::System.Data.TypedTableBase<ReportVisitorListRow> {
             
+            private global::System.Data.DataColumn columnCOMPANY_NAME;
+            
+            private global::System.Data.DataColumn columnUSER_PRINT;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReportVisitorListDataTable() {
@@ -1142,6 +1146,22 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             protected ReportVisitorListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COMPANY_NAMEColumn {
+                get {
+                    return this.columnCOMPANY_NAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn USER_PRINTColumn {
+                get {
+                    return this.columnUSER_PRINT;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1181,9 +1201,11 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportVisitorListRow AddReportVisitorListRow() {
+            public ReportVisitorListRow AddReportVisitorListRow(string COMPANY_NAME, string USER_PRINT) {
                 ReportVisitorListRow rowReportVisitorListRow = ((ReportVisitorListRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        COMPANY_NAME,
+                        USER_PRINT};
                 rowReportVisitorListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportVisitorListRow);
                 return rowReportVisitorListRow;
@@ -1206,11 +1228,17 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnCOMPANY_NAME = base.Columns["COMPANY_NAME"];
+                this.columnUSER_PRINT = base.Columns["USER_PRINT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnCOMPANY_NAME = new global::System.Data.DataColumn("COMPANY_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMPANY_NAME);
+                this.columnUSER_PRINT = new global::System.Data.DataColumn("USER_PRINT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSER_PRINT);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1939,6 +1967,62 @@ namespace BIG.VMS.PRESENT.Forms.FormReport {
             internal ReportVisitorListRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableReportVisitorList = ((ReportVisitorListDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string COMPANY_NAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportVisitorList.COMPANY_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COMPANY_NAME\' in table \'ReportVisitorList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportVisitorList.COMPANY_NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string USER_PRINT {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportVisitorList.USER_PRINTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'USER_PRINT\' in table \'ReportVisitorList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportVisitorList.USER_PRINTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOMPANY_NAMENull() {
+                return this.IsNull(this.tableReportVisitorList.COMPANY_NAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOMPANY_NAMENull() {
+                this[this.tableReportVisitorList.COMPANY_NAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUSER_PRINTNull() {
+                return this.IsNull(this.tableReportVisitorList.USER_PRINTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUSER_PRINTNull() {
+                this[this.tableReportVisitorList.USER_PRINTColumn] = global::System.Convert.DBNull;
             }
         }
         

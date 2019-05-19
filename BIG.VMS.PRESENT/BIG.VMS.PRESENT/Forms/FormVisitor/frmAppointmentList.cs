@@ -232,6 +232,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         var res = _service.UpdateStatus(id);
+                        if (res.Status)
+                        {
+                            //MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetScreen();
+                        }
+                        else
+                        {
+                            MessageBox.Show(res.ExceptionMessage, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
 
                     //var res = _service.UpdateStatus(id);

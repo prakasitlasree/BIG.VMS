@@ -93,7 +93,7 @@ namespace BIG.VMS.DATASERVICE
                                     UPDATED_BY = item.UPDATED_BY,
                                     //REQUEST_CAR_NAME = item.MAS_CAR_MODEL.NAME,
 
-                                }).ToList();
+                                }).OrderByDescending(x=>x.CONTACT_DATE).ToList();
 
 
 

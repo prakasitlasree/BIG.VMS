@@ -44,6 +44,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     {
                         txtCarInfo.Text = _container.TRN_VISITOR.MAS_PROVINCE.NAME + " " + _container.TRN_VISITOR.LICENSE_PLATE;
                     }
+                    if (_container.TRN_VISITOR.CONTACT_PHOTO != null)
+                    {
+                        picImage.Image = ByteToImage(_container.TRN_VISITOR.CONTACT_PHOTO);
+                    }
+                    if (_container.TRN_VISITOR.ID_CARD_PHOTO != null)
+                    {
+                        picCard.Image = ByteToImage(_container.TRN_VISITOR.ID_CARD_PHOTO);
+                    }
                     else
                     {
                         txtCarInfo.Text = "ไม่ได้นำรถมา";
@@ -61,6 +69,23 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
 
                 }
+            }
+        }
+
+        public Bitmap ByteToImage(byte[] blob)
+        {
+            try
+            {
+                MemoryStream mStream = new MemoryStream();
+                byte[] pData = blob;
+                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                Bitmap bm = new Bitmap(mStream, false);
+                mStream.Dispose();
+                return bm;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -195,6 +220,19 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 MessageBox.Show(ex.Message);
 
+            }
+        }
+
+        private void txtNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

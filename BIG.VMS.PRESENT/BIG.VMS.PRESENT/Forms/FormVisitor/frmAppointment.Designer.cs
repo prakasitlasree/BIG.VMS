@@ -187,13 +187,9 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 13);
-            this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 7);
-            this.tableLayoutPanel4.Controls.Add(this.Lbl_Topic, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_IDCard, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_FirstName, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 7);
-            this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.txtIDCard, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtLastName, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtFirstName, 1, 3);
@@ -202,6 +198,10 @@
             this.tableLayoutPanel4.Controls.Add(this.dtContactDate, 1, 12);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 12);
             this.tableLayoutPanel4.Controls.Add(this.dtTime, 1, 13);
+            this.tableLayoutPanel4.Controls.Add(this.Lbl_Topic, 0, 7);
+            this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.txtMeet, 1, 6);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 70);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -242,7 +242,7 @@
             this.Lbl_MeetPeople.AutoSize = true;
             this.Lbl_MeetPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_MeetPeople.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 179);
+            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 142);
             this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
             this.Lbl_MeetPeople.Size = new System.Drawing.Size(171, 25);
             this.Lbl_MeetPeople.TabIndex = 5;
@@ -254,7 +254,7 @@
             this.Lbl_Topic.AutoSize = true;
             this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Topic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_Topic.Location = new System.Drawing.Point(57, 142);
+            this.Lbl_Topic.Location = new System.Drawing.Point(57, 179);
             this.Lbl_Topic.Name = "Lbl_Topic";
             this.Lbl_Topic.Size = new System.Drawing.Size(117, 25);
             this.Lbl_Topic.TabIndex = 4;
@@ -300,7 +300,7 @@
             // 
             this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMeet.Enabled = false;
-            this.txtMeet.Location = new System.Drawing.Point(180, 176);
+            this.txtMeet.Location = new System.Drawing.Point(180, 139);
             this.txtMeet.Name = "txtMeet";
             this.txtMeet.Size = new System.Drawing.Size(626, 31);
             this.txtMeet.TabIndex = 12;
@@ -309,7 +309,7 @@
             // 
             this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTopic.Enabled = false;
-            this.txtTopic.Location = new System.Drawing.Point(180, 139);
+            this.txtTopic.Location = new System.Drawing.Point(180, 176);
             this.txtTopic.Name = "txtTopic";
             this.txtTopic.Size = new System.Drawing.Size(626, 31);
             this.txtTopic.TabIndex = 10;
@@ -322,6 +322,7 @@
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(626, 31);
             this.txtIDCard.TabIndex = 2;
+            this.txtIDCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIDCard_KeyPress);
             // 
             // txtLastName
             // 

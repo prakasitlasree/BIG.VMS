@@ -14,6 +14,7 @@ namespace BIG.VMS.PRESENT
     public partial class PageBase : Form
     {
         public static string LOGIN { get; set; }
+        public static string ROLE { get; set; }
         public PageBase()
         {
             InitializeComponent();

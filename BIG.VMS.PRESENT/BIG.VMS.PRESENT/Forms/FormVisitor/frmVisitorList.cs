@@ -34,9 +34,22 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
             InitialComboBox();
             InitialEventHandler();
+            SetControl();
             ResetScreen();
             gridVisitorList.DataBindingComplete += BindingComplete;
 
+        }
+
+        private void SetControl()
+        {
+           if(ROLE == "ธุรการ")
+            {
+                btnIn.Visible = false;
+                btnOut.Visible = false;
+                gridVisitorList.Columns[0].Visible = false;
+                gridVisitorList.Columns[1].Visible = false;
+                gridVisitorList.Columns[2].Visible = false;
+            }
         }
 
         private void BindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -278,6 +291,18 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         var obj = _service.GetVisitorByAutoID(id);
                         frmVisitor frm = new frmVisitor();
                         frm.visitorObj = obj.TRN_VISITOR;
+                        if(obj.TRN_VISITOR.TYPE == "Appointment")
+                        {
+                            frm.visitorMode = VisitorMode.Appointment;
+                        }
+                        if (obj.TRN_VISITOR.TYPE == "In")
+                        {
+                            frm.visitorMode = VisitorMode.In;
+                        }
+                        if (obj.TRN_VISITOR.TYPE == "Out")
+                        {
+                            frm.visitorMode = VisitorMode.Out;
+                        }
                         frm.formMode = FormMode.Edit;
 
                         if (frm.ShowDialog() == DialogResult.OK)

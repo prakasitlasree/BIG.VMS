@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="BIG_VMSModel.MAS_EMPLOYEE" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="BIG_VMSModel.MAS_PROVINCE" Width="1.5" PointX="0.75" PointY="5.5" />
         <EntityTypeShape EntityType="BIG_VMSModel.MAS_REASON" Width="1.5" PointX="0.75" PointY="24.125" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MEMBER_LOGON" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MEMBER_LOGON" Width="2.625" PointX="7.625" PointY="0.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.SYS_CONFIGURATION" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="BIG_VMSModel.TRN_APPOINTMENT" Width="1.5" PointX="3" PointY="4.375" />

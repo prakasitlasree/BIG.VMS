@@ -35,17 +35,36 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
             try
             {
                 DataTable data = (DataTable)(gridReportList.DataSource);
+                DataTable headerTable = new DataTable("Customers");
+                DataColumn dtColumn;
+                DataRow myDataRow;
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "COMPANY_NAME";
+                headerTable.Columns.Add(dtColumn);
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "USER_PRINT";
+                headerTable.Columns.Add(dtColumn);
+
+                myDataRow = headerTable.NewRow();
+                myDataRow["COMPANY_NAME"] = "BIG Visitor Management";
+                myDataRow["USER_PRINT"] = LOGIN;
+                headerTable.Rows.Add(myDataRow);
+
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
                 rpt.Load(appPath);
-                rpt.SetDataSource(data);
-                // ===== View Report =====
+                rpt.Database.Tables[0].SetDataSource(data);
+                rpt.Database.Tables[1].SetDataSource(headerTable);
+
                 using (Form form = new Form())
                 {
-                    //writeLog("new form");
-                    CrystalReportViewer tempViewer = new CrystalReportViewer();
 
+                    CrystalReportViewer tempViewer = new CrystalReportViewer();
                     tempViewer.ActiveViewIndex = -1;
                     tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                     tempViewer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -53,13 +72,12 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     tempViewer.SelectionFormula = "";
                     tempViewer.TabIndex = 0;
                     tempViewer.ViewTimeSelectionFormula = "";
-
                     tempViewer.ReportSource = rpt;
-                    //writeLog(Convert.ToString(tempViewer.ReportSource));
                     tempViewer.AutoSize = true;
                     tempViewer.Refresh();
                     form.Controls.Add(tempViewer);
-                    form.AutoSize = true;
+                    form.Size = this.Size;
+                    form.StartPosition = FormStartPosition.CenterParent;
                     form.ShowDialog();
                 }
             }
@@ -67,33 +85,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
             {
                 MessageBox.Show(ex.Message);
             }
-            //DGVPrinter printer = new DGVPrinter();
-
-            //CultureInfo _cultureTHInfo = new CultureInfo("th-TH");
-
-            //printer.Title = "รายงาน ณ วันที่ " + Convert.ToDateTime(dtFrom.Value, _cultureTHInfo).ToShortDateString();
-
-            //printer.SubTitle = "รายงานเข้า-ออก";
-
-            //printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
-
-            //                              StringFormatFlags.NoClip;
-
-            //printer.PageNumbers = true;
-
-            //printer.PageNumberInHeader = true;
-
-            //printer.PorportionalColumns = true;
-
-            //printer.HeaderCellAlignment = StringAlignment.Center;
-
-            //printer.Footer = "BIG VMS";
-
-            //printer.FooterSpacing = 15;
-
-            //printer.PageSettings.Landscape = true;
-
-            //printer.PrintDataGridView(gridReportList);
+         
 
         }
 
@@ -142,7 +134,6 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
             return listCol;
         }
-
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -225,7 +216,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
             var filter = new VisitorFilter()
             {
-                //TYPE = "IN",
+              
                 DATE_FROM = ChangeTime(DateTime.Now, 0, 0, 0, 1),
                 DATE_TO = ChangeTime(DateTime.Now, 23, 59, 59, 59),
 
@@ -239,15 +230,36 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                 List<CustomVisitor> listData = (List<CustomVisitor>)_container.ResultObj;
                 DataTable dt = ConvertToDataTable(listData);
 
+                DataTable headerTable = new DataTable("Customers");
+                DataColumn dtColumn ;
+                DataRow myDataRow;
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "COMPANY_NAME";
+                headerTable.Columns.Add(dtColumn);
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "USER_PRINT";
+                headerTable.Columns.Add(dtColumn);
+
+                myDataRow = headerTable.NewRow();
+                myDataRow["COMPANY_NAME"] = "BIG Visitor Management";
+                myDataRow["USER_PRINT"] = LOGIN;
+                headerTable.Rows.Add(myDataRow);
+
+
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
                 rpt.Load(appPath);
-                rpt.SetDataSource(dt);
-                // ===== View Report =====
+                rpt.Database.Tables[0].SetDataSource(dt);
+                rpt.Database.Tables[1].SetDataSource(headerTable);
+               
                 using (Form form = new Form())
                 {
-                    //writeLog("new form");
+                    
                     CrystalReportViewer tempViewer = new CrystalReportViewer();
 
                     tempViewer.ActiveViewIndex = -1;
@@ -257,16 +269,15 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     tempViewer.SelectionFormula = "";
                     tempViewer.TabIndex = 0;
                     tempViewer.ViewTimeSelectionFormula = "";
-
-                    tempViewer.ReportSource = rpt;
-                    //writeLog(Convert.ToString(tempViewer.ReportSource));
+                    tempViewer.ReportSource = rpt;               
                     tempViewer.AutoSize = true;
                     tempViewer.Refresh();
                     form.Controls.Add(tempViewer);
-                    form.AutoSize = true;
+                    form.Size = this.Size;
+                    form.StartPosition = FormStartPosition.CenterParent;
                     form.ShowDialog();
                 }
-                //rpt.PrintToPrinter(1, true, 0, 0);
+              
             }
 
             SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
@@ -279,7 +290,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             var filter = new VisitorFilter()
             {
-                //TYPE = "IN",
+                
                 DATE_FROM =ChangeTime(firstDayOfMonth,0,0,0,1),
                 DATE_TO = ChangeTime(lastDayOfMonth, 23, 59, 59, 59),
 
@@ -292,35 +303,52 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
             {
                 List<CustomVisitor> listData = (List<CustomVisitor>)_container.ResultObj;
                 DataTable dt = ConvertToDataTable(listData);
+                DataTable headerTable = new DataTable("Customers");
+                DataColumn dtColumn;
+                DataRow myDataRow;
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "COMPANY_NAME";
+                headerTable.Columns.Add(dtColumn);
+
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = "USER_PRINT";
+                headerTable.Columns.Add(dtColumn);
+
+                myDataRow = headerTable.NewRow();
+                myDataRow["COMPANY_NAME"] = "BIG Visitor Management";
+                myDataRow["USER_PRINT"] = LOGIN;
+                headerTable.Rows.Add(myDataRow);
 
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var appPath = Application.StartupPath + "\\" + "VisitorListReport.rpt";
                 rpt.Load(appPath);
-                rpt.SetDataSource(dt);
-                // ===== View Report =====
+                rpt.Database.Tables[0].SetDataSource(dt);
+                rpt.Database.Tables[1].SetDataSource(headerTable);
+
                 using (Form form = new Form())
                 {
-                    //writeLog("new form");
+                   
                     CrystalReportViewer tempViewer = new CrystalReportViewer();
-
                     tempViewer.ActiveViewIndex = -1;
                     tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                     tempViewer.Dock = System.Windows.Forms.DockStyle.Fill;
                     tempViewer.Name = "tempViewer";
                     tempViewer.SelectionFormula = "";
                     tempViewer.TabIndex = 0;
-                    tempViewer.ViewTimeSelectionFormula = "";
-
-                    tempViewer.ReportSource = rpt;
-                    //writeLog(Convert.ToString(tempViewer.ReportSource));
+                    tempViewer.ViewTimeSelectionFormula = "";               
+                    tempViewer.ReportSource = rpt;                  
                     tempViewer.AutoSize = true;
                     tempViewer.Refresh();
                     form.Controls.Add(tempViewer);
-                    form.AutoSize = true;
+                    form.Size = this.Size;
+                    form.StartPosition = FormStartPosition.CenterParent;
                     form.ShowDialog();
                 }
-                //rpt.PrintToPrinter(1, true, 0, 0);
+                
             }
 
             SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);

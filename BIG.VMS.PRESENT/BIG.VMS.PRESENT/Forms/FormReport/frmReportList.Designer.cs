@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrintReport = new System.Windows.Forms.Button();
+            this.btnPrintMonth = new System.Windows.Forms.Button();
+            this.btnPrintToday = new System.Windows.Forms.Button();
             this.gridReportList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,8 +43,6 @@
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnPrintMonth = new System.Windows.Forms.Button();
-            this.btnPrintToday = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReportList)).BeginInit();
@@ -63,63 +64,114 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 661);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1091, 661);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnPrintReport);
+            this.panel1.Controls.Add(this.btnPrintMonth);
+            this.panel1.Controls.Add(this.btnPrintToday);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 598);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1276, 59);
+            this.panel1.Size = new System.Drawing.Size(1083, 59);
             this.panel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(397, 0);
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(911, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 59);
             this.button1.TabIndex = 3;
             this.button1.Text = "ออก";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // btnExport
             // 
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnExport.BackColor = System.Drawing.Color.White;
             this.btnExport.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.ForeColor = System.Drawing.Color.Black;
-            this.btnExport.Location = new System.Drawing.Point(143, 0);
+            this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(657, 0);
             this.btnExport.Margin = new System.Windows.Forms.Padding(8);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(254, 59);
             this.btnExport.TabIndex = 4;
             this.btnExport.Text = "นำออก Excel";
+            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btnPrintReport.BackColor = System.Drawing.Color.White;
             this.btnPrintReport.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnPrintReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintReport.Location = new System.Drawing.Point(0, 0);
+            this.btnPrintReport.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnPrintReport.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.Image")));
+            this.btnPrintReport.Location = new System.Drawing.Point(402, 0);
             this.btnPrintReport.Margin = new System.Windows.Forms.Padding(8);
             this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Size = new System.Drawing.Size(143, 59);
+            this.btnPrintReport.Size = new System.Drawing.Size(255, 59);
             this.btnPrintReport.TabIndex = 1;
-            this.btnPrintReport.Text = "พิมพ์รายงาน";
+            this.btnPrintReport.Text = "พิมพ์รายงานการค้นหา";
+            this.btnPrintReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrintReport.UseVisualStyleBackColor = false;
             this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            // 
+            // btnPrintMonth
+            // 
+            this.btnPrintMonth.BackColor = System.Drawing.Color.White;
+            this.btnPrintMonth.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintMonth.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnPrintMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintMonth.Image")));
+            this.btnPrintMonth.Location = new System.Drawing.Point(197, 0);
+            this.btnPrintMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintMonth.Name = "btnPrintMonth";
+            this.btnPrintMonth.Size = new System.Drawing.Size(205, 59);
+            this.btnPrintMonth.TabIndex = 6;
+            this.btnPrintMonth.Text = "พิมพ์รายเดือน";
+            this.btnPrintMonth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintMonth.UseVisualStyleBackColor = false;
+            this.btnPrintMonth.Click += new System.EventHandler(this.btnPrintMonth_Click);
+            // 
+            // btnPrintToday
+            // 
+            this.btnPrintToday.BackColor = System.Drawing.Color.White;
+            this.btnPrintToday.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintToday.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnPrintToday.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintToday.Image")));
+            this.btnPrintToday.Location = new System.Drawing.Point(0, 0);
+            this.btnPrintToday.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintToday.Name = "btnPrintToday";
+            this.btnPrintToday.Size = new System.Drawing.Size(197, 59);
+            this.btnPrintToday.TabIndex = 5;
+            this.btnPrintToday.Text = "พิมพ์รายวัน";
+            this.btnPrintToday.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintToday.UseVisualStyleBackColor = false;
+            this.btnPrintToday.Click += new System.EventHandler(this.btnPrintToday_Click);
             // 
             // gridReportList
             // 
@@ -128,11 +180,12 @@
             this.gridReportList.Location = new System.Drawing.Point(4, 70);
             this.gridReportList.Margin = new System.Windows.Forms.Padding(4);
             this.gridReportList.Name = "gridReportList";
-            this.gridReportList.Size = new System.Drawing.Size(1276, 520);
+            this.gridReportList.Size = new System.Drawing.Size(1083, 520);
             this.gridReportList.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -146,14 +199,12 @@
             this.tableLayoutPanel2.Controls.Add(this.dtFrom, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.dtTo, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnPrintMonth, 6, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnPrintToday, 5, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1276, 58);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1083, 58);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -207,52 +258,28 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.Blue;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.Location = new System.Drawing.Point(620, 4);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(128, 50);
+            this.btnSearch.Size = new System.Drawing.Size(203, 50);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnPrintMonth
-            // 
-            this.btnPrintMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnPrintMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintMonth.Location = new System.Drawing.Point(917, 4);
-            this.btnPrintMonth.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintMonth.Name = "btnPrintMonth";
-            this.btnPrintMonth.Size = new System.Drawing.Size(153, 50);
-            this.btnPrintMonth.TabIndex = 6;
-            this.btnPrintMonth.Text = "พิมพ์รายเดือน";
-            this.btnPrintMonth.UseVisualStyleBackColor = false;
-            this.btnPrintMonth.Click += new System.EventHandler(this.btnPrintMonth_Click);
-            // 
-            // btnPrintToday
-            // 
-            this.btnPrintToday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnPrintToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintToday.Location = new System.Drawing.Point(756, 4);
-            this.btnPrintToday.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintToday.Name = "btnPrintToday";
-            this.btnPrintToday.Size = new System.Drawing.Size(153, 50);
-            this.btnPrintToday.TabIndex = 5;
-            this.btnPrintToday.Text = "พิมพ์รายวัน";
-            this.btnPrintToday.UseVisualStyleBackColor = false;
-            this.btnPrintToday.Click += new System.EventHandler(this.btnPrintToday_Click);
             // 
             // frmReportList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ClientSize = new System.Drawing.Size(1091, 661);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBlackList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtReason = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -69,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(684, 347);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(684, 306);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtReason
@@ -157,7 +158,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(515, 88);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(515, 47);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // btnCancel
@@ -166,22 +167,25 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(260, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(252, 82);
+            this.btnCancel.Size = new System.Drawing.Size(252, 41);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnBlacklist
             // 
-            this.btnBlacklist.BackColor = System.Drawing.Color.Red;
+            this.btnBlacklist.BackColor = System.Drawing.Color.White;
             this.btnBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBlacklist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlacklist.ForeColor = System.Drawing.Color.White;
+            this.btnBlacklist.ForeColor = System.Drawing.Color.Red;
+            this.btnBlacklist.Image = ((System.Drawing.Image)(resources.GetObject("btnBlacklist.Image")));
             this.btnBlacklist.Location = new System.Drawing.Point(3, 3);
             this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(251, 82);
+            this.btnBlacklist.Size = new System.Drawing.Size(251, 41);
             this.btnBlacklist.TabIndex = 0;
             this.btnBlacklist.Text = "Black List";
+            this.btnBlacklist.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBlacklist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBlacklist.UseVisualStyleBackColor = false;
             this.btnBlacklist.Click += new System.EventHandler(this.btnBlacklist_Click);
             // 
@@ -190,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(684, 347);
+            this.ClientSize = new System.Drawing.Size(684, 306);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -198,7 +202,7 @@
             this.MinimizeBox = false;
             this.Name = "frmBlackList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmBlackList";
+            this.Text = "เพิ่มแบล็คลิสต์";
             this.Load += new System.EventHandler(this.frmBlackList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

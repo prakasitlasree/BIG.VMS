@@ -107,6 +107,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     {
                         label5.Text = "นัดล่วงหน้า";
                     }
+                    if (visitorMode == VisitorMode.In)
+                    {
+                        label5.Text = "เข้า";
+                    }
+                    if (visitorMode == VisitorMode.Out)
+                    {
+                        label5.Text = "ออก";
+                    }
 
                     #endregion
                     txtIDCard.Text = visitorObj.ID_CARD;
@@ -412,7 +420,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if (formMode == FormMode.Add)
             {
 
-                if (defaultImage != picCard.Image)
+                if (defaultImage != picCard.Image && defaultImage != picPhoto.Image)
                 {
                     return true;
                 }
