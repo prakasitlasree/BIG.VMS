@@ -115,7 +115,7 @@ namespace BIG.VMS.DATASERVICE
                                 select new CustomVisitor
                                 {
                                     AUTO_ID = item.AUTO_ID,
-                                    NO =item.NO,
+                                    NO = item.NO,
                                     ID_CARD = item.ID_CARD,
                                     //ID_CARD_PHOTO = item.ID_CARD_PHOTO, Comment ออกเพราะช้ามากๆ
                                     TYPE = item.TYPE,
@@ -132,13 +132,13 @@ namespace BIG.VMS.DATASERVICE
                                     CREATED_DATE = item.CREATED_DATE,
                                     UPDATED_BY = item.UPDATED_BY,
                                     UPDATED_DATE = item.UPDATED_DATE,
-                                   
-                                    CONTACT_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " +item.MAS_EMPLOYEE.LAST_NAME,
+
+                                    CONTACT_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME,
                                     CAR_TYPE_NAME = item.MAS_CAR_MODEL.NAME,
                                     FULL_NAME = item.FIRST_NAME + " " + item.LAST_NAME,
                                     DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME,
-                                    TIME_IN  = item.CREATED_DATE,
-                                    TOPIC  = item.MAS_REASON.REASON
+                                    TIME_IN = item.CREATED_DATE,
+                                    TOPIC = item.MAS_REASON.REASON
 
                                 }).ToList();
 
@@ -159,7 +159,11 @@ namespace BIG.VMS.DATASERVICE
                         }
                         else if (item.TYPE == "Appointment")
                         {
-                            item.TYPE = "นัดล่วงหน้า";
+                            item.TYPE = "นัดล่วงหน้า(เข้า)";
+                        }
+                        else if (item.TYPE == "AppointmentOut")
+                        {
+                            item.TYPE = "นัดล่วงหน้า(ออก)";
                         }
 
                     }
@@ -214,21 +218,21 @@ namespace BIG.VMS.DATASERVICE
                     {
 
 
-                        updateData.ID_CARD = visitorObj.ID_CARD;                   
+                        updateData.ID_CARD = visitorObj.ID_CARD;
                         updateData.FIRST_NAME = visitorObj.FIRST_NAME;
                         updateData.LAST_NAME = visitorObj.LAST_NAME;
                         updateData.CAR_MODEL_ID = visitorObj.CAR_MODEL_ID;
                         updateData.LICENSE_PLATE = visitorObj.LICENSE_PLATE;
                         updateData.LICENSE_PLATE_PROVINCE_ID = visitorObj.LICENSE_PLATE_PROVINCE_ID;
                         updateData.REASON_ID = visitorObj.REASON_ID;
-                        updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;                   
+                        updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
                         updateData.UPDATED_DATE = DateTime.Now;
                         updateData.UPDATED_BY = visitorObj.UPDATED_BY;
-                        if(obj.TRN_VISITOR.CONTACT_PHOTO != null)
+                        if (obj.TRN_VISITOR.CONTACT_PHOTO != null)
                         {
                             updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
                         }
-                        
+
                         ctx.SaveChanges();
                         result.Status = true;
                         result.Message = "บันทึกข้อมูลเรียบร้อย";
@@ -276,11 +280,11 @@ namespace BIG.VMS.DATASERVICE
                     {
                         query = query.Where(o => o.NO == filter.NO);
                     }
-                    if(filter.DATE_TO != null&& filter.DATE_TO != DateTime.MinValue)
+                    if (filter.DATE_TO != null && filter.DATE_TO != DateTime.MinValue)
                     {
                         var endDate = filter.DATE_TO.AddDays(1);
                         query = query.Where(x => x.CREATED_DATE >= filter.DATE_TO && x.CREATED_DATE <= endDate);
-                        
+
                     }
 
                     query.OrderByDescending(o => o.UPDATED_DATE);
@@ -306,17 +310,43 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
-                    no = no.PadLeft(6, '0');
+                    DateTime today = DateTime.Today;
+                    DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1).AddDays(-1);
+
+                    var startMonth = DateTime.Now.Month;
+                    var year = DateTime.Now.Year;
+                    var endMonth = DateTime.Now.Month;
+                    if (today == endOfMonth)
+                    {
+                        endMonth = endMonth - 1;
+
+                    }
+                  
+
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
-                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment") && o.STATUS == 1)
-                                          .OrderByDescending(x => x.NO).FirstOrDefault();
+                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
+                                          .Where(o => (o.MONTH >= startMonth && o.MONTH <= endMonth) && o.YEAR == year)
+                                          .OrderByDescending(x => x.NO).ToList();
 
-                    if (reTrnVisitor != null)
+                    if (reTrnVisitor.Count > 0)
                     {
-
-                        result.TRN_VISITOR = reTrnVisitor;
-                        result.Status = true;
+                        if (reTrnVisitor.Any(o => o.STATUS == 2))
+                        {
+                            TRN_VISITOR visit = new TRN_VISITOR()
+                            {
+                                AUTO_ID = 0,
+                                NO = "0",
+                            };
+                            result.TRN_VISITOR = visit;
+                            result.Status = true;
+                            result.Message = "หมายเลขนี้ได้ออกไปแล้ว";
+                        }
+                        else
+                        {
+                            result.TRN_VISITOR = reTrnVisitor.FirstOrDefault();
+                            result.Status = true;
+                        }
 
                     }
                     else
@@ -328,6 +358,7 @@ namespace BIG.VMS.DATASERVICE
                         };
                         result.TRN_VISITOR = visit;
                         result.Status = true;
+                        result.Message = "ไม่พบข้อมูล";
                     }
                 }
             }
@@ -389,7 +420,7 @@ namespace BIG.VMS.DATASERVICE
 
                     var reParameter = ctx.SYS_CONFIGURATION.Where(x => x.MODULE == "SLIP" && x.NAME == "COMPANY_NAME").FirstOrDefault();
                     string company = "";
-                    if (reParameter!= null)
+                    if (reParameter != null)
                     {
                         company = reParameter.VALUE;
                     }
@@ -574,18 +605,18 @@ namespace BIG.VMS.DATASERVICE
                                         PROVINCE = item.MAS_PROVINCE != null ? item.MAS_PROVINCE.NAME : "",
                                         CONTACT_NAME = item.MAS_EMPLOYEE != null ? item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME : "",
                                         TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
-                                        TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
+                                        TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Appointment" ? "นัดล่วงหน้า(เข้า)" : (item.TYPE == "AppointmentOut" ? "นัดล่วงหน้า(ออก)" : "ไม่ระบุ"))),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
                                         ID_CARD_PHOTO = item.ID_CARD_PHOTO,
                                         CONTACT_PHOTO = item.CONTACT_PHOTO,
                                         CREATED_BY = item.CREATED_BY,
-                                        CREATED_DATE = item .CREATED_DATE,
+                                        CREATED_DATE = item.CREATED_DATE,
                                         UPDATED_BY = item.UPDATED_BY,
                                         UPDATED_DATE = item.UPDATED_DATE
 
-                                        
 
-                                    }).ToList();
+
+                                    }).OrderByDescending(x=>x.CREATED_DATE).ToList();
 
 
                     }

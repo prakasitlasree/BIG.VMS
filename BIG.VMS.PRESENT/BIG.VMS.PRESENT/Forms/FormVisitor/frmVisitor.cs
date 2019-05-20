@@ -72,7 +72,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     int no = Convert.ToInt32(res.TRN_VISITOR.NO);
                     no = no + 1;
-                    txtNo.Text = no.ToString("D6");
+                    txtNo.Text = no.ToString();
                 }
                 else
                 {
@@ -247,7 +247,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     LICENSE_PLATE_PROVINCE_ID = provinceId,
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
-
+                    YEAR = DateTime.Now.Year,
+                    MONTH = DateTime.Now.Month
 
                 };
 
@@ -527,11 +528,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     txtCar.Text = frm.SELECTED_CAR_TEXT;
                     if(frm.SELECTED_CAR_TEXT == "เดินเท้า")
                     {
-                        txtLicense.Text = "ไม่ระบุ";
+                        txtLicense.Text = "";
                         txtLicense.Enabled = false;
+                        Lbl_LicensePlate.Visible = false;
+                        txtLicense.Visible = false;
                     }
                     else
                     {
+                        Lbl_LicensePlate.Visible = true;
+                        txtLicense.Visible = true;
                         txtLicense.Enabled = true;
                     }
                 }

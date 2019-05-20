@@ -61,7 +61,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 else
                 {
 
-                    MessageBox.Show("ไม่มีข้อมูล", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(res.Message, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtPersonInfo.Text = "";
                     txtCarInfo.Text = "";
                     _container.TRN_VISITOR = null;
@@ -114,10 +114,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             var obj = new TRN_VISITOR()
                             {
 
-                                NO = no.ToString("D6"),
+                                NO = no.ToString(),
                                 ID_CARD = org_obj.ID_CARD,
                                 ID_CARD_PHOTO = org_obj.ID_CARD_PHOTO,
-                                TYPE = "Out",
+                                TYPE = org_obj.TYPE == "Appointment" ? "AppointmentOut" : "Out",
                                 FIRST_NAME = org_obj.FIRST_NAME,
                                 LAST_NAME = org_obj.LAST_NAME,
                                 CAR_MODEL_ID = org_obj.CAR_MODEL_ID,
@@ -130,8 +130,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 CREATED_BY = LOGIN,
                                 UPDATED_BY = LOGIN,
                                 CREATED_DATE = DateTime.Now,
-                                UPDATED_DATE = DateTime.Now
-
+                                UPDATED_DATE = DateTime.Now,
+                                YEAR = org_obj.YEAR,
+                                MONTH = org_obj.MONTH,
 
                             };
 
