@@ -108,7 +108,7 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    var list = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).ToList();
+                    var list = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).AsEnumerable();
 
                     var listData = new List<CustomVisitor>();
                     listData = (from item in list
@@ -117,7 +117,7 @@ namespace BIG.VMS.DATASERVICE
                                     AUTO_ID = item.AUTO_ID,
                                     NO =item.NO,
                                     ID_CARD = item.ID_CARD,
-                                    ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                    //ID_CARD_PHOTO = item.ID_CARD_PHOTO, Comment ออกเพราะช้ามากๆ
                                     TYPE = item.TYPE,
                                     FIRST_NAME = item.FIRST_NAME,
                                     LAST_NAME = item.LAST_NAME,
@@ -126,7 +126,7 @@ namespace BIG.VMS.DATASERVICE
                                     LICENSE_PLATE_PROVINCE_ID = item.LICENSE_PLATE_PROVINCE_ID,
                                     REASON_ID = item.REASON_ID,
                                     CONTACT_EMPLOYEE_ID = item.CONTACT_EMPLOYEE_ID,
-                                    CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                    //CONTACT_PHOTO = item.CONTACT_PHOTO, Comment ออกเพราะช้ามากๆ
                                     STATUS = item.STATUS,
                                     CREATED_BY = item.CREATED_BY,
                                     CREATED_DATE = item.CREATED_DATE,
