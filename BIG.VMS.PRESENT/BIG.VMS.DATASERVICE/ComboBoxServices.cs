@@ -17,7 +17,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_TYPE.ToList();
+                    var list = ctx.MAS_CAR_TYPE.OrderBy(o=>o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -41,7 +41,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_TYPE.Where(o=>o.NAME.Contains(filter)).ToList();
+                    var list = ctx.MAS_CAR_TYPE.Where(o=>o.NAME.Contains(filter)).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -66,7 +66,7 @@ namespace BIG.VMS.DATASERVICE
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
 
-                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID).ToList();
+                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID).OrderBy(o=>o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -91,7 +91,7 @@ namespace BIG.VMS.DATASERVICE
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
 
-                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID && o.NAME.Contains(filter)).ToList();
+                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID && o.NAME.Contains(filter)).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -115,7 +115,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_MODEL.Where(o => o.BRAND_ID == carBrandID).ToList();
+                    var list = ctx.MAS_CAR_MODEL.Where(o => o.BRAND_ID == carBrandID).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -139,7 +139,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_MODEL.Where(o => o.BRAND_ID == carBrandID && o.NAME.Contains(filter)).ToList();
+                    var list = ctx.MAS_CAR_MODEL.Where(o => o.BRAND_ID == carBrandID && o.NAME.Contains(filter)).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -163,7 +163,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_MODEL.ToList();
+                    var list = ctx.MAS_CAR_MODEL.OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();

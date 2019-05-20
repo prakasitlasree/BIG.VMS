@@ -81,6 +81,8 @@
             this.btnUploadCam = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnDeleteCam = new System.Windows.Forms.Button();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLicense = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,6 +96,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -323,6 +326,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel8, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.chkKeyIn, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_IDCard, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 4);
@@ -338,7 +342,6 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 1, 7);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Vahicle, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_LicensePlate, 0, 8);
-            this.tableLayoutPanel4.Controls.Add(this.txtLicense, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Topic, 0, 11);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_MeetPeople, 0, 9);
             this.tableLayoutPanel4.Controls.Add(this.txtTopic, 1, 11);
@@ -556,7 +559,7 @@
             this.Lbl_LicensePlate.AutoSize = true;
             this.Lbl_LicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_LicensePlate.ForeColor = System.Drawing.Color.Crimson;
-            this.Lbl_LicensePlate.Location = new System.Drawing.Point(28, 286);
+            this.Lbl_LicensePlate.Location = new System.Drawing.Point(28, 303);
             this.Lbl_LicensePlate.Name = "Lbl_LicensePlate";
             this.Lbl_LicensePlate.Size = new System.Drawing.Size(161, 25);
             this.Lbl_LicensePlate.TabIndex = 3;
@@ -565,9 +568,9 @@
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(195, 283);
+            this.txtLicense.Location = new System.Drawing.Point(3, 17);
             this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(618, 31);
+            this.txtLicense.Size = new System.Drawing.Size(303, 31);
             this.txtLicense.TabIndex = 3;
             // 
             // Lbl_Topic
@@ -576,7 +579,7 @@
             this.Lbl_Topic.AutoSize = true;
             this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Topic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_Topic.Location = new System.Drawing.Point(72, 364);
+            this.Lbl_Topic.Location = new System.Drawing.Point(72, 399);
             this.Lbl_Topic.Name = "Lbl_Topic";
             this.Lbl_Topic.Size = new System.Drawing.Size(117, 25);
             this.Lbl_Topic.TabIndex = 4;
@@ -588,7 +591,7 @@
             this.Lbl_MeetPeople.AutoSize = true;
             this.Lbl_MeetPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_MeetPeople.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_MeetPeople.Location = new System.Drawing.Point(18, 323);
+            this.Lbl_MeetPeople.Location = new System.Drawing.Point(18, 358);
             this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
             this.Lbl_MeetPeople.Size = new System.Drawing.Size(171, 25);
             this.Lbl_MeetPeople.TabIndex = 5;
@@ -598,7 +601,7 @@
             // 
             this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTopic.Enabled = false;
-            this.txtTopic.Location = new System.Drawing.Point(195, 361);
+            this.txtTopic.Location = new System.Drawing.Point(195, 396);
             this.txtTopic.Name = "txtTopic";
             this.txtTopic.Size = new System.Drawing.Size(618, 31);
             this.txtTopic.TabIndex = 10;
@@ -607,7 +610,7 @@
             // 
             this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMeet.Enabled = false;
-            this.txtMeet.Location = new System.Drawing.Point(195, 320);
+            this.txtMeet.Location = new System.Drawing.Point(195, 355);
             this.txtMeet.Name = "txtMeet";
             this.txtMeet.Size = new System.Drawing.Size(618, 31);
             this.txtMeet.TabIndex = 12;
@@ -798,6 +801,39 @@
             this.btnDeleteCam.UseVisualStyleBackColor = true;
             this.btnDeleteCam.Click += new System.EventHandler(this.btnDeleteCam_Click);
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.btnLicense, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.txtLicense, 0, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(195, 283);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(618, 66);
+            this.tableLayoutPanel8.TabIndex = 19;
+            // 
+            // btnLicense
+            // 
+            this.btnLicense.BackColor = System.Drawing.Color.White;
+            this.btnLicense.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLicense.ForeColor = System.Drawing.Color.Crimson;
+            this.btnLicense.Image = ((System.Drawing.Image)(resources.GetObject("btnLicense.Image")));
+            this.btnLicense.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLicense.Location = new System.Drawing.Point(315, 6);
+            this.btnLicense.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLicense.Name = "btnLicense";
+            this.btnLicense.Size = new System.Drawing.Size(297, 54);
+            this.btnLicense.TabIndex = 0;
+            this.btnLicense.Text = "ทะเบียนรถ";
+            this.btnLicense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLicense.UseVisualStyleBackColor = false;
+            this.btnLicense.Click += new System.EventHandler(this.btnLicense_Click);
+            // 
             // frmVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -831,6 +867,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -889,5 +927,7 @@
         private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Button btnLicense;
     }
 }

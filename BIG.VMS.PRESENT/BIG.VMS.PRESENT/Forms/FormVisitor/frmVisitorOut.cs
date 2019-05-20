@@ -19,7 +19,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
     {
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
-
+        private bool isChangePhoto;
         public frmVisitorOut()
         {
             InitializeComponent();
@@ -135,8 +135,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 MONTH = org_obj.MONTH,
 
                             };
+                            if (isChangePhoto)
+                            {
+                                obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                            }
 
-                            obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                           
                             var container = new ContainerVisitor { TRN_VISITOR = obj };
                             res = _service.Create(container);
 
@@ -211,6 +215,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (frm.CAMERA != null)
                     {
+                        isChangePhoto = true;
                         picPhoto.Image = frm.CAMERA;
                     }
                     // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");

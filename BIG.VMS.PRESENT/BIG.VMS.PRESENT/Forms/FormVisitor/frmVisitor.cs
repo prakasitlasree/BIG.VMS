@@ -150,7 +150,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
                     else
                     {
-                        txtProvince.Text = "";
+                        txtLicense.Text = "";
+                        txtLicense.Enabled = false;
+                        Lbl_LicensePlate.Visible = false;
+                        txtLicense.Visible = false;
+                        Lbl_Vahicle.Visible = false;
+                        txtProvince.Visible = false;
+                        btnProvince.Visible = false;
+                        provinceId = 0;
                     }
 
                     if (visitorObj.MAS_CAR_MODEL != null)
@@ -349,6 +356,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     {
                         obj.CONTACT_PHOTO = ImageToByte(picPhoto);
                     }
+
 
                     //obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
@@ -569,6 +577,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         Lbl_Vahicle.Visible = false;
                         txtProvince.Visible = false;
                         btnProvince.Visible = false;
+                        btnLicense.Visible = false;
+                        tableLayoutPanel2.Visible = false;
+                        tableLayoutPanel8.Visible = false;
+                        provinceId = 0;
                     }
                     else
                     {
@@ -578,6 +590,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         Lbl_Vahicle.Visible = true;
                         txtProvince.Visible = true;
                         btnProvince.Visible = true;
+                        btnLicense.Visible = true;
+                        tableLayoutPanel2.Visible = true;
+                        tableLayoutPanel8.Visible = true;
                     }
                 }
             }
@@ -755,6 +770,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     string path = dialog.FileName;
                     picPhoto.Image = Image.FromFile(path);
+                    isChangePhoto = true;
                 }
 
             }
@@ -786,6 +802,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnLicense_Click(object sender, EventArgs e)
+        {
+            frmKeyboard frm = new frmKeyboard();
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                txtLicense.Text = frm.license;
             }
         }
     }

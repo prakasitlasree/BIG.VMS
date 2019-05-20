@@ -205,6 +205,12 @@
     <Compile Include="Forms\FormVisitor\frmBlacklistList.Designer.cs">
       <DependentUpon>frmBlacklistList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmKeyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmKeyboard.Designer.cs">
+      <DependentUpon>frmKeyboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmBlacklistList.resx">
       <DependentUpon>frmBlacklistList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmKeyboard.resx">
+      <DependentUpon>frmKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
