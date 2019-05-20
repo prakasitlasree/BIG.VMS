@@ -35,7 +35,6 @@ namespace BIG.VMS.DAL
         public DbSet<MAS_REASON> MAS_REASON { get; set; }
         public DbSet<MEMBER_LOGON> MEMBER_LOGON { get; set; }
         public DbSet<SYS_CONFIGURATION> SYS_CONFIGURATION { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
         public DbSet<TRN_BLACKLIST> TRN_BLACKLIST { get; set; }
         public DbSet<TRN_VISITOR> TRN_VISITOR { get; set; }

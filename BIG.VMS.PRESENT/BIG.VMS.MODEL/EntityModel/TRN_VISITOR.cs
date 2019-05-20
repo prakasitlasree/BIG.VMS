@@ -15,6 +15,8 @@ namespace BIG.VMS.MODEL.EntityModel
     public partial class TRN_VISITOR
     {
         public int AUTO_ID { get; set; }
+        public Nullable<int> YEAR { get; set; }
+        public Nullable<int> MONTH { get; set; }
         public string NO { get; set; }
         public string ID_CARD { get; set; }
         public byte[] ID_CARD_PHOTO { get; set; }
