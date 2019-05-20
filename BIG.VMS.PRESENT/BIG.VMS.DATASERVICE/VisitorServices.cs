@@ -321,7 +321,7 @@ namespace BIG.VMS.DATASERVICE
                         endMonth = endMonth - 1;
 
                     }
-                  
+
 
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
@@ -616,7 +616,7 @@ namespace BIG.VMS.DATASERVICE
 
 
 
-                                    }).OrderByDescending(x=>x.CREATED_DATE).ToList();
+                                    }).OrderByDescending(x => x.CREATED_DATE).ToList();
 
 
                     }

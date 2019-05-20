@@ -31,14 +31,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private readonly BlackListServices _blService = new BlackListServices();
 
         private Image defaultImage;
-
+        private Image defaultPhoto;
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;
         public int provinceId = 0;
         public int carModelId = 0;
         public int reasonId = 0;
-        public bool manualUploadPhoto_idcard;
+        public bool isChangeCardPhoto;
         public bool isChangePhoto = false;
+
         public Image CARD_IMAGE { get; set; }
 
         public byte[] BYTE_IMAGE { get; set; }
@@ -53,6 +54,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 defaultImage = picCard.Image;
+                defaultPhoto = picPhoto.Image;
                 InitialLoad();
                 SetControl();
             }
@@ -244,13 +246,22 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     CONTACT_EMPLOYEE_ID = contactEmployeeId,
                     CAR_MODEL_ID = carModelId,
                     REASON_ID = reasonId,
-                    LICENSE_PLATE_PROVINCE_ID = provinceId,
+                    
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
                     YEAR = DateTime.Now.Year,
                     MONTH = DateTime.Now.Month
 
                 };
+
+                if(provinceId == 0)
+                {
+                    obj.LICENSE_PLATE_PROVINCE_ID = null;
+                }
+                else
+                {
+                    obj.LICENSE_PLATE_PROVINCE_ID = provinceId;
+                }
 
                 if (formMode == FormMode.Add)
                 {
@@ -280,8 +291,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     var obj = GetObjectfromControl();
 
-                    obj.CONTACT_PHOTO = ImageToByte(picPhoto);
-                    if (manualUploadPhoto_idcard)
+                    if (isChangePhoto)
+                    {
+                        obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                    }
+                    else
+                    {
+                        obj.CONTACT_PHOTO = BYTE_IMAGE;
+                    }
+                    if (isChangeCardPhoto)
                     {
                         obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     }
@@ -369,7 +387,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-      
+
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
@@ -415,13 +433,30 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 throw;
             }
         }
-
+        private bool IsNeedProvice()
+        {
+            if(txtCar.Text == "เดินเท้า" || txtCar.Text == "ไม่ระบุ")
+            {
+                return true;
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtCar.Text) && !string.IsNullOrEmpty(txtLicense.Text))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
         private bool IsChangePicCard()
         {
             if (formMode == FormMode.Add)
             {
 
-                if (defaultImage != picCard.Image && defaultImage != picPhoto.Image)
+                if (defaultImage != picCard.Image)
                 {
                     return true;
                 }
@@ -461,13 +496,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (!string.IsNullOrEmpty(txtFirstName.Text) &&
                     !string.IsNullOrEmpty(txtLastName.Text) &&
                     !string.IsNullOrEmpty(txtIDCard.Text) &&
-                    !string.IsNullOrEmpty(txtLicense.Text) &&
                     !string.IsNullOrEmpty(txtMeet.Text) &&
-                    !string.IsNullOrEmpty(txtProvince.Text) &&
                     !string.IsNullOrEmpty(txtTopic.Text) &&
                     !string.IsNullOrEmpty(txtCar.Text) &&
                     txtIDCard.TextLength >= 13 &&
-                    contactEmployeeId > 0 && carModelId > 0 && provinceId > 0 && reasonId > 0 && IsChangePicCard())
+                    IsNeedProvice() &&
+                    contactEmployeeId > 0 && carModelId > 0  && reasonId > 0 && IsChangePicCard())
                 {
                     //if (IsValidCheckPersonID(txtIDCard.Text))
                     //{
@@ -526,18 +560,24 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     carModelId = frm.SELECTED_CAR_ID;
                     txtCar.Text = frm.SELECTED_CAR_TEXT;
-                    if(frm.SELECTED_CAR_TEXT == "เดินเท้า")
+                    if (frm.SELECTED_CAR_TEXT == "เดินเท้า" || frm.SELECTED_CAR_TEXT == "ไม่ระบุ")
                     {
                         txtLicense.Text = "";
                         txtLicense.Enabled = false;
                         Lbl_LicensePlate.Visible = false;
                         txtLicense.Visible = false;
+                        Lbl_Vahicle.Visible = false;
+                        txtProvince.Visible = false;
+                        btnProvince.Visible = false;
                     }
                     else
                     {
                         Lbl_LicensePlate.Visible = true;
                         txtLicense.Visible = true;
                         txtLicense.Enabled = true;
+                        Lbl_Vahicle.Visible = true;
+                        txtProvince.Visible = true;
+                        btnProvince.Visible = true;
                     }
                 }
             }
@@ -601,7 +641,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         picCard.Image = (Image)frm.CARD.PHOTO;
                         CARD_IMAGE = frm.CARD.CARD_IMAGE;
                         BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
-                        manualUploadPhoto_idcard = false;
+                        isChangeCardPhoto = false;
                     }
                     else
                     {
@@ -663,7 +703,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     picCard.Image = Image.FromFile(path);
                     CARD_IMAGE = null;
                     BYTE_IMAGE = null;
-                    manualUploadPhoto_idcard = true;
+                    isChangeCardPhoto = true;
                 }
 
             }
@@ -738,7 +778,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void txtIDCard_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&(e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
