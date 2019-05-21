@@ -107,6 +107,9 @@
     <Compile Include="EntityModel\TRN_APPOINTMENT.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModel\TRN_ATTACHEDMENT.cs">
+      <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModel\TRN_BLACKLIST.cs">
       <DependentUpon>BIG_VMS_DB.tt</DependentUpon>
     </Compile>
