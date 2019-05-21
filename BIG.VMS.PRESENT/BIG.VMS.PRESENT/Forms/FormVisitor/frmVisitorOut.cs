@@ -44,14 +44,22 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     {
                         txtCarInfo.Text = _container.TRN_VISITOR.MAS_PROVINCE.NAME + " " + _container.TRN_VISITOR.LICENSE_PLATE;
                     }
-                    if (_container.TRN_VISITOR.CONTACT_PHOTO != null)
+                    if(_container.TRN_VISITOR.TRN_ATTACHEDMENT != null)
                     {
-                        picImage.Image = ByteToImage(_container.TRN_VISITOR.CONTACT_PHOTO);
+                        if(_container.TRN_VISITOR.TRN_ATTACHEDMENT.Count > 0)
+                        {
+                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                            {
+                                picImage.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
+                            }
+                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
+                            {
+                                picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
+                            }
+                        }
+                       
                     }
-                    if (_container.TRN_VISITOR.ID_CARD_PHOTO != null)
-                    {
-                        picCard.Image = ByteToImage(_container.TRN_VISITOR.ID_CARD_PHOTO);
-                    }
+                    
                     else
                     {
                         txtCarInfo.Text = "ไม่ได้นำรถมา";
@@ -116,7 +124,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                                 NO = no.ToString(),
                                 ID_CARD = org_obj.ID_CARD,
-                                ID_CARD_PHOTO = org_obj.ID_CARD_PHOTO,
+                                
                                 TYPE = org_obj.TYPE == "Appointment" ? "AppointmentOut" : "Out",
                                 FIRST_NAME = org_obj.FIRST_NAME,
                                 LAST_NAME = org_obj.LAST_NAME,
@@ -125,7 +133,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 LICENSE_PLATE_PROVINCE_ID = org_obj.LICENSE_PLATE_PROVINCE_ID,
                                 REASON_ID = org_obj.REASON_ID,
                                 CONTACT_EMPLOYEE_ID = org_obj.CONTACT_EMPLOYEE_ID,
-                                CONTACT_PHOTO = org_obj.CONTACT_PHOTO,
+                               
                                 STATUS = 2,
                                 CREATED_BY = LOGIN,
                                 UPDATED_BY = LOGIN,
@@ -137,7 +145,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             };
                             if (isChangePhoto)
                             {
-                                obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                                obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = ImageToByte(picPhoto);
                             }
 
                            

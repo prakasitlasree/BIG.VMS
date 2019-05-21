@@ -64,7 +64,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                 ID_CARD = txtIDCard.Text,
                 LICENSE_PLATE = txtLicense.Text,
-                NO = txtNo.Text
+                NO = txtNo.Text,
+                FIRST_NAME= txtName.Text,
+                LAST_NAME = txtLastName.Text
+                
             };
 
             if (comboType.SelectedIndex == 0)
@@ -81,7 +84,11 @@ namespace BIG.VMS.PRESENT.Forms.Home
             }
             else if (comboType.SelectedIndex == 3)
             {
-                filter.TYPE = "Regulary";
+                filter.TYPE = "Appointment";
+            }
+            else if (comboType.SelectedIndex == 4)
+            {
+                filter.TYPE = "AppointmentOut";
             }
             _container.Filter = filter;
             _container = _service.Retrieve(_container);

@@ -43,7 +43,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.BackColor = Color.FromArgb(255, 153, 153);
                 btn.Text = numChar[i];
                 btn.Name = "num" + i;
-                tableLayoutPanel1.Controls.Add(btn);
+                tableLayoutPanel2.Controls.Add(btn);
                 btn.Click += new EventHandler(selectCharEvent);
             }
         }

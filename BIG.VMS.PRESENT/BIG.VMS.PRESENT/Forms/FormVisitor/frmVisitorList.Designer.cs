@@ -400,7 +400,8 @@
             "ทั้งหมด",
             "เข้า",
             "ออก",
-            "มาประจำ"});
+            "นัดล่วงหน้า(เข้า)",
+            "นัดล่วงหน้า(ออก)"});
             this.comboType.Location = new System.Drawing.Point(760, 45);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(215, 33);

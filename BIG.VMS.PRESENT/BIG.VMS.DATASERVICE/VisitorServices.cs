@@ -58,7 +58,8 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
-                    ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
+                    var data = ctx.TRN_VISITOR.Add(obj.TRN_VISITOR);
+
                     ctx.SaveChanges();
                     result.ResultObj = obj.TRN_VISITOR;
                     result.Status = true;
@@ -105,68 +106,38 @@ namespace BIG.VMS.DATASERVICE
 
             using (var ctx = new BIG_VMSEntities())
             {
-
+                var listData = new List<CustomVisitor>();
                 try
                 {
-                    var list = GetListVisitorQuery(obj).OrderByDescending(o => o.UPDATED_DATE).AsEnumerable();
-
-                    var listData = new List<CustomVisitor>();
-                    listData = (from item in list
-                                select new CustomVisitor
-                                {
-                                    AUTO_ID = item.AUTO_ID,
-                                    NO = item.NO,
-                                    ID_CARD = item.ID_CARD,
-                                    //ID_CARD_PHOTO = item.ID_CARD_PHOTO, Comment ออกเพราะช้ามากๆ
-                                    TYPE = item.TYPE,
-                                    FIRST_NAME = item.FIRST_NAME,
-                                    LAST_NAME = item.LAST_NAME,
-                                    CAR_MODEL_ID = item.CAR_MODEL_ID,
-                                    LICENSE_PLATE = item.LICENSE_PLATE,
-                                    LICENSE_PLATE_PROVINCE_ID = item.LICENSE_PLATE_PROVINCE_ID,
-                                    REASON_ID = item.REASON_ID,
-                                    CONTACT_EMPLOYEE_ID = item.CONTACT_EMPLOYEE_ID,
-                                    //CONTACT_PHOTO = item.CONTACT_PHOTO, Comment ออกเพราะช้ามากๆ
-                                    STATUS = item.STATUS,
-                                    CREATED_BY = item.CREATED_BY,
-                                    CREATED_DATE = item.CREATED_DATE,
-                                    UPDATED_BY = item.UPDATED_BY,
-                                    UPDATED_DATE = item.UPDATED_DATE,
-
-                                    CONTACT_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME,
-                                    CAR_TYPE_NAME = item.MAS_CAR_MODEL.NAME,
-                                    FULL_NAME = item.FIRST_NAME + " " + item.LAST_NAME,
-                                    DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME,
-                                    TIME_IN = item.CREATED_DATE,
-                                    TOPIC = item.MAS_REASON.REASON
-
-                                }).ToList();
-
-
-                    foreach (var item in listData)
+                    listData = GetListVisitorQuery(obj).Select(item => new CustomVisitor
                     {
-                        if (item.TYPE == "In")
-                        {
-                            item.TYPE = "เข้า";
-                        }
-                        else if (item.TYPE == "Out")
-                        {
-                            item.TYPE = "ออก";
-                        }
-                        else if (item.TYPE == "Regulary")
-                        {
-                            item.TYPE = "มาประจำ";
-                        }
-                        else if (item.TYPE == "Appointment")
-                        {
-                            item.TYPE = "นัดล่วงหน้า(เข้า)";
-                        }
-                        else if (item.TYPE == "AppointmentOut")
-                        {
-                            item.TYPE = "นัดล่วงหน้า(ออก)";
-                        }
+                        AUTO_ID = item.AUTO_ID,
+                        NO = item.NO,
+                        ID_CARD = item.ID_CARD,
+                        //ID_CARD_PHOTO = item.ID_CARD_PHOTO, Comment ออกเพราะช้ามากๆ
+                        TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Appointment" ? "นัดล่วงหน้า(เข้า)" : (item.TYPE == "AppointmentOut" ? "นัดล่วงหน้า(ออก)" : "ไม่ระบุ"))),
+                        FIRST_NAME = item.FIRST_NAME,
+                        LAST_NAME = item.LAST_NAME,
+                        CAR_MODEL_ID = item.CAR_MODEL_ID,
+                        LICENSE_PLATE = item.LICENSE_PLATE,
+                        LICENSE_PLATE_PROVINCE_ID = item.LICENSE_PLATE_PROVINCE_ID,
+                        REASON_ID = item.REASON_ID,
+                        CONTACT_EMPLOYEE_ID = item.CONTACT_EMPLOYEE_ID,
+                        //CONTACT_PHOTO = item.CONTACT_PHOTO, Comment ออกเพราะช้ามากๆ
+                        STATUS = item.STATUS,
+                        CREATED_BY = item.CREATED_BY,
+                        CREATED_DATE = item.CREATED_DATE,
+                        UPDATED_BY = item.UPDATED_BY,
+                        UPDATED_DATE = item.UPDATED_DATE,
 
-                    }
+                        CONTACT_NAME = item.MAS_EMPLOYEE.FIRST_NAME + " " + item.MAS_EMPLOYEE.LAST_NAME,
+                        CAR_TYPE_NAME = item.MAS_CAR_MODEL.NAME,
+                        FULL_NAME = item.FIRST_NAME + " " + item.LAST_NAME,
+                        DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME,
+                        TIME_IN = item.CREATED_DATE,
+                        TOPIC = item.MAS_REASON.REASON
+                    }).OrderByDescending(o => o.UPDATED_DATE).ToList();
+
 
                     if (obj.PageInfo != null)
                     {
@@ -216,7 +187,12 @@ namespace BIG.VMS.DATASERVICE
                     var updateData = ctx.TRN_VISITOR.Where(o => o.AUTO_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
                     if (updateData != null)
                     {
+                        if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                        {
 
+                            var attach = ctx.TRN_ATTACHEDMENT.Where(o => o.VISITOR_ID == visitorObj.AUTO_ID).FirstOrDefault();
+                            attach = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault();
+                        }
 
                         updateData.ID_CARD = visitorObj.ID_CARD;
                         updateData.FIRST_NAME = visitorObj.FIRST_NAME;
@@ -228,10 +204,7 @@ namespace BIG.VMS.DATASERVICE
                         updateData.CONTACT_EMPLOYEE_ID = visitorObj.CONTACT_EMPLOYEE_ID;
                         updateData.UPDATED_DATE = DateTime.Now;
                         updateData.UPDATED_BY = visitorObj.UPDATED_BY;
-                        if (obj.TRN_VISITOR.CONTACT_PHOTO != null)
-                        {
-                            updateData.CONTACT_PHOTO = visitorObj.CONTACT_PHOTO;
-                        }
+
 
                         ctx.SaveChanges();
                         result.Status = true;
@@ -266,7 +239,7 @@ namespace BIG.VMS.DATASERVICE
                 {
                     if (!string.IsNullOrEmpty(filter.ID_CARD))
                     {
-                        query = query.Where(o => o.ID_CARD == filter.ID_CARD);
+                        query = query.Where(o => o.ID_CARD.Contains(filter.ID_CARD));
                     }
                     if (!string.IsNullOrEmpty(filter.TYPE))
                     {
@@ -274,17 +247,31 @@ namespace BIG.VMS.DATASERVICE
                     }
                     if (!string.IsNullOrEmpty(filter.LICENSE_PLATE))
                     {
-                        query = query.Where(o => o.LICENSE_PLATE == filter.LICENSE_PLATE);
+                        query = query.Where(o => o.LICENSE_PLATE.Contains(filter.LICENSE_PLATE));
                     }
                     if (!string.IsNullOrEmpty(filter.NO))
                     {
-                        query = query.Where(o => o.NO == filter.NO);
+                        query = query.Where(o => o.NO.Contains(filter.NO));
+                    }
+                    if (!string.IsNullOrEmpty(filter.FIRST_NAME))
+                    {
+                        query = query.Where(o => o.FIRST_NAME.Contains(filter.FIRST_NAME));
+                    }
+                    if (!string.IsNullOrEmpty(filter.LAST_NAME))
+                    {
+                        query = query.Where(o => o.LAST_NAME.Contains(filter.LAST_NAME));
                     }
                     if (filter.DATE_TO != null && filter.DATE_TO != DateTime.MinValue)
                     {
                         var endDate = filter.DATE_TO.AddDays(1);
                         query = query.Where(x => x.CREATED_DATE >= filter.DATE_TO && x.CREATED_DATE <= endDate);
 
+                    }
+                    if (string.IsNullOrEmpty(filter.FIRST_NAME) && string.IsNullOrEmpty(filter.LAST_NAME) &&
+                        string.IsNullOrEmpty(filter.LICENSE_PLATE) && string.IsNullOrEmpty(filter.NO))
+                    {
+                        var date = DateTime.Now.AddDays(-5);
+                        query = query.Where(x => x.CREATED_DATE >= date);
                     }
 
                     query.OrderByDescending(o => o.UPDATED_DATE);
@@ -383,6 +370,7 @@ namespace BIG.VMS.DATASERVICE
                                           .Include("MAS_REASON")
                                           .Include("MAS_PROVINCE")
                                           .Include("MAS_CAR_MODEL")
+                                          .Include("TRN_ATTACHEDMENT")
                                           .Where(x => x.AUTO_ID == auto_id).FirstOrDefault();
                     if (reTrnVisitor != null)
                     {
@@ -447,8 +435,8 @@ namespace BIG.VMS.DATASERVICE
                                         TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Regulary" ? "มาประจำ" : "ไม่ระบุ")),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
-                                        ID_CARD_PHOTO = item.ID_CARD_PHOTO,
-                                        CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                        //ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                        //CONTACT_PHOTO = item.CONTACT_PHOTO,
                                         COMPANY_NAME = company,
                                         CREATED_BY = item.CREATED_BY
 
@@ -536,7 +524,7 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var listVisitorGroup = new List<VisitorGroupModel>();
 
-                    var group = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null).GroupBy(o => o.ID_CARD)
+                    var group = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary")).GroupBy(o => o.ID_CARD)
                                                .Select(o => o.FirstOrDefault()).ToList();
 
                     var allIdCard = group.Select(o => o.ID_CARD).ToList();
@@ -545,14 +533,14 @@ namespace BIG.VMS.DATASERVICE
                     {
                         VisitorGroupModel visitor = new VisitorGroupModel();
                         visitor.Key = id;
-                        visitor.Count = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null).Count();
+                        visitor.Count = ctx.TRN_VISITOR.Where(x => (x.TYPE == "In" || x.TYPE == "Regulary")).Count();
                         listVisitorGroup.Add(visitor);
                     }
 
                     listVisitorGroup = listVisitorGroup.OrderByDescending(o => o.Count).Take(10).ToList();
                     var listTopIdCard = listVisitorGroup.Select(x => x.Key).ToList();
 
-                    var listData = ctx.TRN_VISITOR.Where(x => listTopIdCard.Contains(x.ID_CARD) && ((x.TYPE == "In" || x.TYPE == "Regulary") && x.ID_CARD_PHOTO != null)).GroupBy(o => o.ID_CARD).Select(o => o.FirstOrDefault()).ToList();
+                    var listData = ctx.TRN_VISITOR.Where(x => listTopIdCard.Contains(x.ID_CARD) && ((x.TYPE == "In" || x.TYPE == "Regulary"))).GroupBy(o => o.ID_CARD).Select(o => o.FirstOrDefault()).ToList();
 
                     result.ResultObj = listData;
                     result.Status = true;
@@ -607,8 +595,8 @@ namespace BIG.VMS.DATASERVICE
                                         TIME_IN = item.CREATED_DATE.Value != null ? Convert.ToDateTime(item.CREATED_DATE.Value, _cultureTHInfo) : item.CREATED_DATE,
                                         TYPE = item.TYPE == "In" ? "เข้า" : (item.TYPE == "Out" ? "ออก" : (item.TYPE == "Appointment" ? "นัดล่วงหน้า(เข้า)" : (item.TYPE == "AppointmentOut" ? "นัดล่วงหน้า(ออก)" : "ไม่ระบุ"))),
                                         DEPT_NAME = item.MAS_EMPLOYEE.MAS_DEPARTMENT != null ? item.MAS_EMPLOYEE.MAS_DEPARTMENT.NAME : "ไม่ระบุ",
-                                        ID_CARD_PHOTO = item.ID_CARD_PHOTO,
-                                        CONTACT_PHOTO = item.CONTACT_PHOTO,
+                                        //ID_CARD_PHOTO = item.ID_CARD_PHOTO,
+                                        //CONTACT_PHOTO = item.CONTACT_PHOTO,
                                         CREATED_BY = item.CREATED_BY,
                                         CREATED_DATE = item.CREATED_DATE,
                                         UPDATED_BY = item.UPDATED_BY,

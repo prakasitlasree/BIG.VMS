@@ -69,22 +69,44 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 _container = new ContainerVisitor();
-                var res = _service.GetItem(_container);
-                if (res.Status)
+                if(formMode == FormMode.Add)
                 {
-                    int no = Convert.ToInt32(res.TRN_VISITOR.NO);
-                    no = no + 1;
-                    txtNo.Text = no.ToString();
+                    var res = _service.GetItem(_container);
+                    if (res.Status)
+                    {
+                        int no = Convert.ToInt32(res.TRN_VISITOR.NO);
+                        no = no + 1;
+                        txtNo.Text = no.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(res.ExceptionMessage);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show(res.ExceptionMessage);
-                }
+                
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+        Timer tmr = null;
+
+        private void StartTimer()
+        {
+
+            tmr = new Timer();
+            tmr.Interval = 1000;
+            tmr.Tick += new EventHandler(tmr_Tick);
+            tmr.Enabled = true;
+
+        }
+
+        void tmr_Tick(object sender, EventArgs e)
+        {
+
+            label6.Text = DateTime.Now.ToString();
+
         }
 
         private void SetControl()
@@ -93,6 +115,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 if (formMode == FormMode.Add)
                 {
+                    StartTimer();
                     btnBlacklist.Visible = false;
                 }
                 if (visitorMode == VisitorMode.Appointment || formMode == FormMode.Edit)
@@ -123,7 +146,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     txtFirstName.Text = visitorObj.FIRST_NAME;
                     txtLastName.Text = visitorObj.LAST_NAME;
                     txtLicense.Text = visitorObj.LICENSE_PLATE;
-
+                    label6.Text = visitorObj.CREATED_DATE.ToString();
                     if (visitorObj.MAS_EMPLOYEE != null)
                     {
                         contactEmployeeId = visitorObj.MAS_EMPLOYEE.AUTO_ID;
@@ -157,6 +180,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         Lbl_Vahicle.Visible = false;
                         txtProvince.Visible = false;
                         btnProvince.Visible = false;
+                        btnLicense.Visible = false;
                         provinceId = 0;
                     }
 
@@ -170,14 +194,23 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         txtCar.Text = "";
                     }
 
-                    if (visitorObj.CONTACT_PHOTO != null)
+                    if (visitorObj.TRN_ATTACHEDMENT != null)
                     {
-                        picPhoto.Image = ByteToImage(visitorObj.CONTACT_PHOTO);
+                        if(visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                        {
+                            if(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                            {
+                                picPhoto.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
+                            }
+                            if (visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
+                            {
+                                picCard.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
+                            }
+                        }
+                        
+                      
                     }
-                    if (visitorObj.ID_CARD_PHOTO != null)
-                    {
-                        picCard.Image = ByteToImage(visitorObj.ID_CARD_PHOTO);
-                    }
+                   
 
                 }
             }
@@ -253,7 +286,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     CONTACT_EMPLOYEE_ID = contactEmployeeId,
                     CAR_MODEL_ID = carModelId,
                     REASON_ID = reasonId,
-                    
+
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
                     YEAR = DateTime.Now.Year,
@@ -261,7 +294,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 };
 
-                if(provinceId == 0)
+                if (provinceId == 0)
                 {
                     obj.LICENSE_PLATE_PROVINCE_ID = null;
                 }
@@ -297,23 +330,25 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (formMode == FormMode.Add)
                 {
                     var obj = GetObjectfromControl();
-
+                    var attachment = new TRN_ATTACHEDMENT();
                     if (isChangePhoto)
                     {
-                        obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
                     }
                     else
                     {
-                        obj.CONTACT_PHOTO = BYTE_IMAGE;
+                        attachment.CONTACT_PHOTO = BYTE_IMAGE;
                     }
                     if (isChangeCardPhoto)
                     {
-                        obj.ID_CARD_PHOTO = ImageToByte(picCard);
+                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
                     }
                     else
                     {
-                        obj.ID_CARD_PHOTO = BYTE_IMAGE;
+                        attachment.ID_CARD_PHOTO = BYTE_IMAGE;
                     }
+                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                    obj.TRN_ATTACHEDMENT.Add(attachment); 
 
                     if (visitorMode == VisitorMode.In)
                     {
@@ -352,10 +387,26 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     var obj = GetObjectfromControl();
 
+                    var attachment = new TRN_ATTACHEDMENT();
                     if (isChangePhoto)
                     {
-                        obj.CONTACT_PHOTO = ImageToByte(picPhoto);
+                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
                     }
+                    else
+                    {
+                        attachment.CONTACT_PHOTO = BYTE_IMAGE;
+                    }
+                    if (isChangeCardPhoto)
+                    {
+                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                    }
+                    else
+                    {
+                        attachment.ID_CARD_PHOTO = BYTE_IMAGE;
+                    }
+                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                    obj.TRN_ATTACHEDMENT.Add(attachment);
+
 
 
                     //obj.ID_CARD_PHOTO = ImageToByte(picCard);
@@ -443,7 +494,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         }
         private bool IsNeedProvice()
         {
-            if(txtCar.Text == "เดินเท้า" || txtCar.Text == "ไม่ระบุ")
+            if (txtCar.Text == "เดินเท้า" || txtCar.Text == "ไม่ระบุ")
             {
                 return true;
             }
@@ -509,7 +560,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     !string.IsNullOrEmpty(txtCar.Text) &&
                     txtIDCard.TextLength >= 13 &&
                     IsNeedProvice() &&
-                    contactEmployeeId > 0 && carModelId > 0  && reasonId > 0 && IsChangePicCard())
+                    contactEmployeeId > 0 && carModelId > 0 && reasonId > 0 )
                 {
                     //if (IsValidCheckPersonID(txtIDCard.Text))
                     //{
@@ -808,7 +859,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnLicense_Click(object sender, EventArgs e)
         {
             frmKeyboard frm = new frmKeyboard();
-            if(frm.ShowDialog() == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtLicense.Text = frm.license;
             }
