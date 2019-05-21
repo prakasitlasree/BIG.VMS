@@ -99,6 +99,16 @@
           <Property Name="VALUE" Type="nvarchar" MaxLength="500" />
           <Property Name="DESCRIPTION" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TRN_APPOINTMENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
@@ -123,7 +133,7 @@
           <Key>
             <PropertyRef Name="AUTO_ID" />
           </Key>
-          <Property Name="AUTO_ID" Type="int" Nullable="false" />
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VISITOR_ID" Type="int" />
           <Property Name="ID_CARD_PHOTO" Type="varbinary(max)" />
           <Property Name="CONTACT_PHOTO" Type="varbinary(max)" />
@@ -138,7 +148,7 @@
           <Property Name="LAST_NAME" Type="nvarchar" MaxLength="500" />
           <Property Name="REASON" Type="nvarchar(max)" />
           <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
-          <Property Name="CREATED_DATE" Type="date" />
+          <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="CREATED_BY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="50" />
@@ -148,8 +158,6 @@
             <PropertyRef Name="AUTO_ID" />
           </Key>
           <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="YEAR" Type="int" />
-          <Property Name="MONTH" Type="int" />
           <Property Name="NO" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_CARD" Type="nvarchar" MaxLength="14" />
           <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
@@ -165,6 +173,8 @@
           <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="500" />
           <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="MONTH" Type="int" />
+          <Property Name="YEAR" Type="int" />
         </EntityType>
         <Association Name="FK_MAS_CAR_BRAND_MAS_CAR_TYPE">
           <End Role="MAS_CAR_TYPE" Type="Self.MAS_CAR_TYPE" Multiplicity="0..1" />
@@ -320,6 +330,7 @@
           <EntitySet Name="MAS_REASON" EntityType="Self.MAS_REASON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMBER_LOGON" EntityType="Self.MEMBER_LOGON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_CONFIGURATION" EntityType="Self.SYS_CONFIGURATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_APPOINTMENT" EntityType="Self.TRN_APPOINTMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_ATTACHEDMENT" EntityType="Self.TRN_ATTACHEDMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_BLACKLIST" EntityType="Self.TRN_BLACKLIST" Schema="dbo" store:Type="Tables" />
@@ -439,6 +450,7 @@
             <End Role="TRN_VISITOR" EntitySet="TRN_VISITOR" />
             <End Role="TRN_ATTACHEDMENT" EntitySet="TRN_ATTACHEDMENT" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="BIG_VMSModel.sysdiagrams" />
         </EntityContainer>
         <EntityType Name="MAS_CAR_BRAND">
           <Key>
@@ -592,7 +604,7 @@
           <Property Name="LAST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="REASON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -769,6 +781,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -946,6 +968,17 @@
                 <ScalarProperty Name="MONTH" ColumnName="MONTH" />
                 <ScalarProperty Name="YEAR" ColumnName="YEAR" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BIG_VMSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

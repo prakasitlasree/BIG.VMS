@@ -21,7 +21,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
-                    var reTrnVisitor = ctx.TRN_VISITOR.OrderByDescending(x => x.NO).FirstOrDefault();
+                    var reTrnVisitor = ctx.TRN_VISITOR.OrderByDescending(x => x.AUTO_ID).FirstOrDefault();
                     if (reTrnVisitor != null)
                     {
 
@@ -83,7 +83,9 @@ namespace BIG.VMS.DATASERVICE
 
                 try
                 {
+                    var deleteAttach = ctx.TRN_ATTACHEDMENT.Where(o => o.VISITOR_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
                     var deleteData = ctx.TRN_VISITOR.Where(o => o.AUTO_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
+                    ctx.TRN_ATTACHEDMENT.Remove(deleteAttach);
                     ctx.TRN_VISITOR.Remove(deleteData);
                     ctx.SaveChanges();
                     result.Status = true;
@@ -191,7 +193,8 @@ namespace BIG.VMS.DATASERVICE
                         {
 
                             var attach = ctx.TRN_ATTACHEDMENT.Where(o => o.VISITOR_ID == visitorObj.AUTO_ID).FirstOrDefault();
-                            attach = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault();
+                            attach.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                            attach.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
                         }
 
                         updateData.ID_CARD = visitorObj.ID_CARD;
@@ -312,6 +315,7 @@ namespace BIG.VMS.DATASERVICE
 
                     var reTrnVisitor = ctx.TRN_VISITOR
                                           .Include("MAS_PROVINCE")
+                                          .Include("TRN_ATTACHEDMENT")
                                           .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
                                           .Where(o => (o.MONTH >= startMonth && o.MONTH <= endMonth) && o.YEAR == year)
                                           .OrderByDescending(x => x.NO).ToList();

@@ -20,6 +20,8 @@ namespace BIG.VMS.MODEL.EntityModel
         }
     
         public int AUTO_ID { get; set; }
+        public Nullable<int> YEAR { get; set; }
+        public Nullable<int> MONTH { get; set; }
         public string NO { get; set; }
         public string ID_CARD { get; set; }
         public string TYPE { get; set; }
@@ -35,8 +37,6 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public string UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
-        public Nullable<int> MONTH { get; set; }
-        public Nullable<int> YEAR { get; set; }
     
         public virtual MAS_CAR_MODEL MAS_CAR_MODEL { get; set; }
         public virtual MAS_EMPLOYEE MAS_EMPLOYEE { get; set; }

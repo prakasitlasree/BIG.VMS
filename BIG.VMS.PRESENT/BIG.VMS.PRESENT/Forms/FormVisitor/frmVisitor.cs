@@ -54,7 +54,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 defaultImage = picCard.Image;
-                defaultPhoto = picPhoto.Image;
+                Image defaultPhoto = picPhoto.Image;
                 InitialLoad();
                 SetControl();
             }
@@ -69,7 +69,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 _container = new ContainerVisitor();
-                if(formMode == FormMode.Add)
+                if (formMode == FormMode.Add)
                 {
                     var res = _service.GetItem(_container);
                     if (res.Status)
@@ -83,7 +83,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         MessageBox.Show(res.ExceptionMessage);
                     }
                 }
-                
+
             }
             catch (Exception)
             {
@@ -126,6 +126,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         brn_UploadImgCard.Visible = false;
                         btnRefresh.Visible = false;
                         bthCardDelete.Visible = false;
+                        txtNo.Text = visitorObj.NO;
                     }
 
                     if (visitorMode == VisitorMode.Appointment)
@@ -142,6 +143,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
 
                     #endregion
+                    
                     txtIDCard.Text = visitorObj.ID_CARD;
                     txtFirstName.Text = visitorObj.FIRST_NAME;
                     txtLastName.Text = visitorObj.LAST_NAME;
@@ -181,6 +183,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         txtProvince.Visible = false;
                         btnProvince.Visible = false;
                         btnLicense.Visible = false;
+                        tableLayoutPanel2.Visible = false;
+                        tableLayoutPanel8.Visible = false;
                         provinceId = 0;
                     }
 
@@ -196,9 +200,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (visitorObj.TRN_ATTACHEDMENT != null)
                     {
-                        if(visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                        if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
                         {
-                            if(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                            if (visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
                             {
                                 picPhoto.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
                             }
@@ -207,10 +211,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 picCard.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                             }
                         }
-                        
-                      
+
+
                     }
-                   
+
 
                 }
             }
@@ -250,6 +254,34 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     return ms.ToArray();
 
                 }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public byte[] ImageToByte(Image source)
+        {
+            try
+            {
+                if (source != null)
+                {
+                    Image img = source;
+                    using (var ms = new MemoryStream())
+                    {
+                        Bitmap bmp = new Bitmap(img);
+                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                        return ms.ToArray();
+
+                    }
+                }
+                else
+                {
+
+                    return BYTE_IMAGE;
+                }
+
             }
             catch (Exception ex)
             {
@@ -312,6 +344,29 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     obj.UPDATED_BY = LOGIN;
                     obj.AUTO_ID = visitorObj.AUTO_ID;
+                    var attachment = new TRN_ATTACHEDMENT();
+                    attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                    if (isChangePhoto)
+                    {
+                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
+                    }
+                    else
+                    {
+                        attachment.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                    }
+                    if (isChangeCardPhoto)
+                    {
+                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                    }
+                    else
+                    {
+                        attachment.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                    }
+
+
+                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                    obj.TRN_ATTACHEDMENT.Add(attachment);
+
                 }
 
                 return obj;
@@ -348,7 +403,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         attachment.ID_CARD_PHOTO = BYTE_IMAGE;
                     }
                     obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
-                    obj.TRN_ATTACHEDMENT.Add(attachment); 
+                    obj.TRN_ATTACHEDMENT.Add(attachment);
 
                     if (visitorMode == VisitorMode.In)
                     {
@@ -387,29 +442,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     var obj = GetObjectfromControl();
 
-                    var attachment = new TRN_ATTACHEDMENT();
-                    if (isChangePhoto)
-                    {
-                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
-                    }
-                    else
-                    {
-                        attachment.CONTACT_PHOTO = BYTE_IMAGE;
-                    }
-                    if (isChangeCardPhoto)
-                    {
-                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
-                    }
-                    else
-                    {
-                        attachment.ID_CARD_PHOTO = BYTE_IMAGE;
-                    }
-                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
-                    obj.TRN_ATTACHEDMENT.Add(attachment);
-
-
-
-                    //obj.ID_CARD_PHOTO = ImageToByte(picCard);
                     var container = new ContainerVisitor { TRN_VISITOR = obj };
 
                     var res = _service.Update(container);
@@ -560,7 +592,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     !string.IsNullOrEmpty(txtCar.Text) &&
                     txtIDCard.TextLength >= 13 &&
                     IsNeedProvice() &&
-                    contactEmployeeId > 0 && carModelId > 0 && reasonId > 0 )
+                    contactEmployeeId > 0 && carModelId > 0 && reasonId > 0)
                 {
                     //if (IsValidCheckPersonID(txtIDCard.Text))
                     //{
@@ -861,7 +893,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frmKeyboard frm = new frmKeyboard();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                txtLicense.Text = frm.license;
+                txtLicense.Text = frm.text;
             }
         }
     }

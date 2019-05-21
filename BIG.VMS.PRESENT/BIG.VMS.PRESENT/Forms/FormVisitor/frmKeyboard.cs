@@ -16,7 +16,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             InitializeComponent();
         }
-        public string license { get; set; }
+        public string text { get; set; }
         private void frmKeyboard_Load(object sender, EventArgs e)
         {
             List<string> thaiChar = new List<string>(new string[] { "ก", "ข", "ฃ", "ค", "ฅ", "ฆ", "ง", "จ", "ฉ", "ช", "ซ",
@@ -64,7 +64,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            license = txtLicense.Text;
+            text = txtLicense.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
 
