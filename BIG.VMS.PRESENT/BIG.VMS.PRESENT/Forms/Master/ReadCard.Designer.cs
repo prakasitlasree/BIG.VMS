@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadCard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.m_txtID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -372,7 +371,6 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "อ่านใบขับขี่อีกครั้ง";
             this.button2.UseVisualStyleBackColor = true;
-            //this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ReadCard
             // 
@@ -380,10 +378,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 589);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReadCard";
             this.Text = "ReadCard";
-            //this.Load += new System.EventHandler(this.ReadCard_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_picPhoto)).EndInit();
