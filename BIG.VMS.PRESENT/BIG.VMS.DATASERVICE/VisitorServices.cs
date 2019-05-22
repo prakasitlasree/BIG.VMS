@@ -312,35 +312,8 @@ namespace BIG.VMS.DATASERVICE
 
                     }
 
-
-                    var reTrnVisitor = ctx.TRN_VISITOR
-                                          .Include("MAS_PROVINCE")
-                                          .Include("TRN_ATTACHEDMENT")
-                                          .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
-                                          .Where(o => (o.MONTH >= startMonth && o.MONTH <= endMonth) && o.YEAR == year)
-                                          .OrderByDescending(x => x.NO).ToList();
-
-                    if (reTrnVisitor.Count > 0)
-                    {
-                        if (reTrnVisitor.Any(o => o.STATUS == 2))
-                        {
-                            TRN_VISITOR visit = new TRN_VISITOR()
-                            {
-                                AUTO_ID = 0,
-                                NO = "0",
-                            };
-                            result.TRN_VISITOR = visit;
-                            result.Status = true;
-                            result.Message = "หมายเลขนี้ได้ออกไปแล้ว";
-                        }
-                        else
-                        {
-                            result.TRN_VISITOR = reTrnVisitor.FirstOrDefault();
-                            result.Status = true;
-                        }
-
-                    }
-                    else
+                    var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.MONTH >= startMonth && o.MONTH <= endMonth) && (o.YEAR == year));
+                    if (isAlreadyOut)
                     {
                         TRN_VISITOR visit = new TRN_VISITOR()
                         {
@@ -349,8 +322,50 @@ namespace BIG.VMS.DATASERVICE
                         };
                         result.TRN_VISITOR = visit;
                         result.Status = true;
-                        result.Message = "ไม่พบข้อมูล";
+                        result.Message = "หมายเลขนี้ได้ออกไปแล้ว";
                     }
+                    else
+                    {
+                        var reTrnVisitor = ctx.TRN_VISITOR
+                                        .Include("MAS_PROVINCE")
+                                        .Include("TRN_ATTACHEDMENT")
+                                        .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
+                                        .Where(o => (o.MONTH >= startMonth && o.MONTH <= endMonth) && o.YEAR == year)
+                                        .OrderByDescending(x => x.NO).ToList();
+
+                        if (reTrnVisitor.Count > 0)
+                        {
+                            if (reTrnVisitor.Any(o => o.STATUS == 2))
+                            {
+                                TRN_VISITOR visit = new TRN_VISITOR()
+                                {
+                                    AUTO_ID = 0,
+                                    NO = "0",
+                                };
+                                result.TRN_VISITOR = visit;
+                                result.Status = true;
+                                result.Message = "หมายเลขนี้ได้ออกไปแล้ว";
+                            }
+                            else
+                            {
+                                result.TRN_VISITOR = reTrnVisitor.FirstOrDefault();
+                                result.Status = true;
+                            }
+
+                        }
+                        else
+                        {
+                            TRN_VISITOR visit = new TRN_VISITOR()
+                            {
+                                AUTO_ID = 0,
+                                NO = "0",
+                            };
+                            result.TRN_VISITOR = visit;
+                            result.Status = true;
+                            result.Message = "ไม่พบข้อมูล";
+                        }
+                    }
+                  
                 }
             }
             catch (Exception ex)

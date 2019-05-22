@@ -19,6 +19,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public string text { get; set; }
         private void frmKeyboard_Load(object sender, EventArgs e)
         {
+            txtLicense.TextAlign = HorizontalAlignment.Center;
             List<string> thaiChar = new List<string>(new string[] { "ก", "ข", "ฃ", "ค", "ฅ", "ฆ", "ง", "จ", "ฉ", "ช", "ซ",
                                                                     "ฌ", "ญ", "ฎ", "ฏ", "ฐ", "ฑ", "ฒ", "ณ", "ด", "ต", "ถ", "ท", "ธ", "น", "บ", "ป",
                                                                     "ผ", "ฝ", "พ", "ฟ", "ภ", "ม", "ย", "ร", "ล", "ว", "ศ", "ษ", "ส", "ห", "ฬ", "อ", "ฮ" });
@@ -30,6 +31,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Font = new Font(btn.Font.FontFamily, 17);
                 btn.BackColor = Color.FromArgb(204, 229, 255);
                 btn.Text = thaiChar[i];
+                btn.Font = new Font("Serif", 24, FontStyle.Bold);
                 btn.Name = "thai" + i;
                 tableLayoutPanel1.Controls.Add(btn);
                 btn.Click += new EventHandler(selectCharEvent);
@@ -42,6 +44,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Font = new Font(btn.Font.FontFamily, 17);
                 btn.BackColor = Color.FromArgb(255, 153, 153);
                 btn.Text = numChar[i];
+                btn.Font = new Font("Serif", 24, FontStyle.Bold);
                 btn.Name = "num" + i;
                 tableLayoutPanel2.Controls.Add(btn);
                 btn.Click += new EventHandler(selectCharEvent);
@@ -73,6 +76,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
