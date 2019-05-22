@@ -40,8 +40,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Width = 98;
                 btn.Font = new Font(btn.Font.FontFamily, fontSize);
                 btn.BackColor = Color.FromArgb(255, 204, 229);
-                btn.Text = province[i].Text;
-                btn.Tag = province[i].Value;
+                btn.Text = provincePriority[i].Text;
+                btn.Tag = provincePriority[i].Value;
 
                 panel2.Controls.Add(btn);
                 btn.Click += new EventHandler(ProvinceSelected_EventHadler);

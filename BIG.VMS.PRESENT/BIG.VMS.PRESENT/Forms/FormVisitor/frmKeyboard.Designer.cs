@@ -171,6 +171,7 @@
             this.MinimizeBox = false;
             this.Name = "frmKeyboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "กรุณากรอกทะเบียนรถ";
             this.Load += new System.EventHandler(this.frmKeyboard_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
