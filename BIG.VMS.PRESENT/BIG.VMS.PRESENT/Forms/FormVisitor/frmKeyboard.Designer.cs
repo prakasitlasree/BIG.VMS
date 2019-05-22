@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 269);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 191);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28592F));
@@ -68,7 +68,7 @@
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicense.Location = new System.Drawing.Point(3, 44);
+            this.txtLicense.Location = new System.Drawing.Point(3, 5);
             this.txtLicense.Name = "txtLicense";
             this.txtLicense.Size = new System.Drawing.Size(552, 80);
             this.txtLicense.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.btnClear.ForeColor = System.Drawing.Color.Blue;
             this.btnClear.Location = new System.Drawing.Point(561, 3);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(167, 163);
+            this.btnClear.Size = new System.Drawing.Size(167, 85);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "ล้าง";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.btnSubmit.ForeColor = System.Drawing.Color.Green;
             this.btnSubmit.Location = new System.Drawing.Point(734, 3);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(167, 163);
+            this.btnSubmit.Size = new System.Drawing.Size(167, 85);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "ตกลง";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Location = new System.Drawing.Point(907, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(168, 163);
+            this.btnCancel.Size = new System.Drawing.Size(168, 85);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -155,19 +155,20 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1078, 169);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1078, 91);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // frmKeyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 748);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1078, 672);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmKeyboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmKeyboard_Load);
