@@ -42,7 +42,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void SetControl()
         {
-           if(ROLE == "ธุรการ")
+            if (ROLE == "ธุรการ")
             {
                 btnIn.Visible = false;
                 btnOut.Visible = false;
@@ -64,10 +64,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                 ID_CARD = txtIDCard.Text,
                 LICENSE_PLATE = txtLicense.Text,
-                NO = txtNo.Text,
-                FIRST_NAME= txtName.Text,
+                NO = txtNo.Text == "" ? 0 : Convert.ToInt32(txtNo.Text),
+                FIRST_NAME = txtName.Text,
                 LAST_NAME = txtLastName.Text
-                
+
             };
 
             if (comboType.SelectedIndex == 0)
@@ -298,7 +298,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
                         var obj = _service.GetVisitorByAutoID(id);
                         frmVisitor frm = new frmVisitor();
                         frm.visitorObj = obj.TRN_VISITOR;
-                        if(obj.TRN_VISITOR.TYPE == "Appointment")
+                        if (obj.TRN_VISITOR.TYPE == "Appointment")
                         {
                             frm.visitorMode = VisitorMode.Appointment;
                         }
@@ -357,7 +357,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                             ReportDocument rpt = new ReportDocument();
                             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";                  
+                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
                             rpt.Load(appPath);
                             rpt.SetDataSource(dt);
                             //===== View Report =====

@@ -126,7 +126,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         brn_UploadImgCard.Visible = false;
                         btnRefresh.Visible = false;
                         bthCardDelete.Visible = false;
-                        txtNo.Text = visitorObj.NO;
+                        txtNo.Text = visitorObj.NO.ToString();
                     }
 
                     if (visitorMode == VisitorMode.Appointment)
@@ -249,17 +249,19 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 Image img = source.Image;
                 using (var ms = new MemoryStream())
                 {
-                    Bitmap bmp = new Bitmap(img);
+                    Bitmap bmp = new Bitmap(img, 240,120);
                     bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
 
                 }
+
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
 
         public byte[] ImageToByte(Image source)
         {
@@ -309,7 +311,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 var obj = new TRN_VISITOR
                 {
-                    NO = txtNo.Text.Trim(),
+                    NO = Convert.ToInt32(txtNo.Text),
                     ID_CARD = txtIDCard.Text.Trim(),
                     FIRST_NAME = txtFirstName.Text.Trim(),
                     LAST_NAME = txtLastName.Text.Trim(),

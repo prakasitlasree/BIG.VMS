@@ -32,6 +32,20 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             int fontSize = 12;
             var province = _comboService.GetComboProvince();
+            var provincePriority = _comboService.GetComboProvincePriority();
+            for (int i = 0; i < provincePriority.Count; i++)
+            {
+                Button btn = new Button();
+                btn.Dock = DockStyle.Left;
+                btn.Width = 98;
+                btn.Font = new Font(btn.Font.FontFamily, fontSize);
+                btn.BackColor = Color.FromArgb(232, 249, 102);
+                btn.Text = province[i].Text;
+                btn.Tag = province[i].Value;
+
+                panel2.Controls.Add(btn);
+                btn.Click += new EventHandler(ProvinceSelected_EventHadler);
+            }
 
             for (int i = 0; i < province.Count; i++)
             {
@@ -267,12 +281,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             SELECTED_PROVINCE_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
             SELECTED_PROVINCE_TEXT = ((Control)sender).Text.ToString();
-            
+
             this.DialogResult = DialogResult.OK;
             this.Close();
 
         }
 
-       
+
     }
 }

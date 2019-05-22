@@ -17,7 +17,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_TYPE.OrderBy(o=>o.SHOW_SEQ).ToList();
+                    var list = ctx.MAS_CAR_TYPE.OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -41,7 +41,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_CAR_TYPE.Where(o=>o.NAME.Contains(filter)).OrderBy(o => o.SHOW_SEQ).ToList();
+                    var list = ctx.MAS_CAR_TYPE.Where(o => o.NAME.Contains(filter)).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -66,7 +66,7 @@ namespace BIG.VMS.DATASERVICE
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
 
-                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID).OrderBy(o=>o.SHOW_SEQ).ToList();
+                    var list = ctx.MAS_CAR_BRAND.Where(o => o.TYPE_ID == carTypeID).OrderBy(o => o.SHOW_SEQ).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -83,7 +83,7 @@ namespace BIG.VMS.DATASERVICE
             return listData;
         }
 
-        public List<ComboBoxItem> GetComboCarBrandByTypeID(int carTypeID,string filter)
+        public List<ComboBoxItem> GetComboCarBrandByTypeID(int carTypeID, string filter)
         {
             List<ComboBoxItem> listData = new List<ComboBoxItem>();
             try
@@ -262,7 +262,7 @@ namespace BIG.VMS.DATASERVICE
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
 
-                    var list = ctx.MAS_DEPARTMENT.Where(o=>o.NAME.Contains(filter));
+                    var list = ctx.MAS_DEPARTMENT.Where(o => o.NAME.Contains(filter));
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -280,14 +280,14 @@ namespace BIG.VMS.DATASERVICE
             return listData.OrderByDescending(x => x.Value).ToList();
         }
 
-        public List<ComboBoxItem> GetComboEmployeeByDepartmentID(int deptID,string filter)
+        public List<ComboBoxItem> GetComboEmployeeByDepartmentID(int deptID, string filter)
         {
             List<ComboBoxItem> listData = new List<ComboBoxItem>();
             try
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_EMPLOYEE.Where(o => o.DEPARTMENT_ID == deptID && (o.FIRST_NAME.Contains(filter)|| o.LAST_NAME.Contains(filter))).ToList();
+                    var list = ctx.MAS_EMPLOYEE.Where(o => o.DEPARTMENT_ID == deptID && (o.FIRST_NAME.Contains(filter) || o.LAST_NAME.Contains(filter))).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -311,7 +311,31 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_PROVINCE.OrderBy(o=>o.NAME).ToList();
+                    var list = ctx.MAS_PROVINCE.OrderBy(o => o.NAME).ToList();
+                    foreach (var item in list)
+                    {
+                        ComboBoxItem data = new ComboBoxItem();
+                        data.Text = item.NAME;
+                        data.Value = item.AUTO_ID;
+                        listData.Add(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listData;
+        }
+
+        public List<ComboBoxItem> GetComboProvincePriority()
+        {
+            List<ComboBoxItem> listData = new List<ComboBoxItem>();
+            try
+            {
+                using (BIG_VMSEntities ctx = new BIG_VMSEntities())
+                {
+                    var list = ctx.MAS_PROVINCE.OrderByDescending(o => new { o.NAME, o.PRIORITY }).Take(10).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -359,7 +383,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_REASON.Where(o=>o.REASON.Contains(filter)).OrderBy(o => o.REASON).ToList();
+                    var list = ctx.MAS_REASON.Where(o => o.REASON.Contains(filter)).OrderBy(o => o.REASON).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -384,7 +408,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (BIG_VMSEntities ctx = new BIG_VMSEntities())
                 {
-                    var list = ctx.MAS_PROVINCE.Where(o=>o.NAME.Contains(filter)).OrderBy(o => o.NAME).ToList();
+                    var list = ctx.MAS_PROVINCE.Where(o => o.NAME.Contains(filter)).OrderBy(o => o.NAME).ToList();
                     foreach (var item in list)
                     {
                         ComboBoxItem data = new ComboBoxItem();
@@ -410,7 +434,7 @@ namespace BIG.VMS.DATASERVICE
                 data.Text = "เข้า";
                 data.Value = 1;
                 listData.Add(data);
-                
+
             }
             catch (Exception ex)
             {

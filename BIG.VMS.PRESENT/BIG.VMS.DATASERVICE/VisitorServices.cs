@@ -21,7 +21,7 @@ namespace BIG.VMS.DATASERVICE
             {
                 using (var ctx = new BIG_VMSEntities())
                 {
-                    var reTrnVisitor = ctx.TRN_VISITOR.OrderByDescending(x => x.AUTO_ID).FirstOrDefault();
+                    var reTrnVisitor = ctx.TRN_VISITOR.OrderByDescending(x => x.NO).FirstOrDefault();
                     if (reTrnVisitor != null)
                     {
 
@@ -35,7 +35,7 @@ namespace BIG.VMS.DATASERVICE
                         TRN_VISITOR visit = new TRN_VISITOR()
                         {
                             AUTO_ID = 0,
-                            NO = "0",
+                            NO = 0,
                         };
                         result.TRN_VISITOR = visit;
                         result.Status = true;
@@ -252,9 +252,9 @@ namespace BIG.VMS.DATASERVICE
                     {
                         query = query.Where(o => o.LICENSE_PLATE.Contains(filter.LICENSE_PLATE));
                     }
-                    if (!string.IsNullOrEmpty(filter.NO))
+                    if (filter.NO > 0)
                     {
-                        query = query.Where(o => o.NO.Contains(filter.NO));
+                        query = query.Where(o => o.NO == filter.NO);
                     }
                     if (!string.IsNullOrEmpty(filter.FIRST_NAME))
                     {
@@ -271,7 +271,7 @@ namespace BIG.VMS.DATASERVICE
 
                     }
                     if (string.IsNullOrEmpty(filter.FIRST_NAME) && string.IsNullOrEmpty(filter.LAST_NAME) &&
-                        string.IsNullOrEmpty(filter.LICENSE_PLATE) && string.IsNullOrEmpty(filter.NO))
+                        string.IsNullOrEmpty(filter.LICENSE_PLATE) && filter.NO == 0)
                     {
                         var date = DateTime.Now.AddDays(-5);
                         query = query.Where(x => x.CREATED_DATE >= date);
@@ -293,7 +293,7 @@ namespace BIG.VMS.DATASERVICE
             }
         }
 
-        public ContainerVisitor GetVisitorForOutByNo(string no)
+        public ContainerVisitor GetVisitorForOutByNo(int no)
         {
             var result = new ContainerVisitor();
             try
@@ -318,7 +318,7 @@ namespace BIG.VMS.DATASERVICE
                         TRN_VISITOR visit = new TRN_VISITOR()
                         {
                             AUTO_ID = 0,
-                            NO = "0",
+                            NO = 0,
                         };
                         result.TRN_VISITOR = visit;
                         result.Status = true;
@@ -340,7 +340,7 @@ namespace BIG.VMS.DATASERVICE
                                 TRN_VISITOR visit = new TRN_VISITOR()
                                 {
                                     AUTO_ID = 0,
-                                    NO = "0",
+                                    NO = 0,
                                 };
                                 result.TRN_VISITOR = visit;
                                 result.Status = true;
@@ -358,7 +358,7 @@ namespace BIG.VMS.DATASERVICE
                             TRN_VISITOR visit = new TRN_VISITOR()
                             {
                                 AUTO_ID = 0,
-                                NO = "0",
+                                NO = 0,
                             };
                             result.TRN_VISITOR = visit;
                             result.Status = true;

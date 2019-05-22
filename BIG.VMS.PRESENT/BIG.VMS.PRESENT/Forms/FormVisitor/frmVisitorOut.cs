@@ -30,7 +30,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
 
             //txtNo.Text = frm.text;
-            string NO = txtNo.Text;
+            int NO = txtNo.Text == "" ? 0 : Convert.ToInt32(txtNo.Text);
             var res = _service.GetVisitorForOutByNo(NO);
 
             if (res.Status)
@@ -214,7 +214,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 Image img = source.Image;
                 using (var ms = new MemoryStream())
                 {
-                    Bitmap bmp = new Bitmap(img);
+                    Bitmap bmp = new Bitmap(img, 240, 120);
                     bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
 
@@ -278,7 +278,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void txtNo_Click(object sender, EventArgs e)
         {
             frmNumber frm = new frmNumber();
-            if(frm.ShowDialog() == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtNo.Text = frm.text;
             }
