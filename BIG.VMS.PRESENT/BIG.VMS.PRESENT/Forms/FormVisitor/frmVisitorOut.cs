@@ -163,7 +163,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 obj.TRN_ATTACHEDMENT.FirstOrDefault().VISITOR_ID = 0;
                                 obj.TRN_ATTACHEDMENT.FirstOrDefault().AUTO_ID = 0;
                                 obj.TRN_ATTACHEDMENT.FirstOrDefault().TRN_VISITOR = null;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = ImageToByte(picImage);
+                                obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = org_obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
                             }
 
                            
