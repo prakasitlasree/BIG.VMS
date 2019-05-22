@@ -151,6 +151,7 @@
             this.txtNo.Size = new System.Drawing.Size(268, 31);
             this.txtNo.TabIndex = 1;
             this.txtNo.Click += new System.EventHandler(this.txtNo_Click);
+            this.txtNo.TextChanged += new System.EventHandler(this.txtNo_TextChanged);
             this.txtNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNo_KeyPress);
             // 
             // picSlip

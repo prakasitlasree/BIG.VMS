@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,16 @@ namespace BIG.VMS.PRESENT.Forms.Home
                 else
                 {
                     gridVisitorList.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+                
+            }
+            foreach (DataGridViewRow row in gridVisitorList.Rows)
+            {
+                if (row.Cells["TYPE"].Value.ToString() == "ออก" || row.Cells["TYPE"].Value.ToString() == "นัดล่วงหน้า(ออก)")
+                {
+                    
+                    
+                    row.Cells[2].Value = Properties.Resources.approve;
                 }
             }
         }
@@ -346,6 +357,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
                     }
                     else if (e.ColumnIndex == 2)
                     {
+                        //var x = gridVisitorList.Rows[e.RowIndex].Cells["TYPE"].Value;
                         #region ===================== print =====================
                         var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
                         var obj = _service.GetVisitorByAutoIDForReport(id);

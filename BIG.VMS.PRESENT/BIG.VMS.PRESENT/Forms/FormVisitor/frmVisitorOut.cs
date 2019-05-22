@@ -281,7 +281,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtNo.Text = frm.text;
+                btnFind_Click(sender, e);
             }
+            
+        }
+
+        private void txtNo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
