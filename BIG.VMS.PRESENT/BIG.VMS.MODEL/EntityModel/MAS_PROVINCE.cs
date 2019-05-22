@@ -25,6 +25,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public string NAME { get; set; }
         public string SHOW_FLAG { get; set; }
         public Nullable<int> SHOW_SEQ { get; set; }
+        public Nullable<int> PRIORITY { get; set; }
     
         public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
         public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
