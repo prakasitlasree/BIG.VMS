@@ -463,7 +463,7 @@
             this.txtIDCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIDCard.Enabled = false;
             this.txtIDCard.Location = new System.Drawing.Point(195, 146);
-            this.txtIDCard.MaxLength = 14;
+            this.txtIDCard.MaxLength = 250;
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(618, 31);
             this.txtIDCard.TabIndex = 2;
