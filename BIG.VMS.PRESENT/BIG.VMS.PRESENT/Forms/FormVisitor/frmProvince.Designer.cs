@@ -41,13 +41,11 @@
             this.row5 = new System.Windows.Forms.Panel();
             this.row6 = new System.Windows.Forms.Panel();
             this.row7 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,7 +111,7 @@
             // row1
             // 
             this.row1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row1.Location = new System.Drawing.Point(0, 223);
+            this.row1.Location = new System.Drawing.Point(0, 246);
             this.row1.Name = "row1";
             this.row1.Size = new System.Drawing.Size(984, 77);
             this.row1.TabIndex = 1;
@@ -121,7 +119,7 @@
             // row2
             // 
             this.row2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row2.Location = new System.Drawing.Point(0, 300);
+            this.row2.Location = new System.Drawing.Point(0, 323);
             this.row2.Name = "row2";
             this.row2.Size = new System.Drawing.Size(984, 77);
             this.row2.TabIndex = 2;
@@ -129,7 +127,7 @@
             // row3
             // 
             this.row3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row3.Location = new System.Drawing.Point(0, 377);
+            this.row3.Location = new System.Drawing.Point(0, 400);
             this.row3.Name = "row3";
             this.row3.Size = new System.Drawing.Size(984, 77);
             this.row3.TabIndex = 3;
@@ -137,7 +135,7 @@
             // row4
             // 
             this.row4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row4.Location = new System.Drawing.Point(0, 454);
+            this.row4.Location = new System.Drawing.Point(0, 477);
             this.row4.Name = "row4";
             this.row4.Size = new System.Drawing.Size(984, 77);
             this.row4.TabIndex = 4;
@@ -145,7 +143,7 @@
             // row5
             // 
             this.row5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row5.Location = new System.Drawing.Point(0, 531);
+            this.row5.Location = new System.Drawing.Point(0, 554);
             this.row5.Name = "row5";
             this.row5.Size = new System.Drawing.Size(984, 77);
             this.row5.TabIndex = 5;
@@ -153,7 +151,7 @@
             // row6
             // 
             this.row6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.row6.Location = new System.Drawing.Point(0, 608);
+            this.row6.Location = new System.Drawing.Point(0, 631);
             this.row6.Name = "row6";
             this.row6.Size = new System.Drawing.Size(984, 77);
             this.row6.TabIndex = 6;
@@ -161,54 +159,35 @@
             // row7
             // 
             this.row7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.row7.Location = new System.Drawing.Point(0, 685);
+            this.row7.Location = new System.Drawing.Point(0, 708);
             this.row7.Name = "row7";
-            this.row7.Size = new System.Drawing.Size(984, 2);
+            this.row7.Size = new System.Drawing.Size(984, 81);
             this.row7.TabIndex = 7;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.61789F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.38211F));
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 123);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(984, 100);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 33);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "มาประจำ";
             // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(137, 3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 123);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(844, 94);
+            this.panel2.Size = new System.Drawing.Size(984, 100);
             this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 223);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(984, 23);
+            this.panel3.TabIndex = 0;
             // 
             // frmProvince
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 687);
+            this.ClientSize = new System.Drawing.Size(984, 789);
             this.Controls.Add(this.row7);
             this.Controls.Add(this.row6);
             this.Controls.Add(this.row5);
@@ -216,7 +195,8 @@
             this.Controls.Add(this.row3);
             this.Controls.Add(this.row2);
             this.Controls.Add(this.row1);
-            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -230,8 +210,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,8 +228,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtProvice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

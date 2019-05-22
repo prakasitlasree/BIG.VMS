@@ -39,7 +39,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Dock = DockStyle.Left;
                 btn.Width = 98;
                 btn.Font = new Font(btn.Font.FontFamily, fontSize);
-                btn.BackColor = Color.FromArgb(232, 249, 102);
+                btn.BackColor = Color.FromArgb(255, 204, 229);
                 btn.Text = province[i].Text;
                 btn.Tag = province[i].Value;
 
