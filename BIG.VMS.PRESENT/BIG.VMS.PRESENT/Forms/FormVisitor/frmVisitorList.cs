@@ -357,28 +357,32 @@ namespace BIG.VMS.PRESENT.Forms.Home
                     }
                     else if (e.ColumnIndex == 2)
                     {
-                        //var x = gridVisitorList.Rows[e.RowIndex].Cells["TYPE"].Value;
-                        #region ===================== print =====================
-                        var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
-                        var obj = _service.GetVisitorByAutoIDForReport(id);
-                        var reportPara = _service.GetReportParameter();
-                        if (obj.ResultObj.Count > 0)
+                        var type = gridVisitorList.Rows[e.RowIndex].Cells["TYPE"].Value.ToString();
+                        if(type != "ออก" && type != "นัดล่วงหน้า(ออก)")
                         {
-                            List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
-                            DataTable dt = ConvertToDataTable(listData);
+                            #region ===================== print =====================
+                            var id = Convert.ToInt32(gridVisitorList.Rows[e.RowIndex].Cells["AUTO_ID"].Value);
+                            var obj = _service.GetVisitorByAutoIDForReport(id);
+                            var reportPara = _service.GetReportParameter();
+                            if (obj.ResultObj.Count > 0)
+                            {
+                                List<CustomVisitor> listData = (List<CustomVisitor>)obj.ResultObj;
+                                DataTable dt = ConvertToDataTable(listData);
 
-                            ReportDocument rpt = new ReportDocument();
-                            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                            var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-                            rpt.Load(appPath);
-                            rpt.SetDataSource(dt);
-                            //===== View Report =====
-                            //frmReportViewer frm = new frmReportViewer();
-                            //frm.crystalReportViewer1.ReportSource = rpt;
-                            //frm.ShowDialog();
-                            rpt.PrintToPrinter(1, true, 0, 0);
+                                ReportDocument rpt = new ReportDocument();
+                                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                                var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
+                                rpt.Load(appPath);
+                                rpt.SetDataSource(dt);
+                                //===== View Report =====
+                                //frmReportViewer frm = new frmReportViewer();
+                                //frm.crystalReportViewer1.ReportSource = rpt;
+                                //frm.ShowDialog();
+                                rpt.PrintToPrinter(1, true, 0, 0);
+                            }
+                            #endregion
                         }
-                        #endregion
+
                     }
                 }
             }

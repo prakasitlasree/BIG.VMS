@@ -9,6 +9,7 @@ using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using System.Globalization;
+using System.Data.Entity.Validation;
 
 namespace BIG.VMS.DATASERVICE
 {
@@ -65,7 +66,7 @@ namespace BIG.VMS.DATASERVICE
                     result.Status = true;
                     result.Message = "Save Successful";
                 }
-                catch (Exception ex)
+                catch (DbEntityValidationException ex)
                 {
                     result.Status = false;
                     result.Message = ex.Message.ToString();
@@ -85,7 +86,12 @@ namespace BIG.VMS.DATASERVICE
                 {
                     var deleteAttach = ctx.TRN_ATTACHEDMENT.Where(o => o.VISITOR_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
                     var deleteData = ctx.TRN_VISITOR.Where(o => o.AUTO_ID == obj.TRN_VISITOR.AUTO_ID).FirstOrDefault();
-                    ctx.TRN_ATTACHEDMENT.Remove(deleteAttach);
+
+                    if (deleteAttach != null)
+                    {
+                        ctx.TRN_ATTACHEDMENT.Remove(deleteAttach);
+                    }
+                    
                     ctx.TRN_VISITOR.Remove(deleteData);
                     ctx.SaveChanges();
                     result.Status = true;
@@ -193,8 +199,19 @@ namespace BIG.VMS.DATASERVICE
                         {
 
                             var attach = ctx.TRN_ATTACHEDMENT.Where(o => o.VISITOR_ID == visitorObj.AUTO_ID).FirstOrDefault();
-                            attach.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
-                            attach.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                            if (attach != null)
+                            {
+                                attach.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                                attach.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                            }
+                            else
+                            {
+                                var att = new TRN_ATTACHEDMENT();
+                                att.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                                att.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                                att.VISITOR_ID = visitorObj.AUTO_ID;
+                            }
+
                         }
 
                         updateData.ID_CARD = visitorObj.ID_CARD;
@@ -365,7 +382,7 @@ namespace BIG.VMS.DATASERVICE
                             result.Message = "ไม่พบข้อมูล";
                         }
                     }
-                  
+
                 }
             }
             catch (Exception ex)

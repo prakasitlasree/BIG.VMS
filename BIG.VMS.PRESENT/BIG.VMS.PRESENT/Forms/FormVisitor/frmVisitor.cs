@@ -143,7 +143,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
 
                     #endregion
-                    
+
                     txtIDCard.Text = visitorObj.ID_CARD;
                     txtFirstName.Text = visitorObj.FIRST_NAME;
                     txtLastName.Text = visitorObj.LAST_NAME;
@@ -249,7 +249,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 Image img = source.Image;
                 using (var ms = new MemoryStream())
                 {
-                    Bitmap bmp = new Bitmap(img, 240,120);
+                    Bitmap bmp = new Bitmap(img, 240, 120);
                     bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     return ms.ToArray();
 
@@ -346,28 +346,39 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     obj.UPDATED_BY = LOGIN;
                     obj.AUTO_ID = visitorObj.AUTO_ID;
-                    var attachment = new TRN_ATTACHEDMENT();
-                    attachment.ID_CARD_PHOTO = ImageToByte(picCard);
-                    if (isChangePhoto)
+                    if (isChangePhoto || isChangeCardPhoto)
                     {
-                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
-                    }
-                    else
-                    {
-                        attachment.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
-                    }
-                    if (isChangeCardPhoto)
-                    {
-                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
-                    }
-                    else
-                    {
-                        attachment.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
-                    }
+                        var attachment = new TRN_ATTACHEDMENT();
+
+                        if (isChangePhoto)
+                        {
+                            attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
+                        }
+                        else
+                        {
+                            if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                            {
+                                attachment.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                            }
+                        }
+                        if (isChangeCardPhoto)
+                        {
+                            attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                        }
+                        else
+                        {
+                            if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                            {
+                                attachment.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                            }
+
+                        }
 
 
-                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
-                    obj.TRN_ATTACHEDMENT.Add(attachment);
+                        obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                        obj.TRN_ATTACHEDMENT.Add(attachment);
+                    }
+
 
                 }
 
@@ -387,25 +398,28 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (formMode == FormMode.Add)
                 {
                     var obj = GetObjectfromControl();
-                    var attachment = new TRN_ATTACHEDMENT();
-                    if (isChangePhoto)
+                    if (isChangePhoto || isChangeCardPhoto)
                     {
-                        attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
+                        var attachment = new TRN_ATTACHEDMENT();
+                        if (isChangePhoto)
+                        {
+                            attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
+                        }
+                        else
+                        {
+                            attachment.CONTACT_PHOTO = BYTE_IMAGE;
+                        }
+                        if (isChangeCardPhoto)
+                        {
+                            attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                        }
+                        else
+                        {
+                            attachment.ID_CARD_PHOTO = BYTE_IMAGE;
+                        }
+                        obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                        obj.TRN_ATTACHEDMENT.Add(attachment);
                     }
-                    else
-                    {
-                        attachment.CONTACT_PHOTO = BYTE_IMAGE;
-                    }
-                    if (isChangeCardPhoto)
-                    {
-                        attachment.ID_CARD_PHOTO = ImageToByte(picCard);
-                    }
-                    else
-                    {
-                        attachment.ID_CARD_PHOTO = BYTE_IMAGE;
-                    }
-                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
-                    obj.TRN_ATTACHEDMENT.Add(attachment);
 
                     if (visitorMode == VisitorMode.In)
                     {
@@ -592,7 +606,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     !string.IsNullOrEmpty(txtMeet.Text) &&
                     !string.IsNullOrEmpty(txtTopic.Text) &&
                     !string.IsNullOrEmpty(txtCar.Text) &&
-                    txtIDCard.TextLength >= 13 &&
                     IsNeedProvice() &&
                     contactEmployeeId > 0 && carModelId > 0 && reasonId > 0)
                 {

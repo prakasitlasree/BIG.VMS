@@ -259,6 +259,7 @@
             // txtText
             // 
             this.txtText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtText.Enabled = false;
             this.txtText.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtText.Location = new System.Drawing.Point(0, 0);
             this.txtText.Name = "txtText";
@@ -271,10 +272,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(558, 633);
-            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.txtText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "กรุณาเลือกหมายเลขใบผ่าน";

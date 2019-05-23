@@ -162,7 +162,7 @@
           <Property Name="YEAR" Type="int" />
           <Property Name="MONTH" Type="int" />
           <Property Name="NO" Type="int" />
-          <Property Name="ID_CARD" Type="nvarchar" MaxLength="14" />
+          <Property Name="ID_CARD" Type="nvarchar" MaxLength="250" />
           <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
           <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="500" />
           <Property Name="LAST_NAME" Type="nvarchar" MaxLength="500" />
@@ -629,7 +629,7 @@
           <Property Name="YEAR" Type="Int32" />
           <Property Name="MONTH" Type="Int32" />
           <Property Name="NO" Type="Int32" />
-          <Property Name="ID_CARD" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="ID_CARD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FIRST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="LAST_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />

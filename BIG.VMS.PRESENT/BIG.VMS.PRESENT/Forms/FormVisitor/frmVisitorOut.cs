@@ -27,60 +27,65 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-
-
-            //txtNo.Text = frm.text;
-            int NO = txtNo.Text == "" ? 0 : Convert.ToInt32(txtNo.Text);
-            var res = _service.GetVisitorForOutByNo(NO);
-
-            if (res.Status)
+            frmNumber frm = new frmNumber();
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                _container = res;
+                txtNo.Text = frm.text;
+                int NO = txtNo.Text == "" ? 0 : Convert.ToInt32(txtNo.Text);
+                var res = _service.GetVisitorForOutByNo(NO);
 
-
-                if (_container.TRN_VISITOR != null && _container.TRN_VISITOR.AUTO_ID > 0)
+                if (res.Status)
                 {
-                    btnSave.Enabled = true;
+                    _container = res;
 
-                    txtPersonInfo.Text = _container.TRN_VISITOR.FIRST_NAME + " " + _container.TRN_VISITOR.LAST_NAME;
-                    if (_container.TRN_VISITOR.MAS_PROVINCE != null)
+
+                    if (_container.TRN_VISITOR != null && _container.TRN_VISITOR.AUTO_ID > 0)
                     {
-                        txtCarInfo.Text = _container.TRN_VISITOR.MAS_PROVINCE.NAME + " " + _container.TRN_VISITOR.LICENSE_PLATE;
-                    }
-                    if (_container.TRN_VISITOR.TRN_ATTACHEDMENT != null)
-                    {
-                        if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.Count > 0)
+                        btnSave.Enabled = true;
+
+                        txtPersonInfo.Text = _container.TRN_VISITOR.FIRST_NAME + " " + _container.TRN_VISITOR.LAST_NAME;
+                        if (_container.TRN_VISITOR.MAS_PROVINCE != null)
                         {
-                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                            txtCarInfo.Text = _container.TRN_VISITOR.MAS_PROVINCE.NAME + " " + _container.TRN_VISITOR.LICENSE_PLATE;
+                        }
+                        if (_container.TRN_VISITOR.TRN_ATTACHEDMENT != null)
+                        {
+                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.Count > 0)
                             {
-                                picImage.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                                {
+                                    picImage.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
+                                }
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
+                                {
+                                    picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
+                                }
                             }
-                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
-                            {
-                                picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
-                            }
+
+                        }
+
+                        else
+                        {
+                            txtCarInfo.Text = "ไม่ได้นำรถมา";
                         }
 
                     }
-
                     else
                     {
-                        txtCarInfo.Text = "ไม่ได้นำรถมา";
+
+                        MessageBox.Show(res.Message, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtPersonInfo.Text = "";
+                        txtCarInfo.Text = "";
+                        _container.TRN_VISITOR = null;
+                        btnSave.Enabled = false;
+
+
                     }
-
-                }
-                else
-                {
-
-                    MessageBox.Show(res.Message, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtPersonInfo.Text = "";
-                    txtCarInfo.Text = "";
-                    _container.TRN_VISITOR = null;
-                    btnSave.Enabled = false;
-
-
                 }
             }
+
+            //txtNo.Text = frm.text;
+
 
 
         }
@@ -150,17 +155,31 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             };
                             if (isChangePhoto)
                             {
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().VISITOR_ID = 0;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().AUTO_ID = 0;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().TRN_VISITOR = null;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = ImageToByte(picSlip);
+                                if (obj.TRN_ATTACHEDMENT.Count > 0)
+                                {
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().VISITOR_ID = 0;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().AUTO_ID = 0;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().TRN_VISITOR = null;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = ImageToByte(picSlip);
+                                }
+                                else
+                                {
+                                    var attach = new TRN_ATTACHEDMENT();
+                                    attach.CONTACT_PHOTO = ImageToByte(picSlip);
+                                    obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
+                                    obj.TRN_ATTACHEDMENT.Add(attach);
+                                }
                             }
                             else
                             {
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().VISITOR_ID = 0;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().AUTO_ID = 0;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().TRN_VISITOR = null;
-                                obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = org_obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                                if (obj.TRN_ATTACHEDMENT.Count > 0)
+                                {
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().VISITOR_ID = 0;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().AUTO_ID = 0;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().TRN_VISITOR = null;
+                                    obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO = org_obj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
+                                }
+
                             }
 
 
@@ -283,7 +302,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 txtNo.Text = frm.text;
                 btnFind_Click(sender, e);
             }
-            
+
         }
 
         private void txtNo_TextChanged(object sender, EventArgs e)

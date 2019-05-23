@@ -148,6 +148,7 @@
             this.txtNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtNo.Location = new System.Drawing.Point(91, 18);
             this.txtNo.Name = "txtNo";
+            this.txtNo.ReadOnly = true;
             this.txtNo.Size = new System.Drawing.Size(268, 31);
             this.txtNo.TabIndex = 1;
             this.txtNo.Click += new System.EventHandler(this.txtNo_Click);
