@@ -69,7 +69,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
         protected int ReadPIDCard()
         {
             try
-            { 
+            {
                 string strTerminal = CARD_READER;
                 CARD = new PIDCard();
                 CARD_TYPE = "PID";
@@ -87,7 +87,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
                     RDNID.deselectReaderRD(obj);
                     return nInsertCard;
                 }
-                 
+
                 byte[] id = new byte[30];
                 int res = RDNID.getNIDNumberRD(obj, id);
                 if (res != DefineConstants.NID_SUCCESS)
@@ -163,7 +163,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             return 0;
 
         }
@@ -177,17 +177,30 @@ namespace BIG.VMS.PRESENT.Forms.Master
             {
                 DID = new DIDCard();
                 CARD_TYPE = "DID"; //Driving card ID
-                string[] temp = frm.DID_INFO.Split('$');
-                if (temp.Length >= 3)
+                try
                 {
-                    string[] no = temp[2].Replace("\r\n","").Split('?');
-                    string[] no2 = no[1].Replace("\r\n", "").Split('=');
-                    DID.NO = no2[0].Replace(";", "").ToString();
-                    DID.FIRST_NAME_EN = temp[1].ToString();
-                    DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ",""); 
-                } 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    string[] temp = frm.DID_INFO.Split('$');
+                    if (temp.Length >= 3)
+                    {
+                        string[] no = temp[2].Replace("\r\n", "").Split('?');
+                        string[] no2 = no[1].Replace("\r\n", "").Split('=');
+                        DID.NO = no2[0].Replace(";", "").ToString().Substring(6);
+                        DID.FIRST_NAME_EN = temp[1].ToString();
+                        DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ", "");
+                    }
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                    DID.NO = "99999999999999";
+                    DID.FIRST_NAME_EN = "ERROR";
+                    DID.LAST_NAME_EN = "ERROR";
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+
             }
         }
     }
