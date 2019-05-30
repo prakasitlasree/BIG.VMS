@@ -329,7 +329,7 @@ namespace BIG.VMS.DATASERVICE
 
                     }
 
-                    var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.MONTH >= startMonth && o.MONTH <= endMonth) && (o.YEAR == year));
+                    var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.MONTH >= startMonth) && (o.YEAR == year));
                     if (isAlreadyOut)
                     {
                         TRN_VISITOR visit = new TRN_VISITOR()
@@ -347,7 +347,7 @@ namespace BIG.VMS.DATASERVICE
                                         .Include("MAS_PROVINCE")
                                         .Include("TRN_ATTACHEDMENT")
                                         .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
-                                        .Where(o => (o.MONTH >= startMonth && o.MONTH <= endMonth) && o.YEAR == year)
+                                        .Where(o => (o.MONTH >= startMonth) && o.YEAR == year)
                                         .OrderByDescending(x => x.NO).ToList();
 
                         if (reTrnVisitor.Count > 0)
