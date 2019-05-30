@@ -745,26 +745,29 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frm.StartPosition = FormStartPosition.CenterParent;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (frm.CARD_TYPE == "PID")
-                    {
-                        //บัตรประชาชน
-                        txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
-                        txtLastName.Text = frm.CARD.TH_LAST_NAME;
-                        txtIDCard.Text = frm.CARD.NO;
-                        picCard.Image = (Image)frm.CARD.PHOTO;
-                        CARD_IMAGE = frm.CARD.CARD_IMAGE;
-                        BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
-                        isChangeCardPhoto = false;
-                    }
-                    else
-                    {
-                        //ใบขับขี่
-                        txtFirstName.Text = frm.DID.FIRST_NAME_EN;
-                        txtLastName.Text = frm.DID.LAST_NAME_EN;
-                        txtIDCard.Text = frm.DID.NO;
-                    }
-
-                    MessageBox.Show("อ่านข้อมูลจากบัตร เรียบร้อย!!!");
+                    if (frm.READ_CARD_STATUS)
+                    { 
+                        if (frm.CARD_TYPE == "PID")
+                        {
+                            //บัตรประชาชน
+                            txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
+                            txtLastName.Text = frm.CARD.TH_LAST_NAME;
+                            txtIDCard.Text = frm.CARD.NO;
+                            picCard.Image = (Image)frm.CARD.PHOTO;
+                            CARD_IMAGE = frm.CARD.CARD_IMAGE;
+                            BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
+                            isChangeCardPhoto = false;
+                            MessageBox.Show("อ่านข้อมูลจากบัตรประชาชน เรียบร้อย!!!");
+                        }
+                        else
+                        {
+                            //ใบขับขี่
+                            txtFirstName.Text = frm.DID.FIRST_NAME_EN;
+                            txtLastName.Text = frm.DID.LAST_NAME_EN;
+                            txtIDCard.Text = frm.DID.NO;
+                            MessageBox.Show("อ่านข้อมูลจากใบขับขี่ เรียบร้อย!!!");
+                        } 
+                    } 
                 }
             }
             catch (Exception ex)
