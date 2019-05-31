@@ -69,8 +69,8 @@ namespace BIG.VMS.PRESENT
                 //USER = txtUsername.Text;
                 var obj = (MEMBER_LOGON)res.ResultObj;
                 var frm = new FrmMain();
-                LOGIN = txtUsername.Text;
-                frm.User = txtUsername.Text;
+                LOGIN = obj.USERNAME;
+                frm.User = obj.USERNAME;
                 frm.Show(this);
                 this.Hide();
 
