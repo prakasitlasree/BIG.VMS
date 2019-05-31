@@ -68,10 +68,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             try
             {
-                _container = new ContainerVisitor();
+                // _container = new ContainerVisitor();
                 if (formMode == FormMode.Add)
                 {
-                    var res = _service.GetItem(_container);
+                    var res = _service.GetLastUserNo();
                     if (res.Status)
                     {
                         int no = Convert.ToInt32(res.TRN_VISITOR.NO);

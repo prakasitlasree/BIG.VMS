@@ -51,6 +51,35 @@ namespace BIG.VMS.DATASERVICE
             return result;
         }
 
+
+        public ContainerVisitor GetLastUserNo()
+        {
+            var result = new ContainerVisitor();
+            using (var ctx = new BIG_VMSEntities())
+            {
+                var reTrnVisitor = ctx.TRN_VISITOR.Where(o=>o.MONTH == DateTime.Today.Month && o.YEAR == DateTime.Today.Year).OrderByDescending(x => x.NO).FirstOrDefault();
+                if (reTrnVisitor != null)
+                {
+
+
+                    result.TRN_VISITOR = reTrnVisitor;
+                    result.Status = true;
+
+                }
+                else
+                {
+                    TRN_VISITOR visit = new TRN_VISITOR()
+                    {
+                        AUTO_ID = 0,
+                        NO = 0,
+                    };
+                    result.TRN_VISITOR = visit;
+                    result.Status = true;
+                }
+            }
+            return result;
+        }
+
         public ContainerVisitor Create(ContainerVisitor obj)
         {
             var result = new ContainerVisitor();
@@ -328,8 +357,10 @@ namespace BIG.VMS.DATASERVICE
                         endMonth = endMonth - 1;
 
                     }
+                    var startDate = DateTime.Now.AddDays(-5);
+                    var endDate = DateTime.Now.AddDays(5);
 
-                    var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.MONTH >= startMonth) && (o.YEAR == year));
+                    var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.CREATED_DATE >= startDate && o.CREATED_DATE <= endDate) && (o.YEAR == year));
                     if (isAlreadyOut)
                     {
                         TRN_VISITOR visit = new TRN_VISITOR()
@@ -347,7 +378,7 @@ namespace BIG.VMS.DATASERVICE
                                         .Include("MAS_PROVINCE")
                                         .Include("TRN_ATTACHEDMENT")
                                         .Where(o => o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment"))
-                                        .Where(o => (o.MONTH >= startMonth) && o.YEAR == year)
+                                        .Where(o => (o.CREATED_DATE >= startDate && o.CREATED_DATE<=endDate) && o.YEAR == year)
                                         .OrderByDescending(x => x.NO).ToList();
 
                         if (reTrnVisitor.Count > 0)
