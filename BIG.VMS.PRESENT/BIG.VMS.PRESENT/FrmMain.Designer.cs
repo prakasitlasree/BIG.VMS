@@ -89,8 +89,8 @@
             // readIDCardToolStripMenuItem
             // 
             this.readIDCardToolStripMenuItem.Name = "readIDCardToolStripMenuItem";
-            this.readIDCardToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
-            this.readIDCardToolStripMenuItem.Text = "ทดสอบอ่านบัตร";
+            this.readIDCardToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.readIDCardToolStripMenuItem.Text = "จัดการ blacklist";
             this.readIDCardToolStripMenuItem.Click += new System.EventHandler(this.readIDCardToolStripMenuItem_Click);
             // 
             // logout

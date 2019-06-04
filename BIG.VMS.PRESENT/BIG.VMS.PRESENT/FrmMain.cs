@@ -79,7 +79,7 @@ namespace BIG.VMS.PRESENT
 
         private void readIDCardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new ReadCard();
+            var frm = new frmBlacklistList();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
