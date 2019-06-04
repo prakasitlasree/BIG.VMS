@@ -703,7 +703,7 @@
             this.picCard.BackColor = System.Drawing.Color.White;
             this.picCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picCard.Image = ((System.Drawing.Image)(resources.GetObject("picCard.Image")));
+            this.picCard.Image = global::BIG.VMS.PRESENT.Properties.Resources.emploee;
             this.picCard.InitialImage = null;
             this.picCard.Location = new System.Drawing.Point(3, 48);
             this.picCard.Name = "picCard";
@@ -852,6 +852,7 @@
             this.button3.Size = new System.Drawing.Size(38, 39);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnDeleteCam
             // 

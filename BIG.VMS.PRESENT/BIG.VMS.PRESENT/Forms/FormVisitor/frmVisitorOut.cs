@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -188,6 +189,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                             if (res.Status)
                             {
+                                string dir = DIRECTORY_OUT + "\\" + obj.NO + "\\";
+                                Directory.CreateDirectory(dir);
+                               
+                                SaveImage(picCard,dir + "ID_CARD.jpg");
+                                SaveImage(picImage, dir + "PHOTO.jpg");
+                                SaveImage(picSlip, dir + "SLIP.jpg");
+                                
+
                                 MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
@@ -215,7 +224,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     MessageBox.Show("ไม่มีข้อมูล", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }
@@ -224,6 +233,25 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void SaveImage(PictureBox source,string path)
+        {
+            try
+            {
+                Image img = source.Image;
+                using (var ms = new MemoryStream())
+                {
+                    Bitmap bmp = new Bitmap(img);
+                    bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                  
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public byte[] ImageToByte(PictureBox source)

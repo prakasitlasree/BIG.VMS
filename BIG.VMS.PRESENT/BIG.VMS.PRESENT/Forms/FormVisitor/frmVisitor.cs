@@ -16,6 +16,8 @@ using BIG.VMS.MODEL.CustomModel.Container;
 using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using CrystalDecisions.CrystalReports.Engine;
 using BIG.VMS.PRESENT.Forms.FormReport;
+using System.Drawing.Imaging;
+using CrystalDecisions.Shared;
 
 namespace BIG.VMS.PRESENT.Forms.FormVisitor
 {
@@ -393,14 +395,19 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void Save()
         {
+       
             try
             {
+
                 if (formMode == FormMode.Add)
                 {
                     var obj = GetObjectfromControl();
+                    string dir = DIRECTORY_IN + "\\" + obj.NO + "\\";
+                    Directory.CreateDirectory(dir);
+                    var attachment = new TRN_ATTACHEDMENT();
                     if (isChangePhoto || isChangeCardPhoto)
                     {
-                        var attachment = new TRN_ATTACHEDMENT();
+                        
                         if (isChangePhoto)
                         {
                             attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
@@ -419,11 +426,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         }
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
                         obj.TRN_ATTACHEDMENT.Add(attachment);
+                        attachment.PHOTO_URL = dir;
                     }
 
                     if (visitorMode == VisitorMode.In)
                     {
-                        obj.TYPE = VisitorMode.In.ToString();
+                        obj.TYPE = VisitorMode.In.ToString();                              
+                        picCard.Image.Save(dir+"ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        picPhoto.Image.Save(dir+ "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+
                     }
                     if (visitorMode == VisitorMode.Out)
                     {
@@ -432,6 +444,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (visitorMode == VisitorMode.Appointment)
                     {
                         obj.TYPE = VisitorMode.Appointment.ToString();
+                        picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
                     if (visitorMode == VisitorMode.Regulary)
                     {
@@ -444,7 +458,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (res.Status)
                     {
-                        PrintSlip(res.ResultObj.AUTO_ID);
+                        PrintSlip(res.ResultObj.AUTO_ID,obj.NO);
                         MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -482,7 +496,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private void PrintSlip(int id)
+        private void PrintSlip(int id,int? no)
         {
             var obj = _service.GetVisitorByAutoIDForReport(id);
             var reportPara = _service.GetReportParameter();
@@ -498,6 +512,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
+
+                
+                rpt.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                rpt.ExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                DiskFileDestinationOptions objDiskOpt = new DiskFileDestinationOptions();
+                string dir = DIRECTORY_IN + "\\" + no + "\\";
+                objDiskOpt.DiskFileName = dir + "SLIP.pdf";
+                rpt.ExportOptions.DestinationOptions = objDiskOpt;
+                rpt.Export();
             }
         }
 
@@ -746,7 +769,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     if (frm.READ_CARD_STATUS)
-                    { 
+                    {
                         if (frm.CARD_TYPE == "PID")
                         {
                             //บัตรประชาชน
@@ -766,8 +789,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             txtLastName.Text = frm.DID.LAST_NAME_EN;
                             txtIDCard.Text = frm.DID.NO;
                             MessageBox.Show("อ่านข้อมูลจากใบขับขี่ เรียบร้อย!!!");
-                        } 
-                    } 
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -885,7 +908,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            //picCard
         }
 
         private void txtIDCard_TextChanged(object sender, EventArgs e)
@@ -913,6 +936,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 txtLicense.Text = frm.text;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

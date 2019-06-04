@@ -138,6 +138,7 @@
           <Property Name="VISITOR_ID" Type="int" />
           <Property Name="ID_CARD_PHOTO" Type="varbinary(max)" />
           <Property Name="CONTACT_PHOTO" Type="varbinary(max)" />
+          <Property Name="PHOTO_URL" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TRN_BLACKLIST">
           <Key>
@@ -605,6 +606,7 @@
           <Property Name="ID_CARD_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="CONTACT_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="TRN_VISITOR" Relationship="BIG_VMSModel.FK_TRN_ATTACHEDMENT_TRN_VISITOR" FromRole="TRN_ATTACHEDMENT" ToRole="TRN_VISITOR" />
+          <Property Name="PHOTO_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TRN_BLACKLIST">
           <Key>
@@ -938,6 +940,7 @@
           <EntitySetMapping Name="TRN_ATTACHEDMENT">
             <EntityTypeMapping TypeName="BIG_VMSModel.TRN_ATTACHEDMENT">
               <MappingFragment StoreEntitySet="TRN_ATTACHEDMENT">
+                <ScalarProperty Name="PHOTO_URL" ColumnName="PHOTO_URL" />
                 <ScalarProperty Name="CONTACT_PHOTO" ColumnName="CONTACT_PHOTO" />
                 <ScalarProperty Name="ID_CARD_PHOTO" ColumnName="ID_CARD_PHOTO" />
                 <ScalarProperty Name="VISITOR_ID" ColumnName="VISITOR_ID" />
