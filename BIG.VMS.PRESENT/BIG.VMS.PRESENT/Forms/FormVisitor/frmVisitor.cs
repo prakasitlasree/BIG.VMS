@@ -395,7 +395,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void Save()
         {
-       
+
             try
             {
 
@@ -407,7 +407,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     var attachment = new TRN_ATTACHEDMENT();
                     if (isChangePhoto || isChangeCardPhoto)
                     {
-                        
+
                         if (isChangePhoto)
                         {
                             attachment.CONTACT_PHOTO = ImageToByte(picPhoto);
@@ -431,17 +431,17 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (visitorMode == VisitorMode.In)
                     {
-                        obj.TYPE = VisitorMode.In.ToString();  
-                        if(isChangePhoto)
+                        obj.TYPE = VisitorMode.In.ToString();
+                        if (isChangePhoto)
                         {
                             picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
                         if (isChangeCardPhoto)
                         {
                             picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                        }             
-                        
-                       
+                        }
+
+
 
 
                     }
@@ -472,7 +472,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (res.Status)
                     {
-                        PrintSlip(res.ResultObj.AUTO_ID,obj.NO);
+                        PrintSlip(res.ResultObj.AUTO_ID, obj.NO);
                         MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -510,7 +510,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         }
 
-        private void PrintSlip(int id,int? no)
+        private void PrintSlip(int id, int? no)
         {
             var obj = _service.GetVisitorByAutoIDForReport(id);
             var reportPara = _service.GetReportParameter();
@@ -527,7 +527,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
 
-                
+
                 rpt.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
                 rpt.ExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
                 DiskFileDestinationOptions objDiskOpt = new DiskFileDestinationOptions();
@@ -674,7 +674,17 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 else
                 {
-                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    List<string> listMsg = new List<string>();
+                    if (string.IsNullOrEmpty(txtFirstName.Text)) listMsg.Add("ชื่อจริง");
+                    if (string.IsNullOrEmpty(txtLastName.Text)) listMsg.Add("นามสกุล");
+                    if (string.IsNullOrEmpty(txtIDCard.Text)) listMsg.Add("รหัสบัตรประชาชน");
+                    if (string.IsNullOrEmpty(txtMeet.Text)) listMsg.Add("ผู้ที่ต้องการเข้าพบ");
+                    if (string.IsNullOrEmpty(txtTopic.Text)) listMsg.Add("วัตถุประสงค์");
+                    if (string.IsNullOrEmpty(txtCar.Text)) listMsg.Add("ยานพาหนะ");
+                    if (!IsNeedProvice()) listMsg.Add("จังหวัด");
+                    string joined = string.Join(","+Environment.NewLine, listMsg);
+
+                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบ " + joined, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }

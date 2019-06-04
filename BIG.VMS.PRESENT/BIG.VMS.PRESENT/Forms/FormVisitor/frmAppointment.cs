@@ -146,7 +146,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 }
                 else
                 {
-                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    List<string> listMsg = new List<string>();
+                    if (string.IsNullOrEmpty(txtFirstName.Text)) listMsg.Add("ชื่อจริง");
+                    if (string.IsNullOrEmpty(txtLastName.Text)) listMsg.Add("นามสกุล");
+                    if (string.IsNullOrEmpty(txtIDCard.Text)) listMsg.Add("รหัสบัตรประชาชน");
+                    if (string.IsNullOrEmpty(txtMeet.Text)) listMsg.Add("ผู้ที่ต้องการเข้าพบ");
+                    if (string.IsNullOrEmpty(txtTopic.Text)) listMsg.Add("วัตถุประสงค์");
+                    string joined = string.Join("," + Environment.NewLine, listMsg);
+
+                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบ " + joined, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
