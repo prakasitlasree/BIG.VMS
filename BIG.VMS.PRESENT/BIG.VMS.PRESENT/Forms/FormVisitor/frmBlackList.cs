@@ -36,12 +36,25 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void btnBlacklist_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtReason.Text) &&
-                !string.IsNullOrEmpty(txtIDCard.Text))
+                !string.IsNullOrEmpty(txtIDCard.Text) &&
+                !string.IsNullOrEmpty(txtFirstName.Text) &&
+                !string.IsNullOrEmpty(txtLastName.Text))
             {
                 if (MessageBox.Show("ต้องการบันทึกข้อมูลใช่หรือไม่ ?", "แจ้งเตือน", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Save();
                 }
+            }
+            else
+            {
+                List<string> listMsg = new List<string>();
+                if (string.IsNullOrEmpty(txtFirstName.Text)) listMsg.Add("ชื่อจริง");
+                if (string.IsNullOrEmpty(txtLastName.Text)) listMsg.Add("นามสกุล");
+                if (string.IsNullOrEmpty(txtIDCard.Text)) listMsg.Add("รหัสบัตรประชาชน");
+                if (string.IsNullOrEmpty(txtReason.Text)) listMsg.Add("เหตุผล");              
+                string joined = string.Join("," + Environment.NewLine, listMsg);
+                MessageBox.Show("กรุณากรอกข้อมูลให้ครบ " + joined, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -75,6 +88,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 MessageBox.Show(res.Message + res.ExceptionMessage);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
