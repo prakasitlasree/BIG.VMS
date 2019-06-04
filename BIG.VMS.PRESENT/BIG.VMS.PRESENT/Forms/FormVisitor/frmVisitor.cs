@@ -431,9 +431,17 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                     if (visitorMode == VisitorMode.In)
                     {
-                        obj.TYPE = VisitorMode.In.ToString();                              
-                        picCard.Image.Save(dir+"ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                        picPhoto.Image.Save(dir+ "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        obj.TYPE = VisitorMode.In.ToString();  
+                        if(isChangePhoto)
+                        {
+                            picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
+                        if (isChangeCardPhoto)
+                        {
+                            picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }             
+                        
+                       
 
 
                     }
@@ -444,8 +452,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (visitorMode == VisitorMode.Appointment)
                     {
                         obj.TYPE = VisitorMode.Appointment.ToString();
-                        picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                        picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        if (isChangePhoto)
+                        {
+                            picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
+                        if (isChangeCardPhoto)
+                        {
+                            picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
                     }
                     if (visitorMode == VisitorMode.Regulary)
                     {

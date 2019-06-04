@@ -191,11 +191,22 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             {
                                 string dir = DIRECTORY_OUT + "\\" + obj.NO + "\\";
                                 Directory.CreateDirectory(dir);
-                               
-                                SaveImage(picCard,dir + "ID_CARD.jpg");
-                                SaveImage(picImage, dir + "PHOTO.jpg");
-                                SaveImage(picSlip, dir + "SLIP.jpg");
+
+                                if (obj.TRN_ATTACHEDMENT.Count > 0)
+                                {
+                                    SaveImage(picImage, dir + "PHOTO.jpg");
+                                    SaveImage(picCard, dir + "ID_CARD.jpg");
+                                }
+
                                 
+
+
+                                if (isChangePhoto)
+                                {
+                                    SaveImage(picSlip, dir + "SLIP.jpg");
+                                }
+
+
 
                                 MessageBox.Show(Message.MSG_SAVE_COMPLETE, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.DialogResult = DialogResult.OK;
@@ -236,7 +247,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         }
 
 
-        private void SaveImage(PictureBox source,string path)
+        private void SaveImage(PictureBox source, string path)
         {
             try
             {
@@ -245,7 +256,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     Bitmap bmp = new Bitmap(img);
                     bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-                  
+
                 }
             }
             catch (Exception ex)
