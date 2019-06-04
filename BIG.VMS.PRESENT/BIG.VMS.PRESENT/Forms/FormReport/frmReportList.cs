@@ -353,5 +353,10 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
             SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
