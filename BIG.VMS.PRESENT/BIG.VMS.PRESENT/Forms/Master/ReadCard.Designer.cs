@@ -88,38 +88,41 @@
             this.tableLayoutPanel1.Controls.Add(this.m_ListReaderCard, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 42);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 34);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 495);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 403);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // m_txtID
             // 
             this.m_txtID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtID.Location = new System.Drawing.Point(197, 3);
+            this.m_txtID.Location = new System.Drawing.Point(147, 2);
+            this.m_txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtID.Name = "m_txtID";
-            this.m_txtID.Size = new System.Drawing.Size(300, 22);
+            this.m_txtID.Size = new System.Drawing.Size(225, 20);
             this.m_txtID.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 6);
+            this.label9.Location = new System.Drawing.Point(2, 5);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 17);
+            this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 18;
             this.label9.Text = "รหัสบัตรประชาชน";
             // 
@@ -127,9 +130,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 36);
+            this.label2.Location = new System.Drawing.Point(2, 29);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "ชื่อ-สกุล";
             // 
@@ -137,9 +141,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 66);
+            this.label3.Location = new System.Drawing.Point(2, 53);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Name";
             // 
@@ -147,72 +152,80 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 96);
+            this.label4.Location = new System.Drawing.Point(2, 77);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 17);
+            this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "ที่อยู่";
             // 
             // m_txtFullNameT
             // 
             this.m_txtFullNameT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtFullNameT.Location = new System.Drawing.Point(197, 33);
+            this.m_txtFullNameT.Location = new System.Drawing.Point(147, 26);
+            this.m_txtFullNameT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtFullNameT.Name = "m_txtFullNameT";
-            this.m_txtFullNameT.Size = new System.Drawing.Size(300, 22);
+            this.m_txtFullNameT.Size = new System.Drawing.Size(225, 20);
             this.m_txtFullNameT.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 156);
+            this.label5.Location = new System.Drawing.Point(2, 125);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 17);
+            this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "วันเดือนปี เกิด";
             // 
             // m_txtFullNameE
             // 
             this.m_txtFullNameE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtFullNameE.Location = new System.Drawing.Point(197, 63);
+            this.m_txtFullNameE.Location = new System.Drawing.Point(147, 50);
+            this.m_txtFullNameE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtFullNameE.Name = "m_txtFullNameE";
-            this.m_txtFullNameE.Size = new System.Drawing.Size(300, 22);
+            this.m_txtFullNameE.Size = new System.Drawing.Size(225, 20);
             this.m_txtFullNameE.TabIndex = 9;
             // 
             // m_txtAddress
             // 
             this.m_txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtAddress.Location = new System.Drawing.Point(197, 93);
+            this.m_txtAddress.Location = new System.Drawing.Point(147, 74);
+            this.m_txtAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtAddress.Multiline = true;
             this.m_txtAddress.Name = "m_txtAddress";
             this.tableLayoutPanel1.SetRowSpan(this.m_txtAddress, 2);
             this.m_txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.m_txtAddress.Size = new System.Drawing.Size(300, 54);
+            this.m_txtAddress.Size = new System.Drawing.Size(225, 44);
             this.m_txtAddress.TabIndex = 10;
             // 
             // m_txtBrithDate
             // 
             this.m_txtBrithDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtBrithDate.Location = new System.Drawing.Point(197, 153);
+            this.m_txtBrithDate.Location = new System.Drawing.Point(147, 122);
+            this.m_txtBrithDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtBrithDate.Name = "m_txtBrithDate";
-            this.m_txtBrithDate.Size = new System.Drawing.Size(300, 22);
+            this.m_txtBrithDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtBrithDate.TabIndex = 11;
             // 
             // m_txtGender
             // 
             this.m_txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtGender.Location = new System.Drawing.Point(197, 183);
+            this.m_txtGender.Location = new System.Drawing.Point(147, 146);
+            this.m_txtGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtGender.Name = "m_txtGender";
-            this.m_txtGender.Size = new System.Drawing.Size(300, 22);
+            this.m_txtGender.Size = new System.Drawing.Size(225, 20);
             this.m_txtGender.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 186);
+            this.label6.Location = new System.Drawing.Point(2, 149);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 17);
+            this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "เพศ";
             // 
@@ -220,9 +233,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 216);
+            this.label7.Location = new System.Drawing.Point(2, 173);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 17);
+            this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "วันเดือนปี ออกบัตร";
             // 
@@ -230,26 +244,29 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 246);
+            this.label8.Location = new System.Drawing.Point(2, 197);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 17);
+            this.label8.Size = new System.Drawing.Size(96, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "วันเดือนปี หมดอายุ";
             // 
             // m_txtIssueDate
             // 
             this.m_txtIssueDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtIssueDate.Location = new System.Drawing.Point(197, 213);
+            this.m_txtIssueDate.Location = new System.Drawing.Point(147, 170);
+            this.m_txtIssueDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtIssueDate.Name = "m_txtIssueDate";
-            this.m_txtIssueDate.Size = new System.Drawing.Size(300, 22);
+            this.m_txtIssueDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtIssueDate.TabIndex = 16;
             // 
             // m_txtExpiryDate
             // 
             this.m_txtExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_txtExpiryDate.Location = new System.Drawing.Point(197, 243);
+            this.m_txtExpiryDate.Location = new System.Drawing.Point(147, 194);
+            this.m_txtExpiryDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_txtExpiryDate.Name = "m_txtExpiryDate";
-            this.m_txtExpiryDate.Size = new System.Drawing.Size(300, 22);
+            this.m_txtExpiryDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtExpiryDate.TabIndex = 17;
             // 
             // m_picPhoto
@@ -257,17 +274,19 @@
             this.m_picPhoto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.m_picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.m_picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_picPhoto.Location = new System.Drawing.Point(197, 303);
+            this.m_picPhoto.Location = new System.Drawing.Point(147, 242);
+            this.m_picPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_picPhoto.Name = "m_picPhoto";
-            this.m_picPhoto.Size = new System.Drawing.Size(300, 189);
+            this.m_picPhoto.Size = new System.Drawing.Size(225, 159);
             this.m_picPhoto.TabIndex = 0;
             this.m_picPhoto.TabStop = false;
             // 
             // btn_read
             // 
-            this.btn_read.Location = new System.Drawing.Point(503, 3);
+            this.btn_read.Location = new System.Drawing.Point(376, 2);
+            this.btn_read.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_read.Name = "btn_read";
-            this.btn_read.Size = new System.Drawing.Size(78, 24);
+            this.btn_read.Size = new System.Drawing.Size(58, 20);
             this.btn_read.TabIndex = 1;
             this.btn_read.Text = "Read Card";
             this.btn_read.UseVisualStyleBackColor = true;
@@ -277,9 +296,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 276);
+            this.label1.Location = new System.Drawing.Point(2, 221);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 17);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "เครื่องอ่านบัตร";
             // 
@@ -287,16 +307,18 @@
             // 
             this.m_ListReaderCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_ListReaderCard.FormattingEnabled = true;
-            this.m_ListReaderCard.Location = new System.Drawing.Point(197, 273);
+            this.m_ListReaderCard.Location = new System.Drawing.Point(147, 218);
+            this.m_ListReaderCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_ListReaderCard.Name = "m_ListReaderCard";
-            this.m_ListReaderCard.Size = new System.Drawing.Size(300, 24);
+            this.m_ListReaderCard.Size = new System.Drawing.Size(225, 21);
             this.m_ListReaderCard.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(503, 33);
+            this.button1.Location = new System.Drawing.Point(376, 26);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 24);
+            this.button1.Size = new System.Drawing.Size(58, 20);
             this.button1.TabIndex = 20;
             this.button1.Text = "Test";
             this.button1.UseVisualStyleBackColor = true;
@@ -315,12 +337,13 @@
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.909091F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.09091F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1183, 589);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(887, 479);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label10
@@ -331,9 +354,10 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.LightCoral;
-            this.label10.Location = new System.Drawing.Point(4, 1);
+            this.label10.Location = new System.Drawing.Point(3, 1);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(584, 37);
+            this.label10.Size = new System.Drawing.Size(438, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "บัตรประชาชน (เสียบบัตร)";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,38 +370,42 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label11.Location = new System.Drawing.Point(595, 1);
+            this.label11.Location = new System.Drawing.Point(446, 1);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(584, 37);
+            this.label11.Size = new System.Drawing.Size(438, 30);
             this.label11.TabIndex = 14;
             this.label11.Text = "ใบขับขี่ (รูดบัตร)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDID
             // 
-            this.txtDID.Location = new System.Drawing.Point(595, 42);
+            this.txtDID.Location = new System.Drawing.Point(446, 34);
+            this.txtDID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDID.Multiline = true;
             this.txtDID.Name = "txtDID";
-            this.txtDID.Size = new System.Drawing.Size(577, 306);
+            this.txtDID.Size = new System.Drawing.Size(434, 249);
             this.txtDID.TabIndex = 12;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.button2.Location = new System.Drawing.Point(595, 544);
+            this.button2.Location = new System.Drawing.Point(446, 442);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(206, 41);
+            this.button2.Size = new System.Drawing.Size(154, 33);
             this.button2.TabIndex = 15;
             this.button2.Text = "อ่านใบขับขี่อีกครั้ง";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // ReadCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1183, 589);
+            this.ClientSize = new System.Drawing.Size(887, 479);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReadCard";
             this.Text = "ReadCard";
             this.tableLayoutPanel1.ResumeLayout(false);

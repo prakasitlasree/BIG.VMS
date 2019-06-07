@@ -186,13 +186,56 @@ namespace BIG.VMS.PRESENT.Forms.Master
                 try
                 {
                     string[] temp = frm.DID_INFO.Split('$');
-                    if (temp.Length >= 3)
+                    if (temp.Length > 0)
                     {
-                        string[] no = temp[2].Replace("\r\n", "").Split('?');
-                        string[] no2 = no[1].Replace("\r\n", "").Split('=');
-                        DID.NO = no2[0].Replace(";", "").ToString().Substring(6);
-                        DID.FIRST_NAME_EN = temp[1].ToString();
-                        DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ", "");
+                        string[] str = { };
+                        string[] str2 = { };
+                        try
+                        {
+                            string[] no = temp[2].Replace("\r\n", "").Split('?');
+                            str = no;
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        try
+                        {
+                            string[] no2 = str[1].Replace("\r\n", "").Split('=');
+                            str2 = no2;
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        try
+                        {
+                            DID.NO = str2[0].Replace(";", "").ToString().Substring(6);
+
+
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        try
+                        {
+                            DID.FIRST_NAME_EN = temp[1].ToString();
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        try
+                        {
+                            DID.LAST_NAME_EN = temp[0].Trim().Replace("%", "").Replace("^", "").Replace(" ", "");
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+
+
                     }
                     this.DialogResult = DialogResult.OK;
                     this.Close();

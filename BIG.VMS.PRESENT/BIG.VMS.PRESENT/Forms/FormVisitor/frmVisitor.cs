@@ -662,7 +662,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         var blData = data.TRN_BLACKLIST;
                         var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
                         msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
-                        msg += Environment.NewLine + "ณ วันที่ : " + blData.CREATED_DATE;
+                        msg += Environment.NewLine + "ณ วันที่ : " + blData.UPDATED_DATE;
                         MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     //}
@@ -804,7 +804,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             CARD_IMAGE = frm.CARD.CARD_IMAGE;
                             BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
                             isChangeCardPhoto = false;
-                            MessageBox.Show("อ่านข้อมูลจากบัตรประชาชน เรียบร้อย!!!");
+                            var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                            if (data.TRN_BLACKLIST == null)
+                            {
+                                MessageBox.Show("อ่านข้อมูลจากบัตรประชาชน เรียบร้อย!!!");
+                            }
+                            else
+                            {
+                                var blData = data.TRN_BLACKLIST;
+                                var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
+                                msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
+                                msg += Environment.NewLine + "ณ วันที่ : " + blData.UPDATED_DATE;
+                                MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //this.Close();
+                            }
+                           
                         }
                         else
                         {
@@ -812,7 +826,21 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             txtFirstName.Text = frm.DID.FIRST_NAME_EN;
                             txtLastName.Text = frm.DID.LAST_NAME_EN;
                             txtIDCard.Text = frm.DID.NO;
-                            MessageBox.Show("อ่านข้อมูลจากใบขับขี่ เรียบร้อย!!!");
+                            var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
+                            if (data.TRN_BLACKLIST == null)
+                            {
+                                MessageBox.Show("อ่านข้อมูลจากใบขับขี่ เรียบร้อย!!!");
+                            }
+                            else
+                            {
+                                var blData = data.TRN_BLACKLIST;
+                                var msg = "เลขบัตรประชาชน : " + blData.ID_CARD + Environment.NewLine + "ชื่อ-สกุล : " + blData.FIRST_NAME + " " + blData.LAST_NAME;
+                                msg += Environment.NewLine + "เหตุผล : " + blData.REASON;
+                                msg += Environment.NewLine + "ณ วันที่ : " + blData.UPDATED_DATE;
+                                MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //this.Close();
+                            }
+                           
                         }
                     }
                 }
