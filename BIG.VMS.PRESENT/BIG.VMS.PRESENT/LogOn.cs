@@ -3,11 +3,20 @@ using System.Windows.Forms;
 using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.MODEL.CustomModel;
 using BIG.VMS.DATASERVICE;
+using System.Net;
+using System.Net.Sockets;
+using System.Device.Location;
+using System.Threading;
+using System.IO;
+using System.Net.Mail;
 
 namespace BIG.VMS.PRESENT
 {
+
     public partial class LogOn : PageBase
     {
+
+
         public LogOn()
         {
             InitializeComponent();
@@ -15,6 +24,8 @@ namespace BIG.VMS.PRESENT
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
+
+            GetComputerInfomation();
             var service = new AuthenticationServices();
             var filter = new AuthenticationFilter { UserName = txtUsername.Text, Password = txtPassword.Text };
             var container = new ContainerAuthentication { Filter = filter };
@@ -60,8 +71,9 @@ namespace BIG.VMS.PRESENT
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             var service = new AuthenticationServices();
-            var filter = new AuthenticationFilter { UserName ="admin", Password = "1234"};
+            var filter = new AuthenticationFilter { UserName = "admin", Password = "1234" };
             var container = new ContainerAuthentication { Filter = filter };
             var res = service.Retrieve(container);
             if (res.Status)
@@ -81,6 +93,163 @@ namespace BIG.VMS.PRESENT
                 MessageBox.Show(res.Message + res.ExceptionMessage);
             }
         }
-        
+
+        private void GetComputerInfomation()
+        {
+            try
+            {
+
+                string comName = Environment.MachineName;
+                string ipAddress = GetLocalIPAddress();
+                string location = GetLocation();
+
+                System.IO.Directory.CreateDirectory(Application.StartupPath + @"\Temp\");
+                var iden = ipAddress.Replace(".", "-");
+                string path = Application.StartupPath + @"\Temp\VMS_IP_" + iden + "_DATE_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".txt";
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Dispose();
+
+                }
+
+                using (var tw = new StreamWriter(path, true))
+                {
+
+                    tw.WriteLine("Computer name : " + comName);
+                    tw.WriteLine("IP Address : " + ipAddress);
+                    tw.WriteLine("Location : " + location);
+                    tw.WriteLine("Time : " + DateTime.Now);
+                    tw.WriteLine("=====================================================================================");
+                    tw.WriteLine("");
+                    tw.Close();
+                }
+
+                if (CheckForInternetConnection())
+                {
+                    try
+                    {
+                        string[] files = Directory.GetFiles(Application.StartupPath + @"\Temp", "*.txt", SearchOption.AllDirectories);
+                        var smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new NetworkCredential("bigvms@gmail.com", "@bigvms1")
+                        };
+
+                        var message = new MailMessage("bigvms@gmail.com", "bigvms@gmail.com");
+                        message.Subject = "VMS login from ip : " + ipAddress + " Computer name : " + comName;
+
+                        foreach (var file in files)
+                        {
+                            System.Net.Mail.Attachment attachment;
+                            attachment = new System.Net.Mail.Attachment(file);
+                            message.Attachments.Add(attachment);
+                        }
+
+                        smtp.Send(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        return;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        public bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public string GetLocalIPAddress()
+        {
+            try
+            {
+                var host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return ip.ToString();
+                    }
+                }
+                return "No network adapters with an IPv4 address in the system!";
+            }
+            catch (Exception ex)
+            {
+                return "No network adapters with an IPv4 address in the system!";
+            }
+
+        }
+
+        static string GetLocation()
+        {
+            try
+            {
+                GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+
+                // Do not suppress f, and wait 1000 milliseconds to start.
+                watcher.TryStart(false, TimeSpan.FromMilliseconds(1500));
+                Thread.Sleep(1500);
+                GeoCoordinate coord = watcher.Position.Location;
+
+                if (coord.IsUnknown != true)
+                {
+                    return coord.Latitude.ToString() + " , " + coord.Longitude.ToString();
+
+                }
+                else
+                {
+                    return "Unknown latitude and longitude.";
+                }
+            }
+            catch(Exception ex)
+            {
+                return ex.Message.ToString();
+
+            }
+            
+        }
+
+        public void EmailSending()
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("your mail@gmail.com");
+            mail.To.Add("to_mail@gmail.com");
+            mail.Subject = "Test Mail - 1";
+            mail.Body = "mail with attachment";
+
+            System.Net.Mail.Attachment attachment;
+            attachment = new System.Net.Mail.Attachment("c:/textfile.txt");
+            mail.Attachments.Add(attachment);
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("your mail@gmail.com", "your password");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+
+        }
+
     }
 }
