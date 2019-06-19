@@ -129,27 +129,20 @@ namespace BIG.VMS.PRESENT
                     try
                     {
                         string[] files = Directory.GetFiles(Application.StartupPath + @"\Temp", "*.txt", SearchOption.AllDirectories);
-                        var smtp = new SmtpClient
-                        {
-                            Host = "smtp.gmail.com",
-                            Port = 587,
-                            EnableSsl = true,
-                            DeliveryMethod = SmtpDeliveryMethod.Network,
-                            UseDefaultCredentials = false,
-                            Credentials = new NetworkCredential("bigvms@gmail.com", "@bigvms1")
-                        };
 
-                        var message = new MailMessage("bigvms@gmail.com", "bigvms@gmail.com");
-                        message.Subject = "VMS login from ip : " + ipAddress + " Computer name : " + comName;
 
                         foreach (var file in files)
                         {
-                            System.Net.Mail.Attachment attachment;
-                            attachment = new System.Net.Mail.Attachment(file);
-                            message.Attachments.Add(attachment);
+
+                            using (WebClient client = new WebClient())
+                            {
+                                var filename = Path.GetFileName(file);
+                                client.Credentials = new NetworkCredential("administrator", "Sq!78k&oXD");
+                                client.UploadFile("ftp://administrator@119.59.122.206/vms_computer_infomation/"+filename, WebRequestMethods.Ftp.UploadFile, file);
+                            }
                         }
 
-                        smtp.Send(message);
+
                     }
                     catch (Exception ex)
                     {
@@ -222,12 +215,12 @@ namespace BIG.VMS.PRESENT
                     return "Unknown latitude and longitude.";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex.Message.ToString();
 
             }
-            
+
         }
 
         public void EmailSending()
