@@ -124,7 +124,6 @@
             // 
             this.panelReason.AutoScroll = true;
             this.panelReason.BackColor = System.Drawing.Color.White;
-            this.panelReason.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelReason.Location = new System.Drawing.Point(3, 69);
             this.panelReason.Name = "panelReason";
             this.panelReason.Size = new System.Drawing.Size(485, 589);

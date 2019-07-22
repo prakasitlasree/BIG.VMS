@@ -757,6 +757,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     contactEmployeeId = frm.SELECTED_EMPLOYEE_ID;
                     txtMeet.Text = frm.SELECTED_EMPLOYEE_TEXT;
+                    reasonId = frm.SELECTED_REASON_ID;
+                    txtTopic.Text = frm.SELECTED_REASON_TEXT;
                 }
             }
             catch (Exception ex)

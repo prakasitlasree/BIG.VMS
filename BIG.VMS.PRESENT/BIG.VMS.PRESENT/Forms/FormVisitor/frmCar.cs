@@ -102,6 +102,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 panelCarBrand.Controls.Add(btn);
             }
+
+            foreach (Control c in panelCarType.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+                    c.ForeColor = Color.Black;
+                }
+            }
+            ((Button)((Control)sender)).ForeColor = Color.Red;
         }
 
         private void CarBrandSelected_EventHadler(object sender, EventArgs e)
@@ -125,6 +134,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Tag = item.Value;
 
                 panelCarModel.Controls.Add(btn);
+
+                foreach (Control c in panelCarBrand.Controls)
+                {
+                    if (c.GetType() == typeof(Button))
+                    {
+                        c.ForeColor = Color.Black;
+                    }
+                }
+
+                 ((Button)((Control)sender)).ForeColor = Color.Red;
             }
         }
 

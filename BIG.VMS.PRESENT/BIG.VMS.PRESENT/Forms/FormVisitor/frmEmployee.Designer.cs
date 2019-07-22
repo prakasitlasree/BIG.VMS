@@ -38,21 +38,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelDept = new System.Windows.Forms.Panel();
             this.panelEmployee = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.TextBox();
+            this.panelReason = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.panelReason, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelDept, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelEmployee, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelEmployee, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -70,12 +78,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtEmployee, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(495, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(657, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(486, 60);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 60);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label2
@@ -97,7 +104,7 @@
             this.txtEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployee.Location = new System.Drawing.Point(90, 14);
             this.txtEmployee.Name = "txtEmployee";
-            this.txtEmployee.Size = new System.Drawing.Size(393, 31);
+            this.txtEmployee.Size = new System.Drawing.Size(231, 31);
             this.txtEmployee.TabIndex = 1;
             this.txtEmployee.TextChanged += new System.EventHandler(this.txtEmployee_TextChanged);
             // 
@@ -114,7 +121,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(486, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(321, 60);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // txtDepartment
@@ -124,7 +131,7 @@
             this.txtDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartment.Location = new System.Drawing.Point(69, 14);
             this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(414, 31);
+            this.txtDepartment.Size = new System.Drawing.Size(249, 31);
             this.txtDepartment.TabIndex = 0;
             this.txtDepartment.TextChanged += new System.EventHandler(this.txtDepartment_TextChanged);
             // 
@@ -144,21 +151,66 @@
             // 
             this.panelDept.AutoScroll = true;
             this.panelDept.BackColor = System.Drawing.Color.White;
-            this.panelDept.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDept.Location = new System.Drawing.Point(3, 69);
             this.panelDept.Name = "panelDept";
-            this.panelDept.Size = new System.Drawing.Size(486, 589);
+            this.panelDept.Size = new System.Drawing.Size(321, 589);
             this.panelDept.TabIndex = 2;
             // 
             // panelEmployee
             // 
             this.panelEmployee.AutoScroll = true;
             this.panelEmployee.BackColor = System.Drawing.Color.White;
-            this.panelEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEmployee.Location = new System.Drawing.Point(495, 69);
+            this.panelEmployee.Location = new System.Drawing.Point(657, 69);
             this.panelEmployee.Name = "panelEmployee";
-            this.panelEmployee.Size = new System.Drawing.Size(486, 589);
+            this.panelEmployee.Size = new System.Drawing.Size(324, 589);
             this.panelEmployee.TabIndex = 3;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txtReason, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(330, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(321, 60);
+            this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "วัตถุประสงค์";
+            // 
+            // txtReason
+            // 
+            this.txtReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReason.BackColor = System.Drawing.Color.White;
+            this.txtReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReason.Location = new System.Drawing.Point(117, 14);
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(201, 31);
+            this.txtReason.TabIndex = 1;
+            this.txtReason.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // panelReason
+            // 
+            this.panelReason.AutoScroll = true;
+            this.panelReason.BackColor = System.Drawing.Color.White;
+            this.panelReason.Location = new System.Drawing.Point(330, 69);
+            this.panelReason.Name = "panelReason";
+            this.panelReason.Size = new System.Drawing.Size(321, 589);
+            this.panelReason.TabIndex = 5;
             // 
             // frmEmployee
             // 
@@ -181,6 +233,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +250,9 @@
         private System.Windows.Forms.TextBox txtEmployee;
         private System.Windows.Forms.TextBox txtDepartment;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtReason;
+        private System.Windows.Forms.Panel panelReason;
     }
 }

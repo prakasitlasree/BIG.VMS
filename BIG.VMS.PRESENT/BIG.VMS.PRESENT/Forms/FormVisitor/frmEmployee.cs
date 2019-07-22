@@ -18,6 +18,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         public int SELECTED_EMPLOYEE_ID { get; set; }
         public string SELECTED_EMPLOYEE_TEXT { get; set; }
+        public int SELECTED_REASON_ID { get; set; }
+        public string SELECTED_REASON_TEXT { get; set; }
+
+
 
         public frmEmployee()
         {
@@ -27,6 +31,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             InitialDepartment();
+            InitialReason();
         }
 
         private void InitialDepartment()
@@ -47,6 +52,27 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Click += new EventHandler(DepartmentSelected_EventHadler);
 
                 panelDept.Controls.Add(btn);
+            }
+        }
+
+        private void InitialReason()
+        {
+            var reason = _comboService.GetComboReason();
+
+            foreach (var item in reason)
+            {
+                Button btn = new Button();
+                btn.Dock = DockStyle.Top;
+                btn.Height = 100;
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(241, 252, 156);
+
+                btn.Text = item.Text;
+                btn.Tag = item.Value;
+
+                btn.Click += new EventHandler(ReasonSelected_EventHadler);
+
+                panelReason.Controls.Add(btn);
             }
         }
 
@@ -96,6 +122,42 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
+        private void SearchReason(string filter)
+        {
+            var reason = _comboService.GetComboReason(filter);
+            panelReason.Controls.Clear();
+            foreach (var item in reason)
+            {
+                Button btn = new Button();
+                btn.Dock = DockStyle.Top;
+                btn.Height = 100;
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(241, 252, 156);
+
+                btn.Text = item.Text;
+                btn.Tag = item.Value;
+
+                btn.Click += new EventHandler(ReasonSelected_EventHadler);
+
+                panelReason.Controls.Add(btn);
+            }
+        }
+
+        private void ReasonSelected_EventHadler(object sender, EventArgs e)
+        {
+            SELECTED_REASON_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_REASON_TEXT = ((Control)sender).Text.ToString();
+            foreach (Control c in panelReason.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+                    c.ForeColor = Color.Black;
+                }
+            }
+            ((Button)((Control)sender)).ForeColor = Color.Red;
+
+        }
+
         private void DepartmentSelected_EventHadler(object sender, EventArgs e)
         {
             deptID = Convert.ToInt32(((Control)sender).Tag.ToString());
@@ -119,6 +181,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 panelEmployee.Controls.Add(btn);
             }
+
+            foreach (Control c in panelDept.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+                    c.ForeColor = Color.Black;
+                }
+            }
+              ((Button)((Control)sender)).ForeColor = Color.Red;
         }
 
         private void EmployeeSelected_EventHadler(object sender, EventArgs e)
@@ -141,6 +212,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             SELECTED_EMPLOYEE_ID = 0;
             SearchEmployee(txtEmployee.Text);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            SearchReason(txtReason.Text);
         }
     }
 }
