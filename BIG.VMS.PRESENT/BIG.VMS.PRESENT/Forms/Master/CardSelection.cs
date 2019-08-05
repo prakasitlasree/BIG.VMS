@@ -237,7 +237,8 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
 
                     }
-                    this.DialogResult = DialogResult.OK;
+                    READ_CARD_STATUS = true;
+                    this.DialogResult = DialogResult.OK;              
                     this.Close();
                 }
                 catch (Exception ex)

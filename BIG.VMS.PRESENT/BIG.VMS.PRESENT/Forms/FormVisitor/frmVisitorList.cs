@@ -397,5 +397,10 @@ namespace BIG.VMS.PRESENT.Forms.Home
             frmBlacklistList frm = new frmBlacklistList();
             frm.ShowDialog();
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
