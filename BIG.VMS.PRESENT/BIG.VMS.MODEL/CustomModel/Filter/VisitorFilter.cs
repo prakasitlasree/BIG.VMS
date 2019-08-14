@@ -12,5 +12,6 @@ namespace BIG.VMS.MODEL.CustomModel
         public string LAST_NAME { get; set; }
         public DateTime DATE_FROM { get; set; }
         public DateTime DATE_TO { get; set; }
+        public int DEPT_ID { get; set; }
     }
 }

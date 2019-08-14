@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gridAppointmentList = new System.Windows.Forms.DataGridView();
+            this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.txtLicense = new System.Windows.Forms.TextBox();
             this.chkDate = new System.Windows.Forms.CheckBox();
             this.dtContactDate = new System.Windows.Forms.DateTimePicker();
-            this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAppointmentList)).BeginInit();
@@ -110,6 +110,17 @@
             this.gridAppointmentList.Size = new System.Drawing.Size(1153, 389);
             this.gridAppointmentList.TabIndex = 0;
             this.gridAppointmentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAppointmentList_CellContentClick);
+            // 
+            // colMeeted
+            // 
+            this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMeeted.HeaderText = "การเข้าพบ";
+            this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
+            this.colMeeted.Name = "colMeeted";
+            this.colMeeted.ReadOnly = true;
+            this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMeeted.Width = 120;
             // 
             // tableLayoutPanel4
             // 
@@ -219,7 +230,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -374,17 +385,6 @@
             this.dtContactDate.Size = new System.Drawing.Size(264, 31);
             this.dtContactDate.TabIndex = 12;
             // 
-            // colMeeted
-            // 
-            this.colMeeted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMeeted.HeaderText = "การเข้าพบ";
-            this.colMeeted.Image = ((System.Drawing.Image)(resources.GetObject("colMeeted.Image")));
-            this.colMeeted.Name = "colMeeted";
-            this.colMeeted.ReadOnly = true;
-            this.colMeeted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMeeted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMeeted.Width = 120;
-            // 
             // frmAppointmenList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -398,6 +398,7 @@
             this.Name = "frmAppointmenList";
             this.ShowInTaskbar = false;
             this.Text = "นัดหมายล่วงหน้า";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAppointmenList_FormClosing);
             this.Load += new System.EventHandler(this.frmAppointmentList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

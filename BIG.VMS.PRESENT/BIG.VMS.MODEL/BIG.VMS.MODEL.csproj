@@ -70,6 +70,7 @@
     <Compile Include="CustomModel\HeaderGrid.cs" />
     <Compile Include="CustomModel\PIDCard.cs" />
     <Compile Include="CustomModel\Filter\VisitorFilter.cs" />
+    <Compile Include="CustomModel\TransactionModel.cs" />
     <Compile Include="CustomModel\VisitorGroupModel.cs" />
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="EntityModel\BIG_VMS_DB.cs">

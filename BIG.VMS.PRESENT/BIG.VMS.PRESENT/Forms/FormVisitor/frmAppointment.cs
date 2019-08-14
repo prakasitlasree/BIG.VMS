@@ -179,7 +179,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             frmCar frm = new frmCar();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                carModelId = frm.SELECTED_CAR_ID;
+                carModelId = frm.SELECTED_CAR_NAME_ID;
                 //txtCar.Text = frm.SELECTED_CAR_TEXT;
             }
         }

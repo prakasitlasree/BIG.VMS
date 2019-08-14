@@ -21,6 +21,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private readonly VisitorServices _service = new VisitorServices();
         private ContainerVisitor _container = new ContainerVisitor();
         private bool isChangePhoto;
+        public bool outFlag = false;
+        public int inID = 0;
+
         public frmVisitorOut()
         {
             InitializeComponent();
@@ -61,6 +64,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 {
                                     picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                                 }
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
+                                {
+                                    picPass.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
+                                }
                             }
 
                         }
@@ -84,9 +91,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     }
                 }
             }
-
-            //txtNo.Text = frm.text;
-
 
 
         }
@@ -120,7 +124,16 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             {
                 if (_container.TRN_VISITOR != null)
                 {
-                    var res = _service.UpdateVisitorOut(_container);
+                    var res = new ContainerVisitor();
+                    if (outFlag)
+                    {
+                        res = _service.UpdateVisitorOutByID(_container);
+                    }
+                    else
+                    {
+                         res = _service.UpdateVisitorOut(_container);
+                    }
+                   
                     if (res.Status)
                     {
 
@@ -129,7 +142,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             var org_obj = _container.TRN_VISITOR;
                             int no = Convert.ToInt32(res.TRN_VISITOR.NO);
-                            //no = no + 1;
+
                             var obj = new TRN_VISITOR()
                             {
 
@@ -139,7 +152,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 TYPE = org_obj.TYPE == "Appointment" ? "AppointmentOut" : "Out",
                                 FIRST_NAME = org_obj.FIRST_NAME,
                                 LAST_NAME = org_obj.LAST_NAME,
-                                CAR_MODEL_ID = org_obj.CAR_MODEL_ID,
+                                CAR_TYPE_ID = org_obj.CAR_TYPE_ID,
                                 LICENSE_PLATE = org_obj.LICENSE_PLATE,
                                 LICENSE_PLATE_PROVINCE_ID = org_obj.LICENSE_PLATE_PROVINCE_ID,
                                 REASON_ID = org_obj.REASON_ID,
@@ -198,7 +211,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                     SaveImage(picCard, dir + "ID_CARD.jpg");
                                 }
 
-                                
+
 
 
                                 if (isChangePhoto)
@@ -325,7 +338,63 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void frmVisitorOut_Load(object sender, EventArgs e)
         {
+            if (outFlag == true)
+            {
+                var res = _service.GetVisitorForOutByID(inID);
 
+                if (res.Status)
+                {
+                    _container = res;
+
+
+                    if (_container.TRN_VISITOR != null && _container.TRN_VISITOR.AUTO_ID > 0)
+                    {
+                        btnSave.Enabled = true;
+                        txtNo.Text = _container.TRN_VISITOR.NO.ToString();
+                        txtPersonInfo.Text = _container.TRN_VISITOR.FIRST_NAME + " " + _container.TRN_VISITOR.LAST_NAME;
+                        if (_container.TRN_VISITOR.MAS_PROVINCE != null)
+                        {
+                            txtCarInfo.Text = _container.TRN_VISITOR.MAS_PROVINCE.NAME + " " + _container.TRN_VISITOR.LICENSE_PLATE;
+                        }
+                        if (_container.TRN_VISITOR.TRN_ATTACHEDMENT != null)
+                        {
+                            if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.Count > 0)
+                            {
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO != null)
+                                {
+                                    picImage.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO);
+                                }
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
+                                {
+                                    picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
+                                }
+                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
+                                {
+                                    picPass.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
+                                }
+                            }
+
+                        }
+
+                        else
+                        {
+                            txtCarInfo.Text = "ไม่ได้นำรถมา";
+                        }
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show(res.Message, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtPersonInfo.Text = "";
+                        txtCarInfo.Text = "";
+                        _container.TRN_VISITOR = null;
+                        btnSave.Enabled = false;
+
+
+                    }
+                }
+            };
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -335,12 +404,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void txtNo_Click(object sender, EventArgs e)
         {
-            frmNumber frm = new frmNumber();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                txtNo.Text = frm.text;
-                btnFind_Click(sender, e);
-            }
+            //frmNumber frm = new frmNumber();
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    txtNo.Text = frm.text;
+            //    btnFind_Click(sender, e);
+            //}
 
         }
 

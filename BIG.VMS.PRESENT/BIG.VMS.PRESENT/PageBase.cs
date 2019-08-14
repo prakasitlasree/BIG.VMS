@@ -37,7 +37,7 @@ namespace BIG.VMS.PRESENT
             {
                 ComboBoxItem defaultSelect = new ComboBoxItem
                 {
-                    Text = "เลือก",
+                    Text = "ทั้งหมด",
                     Value = null,
                 };
 

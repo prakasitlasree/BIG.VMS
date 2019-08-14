@@ -17,6 +17,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public MAS_CAR_TYPE()
         {
             this.MAS_CAR_BRAND = new HashSet<MAS_CAR_BRAND>();
+            this.TRN_VISITOR = new HashSet<TRN_VISITOR>();
         }
     
         public int AUTO_ID { get; set; }
@@ -25,5 +26,6 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> SHOW_SEQ { get; set; }
     
         public virtual ICollection<MAS_CAR_BRAND> MAS_CAR_BRAND { get; set; }
+        public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
     }
 }

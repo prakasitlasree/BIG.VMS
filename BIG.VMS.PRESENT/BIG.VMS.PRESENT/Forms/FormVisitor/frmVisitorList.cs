@@ -34,8 +34,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
 
             InitialComboBox();
-            InitialEventHandler();
-            SetControl();
+            InitialEventHandler();          
             ResetScreen();
             gridVisitorList.DataBindingComplete += BindingComplete;
 
@@ -51,6 +50,9 @@ namespace BIG.VMS.PRESENT.Forms.Home
                 gridVisitorList.Columns[1].Visible = false;
                 gridVisitorList.Columns[2].Visible = false;
             }
+
+          
+
         }
 
         private void BindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -73,7 +75,7 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
             if (comboType.SelectedIndex == 0)
             {
-                //filter.TYPE = "In";
+                
             }
             else if (comboType.SelectedIndex == 1)
             {
@@ -134,6 +136,12 @@ namespace BIG.VMS.PRESENT.Forms.Home
             _container.PageInfo = new Pagination();
             BindGridData();
             CustomGrid();
+            SetControl();
+
+            TransactionModel obj = _service.GetVistorTracsaction();
+            lblAllCount.Text = obj.ALL_VISITOR_IN.ToString();
+            lblTodayIn.Text = obj.TODAY_VISITOR_IN.ToString();
+            lblTodayOut.Text = obj.TODAY_VISITOR_OUT.ToString();
         }
 
         private List<HeaderGrid> ListHeader()
@@ -401,6 +409,12 @@ namespace BIG.VMS.PRESENT.Forms.Home
         private void btnNext_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnListExit_Click(object sender, EventArgs e)
+        {
+            frmVisitorOutList frm = new frmVisitorOutList();
+            frm.ShowDialog();
         }
     }
 }

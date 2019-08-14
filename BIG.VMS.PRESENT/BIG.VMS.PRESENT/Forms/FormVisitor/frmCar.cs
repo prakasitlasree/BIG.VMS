@@ -17,8 +17,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private int carType = 0;
         private int carBrand = 0;
         private string carBrandText = "";
-        public int SELECTED_CAR_ID { get; set; }
-        public string SELECTED_CAR_TEXT { get; set; }
+        public int SELECTED_CAR_NAME_ID { get; set; }
+        public string SELECTED_CAR_TYPE_TEXT { get; set; }
         public CarModelServices _service = new CarModelServices();
 
 
@@ -39,8 +39,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             foreach (var item in carType)
             {
                 Button btn = new Button();
-                btn.Dock = DockStyle.Top;
+                //btn.Dock = DockStyle.Top;
                 btn.Height = 100;
+                btn.Width = 150;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
                 btn.BackColor = Color.FromArgb(232, 249, 102);
 
@@ -49,68 +50,75 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 btn.Click += new EventHandler(CarTypeSelected_EventHadler);
 
-                panelCarType.Controls.Add(btn);
+                flowCarType.Controls.Add(btn);
             }
         }
 
         private void CarTypeSelected_EventHadler(object sender, EventArgs e)
         {
-            carType = Convert.ToInt32(((Control)sender).Tag.ToString());
-            var text = ((Control)sender).Text.ToString();
+            #region ===Old===
+            //carType = Convert.ToInt32(((Control)sender).Tag.ToString());
+            //var text = ((Control)sender).Text.ToString();
 
-            if (text == "เดินเท้า")
-            {
-                var res = _service.GetAutoIDFromCarModel("เดินเท้า");
-                if (res.Status)
-                {
-                    SELECTED_CAR_TEXT = "เดินเท้า";
-                    SELECTED_CAR_ID = (int)res.ResultObj;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            else if (text == "ไม่ระบุ")
-            {
-                var res = _service.GetAutoIDFromCarModel("ไม่ระบุ");
-                if (res.Status)
-                {
-                    SELECTED_CAR_TEXT = "ไม่ระบุ";
-                    SELECTED_CAR_ID = (int)res.ResultObj;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
+            //if (text == "เดินเท้า")
+            //{
+            //    var res = _service.GetAutoIDFromCarModel("เดินเท้า");
+            //    if (res.Status)
+            //    {
+            //        SELECTED_CAR_TYPE_TEXT = "เดินเท้า";
+            //        SELECTED_CAR_NAME_ID = (int)res.ResultObj;
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close();
+            //    }
+            //}
+            //else if (text == "ไม่ระบุ")
+            //{
+            //    var res = _service.GetAutoIDFromCarModel("ไม่ระบุ");
+            //    if (res.Status)
+            //    {
+            //        SELECTED_CAR_TYPE_TEXT = "ไม่ระบุ";
+            //        SELECTED_CAR_NAME_ID = (int)res.ResultObj;
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close();
+            //    }
+            //}
 
-            var carBrand = _comboService.GetComboCarBrandByTypeID(carType);
+            //var carBrand = _comboService.GetComboCarBrandByTypeID(carType);
 
-            panelCarBrand.Controls.Clear();
-            panelCarModel.Controls.Clear();
+            ////panelCarBrand.Controls.Clear();
+            ////panelCarModel.Controls.Clear();
 
-            foreach (var item in carBrand)
-            {
-                Button btn = new Button();
-                btn.Dock = DockStyle.Top;
-                btn.Height = 100;
-                btn.Font = new Font(btn.Font.FontFamily, 20);
-                btn.BackColor = Color.FromArgb(241, 252, 156);
+            //foreach (var item in carBrand)
+            //{
+            //    Button btn = new Button();
+            //    btn.Dock = DockStyle.Top;
+            //    btn.Height = 100;
+            //    btn.Font = new Font(btn.Font.FontFamily, 20);
+            //    btn.BackColor = Color.FromArgb(241, 252, 156);
 
-                btn.Text = item.Text;
-                btn.Tag = item.Value;
+            //    btn.Text = item.Text;
+            //    btn.Tag = item.Value;
 
-                btn.Click += new EventHandler(CarBrandSelected_EventHadler);
+            //    btn.Click += new EventHandler(CarBrandSelected_EventHadler);
 
 
-                panelCarBrand.Controls.Add(btn);
-            }
+            //    //panelCarBrand.Controls.Add(btn);
+            //}
 
-            foreach (Control c in panelCarType.Controls)
-            {
-                if (c.GetType() == typeof(Button))
-                {
-                    c.ForeColor = Color.Black;
-                }
-            }
-            ((Button)((Control)sender)).ForeColor = Color.Red;
+            ////foreach (Control c in panelCarType.Controls)
+            ////{
+            ////    if (c.GetType() == typeof(Button))
+            ////    {
+            ////        c.ForeColor = Color.Black;
+            ////    }
+            ////}
+            //((Button)((Control)sender)).ForeColor = Color.Red;
+            #endregion
+
+            SELECTED_CAR_NAME_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_CAR_TYPE_TEXT = carBrandText + " " + ((Control)sender).Text.ToString();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void CarBrandSelected_EventHadler(object sender, EventArgs e)
@@ -118,7 +126,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             carBrand = Convert.ToInt32(((Control)sender).Tag.ToString());
             carBrandText = ((Control)sender).Text.ToString();
             var carModel = _comboService.GetComboCarModelByBrandID(carBrand);
-            panelCarModel.Controls.Clear();
+            //panelCarModel.Controls.Clear();
 
             foreach (var item in carModel)
             {
@@ -133,15 +141,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Text = item.Text;
                 btn.Tag = item.Value;
 
-                panelCarModel.Controls.Add(btn);
+                //panelCarModel.Controls.Add(btn);
 
-                foreach (Control c in panelCarBrand.Controls)
-                {
-                    if (c.GetType() == typeof(Button))
-                    {
-                        c.ForeColor = Color.Black;
-                    }
-                }
+                //foreach (Control c in panelCarBrand.Controls)
+                //{
+                //    if (c.GetType() == typeof(Button))
+                //    {
+                //        c.ForeColor = Color.Black;
+                //    }
+                //}
 
                  ((Button)((Control)sender)).ForeColor = Color.Red;
             }
@@ -149,8 +157,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void CarModelSelected_EventHadler(object sender, EventArgs e)
         {
-            SELECTED_CAR_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
-            SELECTED_CAR_TEXT = carBrandText + " " + ((Control)sender).Text.ToString();
+            SELECTED_CAR_NAME_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
+            SELECTED_CAR_TYPE_TEXT = carBrandText + " " + ((Control)sender).Text.ToString();
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -158,12 +166,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void SearchCarType(string filter)
         {
             var carType = _comboService.GetComboCarType(filter);
-            panelCarType.Controls.Clear();
+            flowCarType.Controls.Clear();
             carBrandText = "";
             foreach (var item in carType)
             {
                 Button btn = new Button();
-                btn.Dock = DockStyle.Top;
+                btn.Width = 150;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
                 btn.BackColor = Color.FromArgb(232, 249, 102);
@@ -173,7 +181,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 btn.Click += new EventHandler(CarTypeSelected_EventHadler);
 
-                panelCarType.Controls.Add(btn);
+                flowCarType.Controls.Add(btn);
             }
         }
 
@@ -181,12 +189,12 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             var carBrand = _comboService.GetComboCarBrandByTypeID(carType, filter);
             carBrandText = "";
-            panelCarBrand.Controls.Clear();
+            //panelCarBrand.Controls.Clear();
 
             foreach (var item in carBrand)
             {
                 Button btn = new Button();
-                btn.Dock = DockStyle.Top;
+                btn.Width = 100;
                 btn.Height = 100;
                 btn.Font = new Font(btn.Font.FontFamily, 20);
                 btn.BackColor = Color.FromArgb(241, 252, 156);
@@ -197,7 +205,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Click += new EventHandler(CarBrandSelected_EventHadler);
 
 
-                panelCarBrand.Controls.Add(btn);
+                //panelCarBrand.Controls.Add(btn);
             }
         }
 
@@ -207,7 +215,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             var carModel = _comboService.GetComboCarModelByBrandID(carBrand, filter);
 
-            panelCarModel.Controls.Clear();
+            //panelCarModel.Controls.Clear();
             carBrandText = "";
             foreach (var item in carModel)
             {
@@ -223,7 +231,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Click += new EventHandler(CarModelSelected_EventHadler);
 
 
-                panelCarModel.Controls.Add(btn);
+                //panelCarModel.Controls.Add(btn);
             }
         }
 
@@ -231,24 +239,24 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         {
             carType = 0;
             carBrand = 0;
-            SELECTED_CAR_ID = 0;
-            panelCarBrand.Controls.Clear();
-            panelCarModel.Controls.Clear();
+            SELECTED_CAR_NAME_ID = 0;
+            //panelCarBrand.Controls.Clear();
+            //panelCarModel.Controls.Clear();
             SearchCarType(txtCarType.Text);
         }
 
         private void txtCarBrand_TextChanged(object sender, EventArgs e)
         {
             carBrand = 0;
-            SELECTED_CAR_ID = 0;
-            panelCarModel.Controls.Clear();
-            SearchCarBrand(txtCarBrand.Text);
+            SELECTED_CAR_NAME_ID = 0;
+            //panelCarModel.Controls.Clear();
+            //SearchCarBrand(txtCarBrand.Text);
         }
 
         private void txtCarModel_TextChanged(object sender, EventArgs e)
         {
-            SELECTED_CAR_ID = 0;
-            SearchCarModel(txtCarModel.Text);
+            SELECTED_CAR_NAME_ID = 0;
+            //SearchCarModel(txtCarModel.Text);
         }
     }
 }

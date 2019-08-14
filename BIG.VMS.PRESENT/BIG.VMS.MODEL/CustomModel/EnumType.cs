@@ -15,6 +15,7 @@ namespace BIG.VMS.MODEL.CustomModel
 
     public enum VisitorMode
     {
+        All,
         In,
         Out,
         Appointment,

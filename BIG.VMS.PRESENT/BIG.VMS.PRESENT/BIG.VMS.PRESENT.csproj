@@ -221,6 +221,12 @@
     <Compile Include="Forms\FormVisitor\frmKeyboard.Designer.cs">
       <DependentUpon>frmKeyboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorOutList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmVisitorOutList.Designer.cs">
+      <DependentUpon>frmVisitorOutList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmKeyboard.resx">
       <DependentUpon>frmKeyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmVisitorOutList.resx">
+      <DependentUpon>frmVisitorOutList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmNumber.resx">
       <DependentUpon>frmNumber.cs</DependentUpon>

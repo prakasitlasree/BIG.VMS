@@ -81,28 +81,44 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     form.ShowDialog();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-         
+
 
         }
 
         private void frmReportList_Load(object sender, EventArgs e)
         {
             BindGridData();
+            var combo = new ComboBoxServices();
+            AddRangeComboBox(ddlDept, combo.GetComboDepartment(), true);
         }
 
         private void BindGridData()
         {
             var filter = new VisitorFilter()
             {
-                //TYPE = "IN",
+
                 DATE_FROM = (dtFrom.Value == null || dtFrom.Value == DateTime.MinValue) ? DateTime.Now : dtFrom.Value,
                 DATE_TO = (dtTo.Value == null || dtTo.Value == DateTime.MinValue) ? DateTime.Now : dtTo.Value
 
             };
+
+            if (radAll.Checked)
+            {
+                filter.TYPE = nameof(VisitorMode.All);
+            }
+            if (radIn.Checked)
+            {
+                filter.TYPE = nameof(VisitorMode.In);
+            }
+            if (radOut.Checked)
+            {
+                filter.TYPE = nameof(VisitorMode.Out);
+            }
+            filter.DEPT_ID = Convert.ToInt32(ddlDept.SelectedValue);
 
             _container.Filter = filter;
             _container = _service.GetVisitorForReport(_container);
@@ -158,7 +174,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     data.Columns.Remove("TOPIC");
                     data.Columns.Remove("FIRST_NAME");
                     data.Columns.Remove("LAST_NAME");
-                    data.Columns.Remove("CAR_MODEL_ID");
+                    data.Columns.Remove("CAR_TYPE_ID");
                     data.Columns.Remove("LICENSE_PLATE_PROVINCE_ID");
                     data.Columns.Remove("REASON_ID");
                     data.Columns.Remove("CONTACT_EMPLOYEE_ID");
@@ -216,7 +232,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
             var filter = new VisitorFilter()
             {
-              
+
                 DATE_FROM = ChangeTime(DateTime.Now, 0, 0, 0, 1),
                 DATE_TO = ChangeTime(DateTime.Now, 23, 59, 59, 59),
 
@@ -231,7 +247,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                 DataTable dt = ConvertToDataTable(listData);
 
                 DataTable headerTable = new DataTable("Customers");
-                DataColumn dtColumn ;
+                DataColumn dtColumn;
                 DataRow myDataRow;
 
                 dtColumn = new DataColumn();
@@ -256,10 +272,10 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                 rpt.Load(appPath);
                 rpt.Database.Tables[0].SetDataSource(dt);
                 rpt.Database.Tables[1].SetDataSource(headerTable);
-               
+
                 using (Form form = new Form())
                 {
-                    
+
                     CrystalReportViewer tempViewer = new CrystalReportViewer();
 
                     tempViewer.ActiveViewIndex = -1;
@@ -269,7 +285,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     tempViewer.SelectionFormula = "";
                     tempViewer.TabIndex = 0;
                     tempViewer.ViewTimeSelectionFormula = "";
-                    tempViewer.ReportSource = rpt;               
+                    tempViewer.ReportSource = rpt;
                     tempViewer.AutoSize = true;
                     tempViewer.Refresh();
                     form.Controls.Add(tempViewer);
@@ -277,7 +293,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     form.StartPosition = FormStartPosition.CenterParent;
                     form.ShowDialog();
                 }
-              
+
             }
 
             SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
@@ -290,8 +306,8 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             var filter = new VisitorFilter()
             {
-                
-                DATE_FROM =ChangeTime(firstDayOfMonth,0,0,0,1),
+
+                DATE_FROM = ChangeTime(firstDayOfMonth, 0, 0, 0, 1),
                 DATE_TO = ChangeTime(lastDayOfMonth, 23, 59, 59, 59),
 
             };
@@ -331,7 +347,7 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
 
                 using (Form form = new Form())
                 {
-                   
+
                     CrystalReportViewer tempViewer = new CrystalReportViewer();
                     tempViewer.ActiveViewIndex = -1;
                     tempViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -339,8 +355,8 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     tempViewer.Name = "tempViewer";
                     tempViewer.SelectionFormula = "";
                     tempViewer.TabIndex = 0;
-                    tempViewer.ViewTimeSelectionFormula = "";               
-                    tempViewer.ReportSource = rpt;                  
+                    tempViewer.ViewTimeSelectionFormula = "";
+                    tempViewer.ReportSource = rpt;
                     tempViewer.AutoSize = true;
                     tempViewer.Refresh();
                     form.Controls.Add(tempViewer);
@@ -348,13 +364,13 @@ namespace BIG.VMS.PRESENT.Forms.FormReport
                     form.StartPosition = FormStartPosition.CenterParent;
                     form.ShowDialog();
                 }
-                
+
             }
 
             SetDataSourceHeader(gridReportList, ListHeader(), _container.ResultObj);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }

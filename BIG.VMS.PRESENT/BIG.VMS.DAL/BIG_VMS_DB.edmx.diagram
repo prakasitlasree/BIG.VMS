@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e07cd239b82547f9895d6e7d4ba01238" Name="Diagram1" ZoomLevel="62">
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_BRAND" Width="1.5" PointX="1.5" PointY="1.25" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_MODEL" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_TYPE" Width="1.5" PointX="1.5" PointY="11.125" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_DEPARTMENT" Width="1.5" PointX="1.5" PointY="19" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_EMPLOYEE" Width="1.5" PointX="3.75" PointY="18.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_PROVINCE" Width="1.5" PointX="3.75" PointY="15.25" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MAS_REASON" Width="1.5" PointX="0.75" PointY="6.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.MEMBER_LOGON" Width="1.5" PointX="5.75" PointY="1.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.SYS_CONFIGURATION" Width="1.5" PointX="7.75" PointY="1.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_APPOINTMENT" Width="1.5" PointX="6" PointY="5.25" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_ATTACHEDMENT" Width="1.5" PointX="5.25" PointY="11.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="1.5" PointX="8.75" PointY="4.5" />
-        <EntityTypeShape EntityType="BIG_VMSModel.TRN_VISITOR" Width="1.5" PointX="3" PointY="4.75" />
+      <Diagram DiagramId="e07cd239b82547f9895d6e7d4ba01238" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_BRAND" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_MODEL" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_CAR_TYPE" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_DEPARTMENT" Width="1.5" PointX="1.5" PointY="15.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_EMPLOYEE" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_PROVINCE" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MAS_REASON" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.MEMBER_LOGON" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.SYS_CONFIGURATION" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_APPOINTMENT" Width="1.5" PointX="7.5" PointY="10.625" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_ATTACHEDMENT" Width="1.5" PointX="5.25" PointY="5.625" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_BLACKLIST" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIG_VMSModel.TRN_VISITOR" Width="1.5" PointX="13.625" PointY="4.5" />
         <AssociationConnector Association="BIG_VMSModel.FK_MAS_CAR_BRAND_MAS_CAR_TYPE" />
         <AssociationConnector Association="BIG_VMSModel.FK_MAS_CAR_MODEL_MAS_CAR_BRAND" />
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_CAR_MODEL" />
-        <AssociationConnector Association="BIG_VMSModel.FK_TRN_VISITOR_TRN_VISITOR" />
+        <AssociationConnector Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_CAR_TYPE" />
         <AssociationConnector Association="BIG_VMSModel.FK_MAS_EMPLOYEE_MAS_EMPLOYEE" />
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_APPOINTMENT_MAS_EMPLOYEE" />
         <AssociationConnector Association="BIG_VMSModel.FK_TRN_VISITOR_MAS_EMPLOYEE" />

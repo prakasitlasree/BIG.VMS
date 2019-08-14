@@ -34,13 +34,15 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private Image defaultImage;
         private Image defaultPhoto;
+      
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;
         public int provinceId = 0;
         public int carModelId = 0;
         public int reasonId = 0;
         public bool isChangeCardPhoto;
-        public bool isChangePhoto = false;
+        public bool isChangePass;
+        public bool isChangePhoto;
 
         public Image CARD_IMAGE { get; set; }
 
@@ -56,7 +58,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             try
             {
                 defaultImage = picCard.Image;
-                Image defaultPhoto = picPhoto.Image;
+
+                defaultPhoto = BIG.VMS.PRESENT.Properties.Resources.emploee;
+
                 InitialLoad();
                 SetControl();
             }
@@ -190,10 +194,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         provinceId = 0;
                     }
 
-                    if (visitorObj.MAS_CAR_MODEL != null)
+                    if (visitorObj.MAS_CAR_TYPE != null)
                     {
-                        carModelId = visitorObj.MAS_CAR_MODEL.AUTO_ID;
-                        txtCar.Text = visitorObj.MAS_CAR_MODEL.NAME;
+                        carModelId = visitorObj.MAS_CAR_TYPE.AUTO_ID;
+                        txtCar.Text = visitorObj.MAS_CAR_TYPE.NAME;
                     }
                     else
                     {
@@ -211,6 +215,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             if (visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO != null)
                             {
                                 picCard.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
+                            }
+                            if (visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
+                            {
+                                picPass.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
                             }
                         }
 
@@ -320,7 +328,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     LICENSE_PLATE = txtLicense.Text.Trim(),
                     STATUS = 1,
                     CONTACT_EMPLOYEE_ID = contactEmployeeId,
-                    CAR_MODEL_ID = carModelId,
+                    CAR_TYPE_ID = carModelId,
                     REASON_ID = reasonId,
 
                     CREATED_DATE = DateTime.Now,
@@ -348,7 +356,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 {
                     obj.UPDATED_BY = LOGIN;
                     obj.AUTO_ID = visitorObj.AUTO_ID;
-                    if (isChangePhoto || isChangeCardPhoto)
+                    if (isChangePhoto || isChangeCardPhoto || isChangePass)
                     {
                         var attachment = new TRN_ATTACHEDMENT();
 
@@ -372,6 +380,18 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
                             {
                                 attachment.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
+                            }
+
+                        }
+                        if (isChangePass)
+                        {
+                            attachment.CONTACT_CARD_PHOTO = ImageToByte(picPass);
+                        }
+                        else
+                        {
+                            if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
+                            {
+                                attachment.CONTACT_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO;
                             }
 
                         }
@@ -405,7 +425,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     string dir = DIRECTORY_IN + "\\" + obj.NO + "\\";
                     Directory.CreateDirectory(dir);
                     var attachment = new TRN_ATTACHEDMENT();
-                    if (isChangePhoto || isChangeCardPhoto)
+                    if (isChangePhoto || isChangeCardPhoto || isChangePass)
                     {
 
                         if (isChangePhoto)
@@ -419,6 +439,14 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         if (isChangeCardPhoto)
                         {
                             attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                        }
+                        else
+                        {
+                            attachment.ID_CARD_PHOTO = BYTE_IMAGE;
+                        }
+                        if (isChangePass)
+                        {
+                            attachment.CONTACT_CARD_PHOTO = ImageToByte(picPass);
                         }
                         else
                         {
@@ -440,6 +468,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
+                        if (isChangePass)
+                        {
+                            picPass.Image.Save(dir + "ID_PASS.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
 
 
 
@@ -459,6 +491,10 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         if (isChangeCardPhoto)
                         {
                             picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
+                        if (isChangePass)
+                        {
+                            picPass.Image.Save(dir + "ID_PASS.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
                     }
                     if (visitorMode == VisitorMode.Regulary)
@@ -711,9 +747,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 frmCar frm = new frmCar();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    carModelId = frm.SELECTED_CAR_ID;
-                    txtCar.Text = frm.SELECTED_CAR_TEXT;
-                    if (frm.SELECTED_CAR_TEXT == "เดินเท้า" || frm.SELECTED_CAR_TEXT == "ไม่ระบุ")
+                    carModelId = frm.SELECTED_CAR_NAME_ID;
+                    txtCar.Text = frm.SELECTED_CAR_TYPE_TEXT;
+                    if (frm.SELECTED_CAR_TYPE_TEXT == "เดินเท้า" || frm.SELECTED_CAR_TYPE_TEXT == "ไม่ระบุ")
                     {
                         txtLicense.Text = "";
                         txtLicense.Enabled = false;
@@ -805,7 +841,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             picCard.Image = (Image)frm.CARD.PHOTO;
                             CARD_IMAGE = frm.CARD.CARD_IMAGE;
                             BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
-                            isChangeCardPhoto = false;
+                            isChangeCardPhoto = true;
                             var data = _blService.GetBlackListByIdCard(txtIDCard.Text);
                             if (data.TRN_BLACKLIST == null)
                             {
@@ -868,7 +904,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         isChangePhoto = true;
                         picPhoto.Image = frm.CAMERA;
                     }
-                    // MessageBox.Show("ถ่ายรูป เรียบร้อย!!!");
+                    
                 }
 
             }
@@ -962,7 +998,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //picCard
+            picCard.Image = defaultPhoto;
         }
 
         private void txtIDCard_TextChanged(object sender, EventArgs e)
@@ -994,7 +1030,60 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private void button3_Click(object sender, EventArgs e)
         {
+            picPhoto.Image = defaultPhoto;
+        }
 
+        private void btnAddPic_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                dialog.InitialDirectory = @"C:\";
+                dialog.Title = "Please select an image file to encrypt.";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string path = dialog.FileName;
+                    picPass.Image = Image.FromFile(path);
+                    isChangePass = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeletePass_Click(object sender, EventArgs e)
+        {
+            picPass.Image = Properties.Resources.emploee;
+        }
+
+        private void btnTakePass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new CameraSelection();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+
+                    if (frm.CAMERA != null)
+                    {
+                        isChangePass = true;
+                        picPass.Image = frm.CAMERA;
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

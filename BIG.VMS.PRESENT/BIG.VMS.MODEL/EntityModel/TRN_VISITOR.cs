@@ -27,7 +27,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public string TYPE { get; set; }
         public string FIRST_NAME { get; set; }
         public string LAST_NAME { get; set; }
-        public Nullable<int> CAR_MODEL_ID { get; set; }
+        public Nullable<int> CAR_TYPE_ID { get; set; }
         public string LICENSE_PLATE { get; set; }
         public Nullable<int> LICENSE_PLATE_PROVINCE_ID { get; set; }
         public Nullable<int> REASON_ID { get; set; }
@@ -37,8 +37,9 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public string UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
+        public Nullable<int> REF_NO { get; set; }
     
-        public virtual MAS_CAR_MODEL MAS_CAR_MODEL { get; set; }
+        public virtual MAS_CAR_TYPE MAS_CAR_TYPE { get; set; }
         public virtual MAS_EMPLOYEE MAS_EMPLOYEE { get; set; }
         public virtual MAS_PROVINCE MAS_PROVINCE { get; set; }
         public virtual MAS_REASON MAS_REASON { get; set; }
