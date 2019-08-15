@@ -221,6 +221,12 @@
     <Compile Include="Forms\FormVisitor\frmKeyboard.Designer.cs">
       <DependentUpon>frmKeyboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmBypassVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmBypassVisitor.Designer.cs">
+      <DependentUpon>frmBypassVisitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmVisitorOutList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,13 @@
     </Compile>
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.Designer.cs">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSlipByPass.cs">
+      <DependentUpon>ReportSlipByPass.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ReportSlip.cs">
       <AutoGen>True</AutoGen>
@@ -409,6 +422,9 @@
     <EmbeddedResource Include="Forms\FormVisitor\frmKeyboard.resx">
       <DependentUpon>frmKeyboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmBypassVisitor.resx">
+      <DependentUpon>frmBypassVisitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmVisitorOutList.resx">
       <DependentUpon>frmVisitorOutList.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +433,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlipByPass.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlipByPass.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

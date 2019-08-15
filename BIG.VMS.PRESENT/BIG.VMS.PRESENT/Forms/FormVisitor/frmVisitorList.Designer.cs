@@ -55,11 +55,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboType = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnByPass = new System.Windows.Forms.Button();
             this.btnBlacklist = new System.Windows.Forms.Button();
             this.btnListExit = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTodayOut = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblAllCount = new System.Windows.Forms.Label();
             this.lblTodayIn = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,8 +71,6 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTodayOut = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVisitorList)).BeginInit();
@@ -403,12 +404,30 @@
             this.tableLayoutPanel5.SetColumnSpan(this.panel2, 5);
             this.panel2.Controls.Add(this.btnBlacklist);
             this.panel2.Controls.Add(this.btnListExit);
+            this.panel2.Controls.Add(this.btnByPass);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(105, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(926, 46);
             this.panel2.TabIndex = 16;
+            // 
+            // btnByPass
+            // 
+            this.btnByPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnByPass.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnByPass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnByPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnByPass.ForeColor = System.Drawing.Color.Black;
+            this.btnByPass.Image = ((System.Drawing.Image)(resources.GetObject("btnByPass.Image")));
+            this.btnByPass.Location = new System.Drawing.Point(186, 0);
+            this.btnByPass.Name = "btnByPass";
+            this.btnByPass.Size = new System.Drawing.Size(224, 46);
+            this.btnByPass.TabIndex = 17;
+            this.btnByPass.Text = "เข้าโดยไม่ใช้บัตร";
+            this.btnByPass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnByPass.UseVisualStyleBackColor = false;
+            this.btnByPass.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBlacklist
             // 
@@ -435,7 +454,7 @@
             this.btnListExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnListExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListExit.ForeColor = System.Drawing.Color.Black;
-            this.btnListExit.Location = new System.Drawing.Point(186, 0);
+            this.btnListExit.Location = new System.Drawing.Point(410, 0);
             this.btnListExit.Name = "btnListExit";
             this.btnListExit.Size = new System.Drawing.Size(224, 46);
             this.btnListExit.TabIndex = 16;
@@ -490,6 +509,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(272, 100);
             this.panel3.TabIndex = 17;
+            // 
+            // lblTodayOut
+            // 
+            this.lblTodayOut.AutoSize = true;
+            this.lblTodayOut.Location = new System.Drawing.Point(199, 36);
+            this.lblTodayOut.Name = "lblTodayOut";
+            this.lblTodayOut.Size = new System.Drawing.Size(24, 25);
+            this.lblTodayOut.TabIndex = 5;
+            this.lblTodayOut.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 36);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(161, 25);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "จำนวนคนออกวันนี้";
             // 
             // lblAllCount
             // 
@@ -601,24 +638,6 @@
             this.btnIn.UseVisualStyleBackColor = false;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(161, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "จำนวนคนออกวันนี้";
-            // 
-            // lblTodayOut
-            // 
-            this.lblTodayOut.AutoSize = true;
-            this.lblTodayOut.Location = new System.Drawing.Point(199, 36);
-            this.lblTodayOut.Name = "lblTodayOut";
-            this.lblTodayOut.Size = new System.Drawing.Size(24, 25);
-            this.lblTodayOut.TabIndex = 5;
-            this.lblTodayOut.Text = "0";
-            // 
             // frmVisitorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -690,5 +709,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTodayOut;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnByPass;
     }
 }

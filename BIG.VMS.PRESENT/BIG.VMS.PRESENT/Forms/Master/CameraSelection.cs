@@ -86,7 +86,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
         {
             try
             {
-                if ((videoDevice != null) && (videoDevice.ProvideSnapshots))
+                if ((videoDevice != null))
                 {
                     videoDevice.SimulateTrigger();
                 }

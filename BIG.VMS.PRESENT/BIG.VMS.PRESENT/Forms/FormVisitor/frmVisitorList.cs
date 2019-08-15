@@ -5,6 +5,7 @@ using BIG.VMS.MODEL.CustomModel.CustomContainer;
 using BIG.VMS.MODEL.EntityModel;
 using BIG.VMS.PRESENT.Forms.FormReport;
 using BIG.VMS.PRESENT.Forms.FormVisitor;
+using BIG.VMS.PRESENT.Forms.FormVisitorBypass;
 using CrystalDecisions.CrystalReports.Engine;
 using System;
 using System.Collections.Generic;
@@ -415,6 +416,18 @@ namespace BIG.VMS.PRESENT.Forms.Home
         {
             frmVisitorOutList frm = new frmVisitorOutList();
             frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmVisitorByPass frm = new frmVisitorByPass();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ResetScreen();
+            }
         }
     }
 }
