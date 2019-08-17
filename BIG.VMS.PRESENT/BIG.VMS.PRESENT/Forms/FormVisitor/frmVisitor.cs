@@ -450,7 +450,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         }
                         else
                         {
-                            attachment.ID_CARD_PHOTO = BYTE_IMAGE;
+                            attachment.CONTACT_CARD_PHOTO = BYTE_IMAGE;
                         }
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
                         obj.TRN_ATTACHEDMENT.Add(attachment);
@@ -621,7 +621,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
             else
             {
-                if (!string.IsNullOrEmpty(txtCar.Text) && !string.IsNullOrEmpty(txtLicense.Text))
+                if (!string.IsNullOrEmpty(txtCar.Text))
                 {
                     return true;
                 }
