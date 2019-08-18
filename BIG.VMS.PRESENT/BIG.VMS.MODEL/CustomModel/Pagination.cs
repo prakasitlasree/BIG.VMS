@@ -13,11 +13,13 @@ namespace BIG.VMS.MODEL.CustomModel
             PAGE = 1;
             PAGE_SIZE = 100;
             TOTAL_PAGE = 1;
+            TOTAL_ITEM = 0;
         }
 
         public int PAGE { get; set; }
         public int PAGE_SIZE { get; set; }
         public int TOTAL_PAGE { get; set; }
+        public int TOTAL_ITEM { get; set; }
     }
 
 

@@ -130,7 +130,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (formMode == FormMode.Edit)
                     {
                         brn_UploadImgCard.Visible = false;
-                        btnRefresh.Visible = false;
+                        
                         bthCardDelete.Visible = false;
                         txtNo.Text = visitorObj.NO.ToString();
                     }
@@ -216,10 +216,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             {
                                 picCard.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                             }
-                            if (visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
-                            {
-                                picPass.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
-                            }
+                           
                         }
 
 
@@ -383,18 +380,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             }
 
                         }
-                        if (isChangePass)
-                        {
-                            attachment.CONTACT_CARD_PHOTO = ImageToByte(picPass);
-                        }
-                        else
-                        {
-                            if (visitorObj.TRN_ATTACHEDMENT.Count > 0)
-                            {
-                                attachment.CONTACT_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO;
-                            }
-
-                        }
+                       
 
 
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
@@ -436,22 +422,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             attachment.CONTACT_PHOTO = BYTE_IMAGE;
                         }
-                        if (isChangeCardPhoto)
-                        {
-                            attachment.ID_CARD_PHOTO = ImageToByte(picCard);
-                        }
-                        else
-                        {
-                            attachment.ID_CARD_PHOTO = BYTE_IMAGE;
-                        }
-                        if (isChangePass)
-                        {
-                            attachment.CONTACT_CARD_PHOTO = ImageToByte(picPass);
-                        }
-                        else
-                        {
-                            attachment.CONTACT_CARD_PHOTO = BYTE_IMAGE;
-                        }
+                      
+                       
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
                         obj.TRN_ATTACHEDMENT.Add(attachment);
                         attachment.PHOTO_URL = dir;
@@ -468,10 +440,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
-                        if (isChangePass)
-                        {
-                            picPass.Image.Save(dir + "ID_PASS.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                        }
+                      
 
 
 
@@ -492,10 +461,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
-                        if (isChangePass)
-                        {
-                            picPass.Image.Save(dir + "ID_PASS.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                        }
+                       
                     }
                     if (visitorMode == VisitorMode.Regulary)
                     {
@@ -1045,7 +1011,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string path = dialog.FileName;
-                    picPass.Image = Image.FromFile(path);
+                   
                     isChangePass = true;
                 }
 
@@ -1056,34 +1022,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
-        private void btnDeletePass_Click(object sender, EventArgs e)
-        {
-            picPass.Image = Properties.Resources.emploee;
-        }
+      
 
-        private void btnTakePass_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var frm = new CameraSelection();
-                frm.StartPosition = FormStartPosition.CenterParent;
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-
-                    if (frm.CAMERA != null)
-                    {
-                        isChangePass = true;
-                        picPass.Image = frm.CAMERA;
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
-        }
+        
     }
 }

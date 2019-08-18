@@ -251,10 +251,8 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            frmVisitor frm = new frmVisitor();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.formMode = FormMode.Add;
-            frm.visitorMode = VisitorMode.In;
+            frmSelectInType frm = new frmSelectInType();
+            frm.StartPosition = FormStartPosition.CenterParent;          
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 ResetScreen();

@@ -34,13 +34,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTopic = new System.Windows.Forms.Button();
             this.btnMeet = new System.Windows.Forms.Button();
             this.btnVehicle = new System.Windows.Forms.Button();
             this.btnReadCard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBlacklist = new System.Windows.Forms.Button();
-            this.btnTakePass = new System.Windows.Forms.Button();
             this.BtnTakePhoto = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -71,24 +69,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.picCard = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.brn_UploadImgCard = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.bthCardDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.picPhoto = new System.Windows.Forms.PictureBox();
-            this.picPass = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnAddPassPic = new System.Windows.Forms.Button();
-            this.btnDeletePass = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnUploadCam = new System.Windows.Forms.Button();
             this.btnDeleteCam = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -99,14 +90,11 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPass)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -137,7 +125,6 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.txtNo);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnTopic);
             this.panel1.Controls.Add(this.btnMeet);
             this.panel1.Controls.Add(this.btnVehicle);
             this.panel1.Controls.Add(this.btnReadCard);
@@ -170,25 +157,6 @@
             this.label1.Size = new System.Drawing.Size(56, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "เลขที่";
-            // 
-            // btnTopic
-            // 
-            this.btnTopic.BackColor = System.Drawing.Color.White;
-            this.btnTopic.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTopic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.btnTopic.Image = ((System.Drawing.Image)(resources.GetObject("btnTopic.Image")));
-            this.btnTopic.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTopic.Location = new System.Drawing.Point(880, 0);
-            this.btnTopic.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTopic.Name = "btnTopic";
-            this.btnTopic.Size = new System.Drawing.Size(250, 87);
-            this.btnTopic.TabIndex = 0;
-            this.btnTopic.Text = "(4) เลือกวัตถุประสงค์";
-            this.btnTopic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTopic.UseVisualStyleBackColor = false;
-            this.btnTopic.Click += new System.EventHandler(this.btnTopic_Click);
             // 
             // btnMeet
             // 
@@ -251,7 +219,6 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.btnBlacklist);
-            this.panel2.Controls.Add(this.btnTakePass);
             this.panel2.Controls.Add(this.BtnTakePhoto);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -270,7 +237,7 @@
             this.btnBlacklist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnBlacklist.Image = ((System.Drawing.Image)(resources.GetObject("btnBlacklist.Image")));
             this.btnBlacklist.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBlacklist.Location = new System.Drawing.Point(600, 0);
+            this.btnBlacklist.Location = new System.Drawing.Point(400, 0);
             this.btnBlacklist.Margin = new System.Windows.Forms.Padding(6);
             this.btnBlacklist.Name = "btnBlacklist";
             this.btnBlacklist.Size = new System.Drawing.Size(200, 88);
@@ -279,24 +246,6 @@
             this.btnBlacklist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBlacklist.UseVisualStyleBackColor = false;
             this.btnBlacklist.Click += new System.EventHandler(this.btnBlacklist_Click);
-            // 
-            // btnTakePass
-            // 
-            this.btnTakePass.BackColor = System.Drawing.Color.White;
-            this.btnTakePass.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTakePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTakePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTakePass.Image = ((System.Drawing.Image)(resources.GetObject("btnTakePass.Image")));
-            this.btnTakePass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTakePass.Location = new System.Drawing.Point(400, 0);
-            this.btnTakePass.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTakePass.Name = "btnTakePass";
-            this.btnTakePass.Size = new System.Drawing.Size(200, 88);
-            this.btnTakePass.TabIndex = 4;
-            this.btnTakePass.Text = "ถ่ายรูปบัตรผ่าน";
-            this.btnTakePass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTakePass.UseVisualStyleBackColor = false;
-            this.btnTakePass.Click += new System.EventHandler(this.btnTakePass_Click);
             // 
             // BtnTakePhoto
             // 
@@ -692,9 +641,9 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.picCard, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel10, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(825, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -720,47 +669,21 @@
             this.picCard.TabIndex = 0;
             this.picCard.TabStop = false;
             // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel1, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(432, 39);
-            this.tableLayoutPanel6.TabIndex = 4;
-            // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 7);
+            this.label8.Location = new System.Drawing.Point(6, 6);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 25);
             this.label8.TabIndex = 2;
             this.label8.Text = "รูปบัตรทดแทน";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.brn_UploadImgCard);
-            this.flowLayoutPanel1.Controls.Add(this.btnRefresh);
-            this.flowLayoutPanel1.Controls.Add(this.bthCardDelete);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(138, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 33);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // brn_UploadImgCard
             // 
+            this.brn_UploadImgCard.Dock = System.Windows.Forms.DockStyle.Right;
             this.brn_UploadImgCard.Image = ((System.Drawing.Image)(resources.GetObject("brn_UploadImgCard.Image")));
-            this.brn_UploadImgCard.Location = new System.Drawing.Point(0, 0);
+            this.brn_UploadImgCard.Location = new System.Drawing.Point(356, 0);
             this.brn_UploadImgCard.Margin = new System.Windows.Forms.Padding(0);
             this.brn_UploadImgCard.Name = "brn_UploadImgCard";
             this.brn_UploadImgCard.Size = new System.Drawing.Size(38, 39);
@@ -768,21 +691,11 @@
             this.brn_UploadImgCard.UseVisualStyleBackColor = true;
             this.brn_UploadImgCard.Click += new System.EventHandler(this.brn_UploadImgCard_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(38, 0);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(38, 39);
-            this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // bthCardDelete
             // 
+            this.bthCardDelete.Dock = System.Windows.Forms.DockStyle.Right;
             this.bthCardDelete.Image = ((System.Drawing.Image)(resources.GetObject("bthCardDelete.Image")));
-            this.bthCardDelete.Location = new System.Drawing.Point(76, 0);
+            this.bthCardDelete.Location = new System.Drawing.Point(394, 0);
             this.bthCardDelete.Margin = new System.Windows.Forms.Padding(0);
             this.bthCardDelete.Name = "bthCardDelete";
             this.bthCardDelete.Size = new System.Drawing.Size(38, 39);
@@ -792,11 +705,9 @@
             // 
             // tableLayoutPanel10
             // 
-            this.tableLayoutPanel10.ColumnCount = 2;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.picPhoto, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.picPass, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 273);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -809,34 +720,20 @@
             // 
             this.picPhoto.BackColor = System.Drawing.Color.White;
             this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picPhoto.Image = ((System.Drawing.Image)(resources.GetObject("picPhoto.Image")));
             this.picPhoto.Location = new System.Drawing.Point(3, 3);
             this.picPhoto.Name = "picPhoto";
-            this.picPhoto.Size = new System.Drawing.Size(210, 168);
+            this.picPhoto.Size = new System.Drawing.Size(426, 168);
             this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPhoto.TabIndex = 1;
             this.picPhoto.TabStop = false;
             // 
-            // picPass
-            // 
-            this.picPass.BackColor = System.Drawing.Color.White;
-            this.picPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPass.Image = global::BIG.VMS.PRESENT.Properties.Resources.emploee;
-            this.picPass.Location = new System.Drawing.Point(219, 3);
-            this.picPass.Name = "picPass";
-            this.picPass.Size = new System.Drawing.Size(210, 168);
-            this.picPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPass.TabIndex = 2;
-            this.picPass.TabStop = false;
-            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 228);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -844,51 +741,6 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(432, 39);
             this.tableLayoutPanel7.TabIndex = 5;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.btnAddPassPic);
-            this.panel4.Controls.Add(this.btnDeletePass);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(219, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(210, 33);
-            this.panel4.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 25);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "รูปบัตรผ่าน";
-            // 
-            // btnAddPassPic
-            // 
-            this.btnAddPassPic.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAddPassPic.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPassPic.Image")));
-            this.btnAddPassPic.Location = new System.Drawing.Point(134, 0);
-            this.btnAddPassPic.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAddPassPic.Name = "btnAddPassPic";
-            this.btnAddPassPic.Size = new System.Drawing.Size(38, 33);
-            this.btnAddPassPic.TabIndex = 4;
-            this.btnAddPassPic.UseVisualStyleBackColor = true;
-            this.btnAddPassPic.Click += new System.EventHandler(this.btnAddPic_Click);
-            // 
-            // btnDeletePass
-            // 
-            this.btnDeletePass.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDeletePass.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletePass.Image")));
-            this.btnDeletePass.Location = new System.Drawing.Point(172, 0);
-            this.btnDeletePass.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDeletePass.Name = "btnDeletePass";
-            this.btnDeletePass.Size = new System.Drawing.Size(38, 33);
-            this.btnDeletePass.TabIndex = 5;
-            this.btnDeletePass.UseVisualStyleBackColor = true;
-            this.btnDeletePass.Click += new System.EventHandler(this.btnDeletePass_Click);
             // 
             // panel3
             // 
@@ -898,14 +750,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(210, 33);
+            this.panel3.Size = new System.Drawing.Size(426, 33);
             this.panel3.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 6);
+            this.label9.Location = new System.Drawing.Point(3, 4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 25);
             this.label9.TabIndex = 3;
@@ -915,7 +767,7 @@
             // 
             this.btnUploadCam.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnUploadCam.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadCam.Image")));
-            this.btnUploadCam.Location = new System.Drawing.Point(134, 0);
+            this.btnUploadCam.Location = new System.Drawing.Point(350, 0);
             this.btnUploadCam.Margin = new System.Windows.Forms.Padding(0);
             this.btnUploadCam.Name = "btnUploadCam";
             this.btnUploadCam.Size = new System.Drawing.Size(38, 33);
@@ -927,13 +779,24 @@
             // 
             this.btnDeleteCam.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDeleteCam.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCam.Image")));
-            this.btnDeleteCam.Location = new System.Drawing.Point(172, 0);
+            this.btnDeleteCam.Location = new System.Drawing.Point(388, 0);
             this.btnDeleteCam.Margin = new System.Windows.Forms.Padding(0);
             this.btnDeleteCam.Name = "btnDeleteCam";
             this.btnDeleteCam.Size = new System.Drawing.Size(38, 33);
             this.btnDeleteCam.TabIndex = 5;
             this.btnDeleteCam.UseVisualStyleBackColor = true;
             this.btnDeleteCam.Click += new System.EventHandler(this.btnDeleteCam_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.brn_UploadImgCard);
+            this.panel4.Controls.Add(this.bthCardDelete);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(432, 39);
+            this.panel4.TabIndex = 7;
             // 
             // frmVisitorByPass
             // 
@@ -965,17 +828,13 @@
             this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCard)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPass)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -989,11 +848,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.PictureBox picCard;
         private System.Windows.Forms.PictureBox picPhoto;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button brn_UploadImgCard;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button bthCardDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label9;
@@ -1023,7 +879,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.Button btnTopic;
         private System.Windows.Forms.Label Lbl_Vahicle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnProvince;
@@ -1035,12 +890,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.PictureBox picPass;
-        private System.Windows.Forms.Button btnTakePass;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnAddPassPic;
-        private System.Windows.Forms.Button btnDeletePass;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

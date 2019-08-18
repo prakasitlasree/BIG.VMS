@@ -18,7 +18,6 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> VISITOR_ID { get; set; }
         public byte[] ID_CARD_PHOTO { get; set; }
         public byte[] CONTACT_PHOTO { get; set; }
-        public byte[] CONTACT_CARD_PHOTO { get; set; }
         public string PHOTO_URL { get; set; }
     
         public virtual TRN_VISITOR TRN_VISITOR { get; set; }

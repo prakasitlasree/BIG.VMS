@@ -31,7 +31,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             InitialDepartment();
-            InitialReason();
+           
         }
 
         private void InitialDepartment()
@@ -52,27 +52,6 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 btn.Click += new EventHandler(DepartmentSelected_EventHadler);
 
                 panelDept.Controls.Add(btn);
-            }
-        }
-
-        private void InitialReason()
-        {
-            var reason = _comboService.GetComboReason();
-
-            foreach (var item in reason)
-            {
-                Button btn = new Button();
-                btn.Dock = DockStyle.Top;
-                btn.Height = 100;
-                btn.Font = new Font(btn.Font.FontFamily, 20);
-                btn.BackColor = Color.FromArgb(241, 252, 156);
-
-                btn.Text = item.Text;
-                btn.Tag = item.Value;
-
-                btn.Click += new EventHandler(ReasonSelected_EventHadler);
-
-                panelReason.Controls.Add(btn);
             }
         }
 
@@ -163,9 +142,13 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             deptID = Convert.ToInt32(((Control)sender).Tag.ToString());
 
             var employee = _comboService.GetComboEmployeeByDepartmentID(deptID);
+            var reason = _comboService.GetComboReasonByDepartmentID(deptID);
 
             panelEmployee.Controls.Clear();
+            panelReason.Controls.Clear();
 
+
+            #region Cascade Employee
             foreach (var item in employee)
             {
                 Button btn = new Button();
@@ -181,6 +164,25 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 panelEmployee.Controls.Add(btn);
             }
+            #endregion
+
+            #region Cascade Employee
+            foreach (var item in reason)
+            {
+                Button btn = new Button();
+                btn.Dock = DockStyle.Top;
+                btn.Height = 100;
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.BackColor = Color.FromArgb(246, 252, 201);
+
+                btn.Text = item.Text;
+                btn.Tag = item.Value;
+
+                btn.Click += new EventHandler(ReasonSelected_EventHadler);
+
+                panelReason.Controls.Add(btn);
+            }
+            #endregion
 
             foreach (Control c in panelDept.Controls)
             {
@@ -189,7 +191,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     c.ForeColor = Color.Black;
                 }
             }
-              ((Button)((Control)sender)).ForeColor = Color.Red;
+            
+            ((Button)((Control)sender)).ForeColor = Color.Red;
         }
 
         private void EmployeeSelected_EventHadler(object sender, EventArgs e)

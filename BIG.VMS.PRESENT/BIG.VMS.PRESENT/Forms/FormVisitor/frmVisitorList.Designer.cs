@@ -55,7 +55,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboType = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnByPass = new System.Windows.Forms.Button();
             this.btnBlacklist = new System.Windows.Forms.Button();
             this.btnListExit = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -314,7 +313,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 43);
+            this.label2.Location = new System.Drawing.Point(3, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 25);
             this.label2.TabIndex = 1;
@@ -351,7 +350,7 @@
             // txtLicense
             // 
             this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicense.Location = new System.Drawing.Point(105, 40);
+            this.txtLicense.Location = new System.Drawing.Point(105, 41);
             this.txtLicense.Name = "txtLicense";
             this.txtLicense.Size = new System.Drawing.Size(233, 31);
             this.txtLicense.TabIndex = 7;
@@ -360,7 +359,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(344, 43);
+            this.label6.Location = new System.Drawing.Point(344, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 25);
             this.label6.TabIndex = 11;
@@ -369,7 +368,7 @@
             // txtNo
             // 
             this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Location = new System.Drawing.Point(428, 40);
+            this.txtNo.Location = new System.Drawing.Point(428, 41);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(233, 31);
             this.txtNo.TabIndex = 12;
@@ -378,7 +377,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(667, 43);
+            this.label4.Location = new System.Drawing.Point(667, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 25);
             this.label4.TabIndex = 13;
@@ -394,7 +393,7 @@
             "ออก",
             "นัดล่วงหน้า(เข้า)",
             "นัดล่วงหน้า(ออก)"});
-            this.comboType.Location = new System.Drawing.Point(796, 45);
+            this.comboType.Location = new System.Drawing.Point(796, 40);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(235, 33);
             this.comboType.TabIndex = 14;
@@ -404,30 +403,12 @@
             this.tableLayoutPanel5.SetColumnSpan(this.panel2, 5);
             this.panel2.Controls.Add(this.btnBlacklist);
             this.panel2.Controls.Add(this.btnListExit);
-            this.panel2.Controls.Add(this.btnByPass);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(105, 77);
+            this.panel2.Location = new System.Drawing.Point(105, 79);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(926, 46);
             this.panel2.TabIndex = 16;
-            // 
-            // btnByPass
-            // 
-            this.btnByPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnByPass.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnByPass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnByPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnByPass.ForeColor = System.Drawing.Color.Black;
-            this.btnByPass.Image = ((System.Drawing.Image)(resources.GetObject("btnByPass.Image")));
-            this.btnByPass.Location = new System.Drawing.Point(186, 0);
-            this.btnByPass.Name = "btnByPass";
-            this.btnByPass.Size = new System.Drawing.Size(224, 46);
-            this.btnByPass.TabIndex = 17;
-            this.btnByPass.Text = "เข้าโดยไม่ใช้บัตร";
-            this.btnByPass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnByPass.UseVisualStyleBackColor = false;
-            this.btnByPass.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBlacklist
             // 
@@ -454,7 +435,7 @@
             this.btnListExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnListExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListExit.ForeColor = System.Drawing.Color.Black;
-            this.btnListExit.Location = new System.Drawing.Point(410, 0);
+            this.btnListExit.Location = new System.Drawing.Point(186, 0);
             this.btnListExit.Name = "btnListExit";
             this.btnListExit.Size = new System.Drawing.Size(224, 46);
             this.btnListExit.TabIndex = 16;
@@ -709,6 +690,5 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTodayOut;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnByPass;
     }
 }

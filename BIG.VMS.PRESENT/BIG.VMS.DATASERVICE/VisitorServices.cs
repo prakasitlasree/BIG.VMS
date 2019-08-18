@@ -233,14 +233,13 @@ namespace BIG.VMS.DATASERVICE
                             {
                                 attach.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
                                 attach.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
-                                attach.CONTACT_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO;
+                              
                             }
                             else
                             {
                                 var att = new TRN_ATTACHEDMENT();
                                 att.CONTACT_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO;
-                                att.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;
-                                att.CONTACT_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO;
+                                att.ID_CARD_PHOTO = visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO;                         
                                 att.VISITOR_ID = visitorObj.AUTO_ID;
                             }
 
@@ -923,11 +922,12 @@ namespace BIG.VMS.DATASERVICE
                     if (obj.PageInfo != null)
                     {
                         obj.PageInfo.TOTAL_PAGE = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(listData.Count) / Convert.ToDouble(obj.PageInfo.PAGE_SIZE)));
+                        obj.PageInfo.TOTAL_ITEM = listData.Count();
 
                         listData = listData.Skip(obj.PageInfo.PAGE_SIZE * (obj.PageInfo.PAGE - 1))
                                            .Take(obj.PageInfo.PAGE_SIZE)
                                            .ToList();
-
+                      
                         result.PageInfo = obj.PageInfo;
                     }
                     else

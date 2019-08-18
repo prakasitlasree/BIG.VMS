@@ -32,20 +32,15 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnTopic = new System.Windows.Forms.Button();
             this.btnMeet = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.Lbl_MeetPeople = new System.Windows.Forms.Label();
-            this.Lbl_Topic = new System.Windows.Forms.Label();
             this.Lbl_IDCard = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Lbl_FirstName = new System.Windows.Forms.Label();
-            this.txtMeet = new System.Windows.Forms.TextBox();
-            this.txtTopic = new System.Windows.Forms.TextBox();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -54,6 +49,10 @@
             this.dtContactDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dtTime = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_Topic = new System.Windows.Forms.Label();
+            this.Lbl_MeetPeople = new System.Windows.Forms.Label();
+            this.txtTopic = new System.Windows.Forms.TextBox();
+            this.txtMeet = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,7 +84,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnTopic);
             this.panel1.Controls.Add(this.btnMeet);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(6, 6);
@@ -93,25 +91,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 55);
             this.panel1.TabIndex = 0;
-            // 
-            // btnTopic
-            // 
-            this.btnTopic.BackColor = System.Drawing.Color.White;
-            this.btnTopic.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTopic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.btnTopic.Image = ((System.Drawing.Image)(resources.GetObject("btnTopic.Image")));
-            this.btnTopic.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTopic.Location = new System.Drawing.Point(330, 0);
-            this.btnTopic.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTopic.Name = "btnTopic";
-            this.btnTopic.Size = new System.Drawing.Size(250, 55);
-            this.btnTopic.TabIndex = 0;
-            this.btnTopic.Text = "(4) เลือกวัตถุประสงค์";
-            this.btnTopic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTopic.UseVisualStyleBackColor = false;
-            this.btnTopic.Click += new System.EventHandler(this.btnTopic_Click);
             // 
             // btnMeet
             // 
@@ -236,30 +215,6 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "เวลา";
             // 
-            // Lbl_MeetPeople
-            // 
-            this.Lbl_MeetPeople.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Lbl_MeetPeople.AutoSize = true;
-            this.Lbl_MeetPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_MeetPeople.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 142);
-            this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
-            this.Lbl_MeetPeople.Size = new System.Drawing.Size(171, 25);
-            this.Lbl_MeetPeople.TabIndex = 5;
-            this.Lbl_MeetPeople.Text = "บุคคลที่ต้องการพบ";
-            // 
-            // Lbl_Topic
-            // 
-            this.Lbl_Topic.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Lbl_Topic.AutoSize = true;
-            this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Topic.ForeColor = System.Drawing.Color.OliveDrab;
-            this.Lbl_Topic.Location = new System.Drawing.Point(57, 179);
-            this.Lbl_Topic.Name = "Lbl_Topic";
-            this.Lbl_Topic.Size = new System.Drawing.Size(117, 25);
-            this.Lbl_Topic.TabIndex = 4;
-            this.Lbl_Topic.Text = "วัตถุประสงค์";
-            // 
             // Lbl_IDCard
             // 
             this.Lbl_IDCard.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -295,24 +250,6 @@
             this.Lbl_FirstName.Size = new System.Drawing.Size(37, 25);
             this.Lbl_FirstName.TabIndex = 0;
             this.Lbl_FirstName.Text = "ชื่อ";
-            // 
-            // txtMeet
-            // 
-            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMeet.Enabled = false;
-            this.txtMeet.Location = new System.Drawing.Point(180, 139);
-            this.txtMeet.Name = "txtMeet";
-            this.txtMeet.Size = new System.Drawing.Size(626, 31);
-            this.txtMeet.TabIndex = 12;
-            // 
-            // txtTopic
-            // 
-            this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTopic.Enabled = false;
-            this.txtTopic.Location = new System.Drawing.Point(180, 176);
-            this.txtTopic.Name = "txtTopic";
-            this.txtTopic.Size = new System.Drawing.Size(626, 31);
-            this.txtTopic.TabIndex = 10;
             // 
             // txtIDCard
             // 
@@ -397,6 +334,48 @@
             this.dtTime.Size = new System.Drawing.Size(626, 31);
             this.dtTime.TabIndex = 25;
             // 
+            // Lbl_Topic
+            // 
+            this.Lbl_Topic.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Lbl_Topic.AutoSize = true;
+            this.Lbl_Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Topic.ForeColor = System.Drawing.Color.OliveDrab;
+            this.Lbl_Topic.Location = new System.Drawing.Point(57, 179);
+            this.Lbl_Topic.Name = "Lbl_Topic";
+            this.Lbl_Topic.Size = new System.Drawing.Size(117, 25);
+            this.Lbl_Topic.TabIndex = 4;
+            this.Lbl_Topic.Text = "วัตถุประสงค์";
+            // 
+            // Lbl_MeetPeople
+            // 
+            this.Lbl_MeetPeople.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Lbl_MeetPeople.AutoSize = true;
+            this.Lbl_MeetPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_MeetPeople.ForeColor = System.Drawing.Color.OliveDrab;
+            this.Lbl_MeetPeople.Location = new System.Drawing.Point(3, 142);
+            this.Lbl_MeetPeople.Name = "Lbl_MeetPeople";
+            this.Lbl_MeetPeople.Size = new System.Drawing.Size(171, 25);
+            this.Lbl_MeetPeople.TabIndex = 5;
+            this.Lbl_MeetPeople.Text = "บุคคลที่ต้องการพบ";
+            // 
+            // txtTopic
+            // 
+            this.txtTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTopic.Enabled = false;
+            this.txtTopic.Location = new System.Drawing.Point(180, 176);
+            this.txtTopic.Name = "txtTopic";
+            this.txtTopic.Size = new System.Drawing.Size(626, 31);
+            this.txtTopic.TabIndex = 10;
+            // 
+            // txtMeet
+            // 
+            this.txtMeet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMeet.Enabled = false;
+            this.txtMeet.Location = new System.Drawing.Point(180, 139);
+            this.txtMeet.Name = "txtMeet";
+            this.txtMeet.Size = new System.Drawing.Size(626, 31);
+            this.txtMeet.TabIndex = 12;
+            // 
             // frmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -438,7 +417,6 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnTopic;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;

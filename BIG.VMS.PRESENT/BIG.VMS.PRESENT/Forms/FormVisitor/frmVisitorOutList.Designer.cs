@@ -52,6 +52,7 @@
             this.colMeeted = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTotalItem = new System.Windows.Forms.Label();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVisitorOut)).BeginInit();
@@ -190,6 +191,7 @@
             this.tableLayoutPanel5.Controls.Add(this.chkDate, 2, 1);
             this.tableLayoutPanel5.Controls.Add(this.dtContactDate, 3, 1);
             this.tableLayoutPanel5.Controls.Add(this.label4, 4, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lblTotalItem, 5, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(6);
@@ -380,6 +382,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1018, 601);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // lblTotalItem
+            // 
+            this.lblTotalItem.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotalItem.AutoSize = true;
+            this.lblTotalItem.Location = new System.Drawing.Point(976, 97);
+            this.lblTotalItem.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTotalItem.Name = "lblTotalItem";
+            this.lblTotalItem.Size = new System.Drawing.Size(24, 25);
+            this.lblTotalItem.TabIndex = 14;
+            this.lblTotalItem.Text = "0";
+            // 
             // frmVisitorOutList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -428,5 +441,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewImageColumn colMeeted;
+        private System.Windows.Forms.Label lblTotalItem;
     }
 }

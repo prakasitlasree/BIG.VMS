@@ -133,6 +133,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
             _container.Filter = filter;
             _container = _service.GetListVisitorNotOut(_container);
+            lblTotalItem.Text = _container.PageInfo.TOTAL_ITEM.ToString();
             SetDataSourceHeader(gridVisitorOut, ListHeader(), _container.ResultObj);
             SetPageControl(_container);
 

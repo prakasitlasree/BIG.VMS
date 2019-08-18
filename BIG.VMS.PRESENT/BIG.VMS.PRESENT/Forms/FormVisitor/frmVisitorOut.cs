@@ -64,10 +64,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 {
                                     picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                                 }
-                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
-                                {
-                                    picPass.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
-                                }
+                              
                             }
 
                         }
@@ -368,10 +365,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 {
                                     picCard.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                                 }
-                                if (_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO != null)
-                                {
-                                    picPass.Image = ByteToImage(_container.TRN_VISITOR.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_CARD_PHOTO);
-                                }
+                               
                             }
 
                         }
@@ -414,6 +408,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         }
 
         private void txtNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

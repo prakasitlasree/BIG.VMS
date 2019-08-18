@@ -17,6 +17,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public MAS_DEPARTMENT()
         {
             this.MAS_EMPLOYEE = new HashSet<MAS_EMPLOYEE>();
+            this.MAS_REASON = new HashSet<MAS_REASON>();
         }
     
         public int AUTO_ID { get; set; }
@@ -25,5 +26,6 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> SHOW_SEQ { get; set; }
     
         public virtual ICollection<MAS_EMPLOYEE> MAS_EMPLOYEE { get; set; }
+        public virtual ICollection<MAS_REASON> MAS_REASON { get; set; }
     }
 }

@@ -121,29 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnTopic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABCFJREFUSEut
-        lPtP1WUcx/kbaiu3mrUV0c0srbXuFy28oRiEGoiUyy7+0FrN2doaxhY2OAfQjLNKLqKgCIhigJwj33MQ
-        tJnRXLHSAQcKqk1qEmuGP3xfvT+Hc1zKlx/ceLb3nvv7/X4+z+d5kq6nlJeXEwgEiHdnt4TDYcbGxohG
-        oziOM7siIyMjuK6Lz+eju7sbK6Ojo7MjMtB/LkZopbCwkFAoFGtP/P0X0aHh6xNxD66E4GZoSWegcQs/
-        jMS4mJycnGrEy+XL/8ZbEOlyaHtrDhe23wGBhYwX3uot6jak4/55DM5/BOfep68jH6f3D/6ZuMjgYD9D
-        Q1GGFH/DsNq/DvczcQkOt7QQ2Hw3l2qfg/qlsH8J49vnThcxAaJ+OP4MnMngVM0mtvraCAYj1De3Cx3T
-        cDh4lvfyd1KWlwwHnhJehNpFjH/qKbAaBiXQswb63mag/U1WZ2aTujSVzPSVZKWnkZWRRs7a5Vche80y
-        LpTOhfB8aL0f6p4F300eAo0vQX8RdGXB6dclspHR5sU0FMwjXLSAsH8hJ4vnT8PooUXw42sSyAQnQ6dQ
-        v/TmGQTOfzK1sOdVYYP6b8Dv78Bv78KILv8XEXmhOzeO9boHCZR5Ckj9p23QqfqEFp/QYidHWfUKhITI
-        Oo2pFtx4Tbfmtc6NZOM663A7Fd7YCebMIND3oUh1kog2alMMXUI4LmAIi0iwGmetkkKkHdrbpjv8epUE
-        ntcJPFI1JvD9Fm3QQkeEcnQFnSK6tjaEdF/tMtSqDDyyAhqXwF5l4Y7bPQSaFPtvFe+gXByPOzMERRJr
-        21ic2PoJcnPdkqYHsRwOvgBVT4DfU+Bl+EYX2a7FRhpUv0OixwTrG6HB2h2aa9eJzflRvf4WuT9kj0zx
-        /+oxKLptBoGTSs9WLbbN5i4BE7siGJ+zmMfIZah52ZT7mqfh84f1ad0yQ4gcZc9RCdhGgzk0GKmRJy4y
-        AQtLs4VGL3ifHpi53/kQFHimqQhCiq25sQtLwByaSFsiHOofESwkRmxh2aOL3f04lMt96YOw7UYPgQYd
-        u1U4sFjZkHo1mkTWbJDbJmWKhcOypVr/T4Vcf/moyB9R9oi8RF9G/g0eAvWrcGvlsFZxtOPa71gnmMM6
-        5bblt43tEam5/cJI5XiXiHctUO6L3C9y3wM6gZfA/jTcvXJYqc0VQuWTSrk4KpR6NYK5DYj0MxGaW0Op
-        SM11sYiL500JeJ5g3wrcKh2/TIvNjWGHLsxIrG2xLdFmv1CiX9Mv+O4TVBerTsAvkY89BJAAP2+CXn0T
-        Z/Rae/VFfKd2rBb69LrP6pH1aC6st9BpWae6y8Y0d0prT+dp70YuFnikqZW6D+6lekMKVbnJ1+AuKnNT
-        qFifTGWO4c4YdmcLqitsTGuq81Ko3XrP/8iTkv4DG3LO6ZKdb6gAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnMeet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABV5JREFUSEud

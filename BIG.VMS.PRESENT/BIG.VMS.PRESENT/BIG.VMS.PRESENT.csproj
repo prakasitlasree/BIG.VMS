@@ -227,6 +227,12 @@
     <Compile Include="Forms\FormVisitor\frmBypassVisitor.Designer.cs">
       <DependentUpon>frmBypassVisitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVisitor\frmSelectInType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitor\frmSelectInType.Designer.cs">
+      <DependentUpon>frmSelectInType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormVisitor\frmVisitorOutList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmBypassVisitor.resx">
       <DependentUpon>frmBypassVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitor\frmSelectInType.resx">
+      <DependentUpon>frmSelectInType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmVisitorOutList.resx">
       <DependentUpon>frmVisitorOutList.cs</DependentUpon>
