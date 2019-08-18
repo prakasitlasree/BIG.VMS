@@ -38,7 +38,7 @@ namespace BIG.VMS.DAL
         public DbSet<SYS_CONFIGURATION> SYS_CONFIGURATION { get; set; }
         public DbSet<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
         public DbSet<TRN_BLACKLIST> TRN_BLACKLIST { get; set; }
-        public DbSet<TRN_VISITOR> TRN_VISITOR { get; set; }
         public DbSet<TRN_ATTACHEDMENT> TRN_ATTACHEDMENT { get; set; }
+        public DbSet<TRN_VISITOR> TRN_VISITOR { get; set; }
     }
 }

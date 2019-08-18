@@ -37,7 +37,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public string UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
-        public Nullable<int> REF_NO { get; set; }
+        public string BY_PASS { get; set; }
     
         public virtual MAS_CAR_TYPE MAS_CAR_TYPE { get; set; }
         public virtual MAS_EMPLOYEE MAS_EMPLOYEE { get; set; }

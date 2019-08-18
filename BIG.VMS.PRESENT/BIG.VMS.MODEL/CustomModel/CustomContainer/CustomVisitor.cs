@@ -36,7 +36,7 @@ namespace BIG.VMS.MODEL.CustomModel.CustomContainer
         public string UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
         public string FULL_NAME { get; set; }
-
+        public string BY_PASS { get; set; }
         public string COMPANY_NAME { get; set; }
     }
 }

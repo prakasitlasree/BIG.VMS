@@ -332,8 +332,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitorBypass
                     CREATED_DATE = DateTime.Now,
                     UPDATED_DATE = DateTime.Now,
                     YEAR = DateTime.Now.Year,
-                    MONTH = DateTime.Now.Month
-
+                    MONTH = DateTime.Now.Month,
+                    BY_PASS = "Y"
                 };
 
                 if (provinceId == 0)

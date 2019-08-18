@@ -27,7 +27,7 @@ namespace BIG.VMS.MODEL.EntityModel
         public Nullable<int> DEPT_ID { get; set; }
     
         public virtual ICollection<TRN_APPOINTMENT> TRN_APPOINTMENT { get; set; }
-        public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
         public virtual MAS_DEPARTMENT MAS_DEPARTMENT { get; set; }
+        public virtual ICollection<TRN_VISITOR> TRN_VISITOR { get; set; }
     }
 }

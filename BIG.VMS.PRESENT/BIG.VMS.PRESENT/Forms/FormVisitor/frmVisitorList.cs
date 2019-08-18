@@ -378,14 +378,22 @@ namespace BIG.VMS.PRESENT.Forms.Home
 
                                 ReportDocument rpt = new ReportDocument();
                                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                                var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-                                rpt.Load(appPath);
-                                rpt.SetDataSource(dt);
-                                //===== View Report =====
-                                //frmReportViewer frm = new frmReportViewer();
-                                //frm.crystalReportViewer1.ReportSource = rpt;
-                                //frm.ShowDialog();
-                                rpt.PrintToPrinter(1, true, 0, 0);
+                                if(listData.FirstOrDefault().BY_PASS == "N" || listData.FirstOrDefault().BY_PASS == null)
+                                {
+                                    var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
+                                    rpt.Load(appPath);
+                                    rpt.SetDataSource(dt);
+                                    rpt.PrintToPrinter(1, true, 0, 0);
+                                }
+                                else
+                                {
+                                    var appPath = Application.StartupPath + "\\" + "ReportSlipByPass.rpt";
+                                    rpt.Load(appPath);
+                                    rpt.SetDataSource(dt);
+                                    rpt.PrintToPrinter(1, true, 0, 0);
+                                }
+                              
+                              
                             }
                             #endregion
                         }
