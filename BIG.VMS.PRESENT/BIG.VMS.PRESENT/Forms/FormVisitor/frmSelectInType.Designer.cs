@@ -64,7 +64,7 @@
             this.btnInWithOutCard.Name = "btnInWithOutCard";
             this.btnInWithOutCard.Size = new System.Drawing.Size(319, 268);
             this.btnInWithOutCard.TabIndex = 1;
-            this.btnInWithOutCard.Text = "เข้าโดยไม่ใช้บัตร";
+            this.btnInWithOutCard.Text = "เข้าโดยถ่ายรูปบัตร";
             this.btnInWithOutCard.UseVisualStyleBackColor = false;
             this.btnInWithOutCard.Click += new System.EventHandler(this.btnInWithOutCard_Click);
             // 
