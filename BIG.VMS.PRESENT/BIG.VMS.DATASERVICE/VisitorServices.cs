@@ -359,8 +359,8 @@ namespace BIG.VMS.DATASERVICE
                         endMonth = endMonth - 1;
 
                     }
-                    var startDate = DateTime.Now.AddDays(-0.5);
-                    var endDate = DateTime.Now.AddDays(0.5);
+                    var startDate = DateTime.Now.AddDays(-1.5);
+                    var endDate = DateTime.Now.AddDays(1.5);
 
                     var isAlreadyOut = ctx.TRN_VISITOR.Any(o => (o.STATUS == 2) && (o.NO == no && (o.TYPE == "In" || o.TYPE == "Appointment")) && (o.CREATED_DATE >= startDate && o.CREATED_DATE <= endDate) && (o.YEAR == year));
                     if (isAlreadyOut)
