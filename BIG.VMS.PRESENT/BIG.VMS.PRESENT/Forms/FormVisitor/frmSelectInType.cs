@@ -44,5 +44,31 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 this.Close();
             }
         }
+
+        private void id_card_Click(object sender, EventArgs e)
+        {
+            frmVisitor frm = new frmVisitor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void other_card_Click(object sender, EventArgs e)
+        {
+            frmVisitorByPass frm = new frmVisitorByPass();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.formMode = FormMode.Add;
+            frm.visitorMode = VisitorMode.In;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }

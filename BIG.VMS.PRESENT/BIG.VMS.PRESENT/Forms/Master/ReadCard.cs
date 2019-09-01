@@ -19,7 +19,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
         public ReadCard()
         {
             InitializeComponent();
-            
+            ListCardReader();
             string fileName = CardHelper.StartupPath + "\\RDNIDLib.DLD";
             if (System.IO.File.Exists(fileName) == false)
             {

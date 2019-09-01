@@ -647,6 +647,7 @@
     <Content Include="ResourceFile\skill.png" />
     <Content Include="ResourceFile\User group.png" />
     <Content Include="ResourceFile\user-add-icon.png" />
+    <None Include="Resources\sso_card.jpg" />
     <None Include="Resources\approve.bmp" />
   </ItemGroup>
   <ItemGroup>

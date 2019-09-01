@@ -107,12 +107,25 @@ namespace BIG.VMS.PRESENT
 
         private void logout_Click(object sender, EventArgs e)
         {
-            OnCloseAllChildrenForm();
-            Application.Exit();
+            //OnCloseAllChildrenForm();
+            this.Close();
+            //Application.Exit();
         }
 
-      
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            //OnCloseAllChildrenForm();
+            this.Close();
+            // Application.Exit();
+        }
 
-        
+        private void testreadcard_Click(object sender, EventArgs e)
+        {
+            var frm = new ReadCard();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -72,6 +72,10 @@ namespace BIG.VMS.PRESENT.Forms.Master
             try
             {
                 string strTerminal = CARD_READER;
+                if (string.IsNullOrEmpty(CARD_READER))
+                {
+                    strTerminal = "Identiv uTrust 2700 R Smart Card Reader 0";
+                }
                 CARD = new PIDCard();
                 CARD_TYPE = "PID";
                 IntPtr obj = CardHelper.SelectReader(strTerminal);

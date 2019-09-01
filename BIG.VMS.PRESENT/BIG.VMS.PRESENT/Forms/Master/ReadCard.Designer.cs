@@ -89,7 +89,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 34);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -110,7 +110,7 @@
             // 
             this.m_txtID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtID.Location = new System.Drawing.Point(147, 2);
-            this.m_txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtID.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtID.Name = "m_txtID";
             this.m_txtID.Size = new System.Drawing.Size(225, 20);
             this.m_txtID.TabIndex = 19;
@@ -163,7 +163,7 @@
             // 
             this.m_txtFullNameT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtFullNameT.Location = new System.Drawing.Point(147, 26);
-            this.m_txtFullNameT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtFullNameT.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtFullNameT.Name = "m_txtFullNameT";
             this.m_txtFullNameT.Size = new System.Drawing.Size(225, 20);
             this.m_txtFullNameT.TabIndex = 8;
@@ -183,7 +183,7 @@
             // 
             this.m_txtFullNameE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtFullNameE.Location = new System.Drawing.Point(147, 50);
-            this.m_txtFullNameE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtFullNameE.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtFullNameE.Name = "m_txtFullNameE";
             this.m_txtFullNameE.Size = new System.Drawing.Size(225, 20);
             this.m_txtFullNameE.TabIndex = 9;
@@ -192,7 +192,7 @@
             // 
             this.m_txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtAddress.Location = new System.Drawing.Point(147, 74);
-            this.m_txtAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtAddress.Multiline = true;
             this.m_txtAddress.Name = "m_txtAddress";
             this.tableLayoutPanel1.SetRowSpan(this.m_txtAddress, 2);
@@ -204,7 +204,7 @@
             // 
             this.m_txtBrithDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtBrithDate.Location = new System.Drawing.Point(147, 122);
-            this.m_txtBrithDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtBrithDate.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtBrithDate.Name = "m_txtBrithDate";
             this.m_txtBrithDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtBrithDate.TabIndex = 11;
@@ -213,7 +213,7 @@
             // 
             this.m_txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtGender.Location = new System.Drawing.Point(147, 146);
-            this.m_txtGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtGender.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtGender.Name = "m_txtGender";
             this.m_txtGender.Size = new System.Drawing.Size(225, 20);
             this.m_txtGender.TabIndex = 12;
@@ -255,7 +255,7 @@
             // 
             this.m_txtIssueDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtIssueDate.Location = new System.Drawing.Point(147, 170);
-            this.m_txtIssueDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtIssueDate.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtIssueDate.Name = "m_txtIssueDate";
             this.m_txtIssueDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtIssueDate.TabIndex = 16;
@@ -264,7 +264,7 @@
             // 
             this.m_txtExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_txtExpiryDate.Location = new System.Drawing.Point(147, 194);
-            this.m_txtExpiryDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_txtExpiryDate.Margin = new System.Windows.Forms.Padding(2);
             this.m_txtExpiryDate.Name = "m_txtExpiryDate";
             this.m_txtExpiryDate.Size = new System.Drawing.Size(225, 20);
             this.m_txtExpiryDate.TabIndex = 17;
@@ -275,7 +275,7 @@
             this.m_picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.m_picPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_picPhoto.Location = new System.Drawing.Point(147, 242);
-            this.m_picPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_picPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.m_picPhoto.Name = "m_picPhoto";
             this.m_picPhoto.Size = new System.Drawing.Size(225, 159);
             this.m_picPhoto.TabIndex = 0;
@@ -284,7 +284,7 @@
             // btn_read
             // 
             this.btn_read.Location = new System.Drawing.Point(376, 2);
-            this.btn_read.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_read.Margin = new System.Windows.Forms.Padding(2);
             this.btn_read.Name = "btn_read";
             this.btn_read.Size = new System.Drawing.Size(58, 20);
             this.btn_read.TabIndex = 1;
@@ -308,7 +308,7 @@
             this.m_ListReaderCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_ListReaderCard.FormattingEnabled = true;
             this.m_ListReaderCard.Location = new System.Drawing.Point(147, 218);
-            this.m_ListReaderCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_ListReaderCard.Margin = new System.Windows.Forms.Padding(2);
             this.m_ListReaderCard.Name = "m_ListReaderCard";
             this.m_ListReaderCard.Size = new System.Drawing.Size(225, 21);
             this.m_ListReaderCard.TabIndex = 2;
@@ -316,7 +316,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(376, 26);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 20);
             this.button1.TabIndex = 20;
@@ -337,7 +337,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.909091F));
@@ -381,7 +381,7 @@
             // txtDID
             // 
             this.txtDID.Location = new System.Drawing.Point(446, 34);
-            this.txtDID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDID.Margin = new System.Windows.Forms.Padding(2);
             this.txtDID.Multiline = true;
             this.txtDID.Name = "txtDID";
             this.txtDID.Size = new System.Drawing.Size(434, 249);
@@ -392,7 +392,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.DarkOrchid;
             this.button2.Location = new System.Drawing.Point(446, 442);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(154, 33);
             this.button2.TabIndex = 15;
@@ -405,7 +405,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 479);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReadCard";
             this.Text = "ReadCard";
             this.tableLayoutPanel1.ResumeLayout(false);
