@@ -22,6 +22,9 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
         public string SELECTED_REASON_TEXT { get; set; }
 
 
+        private bool flgSelectEmployee = false;
+        private bool flgSelectReason = false;
+
 
         public frmEmployee()
         {
@@ -135,6 +138,13 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
             ((Button)((Control)sender)).ForeColor = Color.Red;
 
+            flgSelectReason = true;
+            if (flgSelectEmployee)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
         }
 
         private void DepartmentSelected_EventHadler(object sender, EventArgs e)
@@ -193,14 +203,23 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
             
             ((Button)((Control)sender)).ForeColor = Color.Red;
+
+            flgSelectReason = false;
+            flgSelectEmployee = false;
         }
 
         private void EmployeeSelected_EventHadler(object sender, EventArgs e)
         {
             SELECTED_EMPLOYEE_ID = Convert.ToInt32(((Control)sender).Tag.ToString());
             SELECTED_EMPLOYEE_TEXT = ((Control)sender).Text.ToString();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+
+            flgSelectEmployee = true;
+            if (flgSelectReason)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+           
         }
 
         private void txtDepartment_TextChanged(object sender, EventArgs e)
@@ -209,6 +228,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             SELECTED_EMPLOYEE_ID = 0;
             panelEmployee.Controls.Clear();
             SearchDepartment(txtDepartment.Text);
+
+          
         }
 
         private void txtEmployee_TextChanged(object sender, EventArgs e)
