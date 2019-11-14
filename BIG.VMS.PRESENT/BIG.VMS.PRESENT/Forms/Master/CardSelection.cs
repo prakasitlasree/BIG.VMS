@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using BIG.VMS.MODEL.CustomModel;
+using ThaiNationalIDCard;
 
 namespace BIG.VMS.PRESENT.Forms.Master
 {
@@ -13,6 +14,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
         public PIDCard CARD { get; set; }
         public string CARD_TYPE { get; set; }
         public DIDCard DID { get; set; }
+        private ThaiIDCard idcard;
 
         public CardSelection()
         {
@@ -21,28 +23,23 @@ namespace BIG.VMS.PRESENT.Forms.Master
             string fileName = CardHelper.StartupPath + "\\RDNIDLib.DLD";
             if (System.IO.File.Exists(fileName) == false)
             {
-                MessageBox.Show("RDNIDLib.DLD not found");
+                //MessageBox.Show("RDNIDLib.DLD not found");
             }
 
             System.Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            //this.Text = String.Format("R&D NID Card Plus C# {0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
 
+            byte[] _lic = CardHelper.String2Byte(fileName); 
+        }
 
-            byte[] _lic = CardHelper.String2Byte(fileName);
-
-            int nres = 0;
-            nres = RDNID.openNIDLibRD(_lic);
-            if (nres != 0)
-            {
-                String m;
-                m = String.Format(" error no {0} ", nres);
-                MessageBox.Show(m);
-            }
+        private void CardSelection_Load(object sender, EventArgs e)
+        {
+            idcard = new ThaiIDCard();
         }
 
         private void btn_NID_Click(object sender, EventArgs e)
         {
-            ReadPIDCard();
+            //ReadPIDCard();
+            ReadNewPIDCard();
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -64,6 +61,62 @@ namespace BIG.VMS.PRESENT.Forms.Master
                 {
                     CARD_READER = readlist[i];
                 }
+            }
+        }
+
+        //new function by prkasit on Nov'14 2019
+        private void ReadNewPIDCard()
+        {
+            try
+            {
+                CARD = new PIDCard();
+                CARD_TYPE = "PID";
+                Personal personal = idcard.readAllPhoto();
+                if (personal != null)
+                {
+                    CARD.NO = personal.Citizenid;
+                    CARD.TH_TITLE = personal.Th_Prefix;
+                    CARD.TH_FIRST_NAME = personal.Th_Firstname;
+                    CARD.TH_LAST_NAME = personal.Th_Lastname;
+                    CARD.EN_TITLE = personal.En_Prefix;
+                    CARD.EN_FIRST_NAME = personal.En_Firstname;
+                    CARD.EN_LAST_NAME = personal.En_Lastname;
+                    CARD.BIRTH_DATE = CardHelper.DateFormat(personal.Birthday.ToString("yyyyMMdd"));
+                    CARD.HOME_NO = personal.addrHouseNo;
+                    CARD.MOO = personal.addrVillageNo;
+                    CARD.SOI = personal.addrLane;
+                    CARD.ROAD = personal.addrRoad;
+                    CARD.TUMBON = personal.addrTambol;
+                    CARD.AMPHOE = personal.addrAmphur;
+                    CARD.PROVINCE = personal.addrProvince;
+                    CARD.GENDER = personal.Sex; 
+                    CARD.PHOTO = personal.PhotoBitmap;
+                    CARD.CARD_IMAGE = personal.PhotoBitmap;
+
+                    try
+                    {
+                        byte[] byteImage = null;
+                        Bitmap bitmap = null;
+                        MemoryStream stream = new MemoryStream();
+                        bitmap.Save(stream, personal.PhotoBitmap.RawFormat);
+                        byteImage = stream.ToArray();
+
+                        CARD.BYTE_IMAGE = byteImage;
+                    }
+                    catch
+                    {
+                    }
+                    READ_CARD_STATUS = true;
+                }
+                else if (idcard.ErrorCode() > 0)
+                {
+                    MessageBox.Show(idcard.Error());
+                }
+            }
+            catch (Exception ex)
+            {
+                READ_CARD_STATUS = false;
+                MessageBox.Show("ไม่พบเครื่องอ่านบัตรประชาชน หรืออ่านบัตรไม่สำเร็จ!!! " + ex.Message);
             }
         }
 
@@ -215,12 +268,9 @@ namespace BIG.VMS.PRESENT.Forms.Master
                         try
                         {
                             DID.NO = str2[0].Replace(";", "").ToString().Substring(6);
-
-
                         }
                         catch (Exception)
                         {
-
                         }
                         try
                         {
@@ -242,7 +292,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
                     }
                     READ_CARD_STATUS = true;
-                    this.DialogResult = DialogResult.OK;              
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception ex)
@@ -257,5 +307,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
             }
         }
+
+        
     }
 }
