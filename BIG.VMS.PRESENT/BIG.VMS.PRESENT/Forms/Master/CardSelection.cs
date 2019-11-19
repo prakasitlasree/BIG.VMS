@@ -102,7 +102,7 @@ namespace BIG.VMS.PRESENT.Forms.Master
 
                         CARD.BYTE_IMAGE = byteImage;
                          
-                        CARD.BYTE_IMAGE = byteImage;
+                         
                     }
                     catch (Exception ex)
                     {

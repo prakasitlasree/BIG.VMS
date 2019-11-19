@@ -423,6 +423,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         {
                             attachment.CONTACT_PHOTO = BYTE_IMAGE;
                         }
+                        if (isChangeCardPhoto)
+                        {
+                            //บัตรประชาชน
+                            attachment.ID_CARD_PHOTO = ImageToByte(picCard);
+                        }
                       
                        
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
