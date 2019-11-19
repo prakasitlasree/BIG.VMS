@@ -805,7 +805,11 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             txtFirstName.Text = frm.CARD.TH_FIRST_NAME;
                             txtLastName.Text = frm.CARD.TH_LAST_NAME;
                             txtIDCard.Text = frm.CARD.NO;
-                            picCard.Image = (Image)frm.CARD.PHOTO;
+                            //picCard.Image = (Image)frm.CARD.PHOTO;
+
+                            Bitmap img = new Bitmap((Bitmap)frm.CARD.CARD_IMAGE);
+                            picCard.Image = (Bitmap)img.Clone();
+
                             CARD_IMAGE = frm.CARD.CARD_IMAGE;
                             BYTE_IMAGE = frm.CARD.BYTE_IMAGE;
                             isChangeCardPhoto = true;
