@@ -96,14 +96,15 @@ namespace BIG.VMS.PRESENT.Forms.Master
                     try
                     {
                         byte[] byteImage = null;
-                        Bitmap bitmap = null;
-                        MemoryStream stream = new MemoryStream();
-                        bitmap.Save(stream, personal.PhotoBitmap.RawFormat);
-                        byteImage = stream.ToArray();
+                         
+                        
+                        byteImage = personal.PhotoRaw;// stream.ToArray();
 
                         CARD.BYTE_IMAGE = byteImage;
+                         
+                        CARD.BYTE_IMAGE = byteImage;
                     }
-                    catch
+                    catch (Exception ex)
                     {
                     }
                     READ_CARD_STATUS = true;
