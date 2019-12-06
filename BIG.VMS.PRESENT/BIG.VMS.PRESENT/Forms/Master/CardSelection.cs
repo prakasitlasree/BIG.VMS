@@ -19,16 +19,16 @@ namespace BIG.VMS.PRESENT.Forms.Master
         public CardSelection()
         {
             InitializeComponent();
-            ListCardReader();
-            string fileName = CardHelper.StartupPath + "\\RDNIDLib.DLD";
-            if (System.IO.File.Exists(fileName) == false)
-            {
-                //MessageBox.Show("RDNIDLib.DLD not found");
-            }
+            //ListCardReader();
+            //string fileName = CardHelper.StartupPath + "\\RDNIDLib.DLD";
+            //if (System.IO.File.Exists(fileName) == false)
+            //{
+            //    //MessageBox.Show("RDNIDLib.DLD not found");
+            //}
 
-            System.Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            //System.Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
-            byte[] _lic = CardHelper.String2Byte(fileName); 
+            //byte[] _lic = CardHelper.String2Byte(fileName); 
         }
 
         private void CardSelection_Load(object sender, EventArgs e)

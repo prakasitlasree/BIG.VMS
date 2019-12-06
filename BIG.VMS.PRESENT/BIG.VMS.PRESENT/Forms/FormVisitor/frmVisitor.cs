@@ -34,7 +34,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
         private Image defaultImage;
         private Image defaultPhoto;
-      
+
         public TRN_VISITOR visitorObj = new TRN_VISITOR();
         public int contactEmployeeId = 0;
         public int provinceId = 0;
@@ -130,7 +130,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (formMode == FormMode.Edit)
                     {
                         brn_UploadImgCard.Visible = false;
-                        
+
                         bthCardDelete.Visible = false;
                         txtNo.Text = visitorObj.NO.ToString();
                     }
@@ -216,7 +216,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             {
                                 picCard.Image = ByteToImage(visitorObj.TRN_ATTACHEDMENT.FirstOrDefault().ID_CARD_PHOTO);
                             }
-                           
+
                         }
 
 
@@ -333,7 +333,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     YEAR = DateTime.Now.Year,
                     MONTH = DateTime.Now.Month,
                     BY_PASS = "N"
-                    
+
                 };
 
                 if (provinceId == 0)
@@ -381,7 +381,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             }
 
                         }
-                       
+
 
 
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
@@ -428,8 +428,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                             //บัตรประชาชน
                             attachment.ID_CARD_PHOTO = ImageToByte(picCard);
                         }
-                      
-                       
+
+
                         obj.TRN_ATTACHEDMENT = new List<TRN_ATTACHEDMENT>();
                         obj.TRN_ATTACHEDMENT.Add(attachment);
                         attachment.PHOTO_URL = dir;
@@ -440,13 +440,29 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         obj.TYPE = VisitorMode.In.ToString();
                         if (isChangePhoto)
                         {
-                            picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            try
+                            {
+                                //picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                                Bitmap bm = new Bitmap(picPhoto.Image);
+                                bm.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            catch
+                            {
+                            }
                         }
                         if (isChangeCardPhoto)
                         {
-                            picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            try
+                            {
+                                //picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                                Bitmap bm = new Bitmap(picCard.Image);
+                                bm.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            catch
+                            {
+                            }
                         }
-                      
+
 
 
 
@@ -461,13 +477,31 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         obj.TYPE = VisitorMode.Appointment.ToString();
                         if (isChangePhoto)
                         {
-                            picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            // picPhoto.Image.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                            try
+                            {
+                                Bitmap bm = new Bitmap(picPhoto.Image);
+                                bm.Save(dir + "PHOTO.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            catch
+                            {
+                            }
                         }
                         if (isChangeCardPhoto)
                         {
-                            picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            // picCard.Image.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            try
+                            {
+                                Bitmap bm = new Bitmap(picCard.Image);
+                                bm.Save(dir + "ID_CARD.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            catch
+                            {
+                            }
+
                         }
-                       
+
                     }
                     if (visitorMode == VisitorMode.Regulary)
                     {
@@ -690,7 +724,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                     if (string.IsNullOrEmpty(txtTopic.Text)) listMsg.Add("วัตถุประสงค์");
                     if (string.IsNullOrEmpty(txtCar.Text)) listMsg.Add("ยานพาหนะ");
                     if (!IsNeedProvice()) listMsg.Add("จังหวัด");
-                    string joined = string.Join(","+Environment.NewLine, listMsg);
+                    string joined = string.Join("," + Environment.NewLine, listMsg);
 
                     MessageBox.Show("กรุณากรอกข้อมูลให้ครบ " + joined, "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -832,7 +866,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //this.Close();
                             }
-                           
+
                         }
                         else
                         {
@@ -854,7 +888,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                                 MessageBox.Show(msg, "บุคคล Blacklist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //this.Close();
                             }
-                           
+
                         }
                     }
                 }
@@ -880,7 +914,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                         isChangePhoto = true;
                         picPhoto.Image = frm.CAMERA;
                     }
-                    
+
                 }
 
             }
@@ -1021,7 +1055,7 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string path = dialog.FileName;
-                   
+
                     isChangePass = true;
                 }
 
@@ -1032,8 +1066,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
             }
         }
 
-      
 
-        
+
+
     }
 }
