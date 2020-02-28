@@ -259,6 +259,20 @@
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.Designer.cs">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportSlipByPass_New.cs">
+      <DependentUpon>ReportSlipByPass_New.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportSlip_New.cs">
+      <DependentUpon>ReportSlip_New.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ReportSlipByPass.cs">
       <DependentUpon>ReportSlipByPass.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -450,6 +464,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlipByPass_New.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlipByPass_New.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlip_New.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlip_New.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSlipByPass.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
