@@ -259,6 +259,20 @@
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.Designer.cs">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportSlipByPass_Bando.cs">
+      <DependentUpon>ReportSlipByPass_Bando.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportSlip_Bando.cs">
+      <DependentUpon>ReportSlip_Bando.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ReportSlipByPass_New.cs">
       <DependentUpon>ReportSlipByPass_New.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -465,6 +479,16 @@
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlipByPass_Bando.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlipByPass_Bando.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlip_Bando.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlip_Bando.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportSlipByPass_New.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportSlipByPass_New.cs</LastGenOutput>
@@ -641,6 +665,7 @@
     <Content Include="ResourceFile\48_save_1.jpg" />
     <Content Include="ResourceFile\48_save_2.png" />
     <Content Include="ResourceFile\48_search1.png" />
+    <Content Include="ResourceFile\bando.jpg" />
     <Content Include="ResourceFile\bg.jpg" />
     <Content Include="ResourceFile\BIG New LOGO 10-3-2016 บางบัวทอง.png" />
     <Content Include="ResourceFile\big_bg.png" />
@@ -679,6 +704,7 @@
     <Content Include="ResourceFile\skill.png" />
     <Content Include="ResourceFile\User group.png" />
     <Content Include="ResourceFile\user-add-icon.png" />
+    <None Include="Resources\bando.jpg" />
     <None Include="Resources\sso_card.jpg" />
     <None Include="Resources\approve.bmp" />
   </ItemGroup>
