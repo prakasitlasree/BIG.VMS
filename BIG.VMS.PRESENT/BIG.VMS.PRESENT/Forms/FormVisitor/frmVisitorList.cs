@@ -381,8 +381,8 @@ namespace BIG.VMS.PRESENT.Forms.Home
                                 if(listData.FirstOrDefault().BY_PASS == "N" || listData.FirstOrDefault().BY_PASS == null)
                                 {
                                     //var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-                                    //var appPath = Application.StartupPath + "\\" + "ReportSlip_New.rpt";
-                                    var appPath = Application.StartupPath + "\\" + "ReportSlip_Bando.rpt";
+                                    var appPath = Application.StartupPath + "\\" + "ReportSlip_New.rpt";
+                                    //var appPath = Application.StartupPath + "\\" + "ReportSlip_Bando.rpt";
                                     rpt.Load(appPath);
                                     rpt.SetDataSource(dt);
                                     rpt.PrintToPrinter(1, true, 0, 0);
@@ -390,8 +390,8 @@ namespace BIG.VMS.PRESENT.Forms.Home
                                 else
                                 {
                                     //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass.rpt";
-                                    //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_New.rpt";
-                                    var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_Bando.rpt";
+                                    var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_New.rpt";
+                                    //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_Bando.rpt";
                                     
                                     rpt.Load(appPath);
                                     rpt.SetDataSource(dt);

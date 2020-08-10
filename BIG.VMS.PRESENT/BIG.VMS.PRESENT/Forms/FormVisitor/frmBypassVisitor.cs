@@ -532,8 +532,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitorBypass
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass.rpt";
-                //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_New.rpt";
-                var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_Bando.rpt";
+                var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_New.rpt";
+                //var appPath = Application.StartupPath + "\\" + "ReportSlipByPass_Bando.rpt";
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
