@@ -563,8 +563,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
 
                 ReportDocument rpt = new ReportDocument();
                 string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                //var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
-               var appPath = Application.StartupPath + "\\" + "ReportSlip_New.rpt";
+                var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
+               ///var appPath = Application.StartupPath + "\\" + "ReportSlip_New.rpt";
                 //var appPath = Application.StartupPath + "\\" + "ReportSlip_Bando.rpt";
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);

@@ -580,7 +580,9 @@ namespace BIG.VMS.DATASERVICE
                                         CONTACT_PHOTO = item.TRN_ATTACHEDMENT != null ? (item.TRN_ATTACHEDMENT.Count() > 0 ? item.TRN_ATTACHEDMENT.FirstOrDefault().CONTACT_PHOTO : null) : null,
                                         COMPANY_NAME = company,
                                         CREATED_BY = item.CREATED_BY,
-                                        BY_PASS = item.BY_PASS
+                                        BY_PASS = item.BY_PASS 
+                                         
+
 
                                     }).ToList();
                     }

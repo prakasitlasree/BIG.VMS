@@ -27,6 +27,7 @@ namespace BIG.VMS.MODEL.CustomModel.CustomContainer
         public string FIRST_NAME { get; set; }
         public string LAST_NAME { get; set; }
         public Nullable<int> CAR_TYPE_ID { get; set; }
+        public string LICENSE_PROVINCE { get; set; }
         public Nullable<int> LICENSE_PLATE_PROVINCE_ID { get; set; }
         public Nullable<int> REASON_ID { get; set; }
         public Nullable<int> CONTACT_EMPLOYEE_ID { get; set; }
