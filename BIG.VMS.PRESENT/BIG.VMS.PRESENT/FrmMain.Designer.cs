@@ -40,8 +40,8 @@
             this.logout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btn_logout = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btn_logout = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +80,7 @@
             this.scheduling.Name = "scheduling";
             this.scheduling.Size = new System.Drawing.Size(93, 20);
             this.scheduling.Text = "นัดหมายล่วงหน้า";
+            this.scheduling.Visible = false;
             this.scheduling.Click += new System.EventHandler(this.scheduling_Click);
             // 
             // report
@@ -108,14 +109,14 @@
             // testreadcard
             // 
             this.testreadcard.Name = "testreadcard";
-            this.testreadcard.Size = new System.Drawing.Size(180, 22);
+            this.testreadcard.Size = new System.Drawing.Size(144, 22);
             this.testreadcard.Text = "ทดสอบอ่านบัตร";
             this.testreadcard.Click += new System.EventHandler(this.testreadcard_Click);
             // 
             // logout
             // 
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(180, 22);
+            this.logout.Size = new System.Drawing.Size(144, 22);
             this.logout.Text = "ออกจากระบบ";
             this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
@@ -141,6 +142,12 @@
             this.toolStripStatusLabel1.Text = "Logon :";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
             // btn_logout
             // 
             this.btn_logout.BackColor = System.Drawing.Color.DimGray;
@@ -149,12 +156,6 @@
             this.btn_logout.Size = new System.Drawing.Size(67, 17);
             this.btn_logout.Text = "ออกจากระบบ";
             this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // FrmMain
             // 
