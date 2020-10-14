@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BIG.VMS.PRESENT</RootNamespace>
-    <AssemblyName>BIG.VMS.NY.V3.1</AssemblyName>
+    <AssemblyName>BIG.VMS.NY.V2.4</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -259,6 +259,20 @@
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.Designer.cs">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportSlipByPass_JBF.cs">
+      <DependentUpon>ReportSlipByPass_JBF.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportSlip_JBF.cs">
+      <DependentUpon>ReportSlip_JBF.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ReportSlipByPass_Bando.cs">
       <DependentUpon>ReportSlipByPass_Bando.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -478,6 +492,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlipByPass_JBF.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlipByPass_JBF.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlip_JBF.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlip_JBF.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSlipByPass_Bando.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
