@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BIG.VMS.PRESENT</RootNamespace>
-    <AssemblyName>BIG.VMS.NY.V2.4</AssemblyName>
+    <AssemblyName>BIG.VMS.NY.V2.1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -259,8 +259,22 @@
     <Compile Include="Forms\FormVisitor\frmSelectAppointment.Designer.cs">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportSlipByPass_Charoen.cs">
+      <DependentUpon>ReportSlipByPass_Charoen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ReportSlipByPass_JBF.cs">
       <DependentUpon>ReportSlipByPass_JBF.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportSlip_Charoen.cs">
+      <DependentUpon>ReportSlip_Charoen.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -493,9 +507,19 @@
     <EmbeddedResource Include="Forms\FormVisitor\frmSelectAppointment.resx">
       <DependentUpon>frmSelectAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlipByPass_Charoen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlipByPass_Charoen.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportSlipByPass_JBF.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportSlipByPass_JBF.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSlip_Charoen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSlip_Charoen.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSlip_JBF.rpt">

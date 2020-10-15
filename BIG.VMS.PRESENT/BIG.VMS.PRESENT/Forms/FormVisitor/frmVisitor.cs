@@ -566,7 +566,8 @@ namespace BIG.VMS.PRESENT.Forms.FormVisitor
                 //var appPath = Application.StartupPath + "\\" + "ReportSlip.rpt";
                  //var appPath = Application.StartupPath + "\\" + "ReportSlip_New.rpt";
                 //var appPath = Application.StartupPath + "\\" + "ReportSlip_Bando.rpt";
-                var appPath = Application.StartupPath + "\\" + "ReportSlip_JBF.rpt";
+                //var appPath = Application.StartupPath + "\\" + "ReportSlip_JBF.rpt";
+                var appPath = Application.StartupPath + "\\" + "ReportSlip_Charoen.rpt";
                 rpt.Load(appPath);
                 rpt.SetDataSource(dt);
                 rpt.PrintToPrinter(1, true, 0, 0);
